@@ -1,2 +1,14 @@
 
-ecm_install_icons( ICONS hi128-apps-kjots.png  hi16-apps-kjots.png  hi22-apps-kjots.png  hi32-apps-kjots.png  hi48-apps-kjots.png  hi64-apps-kjots.png  ox16-actions-edit-delete-page.png  ox22-actions-edit-delete-page.png  ox32-actions-edit-delete-page.png  ox48-actions-edit-delete-page.png DESTINATION ${ICON_INSTALL_DIR}   )
+#ecm_install_icons( ICONS hi128-apps-kjots.png  hi16-apps-kjots.png  hi22-apps-kjots.png  hi32-apps-kjots.png  hi48-apps-kjots.png  hi64-apps-kjots.png  ox16-actions-edit-delete-page.png  ox22-actions-edit-delete-page.png  ox32-actions-edit-delete-page.png  ox48-actions-edit-delete-page.png DESTINATION ${ICON_INSTALL_DIR}   )
+
+file(GLOB app_icons icons/*-apps-kjots.*)
+ecm_install_icons(ICONS ${app_icons}
+                  DESTINATION ${ICON_INSTALL_DIR}
+                  THEME hicolor
+)
+
+file(GLOB action_icons icons/*-actions-*)
+ecm_install_icons(ICONS ${action_icons}
+                  DESTINATION ${ICON_INSTALL_DIR}
+                  THEME oxygen
+)
