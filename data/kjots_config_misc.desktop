@@ -5,7 +5,6 @@ X-KDE-ServiceTypes=KCModule
 
 X-KDE-ModuleType=Library
 X-KDE-Library=kcm_kjots
-X-KDE-FactoryName=kjots_config_misc
 X-KDE-HasReadOnlyMode=false
 X-KDE-ParentApp=kjots
 X-KDE-ParentComponents=kjots,kontact_kjotsplugin

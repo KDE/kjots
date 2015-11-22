@@ -18,6 +18,8 @@
 
 #include "kjotsconfigdlg.h"
 #include <QPushButton>
+
+#include <KPluginFactory>
 #include <KConfig>
 #include <KConfigGroup>
 
@@ -41,8 +43,8 @@ void KJotsConfigDlg::slotOk()
 {
 }
 
-KJotsConfigMisc::KJotsConfigMisc(QWidget *parent)
-    : KCModule(parent)
+KJotsConfigMisc::KJotsConfigMisc(QWidget *parent, const QVariantList &args)
+    : KCModule(parent, args)
 {
     QHBoxLayout *lay = new QHBoxLayout(this);
     miscPage = new confPageMisc(0);

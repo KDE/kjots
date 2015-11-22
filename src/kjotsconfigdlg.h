@@ -22,6 +22,7 @@
 #include <kcmodule.h>
 #include <kcmultidialog.h>
 #include "ui_confpagemisc.h"
+
 class confPageMisc : public QWidget, public Ui::confPageMisc
 {
     Q_OBJECT
@@ -38,7 +39,7 @@ class KJotsConfigMisc : public KCModule
     Q_OBJECT
 
 public:
-    explicit KJotsConfigMisc(QWidget *parent);
+    explicit KJotsConfigMisc(QWidget *parent, const QVariantList &args = QVariantList());
 
     /** Reimplemented from KCModule. */
     virtual void load();

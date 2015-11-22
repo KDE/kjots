@@ -18,10 +18,8 @@
 
 #include "kjotsconfigdlg.h"
 
-extern "C"
-{
-    Q_DECL_EXPORT KCModule *create_kjots_config_misc(QWidget *parent)
-    {
-        return new KJotsConfigMisc(parent);
-    }
-}
+#include <KPluginFactory>
+
+K_PLUGIN_FACTORY(KCMKJotsConfigFactory, registerPlugin<KJotsConfigMisc>();)
+
+#include "kcm_kjots.moc"
