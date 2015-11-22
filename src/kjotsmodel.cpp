@@ -38,7 +38,8 @@
 #include <grantlee/markupdirector.h>
 #include <grantlee/texthtmlbuilder.h>
 #include <grantlee/plaintextmarkupbuilder.h>
-#include "noteshared/attributes/notelockattribute.h"
+
+#include "noteshared/notelockattribute.h"
 
 Q_DECLARE_METATYPE(QTextDocument *)
 KJotsEntity::KJotsEntity(const QModelIndex &index, QObject *parent)
@@ -225,7 +226,7 @@ QVariant KJotsModel::data(const QModelIndex &index, int role) const
 
     if (role == KJotsModel::DocumentRole) {
         const Item item = index.data(ItemRole).value<Item>();
-        Entity::Id itemId = item.id();
+        Item::Id itemId = item.id();
         if (m_documents.contains(itemId)) {
             return QVariant::fromValue(m_documents.value(itemId));
         }

@@ -24,7 +24,7 @@
 
 #include <QObject>
 
-#include "noteshared/resources/localresourcecreator.h"
+#include "noteshared/localresourcecreator.h"
 
 class KJob;
 

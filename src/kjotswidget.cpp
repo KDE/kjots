@@ -57,6 +57,7 @@
 #include <AkonadiCore/itemfetchscope.h>
 
 #include "AkonadiCore/entityorderproxymodel.h"
+#include <AkonadiWidgets/ControlGui>
 #include "akonadi_next/note.h"
 #include "akonadi_next/notecreatorandselector.h"
 
@@ -75,8 +76,6 @@
 #include <KMessageBox>
 #include <KReplaceDialog>
 #include <kselectionproxymodel.h>
-#include <KStandardDirs>
-#include <KGlobalSettings>
 #include <KXMLGUIClient>
 #include <KProcess>
 #include <KPrintPreview>
@@ -101,7 +100,7 @@
 #include <qdebug.h>
 
 #include <memory>
-#include "noteshared/attributes/notelockattribute.h"
+#include "noteshared/notelockattribute.h"
 #include "localresourcecreator.h"
 #include <krandom.h>
 #include <KSharedConfig>
@@ -116,7 +115,7 @@ using namespace Grantlee;
 KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::WindowFlags f)
     : QWidget(parent, f), m_xmlGuiClient(xmlGuiClient)
 {
-    Akonadi::Control::widgetNeedsAkonadi(this);
+    Akonadi::ControlGui::widgetNeedsAkonadi(this);
 
     KConfigGroup migrationCfg(KSharedConfig::openConfig(), "General");
     const bool autoCreate = migrationCfg.readEntry("AutoCreateResourceOnStart", true);
@@ -130,17 +129,20 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     m_splitter = new QSplitter(this);
 
     m_splitter->setStretchFactor(1, 1);
-    m_splitter->setOpaqueResize(KGlobalSettings::opaqueResize());
+    // I think we can live without this
+    //m_splitter->setOpaqueResize(KGlobalSettings::opaqueResize());
 
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->setMargin(0);
 
-    KStandardDirs KStd;
     m_templateEngine = new Engine(this);
-    m_templateEngine->setPluginPaths(KStd.findDirs("lib", QString()));
+    // We don't have custom plugins, so this should not be needed
+    //m_templateEngine->setPluginPaths(KStd.findDirs("lib", QString()));
 
     m_loader = QSharedPointer<FileSystemTemplateLoader>(new FileSystemTemplateLoader());
-    m_loader->setTemplateDirs(KStd.findDirs("data", QLatin1String("kjots/themes")));
+    m_loader->setTemplateDirs(QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
+                                                        QStringLiteral("kjots/themes"),
+                                                        QStandardPaths::LocateDirectory));
     m_loader->setTheme(QLatin1String("default"));
 
     m_templateEngine->addTemplateLoader(m_loader);
@@ -349,7 +351,9 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     bookmarkMenu->setText(i18n("&Bookmarks"));
     KJotsBookmarks *bookmarks = new KJotsBookmarks(treeview);
     /*KBookmarkMenu *bmm =*/ new KBookmarkMenu(
-        KBookmarkManager::managerForFile(KStandardDirs::locateLocal("data", QLatin1String("kjots/bookmarks.xml")), QLatin1String("kjots")),
+        KBookmarkManager::managerForFile(
+            QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("kjots/bookmarks.xml")),
+            QStringLiteral("kjots")),
         bookmarks, bookmarkMenu->menu(), actionCollection);
 
     // "Add bookmark" and "make text bold" actions have conflicting shortcuts (ctrl + b)
@@ -1598,13 +1602,13 @@ void KJotsWidget::onRepeatReplace()
                 break;
             }
 
-            if (dlg->answer() != KDialog::User2) {
+            if (dlg->answer() != KJotsReplaceNextDialog::Skip) {
                 cursor.insertText(replacementText);
                 editor->setTextCursor(cursor);
                 ++replaced;
             }
 
-            if (dlg->answer() == KDialog::User1) {
+            if (dlg->answer() == KJotsReplaceNextDialog::All) {
                 replaceOptions |= ~KReplaceDialog::PromptOnReplace;
             }
         } else {

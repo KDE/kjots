@@ -3,7 +3,7 @@ project(kjots)
 cmake_minimum_required(VERSION 2.8.12)
 
 find_package(ECM 5.16.0 REQUIRED NO_MODULE)
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
 
 include(ECMAddTests)
 include(CMakePackageConfigHelpers)
@@ -23,19 +23,25 @@ set(PIMTEXTEDIT_LIB_VERSION "5.1.40")
 set(KONTACTINTERFACE_LIB_VERSION "4.82.0")
 
 # KF5 Packages
-find_package(KF5KCMUtils ${KF5_LIB_VERSION} CONFIG REQUIRED)
-find_package(KF5KIO ${KF5_LIB_VERSION} CONFIG REQUIRED)
-find_package(KF5KDELibs4Support ${KF5_LIB_VERSION} CONFIG REQUIRED)
+find_package(KF5KCMUtils ${KF5_VERSION} CONFIG REQUIRED)
+find_package(KF5KIO ${KF5_VERSION} CONFIG REQUIRED)
+find_package(KF5KDELibs4Support ${KF5_VERSION} CONFIG REQUIRED)
+find_package(KF5Config ${KF5_VERSION} CONFIG REQUIRED)
+find_packagE(KF5ConfigWidgets ${KF5_VERSION} CONFIG REQUIRED)
+find_package(KF5Parts ${KF5_VERSION} CONFIG REQUIRED)
+find_package(KF5Bookmarks ${KF5_VERSION} CONFIG REQUIRED)
 
 # PIM packages
 find_package(KF5Akonadi ${KDEPIMLIBS_LIB_VERSION} CONFIG REQUIRED)
 find_package(KF5Mime ${KMIME_LIB_VERSION} CONFIG REQUIRED)
 find_package(KF5AkonadiMime ${KDEPIMLIBS_LIB_VERSION} CONFIG REQUIRED)
+find_package(KF5AkonadiNotes ${KDEPIMLIBS_LIB_VERSION} CONFIG REQUIRED)
 find_package(KF5PimTextEdit ${PIMTEXTEDIT_LIB_VERSION} CONFIG REQUIRED)
 find_package(KF5KontactInterface ${KONTACTINTERFACE_LIB_VERSION} CONFIG REQUIRED)
 
 find_package(Grantlee5 "5.0" CONFIG REQUIRED)
 
+find_package(Xsltproc)
 
 ##################### Targets #######################
 

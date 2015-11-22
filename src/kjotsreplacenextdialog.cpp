@@ -21,22 +21,33 @@
 #include "kjotsreplacenextdialog.h"
 
 #include <QLabel>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QPushButton>
 
 #include <KLocalizedString>
 
 KJotsReplaceNextDialog::KJotsReplaceNextDialog(QWidget *parent) :
-    KDialog(parent), m_answer(Close)
+    QDialog(parent), m_answer(Close)
 {
     setModal(true);
-    setCaption(i18n("Replace"));
-    setButtons(User3 | User2 | User1 | Close);
-    setButtonGuiItem(User1, KGuiItem(i18n("&All")));
-    setButtonGuiItem(User2, KGuiItem(i18n("&Skip")));
-    setButtonGuiItem(User3, KGuiItem(i18n("Replace")));
-    setDefaultButton(User3);
-    showButtonSeparator(false);
-
+    setWindowTitle(i18n("Replace"));
+    QVBoxLayout *layout = new QVBoxLayout(this);
     m_mainLabel = new QLabel(this);
+    layout->addWidget(m_mainLabel);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox;
+    QPushButton *button = buttonBox->addButton(i18n("&All"), QDialogButtonBox::NoRole);
+    connect(button, SIGNAL(clicked(bool)), this, SLOT(onHandleAll()));
+    button = buttonBox->addButton(i18n("&Skip"), QDialogButtonBox::NoRole);
+    connect(button, SIGNAL(clicked(bool)), this, SLOT(onHandleSkip()));
+    button = buttonBox->addButton(i18n("Replace"), QDialogButtonBox::NoRole);
+    connect(button, SIGNAL(clicked(bool)), this, SLOT(onHandleReplace()));
+    button = buttonBox->addButton(QDialogButtonBox::Close);
+    connect(button, SIGNAL(clicked(bool)), this, SLOT(reject()));
+    layout->addWidget(buttonBox);
+
+    QVBoxLayout
     setMainWidget(m_mainLabel);
 
     connect(this, SIGNAL(user1Clicked()), SLOT(onHandleAll()));
@@ -51,19 +62,19 @@ void KJotsReplaceNextDialog::setLabel(const QString &pattern, const QString &rep
 
 void KJotsReplaceNextDialog::onHandleAll()
 {
-    m_answer = User1;
+    m_answer = All;
     accept();
 }
 
 void KJotsReplaceNextDialog::onHandleSkip()
 {
-    m_answer = User2;
+    m_answer = Skip;
     accept();
 }
 
 void KJotsReplaceNextDialog::onHandleReplace()
 {
-    m_answer = User3;
+    m_answer = Replace;
     accept();
 }
 

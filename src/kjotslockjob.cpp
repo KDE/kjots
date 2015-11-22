@@ -22,7 +22,7 @@
 #include "kjotslockjob.h"
 #include <AkonadiCore/CollectionModifyJob>
 #include <AkonadiCore/ItemModifyJob>
-#include "noteshared/attributes/notelockattribute.h"
+#include "noteshared/notelockattribute.h"
 
 KJotsLockJob::KJotsLockJob(const Akonadi::Collection::List &collections, const Akonadi::Item::List &items, KJotsLockJob::Type type, QObject *parent)
     : Job(parent), m_collections(collections), m_items(items), m_type(type)

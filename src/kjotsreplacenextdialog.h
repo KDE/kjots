@@ -21,19 +21,26 @@
 #ifndef KJOTSREPLACENEXTDIALOG_H
 #define KJOTSREPLACENEXTDIALOG_H
 
-#include <KDialog>
+#include <QDialog>
 
 class QString;
 class QLabel;
 
 // Mostly stolen from kdelibs/kdeui/findreplace/kreplace.cpp
-class KJotsReplaceNextDialog : public KDialog
+class KJotsReplaceNextDialog : public QDialog
 {
     Q_OBJECT
 public:
+    enum Answer {
+        All,
+        Skip,
+        Replace,
+        Close
+    };
+
     explicit KJotsReplaceNextDialog(QWidget *parent);
     void setLabel(const QString &pattern, const QString &replacement);
-    int answer() const
+    Answer answer() const
     {
         return m_answer;
     }
@@ -44,7 +51,7 @@ protected slots:
 
 private:
     QLabel *m_mainLabel;
-    int m_answer;
+    Answer m_answer;
 };
 
 #endif

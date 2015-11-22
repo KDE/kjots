@@ -24,9 +24,9 @@
 #ifndef KJOTS_ABOUTDATA_H
 #define KJOTS_ABOUTDATA_H
 
-#include <k4aboutdata.h>
+#include <KAboutData>
 
-class AboutData : public K4AboutData
+class AboutData : public KAboutData
 {
 public:
     AboutData();

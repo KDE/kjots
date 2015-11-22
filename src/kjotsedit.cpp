@@ -33,11 +33,11 @@
 #include <QItemSelectionModel>
 #include <QPointer>
 #include <QClipboard>
+#include <QApplication>
 
 #include <QAction>
 #include <kactioncollection.h>
 #include <krun.h>
-#include <KApplication>
 
 #include "kjotslinkdialog.h"
 
@@ -48,8 +48,8 @@
 
 #include <qdebug.h>
 #include "kjotsmodel.h"
-#include "noteshared/attributes/notelockattribute.h"
-#include "noteshared/editor/noteeditorutils.h"
+#include "noteshared/notelockattribute.h"
+#include "noteshared/noteeditorutils.h"
 
 Q_DECLARE_METATYPE(QTextDocument *)
 Q_DECLARE_METATYPE(QTextCursor)
@@ -92,7 +92,7 @@ void KJotsEdit::mousePopupMenuImplementation(const QPoint &pos)
         act->setEnabled(!isReadOnly());
         popup->addAction(act);
 
-        if (!KApplication::kApplication()->clipboard()->text().isEmpty()) {
+        if (!qApp->clipboard()->text().isEmpty()) {
             act = actionCollection->action(QLatin1String("paste_plain_text"));
             act->setEnabled(!isReadOnly());
             popup->addAction(act);
@@ -118,7 +118,7 @@ void KJotsEdit::delayedInitialization(KActionCollection *collection)
 
 void KJotsEdit::insertDate()
 {
-    NoteShared::NoteEditorUtils::insertDate(this);
+    NoteShared::NoteEditorUtils().insertDate(this);
 }
 
 void KJotsEdit::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
@@ -280,7 +280,7 @@ void KJotsEdit::onLinkify(void)
 void KJotsEdit::addCheckmark(void)
 {
     QTextCursor cursor = textCursor();
-    NoteShared::NoteEditorUtils::addCheckmark(cursor);
+    NoteShared::NoteEditorUtils().addCheckmark(cursor);
 }
 
 bool KJotsEdit::canInsertFromMimeData(const QMimeData *source) const
@@ -363,7 +363,7 @@ void KJotsEdit::mouseReleaseEvent(QMouseEvent *event)
 
 void KJotsEdit::pastePlainText()
 {
-    QString text = KApplication::kApplication()->clipboard()->text();
+    QString text = qApp->clipboard()->text();
     if (!text.isEmpty()) {
         insertPlainText(text);
     }

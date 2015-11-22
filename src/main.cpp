@@ -26,9 +26,10 @@
 #include "KJotsMain.h"
 #include "aboutdata.h"
 
-#include <kontactinterface/pimuniqueapplication.h>
+#include <KontactInterface/PimUniqueApplication>
 
-#include <kcmdlineargs.h>
+#include <QCommandLineParser>
+
 #include <kconfig.h>
 #include <qdebug.h>
 #include <KLocalizedString>
@@ -38,14 +39,18 @@
 int main(int argc, char **argv)
 {
     AboutData aboutData;
-    KCmdLineArgs::init(argc, argv, &aboutData);
+    KontactInterface::PimUniqueApplication app(argc, &argv);
+    app.setAboutData(aboutData);
 
-    KontactInterface::PimUniqueApplication::addCmdLineOptions();
-    if (!KontactInterface::PimUniqueApplication::start()) {
+    QCommandLineParser *cmdArgs = app.cmdArgs();
+    const QStringList args = QApplication::arguments();
+    cmdArgs->process(args);
+    aboutData.processCommandLine(cmdArgs);
+
+    if (!KontactInterface::PimUniqueApplication::start(args)) {
         qWarning() << "kjots is already running!";
         exit(0);
     }
-    KontactInterface::PimUniqueApplication a;
 
     // backwards compatibility code to convert "old" user font settings
     // to the new config settings
@@ -67,7 +72,7 @@ int main(int argc, char **argv)
     }
 
     KJotsMain *jots = new KJotsMain;
-    if (a.isSessionRestored()) {
+    if (app.isSessionRestored()) {
         if (KJotsMain::canBeRestored(1)) {
             jots->restore(1);
         }
@@ -75,7 +80,7 @@ int main(int argc, char **argv)
 
     jots->show();
     jots->resize(jots->size());
-    return a.exec();
+    return app.exec();
 }
 
 /* ex: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab: */

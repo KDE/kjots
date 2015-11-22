@@ -23,23 +23,23 @@
 */
 
 #include "aboutdata.h"
-#include <kdepim-version.h>
+#include <kjots-version.h>
+
 #include <KLocalizedString>
 
 AboutData::AboutData()
-    : K4AboutData("kjots", 0, ki18n("KJots"),
-                  KDEPIM_VERSION,
-                  ki18n("KDE note taking utility"),
-                  K4AboutData::License_GPL,
-                  ki18n("Copyright © 1997–2010 KJots authors"),
-                  KLocalizedString())
+    : KAboutData(QStringLiteral("kjots"),
+                 i18n("KJots"),
+                 QStringLiteral(KJOTS_VERSION),
+                 i18n("KDE note taking utility"),
+                 KAboutLicense::GPL,
+                 i18n("Copyright © 1997–2010 KJots authors"))
 {
-
-    addAuthor(ki18n("Stephen Kelly"), ki18n("Current maintainer"), "steveire@gmail.com");
-    addAuthor(ki18n("Pradeepto K. Bhattacharya"), KLocalizedString(), "pradeepto@kde.org");
-    addAuthor(ki18n("Jaison Lee"), KLocalizedString(), "lee.jaison@gmail.com");
-    addAuthor(ki18n("Aaron J. Seigo"), KLocalizedString(), "aseigo@kde.org");
-    addAuthor(ki18n("Stanislav Kljuhhin"), KLocalizedString(), "crz@starman.ee");
-    addAuthor(ki18n("Christoph Neerfeld"), ki18n("Original author"), "chris@kde.org");
-    addAuthor(ki18n("Laurent Montel"), KLocalizedString(), "montel@kde.org");
+    addAuthor(i18n("Stephen Kelly"), i18n("Current maintainer"), QStringLiteral("steveire@gmail.com"));
+    addAuthor(i18n("Pradeepto K. Bhattacharya"), QString(), QStringLiteral("pradeepto@kde.org"));
+    addAuthor(i18n("Jaison Lee"), QString(), QStringLiteral("lee.jaison@gmail.com"));
+    addAuthor(i18n("Aaron J. Seigo"), QString(), QStringLiteral("aseigo@kde.org"));
+    addAuthor(i18n("Stanislav Kljuhhin"), QString(), QStringLiteral("crz@starman.ee"));
+    addAuthor(i18n("Christoph Neerfeld"), i18n("Original author"), QStringLiteral("chris@kde.org"));
+    addAuthor(i18n("Laurent Montel"), QString(), QStringLiteral("montel@kde.org"));
 }

@@ -93,7 +93,7 @@ public:
     virtual bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
 
 private:
-    QHash<Entity::Id, QColor> m_colors;
+    QHash<Collection::Id, QColor> m_colors;
     mutable QHash<Item::Id, QTextDocument *> m_documents;
     QHash<Item::Id, int> m_cursorPositions;
 

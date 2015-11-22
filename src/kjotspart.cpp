@@ -28,8 +28,8 @@
 
 #include <qdebug.h>
 
-#include <kcomponentdata.h>
-#include <kfiledialog.h>
+//#include <kcomponentdata.h>
+//#include <kfiledialog.h>
 #include <kstandardaction.h>
 #include <KActionCollection>
 
@@ -44,7 +44,7 @@
 #include <QAction>
 #include "kjotswidget.h"
 
-const K4AboutData &createAboutData()
+const KAboutData &createAboutData()
 {
     static AboutData aboutData;
     return aboutData;
