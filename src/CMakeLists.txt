@@ -2,6 +2,13 @@ add_definitions( -DQT_NO_CAST_FROM_ASCII )
 add_definitions( -DQT_NO_CAST_TO_ASCII )
 add_definitions(-DTRANSLATION_DOMAIN=\"kjots\")
 
+# noteshared contains copy of some classes from kdepim/noteshared. This
+# is at least until the noteshared library is split out from kdepim
+# repository and we can link against it
+add_subdirectory(noteshared)
+# akonadi_next is dead in kdepim, those are two utility classes salvaged from
+# it that were used by KJots. We could eventually move this to Akonadi Note
+add_subdirectory(akonadi_next)
 
 #include_directories(
 # ${Boost_INCLUDE_DIRS}
