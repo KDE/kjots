@@ -352,7 +352,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     KJotsBookmarks *bookmarks = new KJotsBookmarks(treeview);
     /*KBookmarkMenu *bmm =*/ new KBookmarkMenu(
         KBookmarkManager::managerForFile(
-            QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("kjots/bookmarks.xml")),
+            QStandardPaths::standardLocations(QStandardPaths::AppDataLocation).first() + QStringLiteral("/kjots/bookmarks.xml"),
             QStringLiteral("kjots")),
         bookmarks, bookmarkMenu->menu(), actionCollection);
 
