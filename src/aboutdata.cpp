@@ -33,9 +33,10 @@ AboutData::AboutData()
                  QStringLiteral(KJOTS_VERSION),
                  i18n("KDE note taking utility"),
                  KAboutLicense::GPL,
-                 i18n("Copyright © 1997–2010 KJots authors"))
+                 i18n("Copyright © 1997–2015 KJots authors"))
 {
-    addAuthor(i18n("Stephen Kelly"), i18n("Current maintainer"), QStringLiteral("steveire@gmail.com"));
+    addAuthor(i18n("Daniel Vrátil"), i18n("Maintainer"), QStringLiteral("dvraitl@kde.org"));
+    addAuthor(i18n("Stephen Kelly"), QString(), QStringLiteral("steveire@gmail.com"));
     addAuthor(i18n("Pradeepto K. Bhattacharya"), QString(), QStringLiteral("pradeepto@kde.org"));
     addAuthor(i18n("Jaison Lee"), QString(), QStringLiteral("lee.jaison@gmail.com"));
     addAuthor(i18n("Aaron J. Seigo"), QString(), QStringLiteral("aseigo@kde.org"));
