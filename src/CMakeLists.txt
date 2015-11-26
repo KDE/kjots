@@ -46,16 +46,17 @@ add_library(kjots_common STATIC ${kjots_common_SRCS})
 target_link_libraries(kjots_common
   akonadi_next
   noteshared
+  Qt5::DBus
   Qt5::PrintSupport
   KF5::KCMUtils
   KF5::Bookmarks
   KF5::ConfigWidgets
-  KF5::KDELibs4Support
   KF5::Mime
   KF5::AkonadiCore
   KF5::AkonadiWidgets
-  #KF5::AkonadiMime
   KF5::PimTextEdit
+  KF5::XmlGui
+  KF5::KIOWidgets
   Grantlee5::Templates
   Grantlee5::TextDocument
 )

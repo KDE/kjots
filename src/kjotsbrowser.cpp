@@ -26,7 +26,8 @@
 
 #include <QItemSelectionModel>
 
-#include <krun.h>
+#include <KRun>
+
 #include <qdebug.h>
 #include <AkonadiCore/EntityTreeModel>
 

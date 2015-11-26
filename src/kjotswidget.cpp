@@ -38,6 +38,7 @@
 #include <QPainter>
 #include <QPointer>
 #include <QPrinter>
+#include <QPrintPreviewDialog>
 #include <QAbstractTextDocumentLayout>
 #include <QDBusConnection>
 #include <QMenu>
@@ -81,8 +82,6 @@
 #include <kselectionproxymodel.h>
 #include <KXMLGUIClient>
 #include <KProcess>
-#include <KPrintPreview>
-#include <KGlobal>
 #include <KActionMenu>
 #include <krandom.h>
 #include <KSharedConfig>
@@ -1116,7 +1115,7 @@ void KJotsWidget::printPreviewSelection()
     printer.setDocName(QLatin1String("KJots_Print"));
     printer.setFullPage(false);
     printer.setCreator(QLatin1String("KJots"));
-    KPrintPreview previewdlg(&printer, 0);
+    QPrintPreviewDialog previewdlg(&printer, 0);
     print(printer);
     previewdlg.exec();
 }

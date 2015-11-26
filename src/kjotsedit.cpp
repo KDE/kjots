@@ -34,10 +34,10 @@
 #include <QPointer>
 #include <QClipboard>
 #include <QApplication>
-
 #include <QAction>
-#include <kactioncollection.h>
-#include <krun.h>
+
+#include <KActionCollection>
+//#include <KRun>
 
 #include "kjotslinkdialog.h"
 
