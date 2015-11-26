@@ -235,10 +235,13 @@ QVariant KJotsModel::data(const QModelIndex &index, int role) const
 
         KMime::Message::Ptr note = item.payload<KMime::Message::Ptr>();
         QTextDocument *document = new QTextDocument;
-        if (note->contentType()->isHTMLText()) {
-            document->setHtml(note->mainBodyPart()->decodedText());
+        const QString decodedText = note->mainBodyPart()->decodedText();
+        if (note->contentType()->isHTMLText()
+            || decodedText.startsWith(QLatin1String("<!DOCTYPE"))
+            || decodedText.startsWith(QLatin1String("<html>"))) {
+            document->setHtml(decodedText);
         } else {
-            document->setPlainText(note->mainBodyPart()->decodedText());
+            document->setPlainText(decodedText);
         }
 
         m_documents.insert(itemId, document);
