@@ -54,7 +54,7 @@ target_link_libraries(kjots_common
   KF5::Mime
   KF5::AkonadiCore
   KF5::AkonadiWidgets
-  KF5::AkonadiMime
+  #KF5::AkonadiMime
   KF5::PimTextEdit
   Grantlee5::Templates
   Grantlee5::TextDocument
