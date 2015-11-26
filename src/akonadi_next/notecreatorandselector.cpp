@@ -25,12 +25,12 @@
 
 #include <KMime/Message>
 
-#include <entitydisplayattribute.h>
-#include <itemcreatejob.h>
-
-#include <EntityTreeModel>
-#include "akonadinext_debug.h"
+#include <AkonadiCore/EntityDisplayAttribute>
+#include <AkonadiCore/ItemCreateJob>
+#include <AkonadiCore/EntityTreeModel>
 #include <Akonadi/Notes/NoteUtils>
+
+#include "akonadinext_debug.h"
 
 using namespace Akonadi;
 

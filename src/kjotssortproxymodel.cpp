@@ -20,7 +20,9 @@
 */
 
 #include "kjotssortproxymodel.h"
+
 #include <AkonadiCore/EntityTreeModel>
+
 #include <KMime/KMimeMessage>
 
 KJotsSortProxyModel::KJotsSortProxyModel(QObject *parent)

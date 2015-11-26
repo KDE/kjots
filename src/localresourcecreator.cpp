@@ -24,16 +24,19 @@
 #include "akonadi_next/note.h"
 
 #include <QDebug>
+
 #include <KLocalizedString>
 #include <KRandom>
+
 #include <AkonadiCore/CollectionFetchJob>
 #include <AkonadiCore/AgentInstance>
 #include <AkonadiCore/AgentManager>
 #include <AkonadiCore/CollectionCreateJob>
 #include <AkonadiCore/ItemCreateJob>
 #include <AkonadiCore/item.h>
-#include <KMime/KMimeMessage>
 #include <AkonadiCore/EntityDisplayAttribute>
+
+#include <KMime/KMimeMessage>
 
 LocalResourceCreator::LocalResourceCreator(QObject *parent)
     : NoteShared::LocalResourceCreator(parent)

@@ -23,11 +23,11 @@
 #define KNOWITIMPORTER_H
 
 class QDomElement;
+class QUrl;
 
 #include <QHash>
 #include <QDomDocument>
 
-class KUrl;
 
 struct KnowItNote {
     QString title;
@@ -52,14 +52,14 @@ public:
     /**
     Create a KJotsBook from the knowit file at @p url.
     */
-    void importFromUrl(const KUrl &url);
+    void importFromUrl(const QUrl &url);
 
 private:
     /**
     Builds several trees with roots at m_notes.
     @param url The url of the knowit file.
     */
-    void buildNoteTree(const KUrl &url);
+    void buildNoteTree(const QUrl &url);
 
     /**
     Add a representation of note @p n to m_domDoc. If @p n has child notes, it will create a book, otherwise a page.

@@ -27,7 +27,6 @@
 #include <kactioncollection.h>
 #include <qdebug.h>
 #include <kstandardaction.h>
-#include <qstatusbar.h>
 
 #include "KJotsSettings.h"
 #include "kjotsbookmarks.h"
@@ -35,6 +34,7 @@
 #include "kjotsbrowser.h"
 #include "kjotswidget.h"
 
+#include <QStatusBar>
 #include <QApplication>
 
 //----------------------------------------------------------------------

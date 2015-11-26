@@ -25,21 +25,20 @@
 #include <QGridLayout>
 #include <QRadioButton>
 #include <QTreeView>
-
-#include <KLocalizedString>
-#include <KComboBox>
+#include <QComboBox>
 #include <QLineEdit>
-
-#include <AkonadiCore/Item>
-
-#include <KUrl>
-#include "KJotsSettings.h"
-#include "kjotsbookshelfentryvalidator.h"
-#include <kdescendantsproxymodel.h>
-#include <AkonadiCore/EntityTreeModel>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+#include <KLocalizedString>
+#include <kdescendantsproxymodel.h>
+
+#include "KJotsSettings.h"
+#include "kjotsbookshelfentryvalidator.h"
+
+#include <AkonadiCore/Item>
+#include <AkonadiCore/EntityTreeModel>
 
 KJotsLinkDialog::KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent)
     : QDialog(parent), m_kjotsModel(kjotsModel)
@@ -71,7 +70,7 @@ KJotsLinkDialog::KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent
     textLineEdit->setClearButtonEnabled(true);
     linkUrlLabel = new QLabel(i18n("Link URL:"), this);
     linkUrlLineEdit = new QLineEdit(this);
-    hrefCombo = new KComboBox(this);
+    hrefCombo = new QComboBox(this);
     linkUrlLineEdit->setClearButtonEnabled(true);
 
     tree = new QTreeView();
@@ -93,7 +92,7 @@ KJotsLinkDialog::KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent
     hrefComboRadioButton = new QRadioButton(entries);
 
     connect(linkUrlLineEditRadioButton, &QRadioButton::toggled, linkUrlLineEdit, &QLineEdit::setEnabled);
-    connect(hrefComboRadioButton, &QRadioButton::toggled, hrefCombo, &KComboBox::setEnabled);
+    connect(hrefComboRadioButton, &QRadioButton::toggled, hrefCombo, &QComboBox::setEnabled);
     hrefCombo->setEnabled(false);
     linkUrlLineEditRadioButton->setChecked(true);
 
@@ -125,8 +124,8 @@ void KJotsLinkDialog::setLinkText(const QString &linkText)
 
 void KJotsLinkDialog::setLinkUrl(const QString &linkUrl)
 {
-    Akonadi::Item item = Akonadi::Item::fromUrl(KUrl(linkUrl));
-    Akonadi::Collection collection = Akonadi::Collection::fromUrl(KUrl(linkUrl));
+    Akonadi::Item item = Akonadi::Item::fromUrl(QUrl::fromUserInput(linkUrl));
+    Akonadi::Collection collection = Akonadi::Collection::fromUrl(QUrl::fromUserInput(linkUrl));
 
     if (!item.isValid() && !collection.isValid()) {
         linkUrlLineEdit->setText(linkUrl);

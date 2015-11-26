@@ -29,8 +29,9 @@
 #include <QWidget>
 #include <QItemSelection>
 #include <QAbstractItemDelegate>
-#include <AkonadiCore/item.h>
 #include <QPrinter>
+
+#include <AkonadiCore/Item>
 
 #include <grantlee/templateloader.h>
 

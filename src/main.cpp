@@ -30,11 +30,12 @@
 
 #include <QCommandLineParser>
 
-#include <kconfig.h>
-#include <qdebug.h>
 #include <KLocalizedString>
-#include <kconfiggroup.h>
+#include <KConfigGroup>
+#include <KConfig>
 #include <KSharedConfig>
+
+#include <qdebug.h>
 
 int main(int argc, char **argv)
 {

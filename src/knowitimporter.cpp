@@ -23,19 +23,19 @@
 
 #include <QFile>
 #include <QTextStream>
-
-#include <KUrl>
+#include <QUrl>
 #include <QTemporaryFile>
+#include <QStandardPaths>
+
 #include <KLocalizedString>
 
 #include <qdebug.h>
-#include <QStandardPaths>
 
 KnowItImporter::KnowItImporter()
 {
 }
 
-void KnowItImporter::importFromUrl(const KUrl &url)
+void KnowItImporter::importFromUrl(const QUrl &url)
 {
 // TODO PORT
 #if 0
@@ -155,7 +155,7 @@ void KnowItImporter::buildDomDocument()
     qDebug() << m_domDoc.toString();
 }
 
-void KnowItImporter::buildNoteTree(const KUrl &url)
+void KnowItImporter::buildNoteTree(const QUrl &url)
 {
 
     QFile knowItFile(url.toLocalFile());

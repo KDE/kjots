@@ -25,9 +25,8 @@
 #ifndef KJOTSPART_H
 #define KJOTSPART_H
 
-#include <kparts/part.h>
-#include <kparts/statusbarextension.h>
-#include <kparts/readonlypart.h>
+#include <KParts/StatusBarExtension>
+#include <KParts/ReadOnlyPart>
 
 class QWidget;
 class KAboutData;

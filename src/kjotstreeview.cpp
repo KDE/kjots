@@ -20,21 +20,21 @@
 */
 
 #include "kjotstreeview.h"
+#include "kjotsmodel.h"
 
 #include <QApplication>
 #include <QClipboard>
 #include <QContextMenuEvent>
 #include <QMenu>
 #include <QMimeData>
-#include <KActionCollection>
-#include <KXMLGUIClient>
 #include <QColorDialog>
 #include <QInputDialog>
+
+#include <KActionCollection>
+#include <KXMLGUIClient>
 #include <KLocalizedString>
 
 #include <KMime/KMimeMessage>
-
-#include "kjotsmodel.h"
 
 using namespace Akonadi;
 

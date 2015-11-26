@@ -23,8 +23,8 @@
 */
 
 #include "kjotspart.h"
-
 #include "aboutdata.h"
+#include "kjotswidget.h"
 
 #include <qdebug.h>
 
@@ -32,17 +32,16 @@
 //#include <kfiledialog.h>
 #include <kstandardaction.h>
 #include <KActionCollection>
-
 #include <kpluginfactory.h>
 #include <KLocalizedString>
-#include <qstatusbar.h>
+
+#include <QStatusBar>
 #include <QIcon>
-#include <QtCore/QFile>
-#include <QtCore/QTextStream>
+#include <QFile>
+#include <QTextStream>
 #include <QTimer>
 #include <QStandardPaths>
 #include <QAction>
-#include "kjotswidget.h"
 
 const KAboutData &createAboutData()
 {

@@ -41,6 +41,10 @@
 #include <QAbstractTextDocumentLayout>
 #include <QDBusConnection>
 #include <QMenu>
+#include <QFileDialog>
+#include <QAction>
+#include <QIcon>
+#include <qdebug.h>
 
 // Akonadi
 #include <AkonadiCore/control.h>
@@ -55,9 +59,9 @@
 #include <AkonadiCore/ItemDeleteJob>
 #include <AkonadiCore/itemfetchjob.h>
 #include <AkonadiCore/itemfetchscope.h>
-
-#include "AkonadiCore/entityorderproxymodel.h"
+#include <AkonadiCore/EntityOrderProxyModel>
 #include <AkonadiWidgets/ControlGui>
+
 #include "akonadi_next/note.h"
 #include "akonadi_next/notecreatorandselector.h"
 
@@ -67,7 +71,6 @@
 #include <grantlee/context.h>
 
 // KDE
-#include <QAction>
 #include <KActionCollection>
 #include <KBookmarkMenu>
 #include <KFind>
@@ -81,8 +84,9 @@
 #include <KPrintPreview>
 #include <KGlobal>
 #include <KActionMenu>
-#include <QAction>
-#include <QIcon>
+#include <krandom.h>
+#include <KSharedConfig>
+
 // KMime
 #include <KMime/KMimeMessage>
 
@@ -96,16 +100,12 @@
 #include "kjotsreplacenextdialog.h"
 #include "KJotsSettings.h"
 #include "kjotslockjob.h"
+#include "kjotsbrowser.h"
 
-#include <qdebug.h>
-
-#include <memory>
 #include "noteshared/notelockattribute.h"
 #include "localresourcecreator.h"
-#include <krandom.h>
-#include <KSharedConfig>
-#include <QFileDialog>
-#include "kjotsbrowser.h"
+
+#include <memory>
 
 Q_DECLARE_METATYPE(QTextDocument *)
 Q_DECLARE_METATYPE(QTextCursor)

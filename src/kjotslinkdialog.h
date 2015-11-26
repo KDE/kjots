@@ -29,7 +29,7 @@ class QString;
 class QRadioButton;
 class QTreeView;
 
-class KComboBox;
+class QComboBox;
 class QLineEdit;
 
 class KJotsLinkDialog : public QDialog
@@ -70,7 +70,7 @@ private:
     QLineEdit *textLineEdit;
     QLabel *linkUrlLabel;
     QLineEdit *linkUrlLineEdit;
-    KComboBox *hrefCombo;
+    QComboBox *hrefCombo;
     QRadioButton *linkUrlLineEditRadioButton;
     QRadioButton *hrefComboRadioButton;
     QTreeView *tree;

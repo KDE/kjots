@@ -22,15 +22,15 @@
 #include "kjotsmodel.h"
 
 #include <QTextDocument>
-
 #include <QIcon>
+#include <qdebug.h>
 
 #include <AkonadiCore/changerecorder.h>
 #include <AkonadiCore/entitydisplayattribute.h>
 
 #include "akonadi_next/note.h"
+#include "noteshared/notelockattribute.h"
 
-#include <qdebug.h>
 #include <KMime/KMimeMessage>
 
 #include <kpimtextedit/textutils.h>
@@ -39,7 +39,6 @@
 #include <grantlee/texthtmlbuilder.h>
 #include <grantlee/plaintextmarkupbuilder.h>
 
-#include "noteshared/notelockattribute.h"
 
 Q_DECLARE_METATYPE(QTextDocument *)
 KJotsEntity::KJotsEntity(const QModelIndex &index, QObject *parent)
