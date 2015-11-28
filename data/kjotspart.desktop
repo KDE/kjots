@@ -1,5 +1,12 @@
 [Desktop Entry]
 Name=KJotsPart
+Name[ca]=Part del KJots
+Name[ca@valencia]=Part del KJots
+Name[nl]=KJotsPart
+Name[pt]=KJotsPart
+Name[sv]=Kjots-delprogram
+Name[uk]=KJotsPart
+Name[x-test]=xxKJotsPartxx
 X-KDE-ServiceTypes=KParts/ReadOnlyPart
 X-KDE-Library=kjotspart
 Type=Service

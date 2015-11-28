@@ -1,7 +1,21 @@
 [Desktop Entry]
 X-DocPath=kjots/index.html
 Name=KJots
+Name[ca]=KJots
+Name[ca@valencia]=KJots
+Name[nl]=KJots
+Name[pt]=KJots
+Name[sv]=Kjots
+Name[uk]=KJots
+Name[x-test]=xxKJotsxx
 GenericName=Note Taker
+GenericName[ca]=Pren notes
+GenericName[ca@valencia]=Pren notes
+GenericName[nl]=Notitieboekje
+GenericName[pt]=Bloco de Notas
+GenericName[sv]=Anteckningsblock
+GenericName[uk]=Записна книжка
+GenericName[x-test]=xxNote Takerxx
 Icon=kjots
 Exec=kjots -caption %c
 Type=Application
