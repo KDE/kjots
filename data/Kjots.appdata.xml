@@ -6,6 +6,7 @@
   <name xml:lang="ca">KJots</name>
   <name xml:lang="ca-valencia">KJots</name>
   <name xml:lang="es">KJots</name>
+  <name xml:lang="fi">KJots</name>
   <name xml:lang="gl">KJots</name>
   <name xml:lang="it">KJots</name>
   <name xml:lang="nl">KJots</name>
@@ -23,6 +24,7 @@
     <p xml:lang="ca">El KJots organitza totes les vostres notes en llibres separats</p>
     <p xml:lang="ca-valencia">El KJots organitza totes les vostres notes en llibres separats</p>
     <p xml:lang="es">KJots organiza todas sus notas en libros separados</p>
+    <p xml:lang="fi">KJots järjestää muistiinpanosi erillisiksi kirjoiksi</p>
     <p xml:lang="gl">KJots organiza todas as súas notas en cadernos separados.</p>
     <p xml:lang="it">KJots organizza tutte le tue note in libri separati</p>
     <p xml:lang="nl">KJots organiseert al uw notities in gescheiden boeken</p>
@@ -36,6 +38,7 @@
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
     <p xml:lang="es">Funciones:</p>
+    <p xml:lang="fi">Ominaisuuksia:</p>
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
@@ -51,6 +54,7 @@
       <li xml:lang="ca">Maneja múltiples llibres</li>
       <li xml:lang="ca-valencia">Maneja múltiples llibres</li>
       <li xml:lang="es">Manejo de múltiples libros</li>
+      <li xml:lang="fi">Hallitsee useampia muistikirjoja</li>
       <li xml:lang="gl">Xestiona varios cadernos.</li>
       <li xml:lang="it">Più libri gestiti</li>
       <li xml:lang="nl">Meerdere boeken worden behandeld</li>
@@ -64,6 +68,7 @@
       <li xml:lang="ca">Cada llibre conté moltes pàgines amb nom</li>
       <li xml:lang="ca-valencia">Cada llibre conté moltes pàgines amb nom</li>
       <li xml:lang="es">Cada libro puede contener numerosas páginas con nombre</li>
+      <li xml:lang="fi">Kussakin kirjassa on useampia nimettyjä sivuja</li>
       <li xml:lang="gl">Cada caderno ten varias páxinas con nome de seu.</li>
       <li xml:lang="it">Ogni libro ha molte pagine con nome</li>
       <li xml:lang="nl">Elk boek heeft veel genoemde pagina's</li>
@@ -77,6 +82,7 @@
       <li xml:lang="ca">Els llibres i les pàgines es poden tornar a ordenar fent un arrossega i deixa</li>
       <li xml:lang="ca-valencia">Els llibres i les pàgines es poden tornar a ordenar fent un arrossega i deixa</li>
       <li xml:lang="es">Los libros y las páginas se pueden organizar y arrastrar</li>
+      <li xml:lang="fi">Kirjoja ja sivuja voi järjestää uudelleen vetämällä ja pudottamalla</li>
       <li xml:lang="gl">Pode arrastrar e soltar para organizar os cadernos e páxinas.</li>
       <li xml:lang="it">Libri e pagine possono essere riorganizzati con il trascinamento e rilascio</li>
       <li xml:lang="nl">Boeken en pagina's kunnen opnieuw gerangschikt worden met slepen-en-loslaten</li>
@@ -90,6 +96,7 @@
       <li xml:lang="ca">Hi ha disponibles dreceres de teclat per a moltes funcions</li>
       <li xml:lang="ca-valencia">Hi ha disponibles dreceres de teclat per a moltes funcions</li>
       <li xml:lang="es">Dispone de accesos rápidos de teclado para muchas funciones</li>
+      <li xml:lang="fi">Moniin toimintoihin on pikanäppäimet</li>
       <li xml:lang="gl">Moitas funcionalidades contan con atallos de teclado.</li>
       <li xml:lang="it">Scorciatoie da tastiera sono disponibili per molte funzioni</li>
       <li xml:lang="nl">Sneltoetsen zijn beschikbaar voor veel functies</li>
@@ -103,6 +110,7 @@
       <li xml:lang="ca">El desat automàtic significa que les vostres notes estaran fora de perill d'una pèrdua</li>
       <li xml:lang="ca-valencia">El guardat automàtic significa que les vostres notes estaran fora de perill d'una pèrdua</li>
       <li xml:lang="es">Las notas se guardan automáticamente para evitar que se pierdan</li>
+      <li xml:lang="fi">Automaattitallennuksen ansiosta muistiinpanosi on turvassa</li>
       <li xml:lang="gl">Os datos gárdanse automaticamente para evitar a perda de datos.</li>
       <li xml:lang="it">Salvataggio automatico significa che le tue note sono al sicuro da perdite</li>
       <li xml:lang="nl">Automatisch opslaan betekend dat uw notities veilig zijn voor verlies</li>
