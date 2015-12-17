@@ -17,6 +17,7 @@
   <name xml:lang="sv">Kjots</name>
   <name xml:lang="uk">KJots</name>
   <name xml:lang="x-test">xxKJotsxx</name>
+  <name xml:lang="zh-CN">KJots</name>
   <description>
     <p>
       KJots organises all of your notes into separate books
@@ -49,6 +50,7 @@
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
+    <p xml:lang="zh-CN">功能：</p>
     <ul>
       <li>Multiple books handled</li>
       <li xml:lang="ca">Maneja múltiples llibres</li>
