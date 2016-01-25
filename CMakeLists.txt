@@ -14,7 +14,7 @@ include(KDECompilerSettings)
 include(ECMInstallIcons)
 include(ECMQtDeclareLoggingCategory)
 
-set(KJOTS_VERSION "4.96.0")
+set(KJOTS_VERSION "5.0.0")
 
 set(KF5_VERSION "5.16.0")
 set(KDEPIMLIBS_LIB_VERSION "5.1.40")
