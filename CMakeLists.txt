@@ -17,9 +17,10 @@ include(ECMQtDeclareLoggingCategory)
 set(KJOTS_VERSION "5.0.0")
 
 set(KF5_VERSION "5.16.0")
-set(KDEPIMLIBS_LIB_VERSION "5.1.40")
+# Only what is in Applications/15.12
+set(KDEPIMLIBS_LIB_VERSION "5.1.0")
 set(KMIME_LIB_VERSION "4.87.0")
-set(PIMTEXTEDIT_LIB_VERSION "5.1.40")
+set(PIMTEXTEDIT_LIB_VERSION "4.91.0")
 set(KONTACTINTERFACE_LIB_VERSION "4.82.0")
 
 # KF5 Packages
