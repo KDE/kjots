@@ -14,7 +14,7 @@ include(KDECompilerSettings)
 include(ECMInstallIcons)
 include(ECMQtDeclareLoggingCategory)
 
-set(KJOTS_VERSION "5.0.0")
+set(KJOTS_VERSION "5.0.1")
 
 set(KF5_VERSION "5.16.0")
 # Only what is in Applications/15.12
