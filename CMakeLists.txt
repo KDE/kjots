@@ -55,7 +55,7 @@ install(DIRECTORY themes
         PATTERN *.svn EXCLUDE
 )
 
-install(FILES data/Kjots.appdata.xml
+install(FILES data/org.kde.kjots.appdata.xml
 	DESTINATION ${CMAKE_INSTALL_METAINFODIR}
 )
 install(FILES data/org.kde.kjots.desktop
