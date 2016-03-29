@@ -26,6 +26,7 @@
     <p>
       KJots organises all of your notes into separate books
     </p>
+    <p xml:lang="ast">KJots organiza toles tos notes en llibros separtaos</p>
     <p xml:lang="ca">El KJots organitza totes les vostres notes en llibres separats</p>
     <p xml:lang="ca-valencia">El KJots organitza totes les vostres notes en llibres separats</p>
     <p xml:lang="de">KJots sortiert alle Ihre Notizen in getrennte Bücher</p>
@@ -41,6 +42,7 @@
     <p xml:lang="uk">KJots — програма для упорядковування ваших нотаток за окремими записниками.</p>
     <p xml:lang="x-test">xxKJots organises all of your notes into separate booksxx</p>
     <p>Features:</p>
+    <p xml:lang="ast">Carauterístiques:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
@@ -61,6 +63,7 @@
     <p xml:lang="zh-CN">功能：</p>
     <ul>
       <li>Multiple books handled</li>
+      <li xml:lang="ast">Remánense múltiples llibros</li>
       <li xml:lang="ca">Maneja múltiples llibres</li>
       <li xml:lang="ca-valencia">Maneja múltiples llibres</li>
       <li xml:lang="de">Handhabung mehrerer Bücher</li>
@@ -76,6 +79,7 @@
       <li xml:lang="uk">можливість роботи з декількома записниками одночасно;</li>
       <li xml:lang="x-test">xxMultiple books handledxx</li>
       <li>Each book has many named pages</li>
+      <li xml:lang="ast">Cada llibru tien munches páxines nomaes</li>
       <li xml:lang="ca">Cada llibre conté moltes pàgines amb nom</li>
       <li xml:lang="ca-valencia">Cada llibre conté moltes pàgines amb nom</li>
       <li xml:lang="de">Jedes Buch hat viele benannte Seiten</li>
@@ -106,6 +110,7 @@
       <li xml:lang="uk">можливість перевпорядковування записників і сторінок перетягуванням зі скиданням;</li>
       <li xml:lang="x-test">xxBooks and pages can be rearranged by drag-and-dropxx</li>
       <li>Keyboard shortcuts are available for many functions</li>
+      <li xml:lang="ast">Los atayos de tecláu tán disponible pa munches funciones</li>
       <li xml:lang="ca">Hi ha disponibles dreceres de teclat per a moltes funcions</li>
       <li xml:lang="ca-valencia">Hi ha disponibles dreceres de teclat per a moltes funcions</li>
       <li xml:lang="de">Für viele Funktionen stehen Kurzbefehle zur Verfügung</li>
@@ -121,6 +126,7 @@
       <li xml:lang="uk">доступ до багатьох функціональних можливостей програми за допомогою натискання комбінацій клавіш;</li>
       <li xml:lang="x-test">xxKeyboard shortcuts are available for many functionsxx</li>
       <li>Automatic saving means your notes are safe from loss</li>
+      <li xml:lang="ast">El guardáu automáticu quier dicir que les tos notes tán segures de la so perda</li>
       <li xml:lang="ca">El desat automàtic significa que les vostres notes estaran fora de perill d'una pèrdua</li>
       <li xml:lang="ca-valencia">El guardat automàtic significa que les vostres notes estaran fora de perill d'una pèrdua</li>
       <li xml:lang="de">Automatisches Speichern verhindert den Verlust von Notizen</li>
