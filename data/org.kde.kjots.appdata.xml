@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop">
-  <id>Kjots.desktop</id>
+  <id>org.kde.kjots.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <name>KJots</name>
   <name xml:lang="ast">KJots</name>
