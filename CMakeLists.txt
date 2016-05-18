@@ -31,6 +31,7 @@ find_packagE(KF5ConfigWidgets ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5Parts ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5Bookmarks ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5XmlGui ${KF5_VERSION} CONFIG REQUIRED)
+find_package(KF5TextWidgets ${KF5_VERSION} CONFIG REQUIRED)
 
 # PIM packages
 find_package(KF5Akonadi ${KDEPIMLIBS_LIB_VERSION} CONFIG REQUIRED)

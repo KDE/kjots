@@ -51,6 +51,7 @@ target_link_libraries(kjots_common
   KF5::KCMUtils
   KF5::Bookmarks
   KF5::ConfigWidgets
+  KF5::TextWidgets
   KF5::Mime
   KF5::AkonadiCore
   KF5::AkonadiWidgets
