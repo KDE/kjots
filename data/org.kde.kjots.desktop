@@ -50,6 +50,7 @@ X-DBUS-ServiceName=org.kde.kjots
 Categories=Qt;KDE;Utility;X-KDE-Utilities-PIM;
 Comment=Note Taker
 Comment[ca]=Pren notes
+Comment[ca@valencia]=Pren notes
 Comment[de]=Notizblock
 Comment[es]=Tomar notas
 Comment[gl]=Caderno de notas
