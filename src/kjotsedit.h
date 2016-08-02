@@ -65,6 +65,7 @@ public slots:
 
     void savePage();
     void insertDate();
+    void insertImage();
 
 private:
     void createAutoDecimalList();

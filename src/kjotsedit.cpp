@@ -114,11 +114,18 @@ void KJotsEdit::delayedInitialization(KActionCollection *collection)
     connect(actionCollection->action(QLatin1String("insert_checkmark")), SIGNAL(triggered()), SLOT(addCheckmark()));
     connect(actionCollection->action(QLatin1String("manual_save")), SIGNAL(triggered()), SLOT(savePage()));
     connect(actionCollection->action(QLatin1String("insert_date")), SIGNAL(triggered()), SLOT(insertDate()));
+    connect(actionCollection->action(QLatin1String("insert_image")), SIGNAL(triggered()), SLOT(insertImage()));
 }
 
 void KJotsEdit::insertDate()
 {
     NoteShared::NoteEditorUtils().insertDate(this);
+}
+
+void KJotsEdit::insertImage()
+{
+    QTextCursor cursor = textCursor();
+    NoteShared::NoteEditorUtils().insertImage(document(), cursor, this);
 }
 
 void KJotsEdit::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)

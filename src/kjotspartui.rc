@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui version="11" name="kjots" >
+<kpartgui version="12" name="kjots" >
  <MenuBar>
 
   <Menu name="file">
@@ -52,6 +52,7 @@
   <Menu name="tools">
    <text>&amp;Tools</text>
    <Action name="insert_date"/>
+   <Action name="insert_image"/>
    <Action name="copyIntoTitle"/>
    <Action name="linkify"/>
   </Menu>

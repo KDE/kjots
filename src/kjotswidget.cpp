@@ -277,6 +277,10 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     action->setText(i18n("Link"));
     action->setIcon(QIcon::fromTheme(QLatin1String("insert-link")));
 
+    action = actionCollection->addAction(QLatin1String("insert_image"));
+    action->setText(i18n("Insert Image"));
+    action->setIcon(QIcon::fromTheme(QLatin1String("insert-image")));
+
     action = actionCollection->addAction(QLatin1String("insert_checkmark"));
     action->setText(i18n("Insert Checkmark"));
     action->setIcon(QIcon::fromTheme(QLatin1String("checkmark")));

@@ -18,11 +18,15 @@
 #include "noteeditorutils.h"
 
 #include <QLocale>
-
+#include <QMimeDatabase>
+#include <QFileDialog>
+#include <KLocalizedString>
+#include <QBuffer>
 #include <QChar>
 #include <QTextCursor>
 #include <QTextEdit>
 #include <QDateTime>
+#include <QFileInfo>
 
 using namespace NoteShared;
 NoteEditorUtils::NoteEditorUtils()
@@ -44,4 +48,27 @@ void NoteEditorUtils::addCheckmark(QTextCursor &cursor)
 void NoteEditorUtils::insertDate(QTextEdit *editor)
 {
     editor->insertPlainText(QLocale().toString(QDateTime::currentDateTime(), QLocale::ShortFormat) + QLatin1Char(' '));
+}
+
+void NoteEditorUtils::insertImage(QTextDocument *doc, QTextCursor &cursor, QTextEdit *par)
+{
+    QString imageFileName = QFileDialog::getOpenFileName(par, i18n("Select image file"), QLatin1String("."), QLatin1String("Images (*.png *.bmp *.jpg *.jpeg *.jpe)"));
+    if (!imageFileName.isEmpty()) {
+        QFileInfo qfio = QFileInfo(imageFileName);
+        QImage imgRes(imageFileName);
+        if (!imgRes.isNull()) {
+            QMimeDatabase mimedb;
+            QByteArray imageData;
+            QBuffer buffer(&imageData);
+            QMimeType filemime = mimedb.mimeTypeForFile(qfio);
+            QString filetype = filemime.name();
+            QByteArray formatChars = filemime.preferredSuffix().toUpper().toLatin1();
+
+            buffer.open(QIODevice::WriteOnly);
+            imgRes.save(&buffer, formatChars.data());
+            QString Base64Image = QString::fromLatin1(imageData.toBase64().data());//is null
+            par->insertHtml(QLatin1String("<img src=\"data:") + filetype + QLatin1String(";base64,") + Base64Image + QLatin1String("\" />"));
+
+        }
+    }
 }
