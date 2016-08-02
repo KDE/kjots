@@ -53,12 +53,13 @@
    <Action name="insert_image"/>
    <Action name="copyIntoTitle"/>
   </Menu>
-  
+
   <Action name="bookmarks"/>
 
   <Menu name="settings"></Menu>
 
-  <Menu name="help"></Menu>
+  <Menu name="help">
+  </Menu>
  </MenuBar>
 
  <ToolBar name="mainToolBar" fullWidth="true" noMerge="1" iconText="icononly">

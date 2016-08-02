@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui version="12" name="kjots" >
+<kpartgui version="13" name="kjots" >
  <MenuBar>
 
   <Menu name="file">
@@ -56,15 +56,17 @@
    <Action name="copyIntoTitle"/>
    <Action name="linkify"/>
   </Menu>
-  
+
   <Action name="bookmarks"/>
 
   <Menu noMerge="1" name="settings">
     <text>&amp;Settings</text>
-	<Action name="kjots_configure" group="settings_configure" />
+    <DefineGroup append="top_merge" group="top_merge" />
+    <Action name="kjots_configure" group="settings_configure" />
   </Menu>
 
-  <Menu name="help"></Menu>
+  <Menu name="help">
+  </Menu>
  </MenuBar>
 
  <ToolBar name="mainToolBar" fullWidth="true" noMerge="1" iconText="icononly">

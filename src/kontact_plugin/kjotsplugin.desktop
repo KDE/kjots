@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Service
+Icon=kjots
+X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=kontact_kjotsplugin
+X-KDE-KontactPluginVersion=10
+X-KDE-KontactPartLibraryName=kjotspart
+X-KDE-KontactPartExecutableName=kjots
+X-KDE-KontactPartLoadOnStart=false
+
+X-KDE-PluginInfo-Name=kontact_kjotsplugin
+X-KDE-PluginInfo-Version=1.0b2
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
+Comment=KJots Plugin
+Name=Notes

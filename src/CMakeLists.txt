@@ -7,6 +7,8 @@ add_subdirectory(noteshared)
 # it that were used by KJots. We could eventually move this to Akonadi Note
 add_subdirectory(akonadi_next)
 
+add_subdirectory(kontact_plugin)
+
 add_definitions(-DTRANSLATION_DOMAIN=\"kjots\")
 
 configure_file(kjots-version.h.in

@@ -66,7 +66,8 @@ KJotsPart::KJotsPart(QWidget *parentWidget, QObject *parent, const QVariantList 
     initAction();
 
     // set our XML-UI resource file
-    setXMLFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kjots/kjotspartui.rc")));
+    setComponentName(QStringLiteral("kjots"), QStringLiteral("kjots"));
+    setXMLFile(QStringLiteral("kjotspartui.rc"));
 
     QTimer::singleShot(0, this, SLOT(delayedInitialization()));
 }
