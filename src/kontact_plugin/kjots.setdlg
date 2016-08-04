@@ -1,6 +1,16 @@
 [Notes]
 Name=Notes
+Name[nl]=Notities
+Name[pt]=Notas
+Name[sv]=Anteckningar
+Name[uk]=Нотатки
+Name[x-test]=xxNotesxx
 Comment=Notes
+Comment[nl]=Notities
+Comment[pt]=Notas
+Comment[sv]=Anteckningar
+Comment[uk]=Нотатки
+Comment[x-test]=xxNotesxx
 Weight=475
 Icon=kjots
 
