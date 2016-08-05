@@ -1,11 +1,13 @@
 [Notes]
 Name=Notes
+Name[it]=Note
 Name[nl]=Notities
 Name[pt]=Notas
 Name[sv]=Anteckningar
 Name[uk]=Нотатки
 Name[x-test]=xxNotesxx
 Comment=Notes
+Comment[it]=Note
 Comment[nl]=Notities
 Comment[pt]=Notas
 Comment[sv]=Anteckningar

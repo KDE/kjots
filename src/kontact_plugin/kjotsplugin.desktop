@@ -15,12 +15,14 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=KJots Plugin
+Comment[it]=Estensione di KJots
 Comment[nl]=KJots-plug-in
 Comment[pt]='Plugin' do KJots
 Comment[sv]=Kjots-insticksprogram
 Comment[uk]=Додаток до KJots
 Comment[x-test]=xxKJots Pluginxx
 Name=Notes
+Name[it]=Note
 Name[nl]=Notities
 Name[pt]=Notas
 Name[sv]=Anteckningar
