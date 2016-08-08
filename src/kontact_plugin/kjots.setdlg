@@ -1,6 +1,7 @@
 [Notes]
 Name=Notes
 Name[ca]=Notes
+Name[ca@valencia]=Notes
 Name[it]=Note
 Name[nl]=Notities
 Name[pl]=Notatki
@@ -10,6 +11,7 @@ Name[uk]=Нотатки
 Name[x-test]=xxNotesxx
 Comment=Notes
 Comment[ca]=Notes
+Comment[ca@valencia]=Notes
 Comment[it]=Note
 Comment[nl]=Notities
 Comment[pl]=Notatki
