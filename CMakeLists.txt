@@ -13,6 +13,7 @@ include(KDECMakeSettings)
 include(KDECompilerSettings)
 include(ECMInstallIcons)
 include(ECMQtDeclareLoggingCategory)
+include(ECMAddAppIcon)
 
 set(KJOTS_VERSION "5.0.1")
 
@@ -22,6 +23,10 @@ set(KDEPIMLIBS_LIB_VERSION "5.1.0")
 set(KMIME_LIB_VERSION "4.87.0")
 set(PIMTEXTEDIT_LIB_VERSION "4.91.0")
 set(KONTACTINTERFACE_LIB_VERSION "4.82.0")
+
+#Qt Packages
+set(QT_REQUIRED_VERSION "5.6.0")
+find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED DBus PrintSupport)
 
 # KF5 Packages
 find_package(KF5KCMUtils ${KF5_VERSION} CONFIG REQUIRED)

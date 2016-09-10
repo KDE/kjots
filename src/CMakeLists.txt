@@ -81,8 +81,9 @@ set(kjots_SRCS
    main.cpp
    KJotsMain.cpp
 )
-kde4_add_app_icon(kjots_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/icons/hi*-apps-kjots.png")
-# TODO: ECM_ADD_APP_ICON?
+
+file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/icons/*-apps-kjots.png")
+ecm_add_app_icon(kjots_SRCS ICONS ${ICONS_SRCS})
 
 add_executable(kjots ${kjots_SRCS})
 
