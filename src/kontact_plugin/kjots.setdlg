@@ -1,5 +1,6 @@
 [Notes]
 Name=Notes
+Name[ast]=Notes
 Name[ca]=Notes
 Name[ca@valencia]=Notes
 Name[cs]=Poznámky
@@ -15,6 +16,7 @@ Name[sv]=Anteckningar
 Name[uk]=Нотатки
 Name[x-test]=xxNotesxx
 Comment=Notes
+Comment[ast]=Notes
 Comment[ca]=Notes
 Comment[ca@valencia]=Notes
 Comment[cs]=Poznámky
