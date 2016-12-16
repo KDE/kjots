@@ -15,7 +15,7 @@ include(ECMInstallIcons)
 include(ECMQtDeclareLoggingCategory)
 include(ECMAddAppIcon)
 
-set(KJOTS_VERSION "5.0.1")
+set(KJOTS_VERSION "5.0.2")
 
 set(KF5_VERSION "5.16.0")
 # Only what is in Applications/15.12
