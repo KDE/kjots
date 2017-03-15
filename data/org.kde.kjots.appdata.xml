@@ -23,9 +23,10 @@
   <name xml:lang="uk">KJots</name>
   <name xml:lang="x-test">xxKJotsxx</name>
   <name xml:lang="zh-CN">KJots</name>
+  <summary>Note-taking utility</summary>
   <description>
     <p>
-      KJots organises all of your notes into separate books
+      KJots organises all of your notes into separate books.
     </p>
     <p xml:lang="ca">El KJots organitza totes les vostres notes en llibres separats</p>
     <p xml:lang="ca-valencia">El KJots organitza totes les vostres notes en llibres separats</p>
@@ -145,8 +146,8 @@
       <li xml:lang="x-test">xxAutomatic saving means your notes are safe from lossxx</li>
     </ul>
   </description>
+  <url type="homepage">https://userbase.kde.org/KJots</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kjots</url>
-  <url type="help">http://docs.kde.org/stable/en/kdepim/kjots/index.html</url>
   <screenshots>
     <screenshot type="default">
       <image>http://kde.org/images/screenshots/kjots.png</image>
