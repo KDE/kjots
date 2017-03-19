@@ -25,6 +25,7 @@
   <name xml:lang="zh-CN">KJots</name>
   <summary>Note-taking utility</summary>
   <summary xml:lang="ca">Utilitat per prendre notes</summary>
+  <summary xml:lang="ca-valencia">Utilitat per prendre notes</summary>
   <summary xml:lang="cs">Poznámkový blok</summary>
   <summary xml:lang="it">Strumento per prendere appunti</summary>
   <summary xml:lang="nl">Hulpprogramma voor het maken van notities</summary>
@@ -37,6 +38,7 @@
       KJots organises all of your notes into separate books.
     </p>
     <p xml:lang="ca">El KJots organitza totes les vostres notes en llibres separats.</p>
+    <p xml:lang="ca-valencia">El KJots organitza totes les vostres notes en llibres separats.</p>
     <p xml:lang="it">KJots organizza tutte le tue note in libri separati.</p>
     <p xml:lang="nl">KJots organiseert al uw notities in gescheiden boeken.</p>
     <p xml:lang="pt">O KJots organiza todas as suas notas em livros separados.</p>
