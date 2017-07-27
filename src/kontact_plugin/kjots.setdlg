@@ -17,6 +17,7 @@ Name[sv]=Anteckningar
 Name[tr]=Notlar
 Name[uk]=Нотатки
 Name[x-test]=xxNotesxx
+Name[zh_CN]=便笺
 Comment=Notes
 Comment[ca]=Notes
 Comment[ca@valencia]=Notes
@@ -34,6 +35,7 @@ Comment[sv]=Anteckningar
 Comment[tr]=Notlar
 Comment[uk]=Нотатки
 Comment[x-test]=xxNotesxx
+Comment[zh_CN]=便笺
 Weight=475
 Icon=kjots
 
