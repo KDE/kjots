@@ -18,6 +18,7 @@ Name[tr]=Notlar
 Name[uk]=Нотатки
 Name[x-test]=xxNotesxx
 Name[zh_CN]=便笺
+Name[zh_TW]=備忘錄
 Comment=Notes
 Comment[ca]=Notes
 Comment[ca@valencia]=Notes
@@ -36,6 +37,7 @@ Comment[tr]=Notlar
 Comment[uk]=Нотатки
 Comment[x-test]=xxNotesxx
 Comment[zh_CN]=便笺
+Comment[zh_TW]=備忘錄
 Weight=475
 Icon=kjots
 
