@@ -37,6 +37,7 @@
   <summary xml:lang="nl">Hulpprogramma voor het maken van notities</summary>
   <summary xml:lang="pl">Narzędzie do notatek</summary>
   <summary xml:lang="pt">Utilitário de apontamento de notas</summary>
+  <summary xml:lang="sk">Nástroj na tvorbu poznámok</summary>
   <summary xml:lang="sv">Anteckningsverktyg</summary>
   <summary xml:lang="tr">Not alma programı</summary>
   <summary xml:lang="uk">Програма для роботи з нотатками</summary>
@@ -56,6 +57,7 @@
     <p xml:lang="nl">KJots organiseert al uw notities in gescheiden boeken.</p>
     <p xml:lang="pl">KJots porządkuje twoje notatki w osobnych notesach.</p>
     <p xml:lang="pt">O KJots organiza todas as suas notas em livros separados.</p>
+    <p xml:lang="sk">KJots organizuje všetky vaše poznámky do samostatných kníh.</p>
     <p xml:lang="sv">KJots organiserar alla anteckningar i separata böcker.</p>
     <p xml:lang="tr">KJots, notlarınızı kitaplara ayırarak düzenler.</p>
     <p xml:lang="uk">KJots упорядковує усі ваші нотатки за окремими записниками.</p>
@@ -97,6 +99,7 @@
       <li xml:lang="pl">Obsługa wielu notesów</li>
       <li xml:lang="pt">Tratamento de múltiplos livros</li>
       <li xml:lang="pt-BR">Manipulação de múltiplos livros</li>
+      <li xml:lang="sk">Spracovanie viacerých kníh</li>
       <li xml:lang="sv">Flera böcker hanteras</li>
       <li xml:lang="tr">Çoklu kitap işleme</li>
       <li xml:lang="uk">можливість роботи з декількома записниками одночасно;</li>
@@ -115,6 +118,7 @@
       <li xml:lang="pl">Każdy notes ma wiele stron z nazwami</li>
       <li xml:lang="pt">Cada livro tem várias páginas com nome</li>
       <li xml:lang="pt-BR">Cada livro possui várias páginas com nome</li>
+      <li xml:lang="sk">Každá kniha má veľa pomenovaných strán</li>
       <li xml:lang="sv">Varje bok har många namngivna sidor</li>
       <li xml:lang="tr">Her bir kitap çok sayıda sayfası vardır</li>
       <li xml:lang="uk">можливість використання довільної кількості іменованих сторінок;</li>
@@ -133,6 +137,7 @@
       <li xml:lang="pl">Notesy i strony można dowolnie ustawiać poprzez przeciąganie i upuszczanie</li>
       <li xml:lang="pt">Os livros e páginas podem ser reorganizadas por arrastamento</li>
       <li xml:lang="pt-BR">Os livros e páginas podem ser reorganizados com arrastar e soltar</li>
+      <li xml:lang="sk">Knihy a strany sa dajú usporiadať pomocou drag and drop</li>
       <li xml:lang="sv">Böcker och sidor kan arrangeras med drag och släpp.</li>
       <li xml:lang="tr">Kitaplar ve sayfalar, sürükle-bırak ile yeniden düzenlenebilir</li>
       <li xml:lang="uk">можливість перевпорядковування записників і сторінок перетягуванням зі скиданням;</li>
@@ -151,6 +156,7 @@
       <li xml:lang="pl">Skróty klawiaturowe są dostępne dla wielu funkcji</li>
       <li xml:lang="pt">Estão disponíveis atalhos de teclado para diversas funções</li>
       <li xml:lang="pt-BR">Estão disponíveis atalhos de teclado para diversas funções</li>
+      <li xml:lang="sk">Pre mnoho funkcií sú dostupné klávesové skratky</li>
       <li xml:lang="sv">Snabbtangenter är tillgängliga för många funktioner</li>
       <li xml:lang="tr">Birçok işlev için, klavye kısayolları bulunmaktadır</li>
       <li xml:lang="uk">доступ до багатьох функціональних можливостей програми за допомогою натискання комбінацій клавіш;</li>
@@ -169,6 +175,7 @@
       <li xml:lang="pl">Samoczynne zapisywanie oznacza, że twoje notatki są zabezpieczone od utraty</li>
       <li xml:lang="pt">A gravação automática significa que as suas notas estão seguras contra perdas</li>
       <li xml:lang="pt-BR">A gravação automática mantém suas notas seguras contra perda de dados</li>
+      <li xml:lang="sk">Automatické ukladanie znamená, že vaše poznámky sú zabezpečené proti strate</li>
       <li xml:lang="sv">Anteckningarna är säkrade från förlust genom att spara automatiskt</li>
       <li xml:lang="tr">Otomatik kaydetme, notlarınızın silinmeden güvende olduğu anlamına gelir</li>
       <li xml:lang="uk">автоматичне збереження даних, що забезпечує надійне зберігання ваших даних без втрат.</li>
