@@ -12,6 +12,7 @@ X-KDE-CfgDlgHierarchy=Notebooks
 X-KDE-Weight=200
 
 Name=Misc
+Name[ast]=Miscelaina
 Name[ca]=Varis
 Name[ca@valencia]=Varis
 Name[cs]=Různé
@@ -36,6 +37,7 @@ Name[x-test]=xxMiscxx
 Name[zh_CN]=杂项
 Name[zh_TW]=其他
 Comment=Setup misc for KJots
+Comment[ast]=Configura la miscelaina pa KJots
 Comment[ca]=Arranja els varis pel KJots
 Comment[ca@valencia]=Arranja els varis pel KJots
 Comment[cs]=Různá nastavení KJots

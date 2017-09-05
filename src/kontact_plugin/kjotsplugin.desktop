@@ -15,6 +15,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=KJots Plugin
+Comment[ast]=Complementu de KJots
 Comment[ca]=Connector del KJots
 Comment[ca@valencia]=Connector del KJots
 Comment[cs]=Modul KJots
@@ -33,6 +34,7 @@ Comment[uk]=Додаток до KJots
 Comment[x-test]=xxKJots Pluginxx
 Comment[zh_TW]=KJots 外掛程式
 Name=Notes
+Name[ast]=Notes
 Name[ca]=Notes
 Name[ca@valencia]=Notes
 Name[cs]=Poznámky
