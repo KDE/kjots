@@ -9,6 +9,7 @@
   <name xml:lang="cs">KJots</name>
   <name xml:lang="da">KJots</name>
   <name xml:lang="de">KJots</name>
+  <name xml:lang="el">KJots</name>
   <name xml:lang="en-GB">KJots</name>
   <name xml:lang="es">KJots</name>
   <name xml:lang="fi">KJots</name>
@@ -32,6 +33,7 @@
   <summary xml:lang="ca-valencia">Utilitat per prendre notes</summary>
   <summary xml:lang="cs">Poznámkový blok</summary>
   <summary xml:lang="de">Dienstprogramm zum Erstellen von Notizen</summary>
+  <summary xml:lang="el">Εργαλείο τήρησης σημειωμάτων</summary>
   <summary xml:lang="en-GB">Note-taking utility</summary>
   <summary xml:lang="es">Utilidad para tomar notas</summary>
   <summary xml:lang="gl">Ferramenta para tomar notas</summary>
@@ -53,6 +55,7 @@
     <p xml:lang="ca">El KJots organitza totes les vostres notes en llibres separats.</p>
     <p xml:lang="ca-valencia">El KJots organitza totes les vostres notes en llibres separats.</p>
     <p xml:lang="de">KJots sortiert alle Ihre Notizen in getrennte Bücher.</p>
+    <p xml:lang="el">Το KJots οργανώνει όλες τις σημειώσεις σας σε ξεχωριστά βιβλία.</p>
     <p xml:lang="en-GB">KJots organises all of your notes into separate books.</p>
     <p xml:lang="es">KJots organiza todas sus notas en libros separados.</p>
     <p xml:lang="gl">KJots organiza todas as súas notas en cadernos separados.</p>
@@ -73,6 +76,7 @@
     <p xml:lang="cs">Vlastnosti:</p>
     <p xml:lang="da">Funktioner:</p>
     <p xml:lang="de">Funktionen:</p>
+    <p xml:lang="el">Χαρακτηριστικά:</p>
     <p xml:lang="en-GB">Features:</p>
     <p xml:lang="es">Funciones:</p>
     <p xml:lang="fi">Ominaisuuksia:</p>
@@ -96,6 +100,7 @@
       <li xml:lang="ca">Maneja múltiples llibres</li>
       <li xml:lang="ca-valencia">Maneja múltiples llibres</li>
       <li xml:lang="de">Handhabung mehrerer Bücher</li>
+      <li xml:lang="el">Χειρισμός πολλών βιβλίων</li>
       <li xml:lang="en-GB">Multiple books handled</li>
       <li xml:lang="es">Manejo de múltiples libros</li>
       <li xml:lang="fi">Hallitsee useampia muistikirjoja</li>
@@ -116,6 +121,7 @@
       <li xml:lang="ca">Cada llibre conté moltes pàgines amb nom</li>
       <li xml:lang="ca-valencia">Cada llibre conté moltes pàgines amb nom</li>
       <li xml:lang="de">Jedes Buch hat viele benannte Seiten</li>
+      <li xml:lang="el">Κάθε βιβλίο έχει πολλές τιτλοφορημένες σελίδες</li>
       <li xml:lang="en-GB">Each book has many named pages</li>
       <li xml:lang="es">Cada libro puede contener numerosas páginas con nombre</li>
       <li xml:lang="fi">Kussakin kirjassa on useampia nimettyjä sivuja</li>
@@ -136,6 +142,7 @@
       <li xml:lang="ca">Els llibres i les pàgines es poden tornar a ordenar fent un arrossega i deixa</li>
       <li xml:lang="ca-valencia">Els llibres i les pàgines es poden tornar a ordenar fent un arrossega i deixa</li>
       <li xml:lang="de">Bücher und Seiten können per Ziehen und Ablegen sortiert werden</li>
+      <li xml:lang="el">Βιβλία και σελίδες μπορούν να αναδιαταχθούν με έλξη και εναπόθεση</li>
       <li xml:lang="en-GB">Books and pages can be rearranged by drag-and-drop</li>
       <li xml:lang="es">Los libros y las páginas se pueden organizar y arrastrar</li>
       <li xml:lang="fi">Kirjoja ja sivuja voi järjestää uudelleen vetämällä ja pudottamalla</li>
@@ -156,6 +163,7 @@
       <li xml:lang="ca">Hi ha disponibles dreceres de teclat per a moltes funcions</li>
       <li xml:lang="ca-valencia">Hi ha disponibles dreceres de teclat per a moltes funcions</li>
       <li xml:lang="de">Für viele Funktionen stehen Kurzbefehle zur Verfügung</li>
+      <li xml:lang="el">Συντομεύσεις πληκτρολογίου είναι διαθέσιμες για πολλές λειτουργίες</li>
       <li xml:lang="en-GB">Keyboard shortcuts are available for many functions</li>
       <li xml:lang="es">Dispone de accesos rápidos de teclado para muchas funciones</li>
       <li xml:lang="fi">Moniin toimintoihin on pikanäppäimet</li>
@@ -176,6 +184,7 @@
       <li xml:lang="ca">El desat automàtic significa que les vostres notes estaran fora de perill d'una pèrdua</li>
       <li xml:lang="ca-valencia">El guardat automàtic significa que les vostres notes estaran fora de perill d'una pèrdua</li>
       <li xml:lang="de">Automatisches Speichern verhindert den Verlust von Notizen</li>
+      <li xml:lang="el">Αυτόματη αποθήκευση σημαίνει ότι οι σημειώσεις σας δεν διατρέχουν κίνδυνο απώλειας</li>
       <li xml:lang="en-GB">Automatic saving means your notes are safe from loss</li>
       <li xml:lang="es">Las notas se guardan automáticamente para evitar que se pierdan</li>
       <li xml:lang="fi">Automaattitallennuksen ansiosta muistiinpanosi on turvassa</li>
