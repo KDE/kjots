@@ -32,6 +32,7 @@
   <summary xml:lang="ca">Utilitat per prendre notes</summary>
   <summary xml:lang="ca-valencia">Utilitat per prendre notes</summary>
   <summary xml:lang="cs">Poznámkový blok</summary>
+  <summary xml:lang="da">Redskab til at tage noter</summary>
   <summary xml:lang="de">Dienstprogramm zum Erstellen von Notizen</summary>
   <summary xml:lang="el">Εργαλείο τήρησης σημειωμάτων</summary>
   <summary xml:lang="en-GB">Note-taking utility</summary>
@@ -54,6 +55,7 @@
     <p xml:lang="ast">KJots organiza toles tos notes en llibros separtaos.</p>
     <p xml:lang="ca">El KJots organitza totes les vostres notes en llibres separats.</p>
     <p xml:lang="ca-valencia">El KJots organitza totes les vostres notes en llibres separats.</p>
+    <p xml:lang="da">KJots organiserer alle finde noter i separate bøger.</p>
     <p xml:lang="de">KJots sortiert alle Ihre Notizen in getrennte Bücher.</p>
     <p xml:lang="el">Το KJots οργανώνει όλες τις σημειώσεις σας σε ξεχωριστά βιβλία.</p>
     <p xml:lang="en-GB">KJots organises all of your notes into separate books.</p>
@@ -99,6 +101,7 @@
       <li xml:lang="ast">Remánense llibros múltiples</li>
       <li xml:lang="ca">Maneja múltiples llibres</li>
       <li xml:lang="ca-valencia">Maneja múltiples llibres</li>
+      <li xml:lang="da">Flere bøger håndteret</li>
       <li xml:lang="de">Handhabung mehrerer Bücher</li>
       <li xml:lang="el">Χειρισμός πολλών βιβλίων</li>
       <li xml:lang="en-GB">Multiple books handled</li>
@@ -120,6 +123,7 @@
       <li xml:lang="ast">Cada llibru tien munches páxines nomaes</li>
       <li xml:lang="ca">Cada llibre conté moltes pàgines amb nom</li>
       <li xml:lang="ca-valencia">Cada llibre conté moltes pàgines amb nom</li>
+      <li xml:lang="da">Hver bog har mange navngivne sider</li>
       <li xml:lang="de">Jedes Buch hat viele benannte Seiten</li>
       <li xml:lang="el">Κάθε βιβλίο έχει πολλές τιτλοφορημένες σελίδες</li>
       <li xml:lang="en-GB">Each book has many named pages</li>
@@ -141,6 +145,7 @@
       <li xml:lang="ast">Los llibros y páxines pues reordenase arratrando y soltando</li>
       <li xml:lang="ca">Els llibres i les pàgines es poden tornar a ordenar fent un arrossega i deixa</li>
       <li xml:lang="ca-valencia">Els llibres i les pàgines es poden tornar a ordenar fent un arrossega i deixa</li>
+      <li xml:lang="da">Bøger og sider kan omarrangeres med træk-og-slip</li>
       <li xml:lang="de">Bücher und Seiten können per Ziehen und Ablegen sortiert werden</li>
       <li xml:lang="el">Βιβλία και σελίδες μπορούν να αναδιαταχθούν με έλξη και εναπόθεση</li>
       <li xml:lang="en-GB">Books and pages can be rearranged by drag-and-drop</li>
@@ -162,6 +167,7 @@
       <li xml:lang="ast">Hai disponibles atayos de tecláu pa munches funciones</li>
       <li xml:lang="ca">Hi ha disponibles dreceres de teclat per a moltes funcions</li>
       <li xml:lang="ca-valencia">Hi ha disponibles dreceres de teclat per a moltes funcions</li>
+      <li xml:lang="da">Der findes tastaturgenveje til mange funktioner</li>
       <li xml:lang="de">Für viele Funktionen stehen Kurzbefehle zur Verfügung</li>
       <li xml:lang="el">Συντομεύσεις πληκτρολογίου είναι διαθέσιμες για πολλές λειτουργίες</li>
       <li xml:lang="en-GB">Keyboard shortcuts are available for many functions</li>
@@ -183,6 +189,7 @@
       <li xml:lang="ast">El guardáu automáticu quier dicir que les tos notes tán a salvu de perdese</li>
       <li xml:lang="ca">El desat automàtic significa que les vostres notes estaran fora de perill d'una pèrdua</li>
       <li xml:lang="ca-valencia">El guardat automàtic significa que les vostres notes estaran fora de perill d'una pèrdua</li>
+      <li xml:lang="da">Automatisk gem, betyder at dine noter er sikret mod tab</li>
       <li xml:lang="de">Automatisches Speichern verhindert den Verlust von Notizen</li>
       <li xml:lang="el">Αυτόματη αποθήκευση σημαίνει ότι οι σημειώσεις σας δεν διατρέχουν κίνδυνο απώλειας</li>
       <li xml:lang="en-GB">Automatic saving means your notes are safe from loss</li>
