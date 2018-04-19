@@ -15,6 +15,7 @@
   <name xml:lang="fi">KJots</name>
   <name xml:lang="fr">KJots</name>
   <name xml:lang="gl">KJots</name>
+  <name xml:lang="ia">KJots</name>
   <name xml:lang="it">KJots</name>
   <name xml:lang="nl">KJots</name>
   <name xml:lang="pl">KJots</name>
@@ -39,6 +40,7 @@
   <summary xml:lang="en-GB">Note-taking utility</summary>
   <summary xml:lang="es">Utilidad para tomar notas</summary>
   <summary xml:lang="gl">Ferramenta para tomar notas</summary>
+  <summary xml:lang="ia">Utilitate de prender nota de KDE</summary>
   <summary xml:lang="it">Strumento per prendere appunti</summary>
   <summary xml:lang="nl">Hulpprogramma voor het maken van notities</summary>
   <summary xml:lang="pl">Narzędzie do notatek</summary>
@@ -85,6 +87,7 @@
     <p xml:lang="fi">Ominaisuuksia:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
+    <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pl">Możliwości:</p>
