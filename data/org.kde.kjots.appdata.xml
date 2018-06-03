@@ -39,6 +39,7 @@
   <summary xml:lang="el">Εργαλείο τήρησης σημειωμάτων</summary>
   <summary xml:lang="en-GB">Note-taking utility</summary>
   <summary xml:lang="es">Utilidad para tomar notas</summary>
+  <summary xml:lang="fr">Utilitaire de prise de notes</summary>
   <summary xml:lang="gl">Ferramenta para tomar notas</summary>
   <summary xml:lang="ia">Utilitate de prender nota de KDE</summary>
   <summary xml:lang="it">Strumento per prendere appunti</summary>
@@ -63,6 +64,7 @@
     <p xml:lang="el">Το KJots οργανώνει όλες τις σημειώσεις σας σε ξεχωριστά βιβλία.</p>
     <p xml:lang="en-GB">KJots organises all of your notes into separate books.</p>
     <p xml:lang="es">KJots organiza todas sus notas en libros separados.</p>
+    <p xml:lang="fr">KJots organise toutes vos notes au sein de carnets séparés.</p>
     <p xml:lang="gl">KJots organiza todas as súas notas en cadernos separados.</p>
     <p xml:lang="it">KJots organizza tutte le tue note in libri separati.</p>
     <p xml:lang="nl">KJots organiseert al uw notities in gescheiden boeken.</p>
@@ -111,6 +113,7 @@
       <li xml:lang="en-GB">Multiple books handled</li>
       <li xml:lang="es">Manejo de múltiples libros</li>
       <li xml:lang="fi">Hallitsee useampia muistikirjoja</li>
+      <li xml:lang="fr">Prise en charge de plusieurs carnets</li>
       <li xml:lang="gl">Xestiona varios cadernos.</li>
       <li xml:lang="it">Più libri gestiti</li>
       <li xml:lang="nl">Meerdere boeken worden behandeld</li>
@@ -133,6 +136,7 @@
       <li xml:lang="en-GB">Each book has many named pages</li>
       <li xml:lang="es">Cada libro puede contener numerosas páginas con nombre</li>
       <li xml:lang="fi">Kussakin kirjassa on useampia nimettyjä sivuja</li>
+      <li xml:lang="fr">Chaque carnet peut comporter de nombreuses pages nommées</li>
       <li xml:lang="gl">Cada caderno ten varias páxinas con nome de seu.</li>
       <li xml:lang="it">Ogni libro ha molte pagine con nome</li>
       <li xml:lang="nl">Elk boek heeft veel genoemde pagina's</li>
@@ -155,6 +159,7 @@
       <li xml:lang="en-GB">Books and pages can be rearranged by drag-and-drop</li>
       <li xml:lang="es">Los libros y las páginas se pueden organizar y arrastrar</li>
       <li xml:lang="fi">Kirjoja ja sivuja voi järjestää uudelleen vetämällä ja pudottamalla</li>
+      <li xml:lang="fr">Les carnets et les pages peuvent être réorganisés avec des opérations de type glisser-déposer</li>
       <li xml:lang="gl">Pode arrastrar e soltar para organizar os cadernos e páxinas.</li>
       <li xml:lang="it">Libri e pagine possono essere riorganizzati con il trascinamento e rilascio</li>
       <li xml:lang="nl">Boeken en pagina's kunnen opnieuw gerangschikt worden met slepen-en-loslaten</li>
@@ -177,6 +182,7 @@
       <li xml:lang="en-GB">Keyboard shortcuts are available for many functions</li>
       <li xml:lang="es">Dispone de accesos rápidos de teclado para muchas funciones</li>
       <li xml:lang="fi">Moniin toimintoihin on pikanäppäimet</li>
+      <li xml:lang="fr">Des raccourcis claviers sont disponibles pour de nombreuses fonctions</li>
       <li xml:lang="gl">Moitas funcionalidades contan con atallos de teclado.</li>
       <li xml:lang="it">Scorciatoie da tastiera sono disponibili per molte funzioni</li>
       <li xml:lang="nl">Sneltoetsen zijn beschikbaar voor veel functies</li>
@@ -199,6 +205,7 @@
       <li xml:lang="en-GB">Automatic saving means your notes are safe from loss</li>
       <li xml:lang="es">Las notas se guardan automáticamente para evitar que se pierdan</li>
       <li xml:lang="fi">Automaattitallennuksen ansiosta muistiinpanosi on turvassa</li>
+      <li xml:lang="fr">L'enregistrement automatique protège vos notes contre les pertes accidentelles</li>
       <li xml:lang="gl">Os datos gárdanse automaticamente para evitar a perda de datos.</li>
       <li xml:lang="it">Salvataggio automatico significa che le tue note sono al sicuro da perdite</li>
       <li xml:lang="nl">Automatisch opslaan betekend dat uw notities veilig zijn voor verlies</li>
