@@ -46,6 +46,7 @@
   <summary xml:lang="nl">Hulpprogramma voor het maken van notities</summary>
   <summary xml:lang="pl">Narzędzie do notatek</summary>
   <summary xml:lang="pt">Utilitário de apontamento de notas</summary>
+  <summary xml:lang="pt-BR">Utilitário de tomada de notas</summary>
   <summary xml:lang="sk">Nástroj na tvorbu poznámok</summary>
   <summary xml:lang="sv">Anteckningsverktyg</summary>
   <summary xml:lang="tr">Not alma programı</summary>
@@ -70,6 +71,7 @@
     <p xml:lang="nl">KJots organiseert al uw notities in gescheiden boeken.</p>
     <p xml:lang="pl">KJots porządkuje twoje notatki w osobnych notesach.</p>
     <p xml:lang="pt">O KJots organiza todas as suas notas em livros separados.</p>
+    <p xml:lang="pt-BR">O KJots organiza todas as suas notas em livros separados.</p>
     <p xml:lang="sk">KJots organizuje všetky vaše poznámky do samostatných kníh.</p>
     <p xml:lang="sv">KJots organiserar alla anteckningar i separata böcker.</p>
     <p xml:lang="tr">KJots, notlarınızı kitaplara ayırarak düzenler.</p>
