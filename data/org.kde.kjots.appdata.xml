@@ -15,6 +15,7 @@
   <name xml:lang="fr">KJots</name>
   <name xml:lang="gl">KJots</name>
   <name xml:lang="ia">KJots</name>
+  <name xml:lang="id">KJots</name>
   <name xml:lang="it">KJots</name>
   <name xml:lang="nl">KJots</name>
   <name xml:lang="pl">KJots</name>
@@ -40,6 +41,7 @@
   <summary xml:lang="fr">Utilitaire de prise de notes</summary>
   <summary xml:lang="gl">Ferramenta para tomar notas</summary>
   <summary xml:lang="ia">Utilitate de prender nota de KDE</summary>
+  <summary xml:lang="id">Utilitas pengambilan catatan</summary>
   <summary xml:lang="it">Strumento per prendere appunti</summary>
   <summary xml:lang="nl">Hulpprogramma voor het maken van notities</summary>
   <summary xml:lang="pl">Narzędzie do notatek</summary>
@@ -64,6 +66,7 @@
     <p xml:lang="es">KJots organiza todas sus notas en libros separados.</p>
     <p xml:lang="fr">KJots organise toutes vos notes au sein de carnets séparés.</p>
     <p xml:lang="gl">KJots organiza todas as súas notas en cadernos separados.</p>
+    <p xml:lang="id">KJots mengatur semua catatanmu ke dalam buku yang terpisah</p>
     <p xml:lang="it">KJots organizza tutte le tue note in libri separati.</p>
     <p xml:lang="nl">KJots organiseert al uw notities in gescheiden boeken.</p>
     <p xml:lang="pl">KJots porządkuje twoje notatki w osobnych notesach.</p>
@@ -88,6 +91,7 @@
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="ia">Characteristicas:</p>
+    <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pl">Możliwości:</p>
@@ -112,6 +116,7 @@
       <li xml:lang="fi">Hallitsee useampia muistikirjoja</li>
       <li xml:lang="fr">Prise en charge de plusieurs carnets</li>
       <li xml:lang="gl">Xestiona varios cadernos.</li>
+      <li xml:lang="id">Menangani multi buku</li>
       <li xml:lang="it">Più libri gestiti</li>
       <li xml:lang="nl">Meerdere boeken worden behandeld</li>
       <li xml:lang="pl">Obsługa wielu notesów</li>
@@ -134,6 +139,7 @@
       <li xml:lang="fi">Kussakin kirjassa on useampia nimettyjä sivuja</li>
       <li xml:lang="fr">Chaque carnet peut comporter de nombreuses pages nommées</li>
       <li xml:lang="gl">Cada caderno ten varias páxinas con nome de seu.</li>
+      <li xml:lang="id">Setiap buku memiliki banyak halaman yang dinamai</li>
       <li xml:lang="it">Ogni libro ha molte pagine con nome</li>
       <li xml:lang="nl">Elk boek heeft veel genoemde pagina's</li>
       <li xml:lang="pl">Każdy notes ma wiele stron z nazwami</li>
@@ -156,6 +162,7 @@
       <li xml:lang="fi">Kirjoja ja sivuja voi järjestää uudelleen vetämällä ja pudottamalla</li>
       <li xml:lang="fr">Les carnets et les pages peuvent être réorganisés avec des opérations de type glisser-déposer</li>
       <li xml:lang="gl">Pode arrastrar e soltar para organizar os cadernos e páxinas.</li>
+      <li xml:lang="id">Buku dan halaman bisa ditata ulang dengan cara seret-dan-taruh</li>
       <li xml:lang="it">Libri e pagine possono essere riorganizzati con il trascinamento e rilascio</li>
       <li xml:lang="nl">Boeken en pagina's kunnen opnieuw gerangschikt worden met slepen-en-loslaten</li>
       <li xml:lang="pl">Notesy i strony można dowolnie ustawiać poprzez przeciąganie i upuszczanie</li>
@@ -178,6 +185,7 @@
       <li xml:lang="fi">Moniin toimintoihin on pikanäppäimet</li>
       <li xml:lang="fr">Des raccourcis claviers sont disponibles pour de nombreuses fonctions</li>
       <li xml:lang="gl">Moitas funcionalidades contan con atallos de teclado.</li>
+      <li xml:lang="id">Pintasan keyboard telah tersedia untuk banyak fungsi</li>
       <li xml:lang="it">Scorciatoie da tastiera sono disponibili per molte funzioni</li>
       <li xml:lang="nl">Sneltoetsen zijn beschikbaar voor veel functies</li>
       <li xml:lang="pl">Skróty klawiaturowe są dostępne dla wielu funkcji</li>
@@ -200,6 +208,7 @@
       <li xml:lang="fi">Automaattitallennuksen ansiosta muistiinpanosi on turvassa</li>
       <li xml:lang="fr">L'enregistrement automatique protège vos notes contre les pertes accidentelles</li>
       <li xml:lang="gl">Os datos gárdanse automaticamente para evitar a perda de datos.</li>
+      <li xml:lang="id">Sarana penyimpanan otomatis catatanmu sehingga aman dari kehilangan</li>
       <li xml:lang="it">Salvataggio automatico significa che le tue note sono al sicuro da perdite</li>
       <li xml:lang="nl">Automatisch opslaan betekend dat uw notities veilig zijn voor verlies</li>
       <li xml:lang="pl">Samoczynne zapisywanie oznacza, że twoje notatki są zabezpieczone od utraty</li>
