@@ -353,17 +353,20 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     bookmarkMenu = actionCollection->add<KActionMenu>(QLatin1String("bookmarks"));
     bookmarkMenu->setText(i18n("&Bookmarks"));
     KJotsBookmarks *bookmarks = new KJotsBookmarks(treeview);
-    /*KBookmarkMenu *bmm =*/ new KBookmarkMenu(
+    KBookmarkMenu *bmm = new KBookmarkMenu(
         KBookmarkManager::managerForFile(
             QStandardPaths::standardLocations(QStandardPaths::AppDataLocation).first() + QStringLiteral("/kjots/bookmarks.xml"),
             QStringLiteral("kjots")),
-        bookmarks, bookmarkMenu->menu(), actionCollection);
+        bookmarks, bookmarkMenu->menu());
 
     // "Add bookmark" and "make text bold" actions have conflicting shortcuts (ctrl + b)
     // Make add_bookmark use ctrl+shift+b to resolve that.
-    QAction *bm_action = qobject_cast<QAction *>(actionCollection->action(QLatin1String("add_bookmark")));
-    Q_ASSERT(bm_action);
-    bm_action->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_B);
+    QAction *bm_action = bmm->addBookmarkAction();
+    actionCollection->addAction(QStringLiteral("add_bookmark"), bm_action);
+    actionCollection->setDefaultShortcut(bm_action, Qt::CTRL | Qt::SHIFT | Qt::Key_B);
+    actionCollection->addAction(QStringLiteral("edit_bookmark"), bmm->editBookmarksAction());
+    actionCollection->addAction(QStringLiteral("add_bookmarks_list"), bmm->bookmarkTabsAsFolderAction());
+
 
     KStandardAction::find(this, SLOT(onShowSearch()), actionCollection);
     action = KStandardAction::findNext(this, SLOT(onRepeatSearch()), actionCollection);
