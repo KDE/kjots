@@ -49,6 +49,9 @@ find_package(Grantlee5 "5.0" CONFIG REQUIRED)
 
 find_package(Xsltproc)
 
+##################### Definitions #####################
+add_definitions(-DQT_NO_KEYWORDS)
+
 ##################### Targets #######################
 
 add_subdirectory(src)

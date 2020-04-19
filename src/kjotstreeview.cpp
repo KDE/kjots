@@ -212,9 +212,8 @@ void KJotsTreeView::changeColor()
     QColor myColor;
     myColor = QColorDialog::getColor();
     if (myColor.isValid()) {
-        QModelIndexList rows = selectionModel()->selectedRows();
-
-        foreach (const QModelIndex &idx, rows) {
+        const QModelIndexList rows = selectionModel()->selectedRows();
+        for (const QModelIndex &idx : rows) {
             model()->setData(idx, myColor, Qt::BackgroundRole);
         }
     }

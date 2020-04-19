@@ -29,11 +29,6 @@ NoteLockAttribute::NoteLockAttribute()
 
 }
 
-NoteLockAttribute::~NoteLockAttribute()
-{
-
-}
-
 NoteLockAttribute *NoteLockAttribute::clone() const
 {
     return new NoteLockAttribute();
@@ -41,7 +36,7 @@ NoteLockAttribute *NoteLockAttribute::clone() const
 
 void NoteLockAttribute::deserialize(const QByteArray &data)
 {
-    Q_UNUSED(data);
+    Q_UNUSED(data)
 }
 
 QByteArray NoteLockAttribute::serialized() const

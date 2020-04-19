@@ -41,12 +41,9 @@ class KJotsConfigMisc : public KCModule
 public:
     explicit KJotsConfigMisc(QWidget *parent, const QVariantList &args = QVariantList());
 
-    /** Reimplemented from KCModule. */
-    virtual void load();
-
-    /** Reimplemented form KCModule. */
-    virtual void save();
-private slots:
+    void load() override;
+    void save() override;
+private Q_SLOTS:
     void modified();
 private:
     confPageMisc *miscPage;
@@ -58,9 +55,8 @@ class KJotsConfigDlg : public KCMultiDialog
 
 public:
     KJotsConfigDlg(const QString &title, QWidget *parent);
-    ~KJotsConfigDlg();
 
-public slots:
+public Q_SLOTS:
     void slotOk();
 };
 

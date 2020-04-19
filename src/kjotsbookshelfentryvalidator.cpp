@@ -27,14 +27,9 @@ KJotsBookshelfEntryValidator::KJotsBookshelfEntryValidator(QAbstractItemModel *m
     m_model = model;
 }
 
-KJotsBookshelfEntryValidator::~KJotsBookshelfEntryValidator()
-{
-
-}
-
 QValidator::State KJotsBookshelfEntryValidator::validate(QString &input, int &pos) const
 {
-    Q_UNUSED(pos);
+    Q_UNUSED(pos)
     if (!m_model) {
         return Invalid;
     }
@@ -42,16 +37,16 @@ QValidator::State KJotsBookshelfEntryValidator::validate(QString &input, int &po
         return Intermediate;
     }
 
-    QModelIndexList list = m_model->match(
-                               m_model->index(0, 0),
-                               Qt::DisplayRole,
-                               input,
-                               Qt::MatchStartsWith | Qt::MatchFixedString | Qt::MatchWrap);
+    const QModelIndexList list = m_model->match(
+                                   m_model->index(0, 0),
+                                   Qt::DisplayRole,
+                                   input,
+                                   Qt::MatchStartsWith | Qt::MatchFixedString | Qt::MatchWrap);
 
     if (list.empty()) {
         return Invalid;
     } else {
-        foreach (const QModelIndex &index, list) {
+        for (const QModelIndex &index : list) {
             if (0 == QString::compare(m_model->data(index).toString(), input, Qt::CaseInsensitive)) {
                 return Acceptable;
             }

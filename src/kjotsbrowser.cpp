@@ -37,10 +37,6 @@ KJotsBrowser::KJotsBrowser(QItemSelectionModel *selectionModel, QWidget *parent)
     setWordWrapMode(QTextOption::WordWrap);
 }
 
-KJotsBrowser::~KJotsBrowser()
-{
-}
-
 void KJotsBrowser::delayedInitialization()
 {
     connect(this, &KJotsBrowser::anchorClicked, this, &KJotsBrowser::linkClicked);

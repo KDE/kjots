@@ -47,8 +47,8 @@ class NoteCreatorAndSelector : public QObject
     Q_OBJECT
 public:
     explicit NoteCreatorAndSelector(QItemSelectionModel *primaryModel,
-                                    QItemSelectionModel *secondaryModel = 0,
-                                    QObject *parent = Q_NULLPTR);
+                                    QItemSelectionModel *secondaryModel = nullptr,
+                                    QObject *parent = nullptr);
 
     virtual ~NoteCreatorAndSelector();
 

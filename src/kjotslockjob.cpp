@@ -36,14 +36,9 @@ KJotsLockJob::KJotsLockJob(const Akonadi::Collection::List &collections, const A
 {
 }
 
-KJotsLockJob::~KJotsLockJob()
-{
-
-}
-
 void KJotsLockJob::doStart()
 {
-    foreach (const Akonadi::Collection &_col, m_collections) {
+    for (const Akonadi::Collection &_col : qAsConst(m_collections)) {
         Akonadi::Collection col = _col;
         if (m_type == LockJob) {
             col.addAttribute(new NoteShared::NoteLockAttribute());
@@ -52,7 +47,7 @@ void KJotsLockJob::doStart()
         }
         new Akonadi::CollectionModifyJob(col, this);
     }
-    foreach (const Akonadi::Item &_item, m_items) {
+    for (const Akonadi::Item &_item : qAsConst(m_items)) {
         Akonadi::Item item = _item;
         if (m_type == LockJob) {
             item.addAttribute(new NoteShared::NoteLockAttribute());

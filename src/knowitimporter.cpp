@@ -104,7 +104,8 @@ QDomElement KnowItImporter::addNote(const KnowItNote &note)
         titlePage.appendChild(titlePageTextTag);
         newElement.appendChild(titlePage);
 
-        foreach (int id, m_childNotes[ note.id ]) {
+        const QList<int> ids = m_childNotes[ note.id ];
+        for (int id : ids) {
             QDomElement e = addNote(m_noteHash.value(id));
             newElement.appendChild(e);
         }
@@ -147,7 +148,7 @@ void KnowItImporter::buildDomDocument()
     parent.appendChild(openTag);
     m_domDoc.appendChild(parent);
 
-    foreach (const KnowItNote &n, m_notes) {
+    for (const KnowItNote &n : qAsConst(m_notes)) {
         QDomElement e = addNote(n);
         parent.appendChild(e);
         qDebug() << n.title;
@@ -175,7 +176,7 @@ void KnowItImporter::buildNoteTree(const QUrl &url)
                 continue;
             }
 
-            foreach (const QByteArray &header, entryHeaders) {
+            for (const QByteArray &header : qAsConst(entryHeaders)) {
                 if (line.startsWith(QLatin1String(header))) {
                     qDebug() << "init" << line << header;
                     line = line.right(line.size() - header.size()).trimmed();

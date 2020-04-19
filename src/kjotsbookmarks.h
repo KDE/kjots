@@ -34,11 +34,10 @@ class KJotsBookmarks : public QObject, public KBookmarkOwner
 
 public:
     explicit KJotsBookmarks(KJotsTreeView *treeView);
-    ~KJotsBookmarks();
 
-    virtual QUrl currentUrl() const;
-    virtual QString currentTitle() const;
-    virtual void openBookmark(const KBookmark &bm, Qt::MouseButtons mb, Qt::KeyboardModifiers km);
+    QUrl currentUrl() const override;
+    QString currentTitle() const override;
+    void openBookmark(const KBookmark &bm, Qt::MouseButtons mb, Qt::KeyboardModifiers km) override;
 
 private:
     KJotsTreeView *m_treeView;

@@ -35,12 +35,12 @@ class LocalResourceCreator : public NoteShared::LocalResourceCreator
 {
     Q_OBJECT
 public:
-    explicit LocalResourceCreator(QObject *parent = 0);
+    explicit LocalResourceCreator(QObject *parent = nullptr);
 
 protected:
-    virtual void finishCreateResource();
+    void finishCreateResource() override;
 
-private slots:
+private Q_SLOTS:
     void rootFetchFinished(KJob *job);
     void topLevelFetchFinished(KJob *job);
     void createFinished(KJob *job);

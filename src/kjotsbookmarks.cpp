@@ -33,10 +33,6 @@ KJotsBookmarks::KJotsBookmarks(KJotsTreeView *treeView) :
 {
 }
 
-KJotsBookmarks::~KJotsBookmarks()
-{
-}
-
 void KJotsBookmarks::openBookmark(const KBookmark &bookmark, Qt::MouseButtons, Qt::KeyboardModifiers)
 {
 #if 0

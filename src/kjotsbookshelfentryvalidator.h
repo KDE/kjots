@@ -41,15 +41,10 @@ public:
       @param parent The parent object.
       @param model The model to use to validate the input.
     */
-    explicit KJotsBookshelfEntryValidator(QAbstractItemModel *model, QObject *parent = 0);
+    explicit KJotsBookshelfEntryValidator(QAbstractItemModel *model, QObject *parent = nullptr);
 
     /**
-      Destructor.
-    */
-    ~KJotsBookshelfEntryValidator();
-
-    /**
-      Reimplemented. Returns the state of whether \p input matches one of the items in the model.
+      Returns the state of whether \p input matches one of the items in the model.
 
       If the text does not match any item in the model, the state is Invalid.
       If the text is empty, the state is Intermediate.
@@ -58,7 +53,7 @@ public:
 
       \return The validation state.
     */
-    virtual QValidator::State validate(QString &input, int &pos) const;
+    QValidator::State validate(QString &input, int &pos) const override;
 
 private:
     QAbstractItemModel *m_model;

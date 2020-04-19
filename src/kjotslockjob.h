@@ -35,16 +35,13 @@ public:
         UnlockJob
     };
 
-    KJotsLockJob(const Akonadi::Collection::List &collections, const Akonadi::Item::List &items, Type type = LockJob, QObject *parent = 0);
-    KJotsLockJob(const Akonadi::Collection::List &collections, const Akonadi::Item::List &items, QObject *parent = 0);
-
-    ~KJotsLockJob();
-
+    explicit KJotsLockJob(const Akonadi::Collection::List &collections, const Akonadi::Item::List &items, Type type = LockJob, QObject *parent = nullptr);
+    explicit KJotsLockJob(const Akonadi::Collection::List &collections, const Akonadi::Item::List &items, QObject *parent = nullptr);
 protected:
-    virtual void doStart();
+    void doStart() override;
 
 protected Q_SLOTS:
-    virtual void slotResult(KJob *job);
+    void slotResult(KJob *job) override;
 
 private:
     Akonadi::Collection::List m_collections;

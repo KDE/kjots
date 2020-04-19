@@ -44,10 +44,6 @@ KJotsPlugin::KJotsPlugin(KontactInterface::Core *core, const QVariantList &)
         new KontactInterface::UniqueAppHandlerFactory<KJotsUniqueAppHandler>(), this);
 }
 
-KJotsPlugin::~KJotsPlugin()
-{
-}
-
 void KJotsPlugin::setHelpText(QAction *action, const QString &text)
 {
     action->setStatusTip(text);
@@ -71,7 +67,7 @@ KParts::ReadOnlyPart *KJotsPlugin::createPart()
 {
     KParts::ReadOnlyPart *part = loadPart();
     if (!part) {
-        return Q_NULLPTR;
+        return nullptr;
     }
 
     return part;
@@ -87,7 +83,7 @@ QStringList KJotsPlugin::configModules() const
 
 void KJotsUniqueAppHandler::loadCommandLineOptions(QCommandLineParser *parser)
 {
-    Q_UNUSED(parser);
+    Q_UNUSED(parser)
 }
 
 

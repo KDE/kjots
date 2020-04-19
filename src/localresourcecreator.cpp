@@ -72,7 +72,7 @@ void LocalResourceCreator::rootFetchFinished(KJob *job)
         return;
     }
 
-    foreach (const Akonadi::Collection &col, list) {
+    for (const Akonadi::Collection &col : qAsConst(list)) {
         Akonadi::AgentInstance instance = Akonadi::AgentManager::self()->instance(col.resource());
         if (instance.type().identifier() == akonadiNotesInstanceName()) {
             Akonadi::CollectionFetchJob *collectionFetchJob = new Akonadi::CollectionFetchJob(col, Akonadi::CollectionFetchJob::FirstLevel, this);

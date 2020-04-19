@@ -44,7 +44,7 @@ public:
     {
         return m_answer;
     }
-protected slots:
+protected Q_SLOTS:
     void onHandleAll(void);
     void onHandleSkip(void);
     void onHandleReplace(void);

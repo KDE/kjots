@@ -37,21 +37,20 @@ class KJotsEdit : public KRichTextWidget
     Q_OBJECT
 public:
     explicit KJotsEdit(QItemSelectionModel *selectionModel, QWidget *);
-    virtual ~KJotsEdit();
 
     void delayedInitialization(KActionCollection *);
-    virtual bool canInsertFromMimeData(const QMimeData *) const;
-    virtual void insertFromMimeData(const QMimeData *);
+    bool canInsertFromMimeData(const QMimeData *) const override;
+    void insertFromMimeData(const QMimeData *) override;
 
 protected:
     /** Override to make ctrl+click follow links */
-    virtual void mouseReleaseEvent(QMouseEvent *);
+    void mouseReleaseEvent(QMouseEvent *) override;
 
-    virtual void focusOutEvent(QFocusEvent *);
+    void focusOutEvent(QFocusEvent *) override;
 
-    virtual bool event(QEvent *event);
+    bool event(QEvent *event) override;
 
-public slots:
+public Q_SLOTS:
     void mousePopupMenuImplementation(const QPoint &pos);
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     void tryDisableEditing();

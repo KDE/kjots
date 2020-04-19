@@ -71,12 +71,12 @@ class KJotsWidget : public QWidget
     Q_CLASSINFO("D-Bus Interface", "org.kde.KJotsWidget")
 
 public:
-    KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiclient, Qt::WindowFlags f = 0);
+    explicit KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiclient, Qt::WindowFlags f = 0);
     ~KJotsWidget();
 
     QTextEdit *activeEditor();
 
-public slots:
+public Q_SLOTS:
     void prevPage();
     void nextPage();
     void prevBook();
@@ -95,7 +95,7 @@ public slots:
 
     Q_SCRIPTABLE bool queryClose();
 
-signals:
+Q_SIGNALS:
     void canGoNextPageChanged(bool);
     void canGoPreviousPageChanged(bool);
     void canGoNextBookChanged(bool);
@@ -121,7 +121,7 @@ protected:
     int search(bool);
     void migrateNoteData(const QString &migrator, const QString &type = QString());
 
-protected slots:
+protected Q_SLOTS:
     void renderSelection();
     void changeTheme();
     void exportSelectionToHtml();
@@ -134,7 +134,7 @@ protected slots:
     void deleteBook();
     void deleteMultiple();
 
-private slots:
+private Q_SLOTS:
     void delayedInitialization();
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight);

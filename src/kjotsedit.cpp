@@ -58,7 +58,7 @@ using namespace Akonadi;
 
 KJotsEdit::KJotsEdit(QItemSelectionModel *selectionModel, QWidget *parent)
     : KRichTextWidget(parent),
-      actionCollection(0),
+      actionCollection(nullptr),
       allowAutoDecimal(false),
       m_selectionModel(selectionModel)
 {
@@ -75,10 +75,6 @@ KJotsEdit::KJotsEdit(QItemSelectionModel *selectionModel, QWidget *parent)
 
     connect(m_selectionModel, &QItemSelectionModel::selectionChanged, this, &KJotsEdit::selectionChanged);
     connect(m_selectionModel->model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)), SLOT(tryDisableEditing()));
-}
-
-KJotsEdit::~KJotsEdit()
-{
 }
 
 void KJotsEdit::mousePopupMenuImplementation(const QPoint &pos)
@@ -306,7 +302,8 @@ void KJotsEdit::insertFromMimeData(const QMimeData *source)
     if (source->formats().contains(QLatin1String("kjots/internal_link"))) {
         insertHtml(QLatin1String(source->data(QLatin1String("kjots/internal_link"))));
     } else if (source->hasUrls()) {
-        foreach (const QUrl &url, source->urls()) {
+        const QList<QUrl> urls = source->urls();
+        for (const QUrl &url : urls) {
             if (url.isValid()) {
                 QString html = QString::fromLatin1("<a href='%1'>%2</a> ")
                                .arg(QString::fromUtf8(url.toEncoded()))

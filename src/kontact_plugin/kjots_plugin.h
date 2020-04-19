@@ -50,7 +50,6 @@ class KJotsPlugin : public KontactInterface::Plugin
 
 public:
     KJotsPlugin(KontactInterface::Core *core, const QVariantList &);
-    ~KJotsPlugin();
 
     int weight() const Q_DECL_OVERRIDE
     {

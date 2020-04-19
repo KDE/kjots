@@ -31,11 +31,6 @@ KJotsSortProxyModel::KJotsSortProxyModel(QObject *parent)
     setDynamicSortFilter(true);
 }
 
-KJotsSortProxyModel::~KJotsSortProxyModel()
-{
-
-}
-
 bool KJotsSortProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
     const Akonadi::Collection::Id colId = left.data(Akonadi::EntityTreeModel::ParentCollectionRole).value<Akonadi::Collection>().id();

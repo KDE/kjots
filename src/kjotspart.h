@@ -52,7 +52,7 @@ public:
     /**
      * Destructor
      */
-    virtual ~KJotsPart();
+    ~KJotsPart() override;
 
     static KAboutData *createAboutData();
 
@@ -60,7 +60,7 @@ protected:
     /**
      * This must be implemented by each part
      */
-    virtual bool openFile();
+    bool openFile() override;
 
 protected Q_SLOTS:
     void delayedInitialization();

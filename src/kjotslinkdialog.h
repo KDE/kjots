@@ -36,7 +36,7 @@ class KJotsLinkDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent = 0);
+    explicit KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent = nullptr);
 
     /**
      * Returns the link text shown in the dialog
@@ -62,7 +62,7 @@ public:
      */
     QString linkUrl() const;
 
-public slots:
+public Q_SLOTS:
     void trySetEntry(const QString &text);
 
 private:

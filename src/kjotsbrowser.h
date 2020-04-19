@@ -32,11 +32,10 @@ class KJotsBrowser : public QTextBrowser
     Q_OBJECT
 public:
     explicit KJotsBrowser(QItemSelectionModel *selectionModel, QWidget *);
-    virtual ~KJotsBrowser();
 
     void delayedInitialization();
 
-protected slots:
+protected Q_SLOTS:
     void linkClicked(const QUrl &);
 
 private:

@@ -30,14 +30,13 @@ class KJotsSortProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit KJotsSortProxyModel(QObject *parent = 0);
-    ~KJotsSortProxyModel();
+    explicit KJotsSortProxyModel(QObject *parent = nullptr);
 
     void sortChildrenAlphabetically(const QModelIndex &parent);
     void sortChildrenByCreationTime(const QModelIndex &parent);
 
 protected:
-    virtual bool lessThan(const QModelIndex &left, const QModelIndex &right) const;
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
 private:
     Akonadi::Collection::Id collectionId(const QModelIndex &parent) const;

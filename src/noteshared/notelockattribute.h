@@ -29,8 +29,7 @@ namespace NoteShared
 class NoteLockAttribute : public Akonadi::Attribute
 {
 public:
-    NoteLockAttribute();
-    ~NoteLockAttribute();
+    explicit NoteLockAttribute();
 
     QByteArray type() const Q_DECL_OVERRIDE;
 

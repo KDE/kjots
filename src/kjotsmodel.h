@@ -49,7 +49,7 @@ class KJotsEntity : public QObject
     Q_PROPERTY(QVariantList breadcrumbs READ breadcrumbs)
 
 public:
-    explicit KJotsEntity(const QModelIndex &index, QObject *parent = 0);
+    explicit KJotsEntity(const QModelIndex &index, QObject *parent = nullptr);
     void setIndex(const QModelIndex &index);
 
     bool isBook() const;
@@ -75,8 +75,8 @@ class KJotsModel : public EntityTreeModel
 {
     Q_OBJECT
 public:
-    explicit KJotsModel(ChangeRecorder *monitor, QObject *parent = 0);
-    virtual ~KJotsModel();
+    explicit KJotsModel(ChangeRecorder *monitor, QObject *parent = nullptr);
+    ~KJotsModel() override;
 
     enum KJotsRoles {
         GrantleeObjectRole = EntityTreeModel::UserRole,
@@ -86,11 +86,11 @@ public:
 
     // We don't reimplement the Collection overload.
     using EntityTreeModel::entityData;
-    virtual QVariant entityData(const Akonadi::Item &item, int column, int role = Qt::DisplayRole) const;
+    QVariant entityData(const Akonadi::Item &item, int column, int role = Qt::DisplayRole) const override;
 
-    QVariant data(const QModelIndex &index, int role) const;
+    QVariant data(const QModelIndex &index, int role) const override;
 
-    virtual bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
+    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
 
 private:
     QHash<Collection::Id, QColor> m_colors;

@@ -34,18 +34,15 @@ class KJotsMain : public KXmlGuiWindow
     Q_OBJECT
 
 public:
-    KJotsMain();
+    explicit KJotsMain();
 
-public slots:
+public Q_SLOTS:
     void updateCaption(QString);
     void onQuit();
     void activeAnchorChanged(const QString &, const QString &);
 
 protected:
-    /**
-      Reimplemented from KMainWindow
-    */
-    /* reimp */ bool queryClose();
+    bool queryClose() override;
 
 private:
     KJotsWidget *component;

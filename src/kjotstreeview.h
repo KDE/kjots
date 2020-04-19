@@ -30,15 +30,15 @@ class KJotsTreeView : public Akonadi::EntityTreeView
 {
     Q_OBJECT
 public:
-    explicit KJotsTreeView(KXMLGUIClient *xmlGuiClient, QWidget *parent = 0);
+    explicit KJotsTreeView(KXMLGUIClient *xmlGuiClient, QWidget *parent = nullptr);
 
     void delayedInitialization();
     QString captionForSelection(const QString &sep) const;
 
 protected:
-    virtual void contextMenuEvent(QContextMenuEvent *event);
+    void contextMenuEvent(QContextMenuEvent *event) override;
 
-protected slots:
+protected Q_SLOTS:
     void renameEntry();
     void copyLinkAddress();
     void changeColor();

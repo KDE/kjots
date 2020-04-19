@@ -551,10 +551,10 @@ void KJotsWidget::currentCharFormatChanged(const QTextCharFormat &fmt)
             editor->selectLinkText(&c);
             QString selectedText = c.selectedText();
             if (!selectedText.isEmpty()) {
-                emit activeAnchorChanged(selectedAnchor, selectedText);
+                Q_EMIT activeAnchorChanged(selectedAnchor, selectedText);
             }
         } else {
-            emit activeAnchorChanged(QString(), QString());
+            Q_EMIT activeAnchorChanged(QString(), QString());
         }
     }
 }
@@ -615,40 +615,40 @@ void KJotsWidget::updateMenu()
 
     if (!selectionSize) {
         // no (meaningful?) selection
-        foreach (QAction *action, multiselectionActions) {
+        for (QAction *action : qAsConst(multiselectionActions)) {
             action->setEnabled(false);
         }
-        foreach (QAction *action, entryActions) {
+        for (QAction *action : qAsConst(entryActions)) {
             action->setEnabled(false);
         }
-        foreach (QAction *action, bookActions) {
+        for (QAction *action : qAsConst(bookActions)) {
             action->setEnabled(false);
         }
-        foreach (QAction *action, pageActions) {
+        for (QAction *action : qAsConst(pageActions)) {
             action->setEnabled(false);
         }
         editor->setActionsEnabled(false);
     } else if (selectionSize > 1) {
-        foreach (QAction *action, entryActions) {
+        for (QAction *action : qAsConst(entryActions)) {
             action->setEnabled(false);
         }
-        foreach (QAction *action, bookActions) {
+        for (QAction *action : qAsConst(bookActions)) {
             action->setEnabled(false);
         }
-        foreach (QAction *action, pageActions) {
+        for (QAction *action : qAsConst(pageActions)) {
             action->setEnabled(false);
         }
-        foreach (QAction *action, multiselectionActions) {
+        for (QAction *action : qAsConst(multiselectionActions)) {
             action->setEnabled(true);
         }
 
         editor->setActionsEnabled(false);
     } else {
 
-        foreach (QAction *action, multiselectionActions) {
+        for (QAction *action : qAsConst(multiselectionActions)) {
             action->setEnabled(false);
         }
-        foreach (QAction *action, entryActions) {
+        for (QAction *action : qAsConst(entryActions)) {
             action->setEnabled(true);
         }
 
@@ -656,11 +656,11 @@ void KJotsWidget::updateMenu()
 
         Collection col = idx.data(KJotsModel::CollectionRole).value<Collection>();
         if (col.isValid()) {
-            foreach (QAction *action, pageActions) {
+            for (QAction *action : qAsConst(pageActions)) {
                 action->setEnabled(false);
             }
             const bool colIsRootCollection = (col.parentCollection() == Collection::root());
-            foreach (QAction *action, bookActions) {
+            for (QAction *action : qAsConst(bookActions)) {
                 if (action->objectName() == QLatin1String("del_folder") && colIsRootCollection) {
                     action->setEnabled(false);
                 } else {
@@ -671,14 +671,14 @@ void KJotsWidget::updateMenu()
 
             editor->setActionsEnabled(false);
         } else {
-            foreach (QAction *action, pageActions) {
+            for (QAction *action : qAsConst(pageActions)) {
                 if (action->objectName() == QLatin1String(name(KStandardAction::Cut))) {
                     action->setEnabled(activeEditor()->textCursor().hasSelection());
                 } else {
                     action->setEnabled(true);
                 }
             }
-            foreach (QAction *action, bookActions) {
+            for (QAction *action : qAsConst(bookActions)) {
                 action->setEnabled(false);
             }
             editor->setActionsEnabled(true);
@@ -729,7 +729,7 @@ void KJotsWidget::copySelectionToTitle()
 
 void KJotsWidget::deleteMultiple()
 {
-    QModelIndexList selectedRows = treeview->selectionModel()->selectedRows();
+    const QModelIndexList selectedRows = treeview->selectionModel()->selectedRows();
 
     if (KMessageBox::questionYesNo(this,
                                    i18n("Do you really want to delete all selected books and pages?"),
@@ -738,7 +738,7 @@ void KJotsWidget::deleteMultiple()
         return;
     }
 
-    foreach (const QModelIndex &index, selectedRows) {
+    for (const QModelIndex &index : selectedRows) {
         bool ok;
         qlonglong id = index.data(EntityTreeModel::ItemIdRole).toLongLong(&ok);
         Q_ASSERT(ok);
@@ -1064,7 +1064,7 @@ void KJotsWidget::exportSelectionToHtml()
         QFile exportFile(filename);
         if (!exportFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
             m_loader->setTheme(currentTheme);
-            KMessageBox::error(0, i18n("<qt>Error opening internal file.</qt>"));
+            KMessageBox::error(nullptr, i18n("<qt>Error opening internal file.</qt>"));
             return;
         }
         exportFile.write(renderSelectionToHtml().toUtf8());
@@ -1085,7 +1085,7 @@ void KJotsWidget::exportSelectionToPlainText()
         QFile exportFile(filename);
         if (!exportFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
             m_loader->setTheme(currentTheme);
-            KMessageBox::error(0, i18n("<qt>Error opening internal file.</qt>"));
+            KMessageBox::error(nullptr, i18n("<qt>Error opening internal file.</qt>"));
             return;
         }
         exportFile.write(renderSelectionToPlainText().toUtf8());
@@ -1106,7 +1106,7 @@ void KJotsWidget::exportSelectionToXml()
         QFile exportFile(filename);
         if (!exportFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
             m_loader->setTheme(currentTheme);
-            KMessageBox::error(0, i18n("<qt>Error opening internal file.</qt>"));
+            KMessageBox::error(nullptr, i18n("<qt>Error opening internal file.</qt>"));
             return;
         }
         exportFile.write(renderSelectionToXml().toUtf8());
@@ -1122,7 +1122,7 @@ void KJotsWidget::printPreviewSelection()
     printer.setDocName(QLatin1String("KJots_Print"));
     printer.setFullPage(false);
     printer.setCreator(QLatin1String("KJots"));
-    QPrintPreviewDialog previewdlg(&printer, 0);
+    QPrintPreviewDialog previewdlg(&printer, nullptr);
     print(printer);
     previewdlg.exec();
 }
@@ -1328,12 +1328,12 @@ bool KJotsWidget::canGoPreviousBook() const
 
 void KJotsWidget::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
-    Q_UNUSED(selected);
+    Q_UNUSED(selected)
 
-    emit canGoNextBookChanged(canGoPreviousBook());
-    emit canGoNextPageChanged(canGoNextPage());
-    emit canGoPreviousBookChanged(canGoPreviousBook());
-    emit canGoPreviousPageChanged(canGoPreviousPage());
+    Q_EMIT canGoNextBookChanged(canGoPreviousBook());
+    Q_EMIT canGoNextPageChanged(canGoNextPage());
+    Q_EMIT canGoPreviousBookChanged(canGoPreviousBook());
+    Q_EMIT canGoPreviousPageChanged(canGoPreviousPage());
 
     if (deselected.size() == 1) {
         editor->document()->setProperty("textCursor", QVariant::fromValue(editor->textCursor()));
@@ -1449,7 +1449,7 @@ void KJotsWidget::onStartSearch()
 void KJotsWidget::onRepeatSearch()
 {
     if (search(false) == 0) {
-        KMessageBox::sorry(0, i18n("<qt>No matches found.</qt>"));
+        KMessageBox::sorry(nullptr, i18n("<qt>No matches found.</qt>"));
         m_xmlGuiClient->actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::FindNext)))->setEnabled(false);
     }
 }
@@ -1561,7 +1561,7 @@ void KJotsWidget::onStartReplace()
 */
 void KJotsWidget::onRepeatReplace()
 {
-    KJotsReplaceNextDialog *dlg = 0;
+    KJotsReplaceNextDialog *dlg = nullptr;
 
     QString searchPattern = replaceDialog->pattern();
     QString replacePattern = replaceDialog->replacement();
@@ -1573,7 +1573,7 @@ void KJotsWidget::onRepeatReplace()
         dlg = new KJotsReplaceNextDialog(this);
     }
 
-    forever {
+    while (true) {
     if (!search(true))
         {
             break;
@@ -1625,9 +1625,9 @@ void KJotsWidget::onRepeatReplace()
     }
 
     if (replaced == found) {
-        KMessageBox::information(0, i18np("<qt>Replaced 1 occurrence.</qt>", "<qt>Replaced %1 occurrences.</qt>", replaced));
+        KMessageBox::information(nullptr, i18np("<qt>Replaced 1 occurrence.</qt>", "<qt>Replaced %1 occurrences.</qt>", replaced));
     } else if (replaced < found) {
-        KMessageBox::information(0,
+        KMessageBox::information(nullptr,
                                  i18np("<qt>Replaced %2 of 1 occurrence.</qt>", "<qt>Replaced %2 of %1 occurrences.</qt>", found, replaced));
     }
 
@@ -1664,7 +1664,7 @@ int KJotsWidget::search(bool replacing)
         allPages = true;
     }
 
-    QTextDocument::FindFlags findFlags = 0;
+    QTextDocument::FindFlags findFlags;
     if (options & Qt::CaseSensitive) {
         findFlags |= QTextDocument::FindCaseSensitively;
     }
@@ -1679,7 +1679,7 @@ int KJotsWidget::search(bool replacing)
 
     // We will find a match or return 0
     int attempts = 0;
-    forever {
+    while (true) {
     ++attempts;
 
     QTextEdit *browserOrEditor = activeEditor();
@@ -1767,7 +1767,7 @@ int KJotsWidget::search(bool replacing)
 
 void KJotsWidget::updateCaption()
 {
-    emit captionChanged(treeview->captionForSelection(QLatin1String(" / ")));
+    Q_EMIT captionChanged(treeview->captionForSelection(QLatin1String(" / ")));
 }
 
 void KJotsWidget::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight)
@@ -1780,7 +1780,7 @@ void KJotsWidget::dataChanged(const QModelIndex &topLeft, const QModelIndex &bot
 
     QItemSelection changed(topLeft, bottomRight);
     if (changed.contains(rows.first())) {
-        emit captionChanged(treeview->captionForSelection(QLatin1String(" / ")));
+        Q_EMIT captionChanged(treeview->captionForSelection(QLatin1String(" / ")));
     }
 }
 
@@ -1796,7 +1796,7 @@ bool KJotsWidget::queryClose()
 
 void KJotsWidget::actionLock()
 {
-    QModelIndexList selection = treeview->selectionModel()->selectedRows();
+    const QModelIndexList selection = treeview->selectionModel()->selectedRows();
 
     if (selection.isEmpty()) {
         return;
@@ -1804,7 +1804,7 @@ void KJotsWidget::actionLock()
 
     Collection::List collections;
     Item::List items;
-    foreach (const QModelIndex &idx, selection) {
+    for (const QModelIndex &idx : selection) {
         Collection col = idx.data(EntityTreeModel::CollectionRole).value<Collection>();
         if (col.isValid()) {
             collections << col;
@@ -1824,7 +1824,7 @@ void KJotsWidget::actionLock()
 
 void KJotsWidget::actionUnlock()
 {
-    QModelIndexList selection = treeview->selectionModel()->selectedRows();
+    const QModelIndexList selection = treeview->selectionModel()->selectedRows();
 
     if (selection.isEmpty()) {
         return;
@@ -1832,7 +1832,7 @@ void KJotsWidget::actionUnlock()
 
     Collection::List collections;
     Item::List items;
-    foreach (const QModelIndex &idx, selection) {
+    for (const QModelIndex &idx : selection) {
         Collection col = idx.data(EntityTreeModel::CollectionRole).value<Collection>();
         if (col.isValid()) {
             collections << col;
@@ -1852,9 +1852,9 @@ void KJotsWidget::actionUnlock()
 
 void KJotsWidget::actionSortChildrenAlpha()
 {
-    QModelIndexList selection = treeview->selectionModel()->selectedRows();
+    const QModelIndexList selection = treeview->selectionModel()->selectedRows();
 
-    foreach (const QModelIndex &index, selection) {
+    for (const QModelIndex &index : selection) {
         const QPersistentModelIndex persistent(index);
         m_sortProxyModel->sortChildrenAlphabetically(m_orderProxy->mapToSource(index));
         m_orderProxy->clearOrder(persistent);
@@ -1863,9 +1863,9 @@ void KJotsWidget::actionSortChildrenAlpha()
 
 void KJotsWidget::actionSortChildrenByDate()
 {
-    QModelIndexList selection = treeview->selectionModel()->selectedRows();
+    const QModelIndexList selection = treeview->selectionModel()->selectedRows();
 
-    foreach (const QModelIndex &index, selection) {
+    for (const QModelIndex &index : selection) {
         const QPersistentModelIndex persistent(index);
         m_sortProxyModel->sortChildrenByCreationTime(m_orderProxy->mapToSource(index));
         m_orderProxy->clearOrder(persistent);
