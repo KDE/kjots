@@ -27,6 +27,7 @@
 #include <kactioncollection.h>
 #include <qdebug.h>
 #include <kstandardaction.h>
+#include <KLocalizedString>
 
 #include "KJotsSettings.h"
 #include "kjotsbookmarks.h"
@@ -71,7 +72,8 @@ void KJotsMain::updateCaption(QString caption)
 void KJotsMain::activeAnchorChanged(const QString &anchorTarget, const QString &anchorText)
 {
     if (!anchorTarget.isEmpty()) {
-        statusBar()->showMessage(QStringLiteral("%1 -> %2").arg(anchorText, anchorTarget));
+        statusBar()->showMessage(i18nc("@info:status Link information; %1 is displayed text, %2 is link destination", "%1 -> %2",
+                                       anchorText, anchorTarget));
     } else {
         statusBar()->clearMessage();
     }
