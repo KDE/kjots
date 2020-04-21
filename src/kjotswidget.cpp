@@ -1072,128 +1072,46 @@ void KJotsWidget::exportSelectionToXml()
     m_loader->setTheme(currentTheme);
 }
 
+std::unique_ptr<QPrinter> KJotsWidget::setupPrinter(QPrinter::PrinterMode mode)
+{
+    auto printer = std::make_unique<QPrinter>(mode);
+    printer->setDocName(QStringLiteral("KJots_Print"));
+    printer->setCreator(QStringLiteral("KJots"));
+    if (!activeEditor()->textCursor().selection().isEmpty()) {
+        printer->setPrintRange(QPrinter::Selection);
+    }
+    return printer;
+}
+
 void KJotsWidget::printPreviewSelection()
 {
-    QPrinter printer(QPrinter::HighResolution);
-    printer.setDocName(QLatin1String("KJots_Print"));
-    printer.setFullPage(false);
-    printer.setCreator(QLatin1String("KJots"));
-    QPrintPreviewDialog previewdlg(&printer, nullptr);
-    print(printer);
+    auto printer = setupPrinter(QPrinter::ScreenResolution);
+    QPrintPreviewDialog previewdlg(printer.get(), this);
+    connect(&previewdlg, &QPrintPreviewDialog::paintRequested, this, &KJotsWidget::print);
     previewdlg.exec();
 }
 
 void KJotsWidget::printSelection()
 {
-
-    QPrinter printer(QPrinter::HighResolution);
-    printer.setDocName(QLatin1String("KJots_Print"));
-    printer.setFullPage(false);
-    printer.setCreator(QLatin1String("KJots"));
-    //Not supported in Qt?
-    //printer->setPageSelection(QPrinter::ApplicationSide);
-
-    //KPrinter::pageList() only works with ApplicationSide. ApplicationSide
-    //requires min/max pages. How am I supposed to tell how many pages there
-    //are before I setup the printer?
-
-    QPointer<QPrintDialog> printDialog = new QPrintDialog(&printer, this);
-
-    QAbstractPrintDialog::PrintDialogOptions options = printDialog->enabledOptions();
-    options &= ~QAbstractPrintDialog::PrintPageRange;
-    if (activeEditor()->textCursor().hasSelection()) {
-        options |= QAbstractPrintDialog::PrintSelection;
+    auto printer = setupPrinter(QPrinter::HighResolution);
+    QPrintDialog printDialog(printer.get(), this);
+    if (printDialog.exec() == QDialog::Accepted) {
+        print(printer.get());
     }
-    printDialog->setEnabledOptions(options);
-
-    printDialog->setWindowTitle(i18n("Send To Printer"));
-    if (printDialog->exec() == QDialog::Accepted) {
-        print(printer);
-    }
-    delete printDialog;
 }
 
-void KJotsWidget::print(QPrinter &printer)
+void KJotsWidget::print(QPrinter *printer)
 {
     QTextDocument printDocument;
-    if (printer.printRange() == QPrinter::Selection) {
+    if (printer->printRange() == QPrinter::Selection) {
         printDocument.setHtml(activeEditor()->textCursor().selection().toHtml());
     } else {
-        //QTextCursor printCursor ( &printDocument );
         QString currentTheme = m_loader->themeName();
         m_loader->setTheme(QLatin1String("default"));
         printDocument.setHtml(renderSelectionToHtml());
         m_loader->setTheme(currentTheme);
     }
-
-    QPainter p(&printer);
-
-    // Check that there is a valid device to print to.
-    if (p.isActive()) {
-        QTextDocument *doc = &printDocument;
-
-        QRectF body = QRectF(QPointF(0, 0), doc->pageSize());
-        QPointF pageNumberPos;
-
-        QAbstractTextDocumentLayout *layout = doc->documentLayout();
-        layout->setPaintDevice(p.device());
-
-        const int dpiy = p.device()->logicalDpiY();
-
-        const int margin = (int)((2 / 2.54) * dpiy); // 2 cm margins
-        QTextFrameFormat fmt = doc->rootFrame()->frameFormat();
-        fmt.setMargin(margin);
-        doc->rootFrame()->setFrameFormat(fmt);
-
-        body = QRectF(0, 0, p.device()->width(), p.device()->height());
-        pageNumberPos = QPointF(body.width() - margin,
-                                body.height() - margin
-                                + QFontMetrics(doc->defaultFont(), p.device()).ascent()
-                                + 5 * p.device()->logicalDpiY() / 72);
-
-        doc->setPageSize(body.size());
-
-        int docCopies = printer.numCopies();
-        for (int copy = 0; copy < docCopies; ++copy) {
-
-            int lastPage = layout->pageCount();
-            for (int page = 1; page <= lastPage ; ++page) {
-                p.save();
-                p.translate(body.left(), body.top() - (page - 1) * body.height());
-                QRectF view(0, (page - 1) * body.height(), body.width(), body.height());
-
-                QAbstractTextDocumentLayout *layout = doc->documentLayout();
-                QAbstractTextDocumentLayout::PaintContext ctx;
-
-                p.setClipRect(view);
-                ctx.clip = view;
-
-                // don't use the system palette text as default text color, on HP/UX
-                // for example that's white, and white text on white paper doesn't
-                // look that nice
-                ctx.palette.setColor(QPalette::Text, Qt::black);
-
-                layout->draw(&p, ctx);
-
-                if (!pageNumberPos.isNull()) {
-                    p.setClipping(false);
-                    p.setFont(QFont(doc->defaultFont()));
-                    const QString pageString = QString::number(page);
-
-                    p.drawText(qRound(pageNumberPos.x() - p.fontMetrics().horizontalAdvance(pageString)),
-                               qRound(pageNumberPos.y() + view.top()),
-                               pageString);
-                }
-
-                p.restore();
-
-                if ((page + 1) <= lastPage) {
-                    printer.newPage();
-                }
-            }
-        }
-    }
-
+    printDocument.print(printer);
 }
 
 void KJotsWidget::selectNext(int role, int step)

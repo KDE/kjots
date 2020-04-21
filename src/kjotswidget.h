@@ -119,6 +119,8 @@ protected:
 
     void selectNext(int role, int step);
     int search(bool);
+
+    std::unique_ptr<QPrinter> setupPrinter(QPrinter::PrinterMode mode = QPrinter::ScreenResolution);
 protected Q_SLOTS:
     void renderSelection();
     void changeTheme();
@@ -170,8 +172,9 @@ private Q_SLOTS:
 
     void updateConfiguration();
 
+    void print(QPrinter *printer);
+
 private:
-    void print(QPrinter &printer);
     KXMLGUIClient  *m_xmlGuiClient;
     KJotsEdit      *editor;
     KJotsBrowser   *browser;
