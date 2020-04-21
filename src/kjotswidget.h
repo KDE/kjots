@@ -75,7 +75,6 @@ public:
     ~KJotsWidget();
 
     QTextEdit *activeEditor();
-
 public Q_SLOTS:
     void prevPage();
     void nextPage();
@@ -134,6 +133,7 @@ protected Q_SLOTS:
     void deleteBook();
     void deleteMultiple();
 
+    void openLink(const QUrl &url);
 private Q_SLOTS:
     void delayedInitialization();
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);

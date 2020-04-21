@@ -35,34 +35,38 @@ KJotsBookmarks::KJotsBookmarks(KJotsTreeView *treeView) :
 
 void KJotsBookmarks::openBookmark(const KBookmark &bookmark, Qt::MouseButtons, Qt::KeyboardModifiers)
 {
-#if 0
-    QModelIndexList rows = m_treeView->model()->match(QModelIndex(), KJotsModel::EntityUrlRole, bookmark.url().url());
-
-    if (rows.isEmpty()) {
+    if (bookmark.url().scheme() != QStringLiteral("kjots")) {
         return;
     }
+    Q_EMIT openLink(bookmark.url());
+}
 
-    // Arbitrarily chooses the first one if multiple are returned.
-    return m_treeView->selectionModel()->select(rows.at(0), QItemSelectionModel::ClearAndSelect);
-#endif
+QString KJotsBookmarks::currentIcon() const
+{
+    const QModelIndexList rows = m_treeView->selectionModel()->selectedRows();
+    if (rows.size() != 1) {
+        return QString();
+    }
+    const QModelIndex idx = rows.first();
+    auto collection = idx.data(EntityTreeModel::CollectionRole).value<Collection>();
+    if (collection.isValid()) {
+        return QStringLiteral("x-office-address-book");
+    }
+    auto item = idx.data(EntityTreeModel::ItemRole).value<Item>();
+    if (item.isValid()) {
+        return QStringLiteral("x-office-document");
+    }
+    return QString();
 }
 
 QUrl KJotsBookmarks::currentUrl() const
 {
-#if 0 //QT5
-    QModelIndexList rows = m_treeView->selectionModel()->selectedRows();
-
+    const QModelIndexList rows = m_treeView->selectionModel()->selectedRows();
     if (rows.size() != 1) {
-        return QString();
+        return QUrl();
+    } else {
+        return QUrl(rows.first().data(KJotsModel::UrlRole).value<QString>());
     }
-#if 0
-    return rows.at(0).data(EntityTreeModel::EntityUrlRole).toString();
-#else
-    return QString();
-#endif
-#else
-    return QUrl();
-#endif
 }
 
 QString KJotsBookmarks::currentTitle() const

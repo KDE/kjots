@@ -85,6 +85,7 @@
 #include <KActionMenu>
 #include <krandom.h>
 #include <KSharedConfig>
+#include <KRun>
 
 // KMime
 #include <KMime/KMimeMessage>
@@ -196,6 +197,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     layout->addWidget(m_splitter);
 
     browser = new KJotsBrowser(treeview->selectionModel(), stackedWidget);
+    connect(browser, &KJotsBrowser::linkClicked, this, &KJotsWidget::openLink);
     stackedWidget->addWidget(browser);
     stackedWidget->setCurrentWidget(browser);
 
@@ -353,6 +355,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     bookmarkMenu = actionCollection->add<KActionMenu>(QLatin1String("bookmarks"));
     bookmarkMenu->setText(i18n("&Bookmarks"));
     KJotsBookmarks *bookmarks = new KJotsBookmarks(treeview);
+    connect(bookmarks, &KJotsBookmarks::openLink, this, &KJotsWidget::openLink);
     KBookmarkMenu *bmm = new KBookmarkMenu(
         KBookmarkManager::managerForFile(
             QStandardPaths::standardLocations(QStandardPaths::AppDataLocation).first() + QStringLiteral("/kjots/bookmarks.xml"),
@@ -1746,3 +1749,11 @@ void KJotsWidget::actionSortChildrenByDate()
     }
 }
 
+void KJotsWidget::openLink(const QUrl &url)
+{
+    if (url.scheme() == QStringLiteral("kjots")) {
+        treeview->selectionModel()->select(KJotsModel::modelIndexForUrl(treeview->model(), url), QItemSelectionModel::ClearAndSelect);
+    } else {
+        new KRun(url, this);
+    }
+}

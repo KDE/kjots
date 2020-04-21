@@ -36,8 +36,12 @@ public:
     explicit KJotsBookmarks(KJotsTreeView *treeView);
 
     QUrl currentUrl() const override;
+    QString currentIcon() const override;
     QString currentTitle() const override;
     void openBookmark(const KBookmark &bm, Qt::MouseButtons mb, Qt::KeyboardModifiers km) override;
+
+Q_SIGNALS:
+    void openLink(const QUrl &url);
 
 private:
     KJotsTreeView *m_treeView;

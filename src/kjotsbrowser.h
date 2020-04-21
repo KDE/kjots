@@ -35,7 +35,7 @@ public:
 
     void delayedInitialization();
 
-protected Q_SLOTS:
+Q_SIGNALS:
     void linkClicked(const QUrl &);
 
 private:

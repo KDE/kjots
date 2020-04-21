@@ -36,6 +36,7 @@
 
 #include "KJotsSettings.h"
 #include "kjotsbookshelfentryvalidator.h"
+#include "kjotsmodel.h"
 
 #include <AkonadiCore/Item>
 #include <AkonadiCore/EntityTreeModel>
@@ -124,36 +125,18 @@ void KJotsLinkDialog::setLinkText(const QString &linkText)
 
 void KJotsLinkDialog::setLinkUrl(const QString &linkUrl)
 {
-    Akonadi::Item item = Akonadi::Item::fromUrl(QUrl::fromUserInput(linkUrl));
-    Akonadi::Collection collection = Akonadi::Collection::fromUrl(QUrl::fromUserInput(linkUrl));
-
-    if (!item.isValid() && !collection.isValid()) {
+    const QUrl url(linkUrl);
+    if (url.scheme() != QStringLiteral("kjots")) {
         linkUrlLineEdit->setText(linkUrl);
         linkUrlLineEditRadioButton->setChecked(true);
         return;
     }
-
-    QModelIndex idx;
-
-    if (collection.isValid()) {
-        idx = Akonadi::EntityTreeModel::modelIndexForCollection(m_descendantsProxyModel, collection);
-    } else if (item.isValid()) {
-        const QModelIndexList list = Akonadi::EntityTreeModel::modelIndexesForItem(m_descendantsProxyModel, item);
-        if (list.isEmpty()) {
-            return;
-        }
-
-        idx = list.first();
+    QModelIndex idx = KJotsModel::modelIndexForUrl(m_descendantsProxyModel, url);
+    if (idx.isValid()) {
+        hrefComboRadioButton->setChecked(true);
+        hrefCombo->view()->setCurrentIndex(idx);
+        hrefCombo->setCurrentIndex(idx.row());
     }
-
-    if (!idx.isValid()) {
-        return;
-    }
-
-    hrefComboRadioButton->setChecked(true);
-
-    hrefCombo->view()->setCurrentIndex(idx);
-    hrefCombo->setCurrentIndex(idx.row());
 }
 
 QString KJotsLinkDialog::linkText() const
@@ -176,14 +159,7 @@ void KJotsLinkDialog::trySetEntry(const QString &text)
 QString KJotsLinkDialog::linkUrl() const
 {
     if (hrefComboRadioButton->isChecked()) {
-        const QModelIndex index = hrefCombo->view()->currentIndex();
-        const Akonadi::Collection collection = index.data(Akonadi::EntityTreeModel::CollectionRole).value<Akonadi::Collection>();
-        if (collection.isValid()) {
-            return QLatin1String("kjots://org.kjots.book/") + QString::number(collection.id());
-        }
-        const Akonadi::Item item = index.data(Akonadi::EntityTreeModel::ItemRole).value<Akonadi::Item>();
-        Q_ASSERT(item.isValid());
-        return QLatin1String("kjots://org.kjots.page/") + QString::number(item.id());
+        return hrefCombo->view()->currentIndex().data(KJotsModel::UrlRole).value<QString>();
     } else {
         return linkUrlLineEdit->text();
     }

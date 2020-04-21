@@ -42,6 +42,7 @@ class KJotsEntity : public QObject
     Q_PROPERTY(QString title READ title)
     Q_PROPERTY(QString content READ content)
     Q_PROPERTY(QString plainContent READ plainContent)
+    Q_PROPERTY(QString url READ url)
     Q_PROPERTY(qint64 entityId READ entityId)
     Q_PROPERTY(bool isBook READ isBook)
     Q_PROPERTY(bool isPage READ isPage)
@@ -60,6 +61,8 @@ public:
     QString content() const;
 
     QString plainContent() const;
+
+    QString url() const;
 
     qint64 entityId() const;
 
@@ -81,7 +84,8 @@ public:
     enum KJotsRoles {
         GrantleeObjectRole = EntityTreeModel::UserRole,
         DocumentRole,
-        DocumentCursorPositionRole
+        DocumentCursorPositionRole,
+        UrlRole
     };
 
     // We don't reimplement the Collection overload.
@@ -92,6 +96,7 @@ public:
 
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
 
+    static QModelIndex modelIndexForUrl(const QAbstractItemModel *model, const QUrl &url);
 private:
     QHash<Collection::Id, QColor> m_colors;
     mutable QHash<Item::Id, QTextDocument *> m_documents;

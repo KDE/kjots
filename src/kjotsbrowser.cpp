@@ -26,8 +26,6 @@
 
 #include <QItemSelectionModel>
 
-#include <KRun>
-
 #include <qdebug.h>
 #include <AkonadiCore/EntityTreeModel>
 
@@ -39,45 +37,14 @@ KJotsBrowser::KJotsBrowser(QItemSelectionModel *selectionModel, QWidget *parent)
 
 void KJotsBrowser::delayedInitialization()
 {
-    connect(this, &KJotsBrowser::anchorClicked, this, &KJotsBrowser::linkClicked);
-}
-
-/*!
-    \brief Handle link clicks.
-*/
-void KJotsBrowser::linkClicked(const QUrl &link)
-{
-    //Stop QTextBrowser from being stupid by giving it an invalid url.
-    QUrl url;
-    setSource(url);
-
-    QString anchor = link.fragment();
-
-    if (link.toString().startsWith(QLatin1String("#")) && (anchor.startsWith(QLatin1String("book_"))
-            || anchor.startsWith(QLatin1String("page_")))) {
-        scrollToAnchor(anchor);
-        return;
-    }
-
-    if (link.scheme() == QLatin1String("kjots")) {
-        const quint64 targetId = link.path().mid(1).toULongLong();
-        if (link.host().endsWith(QLatin1String("book"))) {
-            const QModelIndex colIndex = Akonadi::EntityTreeModel::modelIndexForCollection(m_itemSelectionModel->model(), Akonadi::Collection(targetId));
-            if (!colIndex.isValid()) {
-                return;
-            }
-            m_itemSelectionModel->select(colIndex, QItemSelectionModel::ClearAndSelect);
-        } else {
-            Q_ASSERT(link.host().endsWith(QLatin1String("page")));
-            const QModelIndexList itemIndexes = Akonadi::EntityTreeModel::modelIndexesForItem(m_itemSelectionModel->model(), Akonadi::Item(targetId));
-            if (itemIndexes.size() != 1) {
-                return;
-            }
-            m_itemSelectionModel->select(itemIndexes.first(), QItemSelectionModel::ClearAndSelect);
+    connect(this, &KJotsBrowser::anchorClicked, this, [this](const QUrl &url){
+        if (!url.toString().startsWith(QLatin1Char('#'))) {
+            // QTextBrowser tries to automatically handle the url. We only want it for anchor navigation
+            // (i.e. "#page12" links). This can be overriden by setting the source to an invalid QUrl
+            setSource(QUrl());
+            Q_EMIT linkClicked(url);
         }
-    } else {
-        new KRun(link, this);
-    }
+    });
 }
 
 /* ex: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab: */
