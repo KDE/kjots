@@ -116,10 +116,10 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 {
     Akonadi::ControlGui::widgetNeedsAkonadi(this);
 
-    KConfigGroup migrationCfg(KSharedConfig::openConfig(), "General");
-    const bool autoCreate = migrationCfg.readEntry("AutoCreateResourceOnStart", true);
-    migrationCfg.writeEntry("AutoCreateResourceOnStart", autoCreate);
-    migrationCfg.sync();
+    KConfigGroup config(KSharedConfig::openConfig(), "General");
+    const bool autoCreate = config.readEntry("AutoCreateResourceOnStart", true);
+    config.writeEntry("AutoCreateResourceOnStart", autoCreate);
+    config.sync();
     if (autoCreate) {
         LocalResourceCreator *creator = new LocalResourceCreator(this);
         creator->createIfMissing();
@@ -444,10 +444,6 @@ void KJotsWidget::saveState()
 
 void KJotsWidget::delayedInitialization()
 {
-    migrateNoteData(QLatin1String("kjotsmigrator"));
-    // Disable nigration of data from KNotes as that app still exists in 4.5.
-//   migrateNoteData( "kres-migrator", "notes" );
-
     //TODO: Save previous searches in settings file?
     searchDialog = new KFindDialog(this, 0, QStringList(), false);
     QGridLayout *layout = new QGridLayout(searchDialog->findExtension());
@@ -556,46 +552,6 @@ void KJotsWidget::currentCharFormatChanged(const QTextCharFormat &fmt)
         } else {
             Q_EMIT activeAnchorChanged(QString(), QString());
         }
-    }
-}
-
-void KJotsWidget::migrateNoteData(const QString &migrator, const QString &type)
-{
-    // Akonadi migration
-    KConfig config(migrator + QLatin1String("rc"));
-    KConfigGroup migrationCfg(&config, "Migration");
-    const bool enabled = migrationCfg.readEntry("Enabled", true);
-    const bool completed = migrationCfg.readEntry("Completed", false);
-    const int currentVersion = migrationCfg.readEntry("Version", 0);
-    const int targetVersion = migrationCfg.readEntry("TargetVersion", 1);
-    if (enabled && !completed && currentVersion < targetVersion) {
-        qDebug() << "Performing Akonadi migration. Good luck!";
-        KProcess proc;
-        QStringList args = QStringList() << QLatin1String("--interactive-on-change");
-        if (!type.isEmpty()) {
-            args << QLatin1String("--type") << type;
-        }
-
-        const QString path = QStandardPaths::findExecutable(migrator);
-        proc.setProgram(path, args);
-        proc.start();
-        bool result = proc.waitForStarted();
-        if (result) {
-            result = proc.waitForFinished();
-        }
-        if (result && proc.exitCode() == 0) {
-            qDebug() << "Akonadi migration has been successful";
-        } else {
-            // exit code 1 means it is already running, so we are probably called by a migrator instance
-            qCritical() << "Akonadi migration failed!";
-            qCritical() << "command was: " << proc.program();
-            qCritical() << "exit code: " << proc.exitCode();
-            qCritical() << "stdout: " << proc.readAllStandardOutput();
-            qCritical() << "stderr: " << proc.readAllStandardError();
-        }
-        migrationCfg.writeEntry("Version", targetVersion);
-        migrationCfg.writeEntry("Completed", true);
-        migrationCfg.sync();
     }
 }
 

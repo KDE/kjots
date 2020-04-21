@@ -54,25 +54,6 @@ int main(int argc, char **argv)
         exit(0);
     }
 
-    // backwards compatibility code to convert "old" user font settings
-    // to the new config settings
-    KConfigGroup config(KSharedConfig::openConfig(), "kjots");
-    if (config.hasKey("EFontFamily")) {
-        // read old font and create it
-        QFont font(config.readEntry("EFontFamily"),
-                   config.readEntry("EFontSize", 12),
-                   config.readEntry("EFontWeight", 0),
-                   config.readEntry("EFontItalic", 0));
-        // delete old entries
-        config.deleteEntry("EFontFamily");
-        config.deleteEntry("EFontSize");
-        config.deleteEntry("EFontWeight");
-        config.deleteEntry("EFontItalic");
-        config.deleteEntry("EFontCharset");
-        // write new "converted" entry
-        config.writeEntry("Font", font);
-    }
-
     KJotsMain *jots = new KJotsMain;
     if (app.isSessionRestored()) {
         if (KJotsMain::canBeRestored(1)) {

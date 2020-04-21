@@ -119,8 +119,6 @@ protected:
 
     void selectNext(int role, int step);
     int search(bool);
-    void migrateNoteData(const QString &migrator, const QString &type = QString());
-
 protected Q_SLOTS:
     void renderSelection();
     void changeTheme();
