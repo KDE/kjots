@@ -1,5 +1,4 @@
 set(akonadi_next_SRCS
-    note.cpp
     notecreatorandselector.cpp
 )
 

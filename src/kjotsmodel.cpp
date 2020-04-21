@@ -27,8 +27,8 @@
 
 #include <AkonadiCore/changerecorder.h>
 #include <AkonadiCore/entitydisplayattribute.h>
+#include <Akonadi/Notes/NoteUtils>
 
-#include "akonadi_next/note.h"
 #include "noteshared/notelockattribute.h"
 
 #include <KMime/KMimeMessage>
@@ -107,7 +107,7 @@ bool KJotsEntity::isBook() const
     Collection col = m_index.data(EntityTreeModel::CollectionRole).value<Collection>();
 
     if (col.isValid()) {
-        return col.contentMimeTypes().contains(Akonotes::Note::mimeType());
+        return col.contentMimeTypes().contains(Akonadi::NoteUtils::noteMimeType());
     }
     return false;
 }
@@ -123,14 +123,15 @@ bool KJotsEntity::isPage() const
 
 QVariantList KJotsEntity::entities() const
 {
+    const QAbstractItemModel *model = m_index.model();
     QVariantList list;
     int row = 0;
     const int column = 0;
-    QModelIndex childIndex = m_index.child(row++, column);
+    QModelIndex childIndex = model->index(row++, column, m_index);
     while (childIndex.isValid()) {
-        QObject *obj = new KJotsEntity(childIndex);
+        auto obj = new KJotsEntity(childIndex);
         list << QVariant::fromValue(obj);
-        childIndex = m_index.child(row++, column);
+        childIndex = model->index(row++, column, m_index);
     }
     return list;
 }
@@ -138,8 +139,6 @@ QVariantList KJotsEntity::entities() const
 QVariantList KJotsEntity::breadcrumbs() const
 {
     QVariantList list;
-    int row = 0;
-    const int column = 0;
     QModelIndex parent = m_index.parent();
 
     while (parent.isValid()) {

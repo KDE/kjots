@@ -62,8 +62,8 @@
 #include <AkonadiCore/itemfetchscope.h>
 #include <AkonadiCore/EntityOrderProxyModel>
 #include <AkonadiWidgets/ControlGui>
+#include <Akonadi/Notes/NoteUtils>
 
-#include "akonadi_next/note.h"
 #include "akonadi_next/notecreatorandselector.h"
 
 // Grantlee
@@ -157,7 +157,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     monitor->fetchCollection(true);
     monitor->setItemFetchScope(scope);
     monitor->setCollectionMonitored(Collection::root());
-    monitor->setMimeTypeMonitored(Akonotes::Note::mimeType());
+    monitor->setMimeTypeMonitored(Akonadi::NoteUtils::noteMimeType());
 
     m_kjotsModel = new KJotsModel(monitor, this);
 
@@ -330,7 +330,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     connect(browser, &KJotsBrowser::copyAvailable, action, &QAction::setEnabled);
     action->setEnabled(false);
 
-    KStandardAction::pasteText(editor, SLOT(paste()), actionCollection);
+    KStandardAction::paste(editor, SLOT(paste()), actionCollection);
 
     KStandardAction::undo(editor, SLOT(undo()), actionCollection);
     KStandardAction::redo(editor, SLOT(redo()), actionCollection);
@@ -840,7 +840,7 @@ void KJotsWidget::newBook()
 
     QString title = i18nc("The default name for new books.", "New Book");
     newCollection.setName(KRandom::randomString(10));
-    newCollection.setContentMimeTypes(QStringList() << Akonadi::Collection::mimeType() << Akonotes::Note::mimeType());
+    newCollection.setContentMimeTypes({Akonadi::Collection::mimeType(), Akonadi::NoteUtils::noteMimeType()});
 
     Akonadi::EntityDisplayAttribute *eda = new Akonadi::EntityDisplayAttribute();
     eda->setIconName(QLatin1String("x-office-address-book"));
@@ -1224,7 +1224,7 @@ void KJotsWidget::print(QPrinter &printer)
                     p.setFont(QFont(doc->defaultFont()));
                     const QString pageString = QString::number(page);
 
-                    p.drawText(qRound(pageNumberPos.x() - p.fontMetrics().width(pageString)),
+                    p.drawText(qRound(pageNumberPos.x() - p.fontMetrics().horizontalAdvance(pageString)),
                                qRound(pageNumberPos.y() + view.top()),
                                pageString);
                 }
@@ -1819,7 +1819,7 @@ void KJotsWidget::actionLock()
         return;
     }
 
-    KJotsLockJob *job = new KJotsLockJob(collections, items, this);
+    new KJotsLockJob(collections, items, this);
 }
 
 void KJotsWidget::actionUnlock()
@@ -1847,7 +1847,7 @@ void KJotsWidget::actionUnlock()
         return;
     }
 
-    KJotsLockJob *job = new KJotsLockJob(collections, items, KJotsLockJob::UnlockJob, this);
+    new KJotsLockJob(collections, items, KJotsLockJob::UnlockJob, this);
 }
 
 void KJotsWidget::actionSortChildrenAlpha()

@@ -99,9 +99,9 @@ void KJotsPart::delayedInitialization()
 void KJotsPart::activeAnchorChanged(const QString &anchorTarget, const QString &anchorText)
 {
     if (!anchorTarget.isEmpty()) {
-        mStatusBar->statusBar()->showMessage(anchorText + QLatin1String(" -> ") + anchorTarget);
+        mStatusBar->statusBar()->showMessage(QStringLiteral("%1 -> %2").arg(anchorText, anchorTarget));
     } else {
-        mStatusBar->statusBar()->showMessage(QString());
+        mStatusBar->statusBar()->clearMessage();
     }
 }
 
