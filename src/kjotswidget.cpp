@@ -191,6 +191,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     KActionCollection *actionCollection = xmlGuiClient->actionCollection();
 
     editor = new KJotsEdit(treeview->selectionModel(), stackedWidget);
+    connect(editor, &KJotsEdit::linkClicked, this, &KJotsWidget::openLink);
     actionCollection->addActions(editor->createActions());
     stackedWidget->addWidget(editor);
 

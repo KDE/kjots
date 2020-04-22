@@ -35,8 +35,10 @@
 #include <QClipboard>
 #include <QApplication>
 #include <QAction>
+#include <QToolTip>
 
 #include <KActionCollection>
+#include <KLocalizedString>
 //#include <KRun>
 
 #include "kjotslinkdialog.h"
@@ -62,6 +64,7 @@ KJotsEdit::KJotsEdit(QItemSelectionModel *selectionModel, QWidget *parent)
       allowAutoDecimal(false),
       m_selectionModel(selectionModel)
 {
+    setMouseTracking(true);
     setAcceptRichText(true);
     setWordWrapMode(QTextOption::WordWrap);
     setCheckSpellingEnabled(true);
@@ -77,7 +80,7 @@ KJotsEdit::KJotsEdit(QItemSelectionModel *selectionModel, QWidget *parent)
     connect(m_selectionModel->model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)), SLOT(tryDisableEditing()));
 }
 
-void KJotsEdit::mousePopupMenuImplementation(const QPoint &pos)
+void KJotsEdit::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu *popup = mousePopupMenu();
     if (popup) {
@@ -94,8 +97,12 @@ void KJotsEdit::mousePopupMenuImplementation(const QPoint &pos)
             popup->addAction(act);
         }
 
+        if (!anchorAt(event->pos()).isNull()) {
+            popup->addAction(actionCollection->action(QStringLiteral("manage_link")));
+        }
+
         aboutToShowContextMenu(popup);
-        popup->exec(pos);
+        popup->exec(event->globalPos());
         delete popup;
     }
 }
@@ -300,22 +307,39 @@ void KJotsEdit::insertFromMimeData(const QMimeData *source)
     }
 }
 
-void KJotsEdit::mouseReleaseEvent(QMouseEvent *event)
+void KJotsEdit::mouseMoveEvent(QMouseEvent *event)
 {
-    // TODO: PORT
-#if 0
-    if ((event->modifiers() & Qt::ControlModifier) && (event->button() & Qt::LeftButton)
-            && !anchorAt(event->pos()).isEmpty()) {
-        QUrl anchor(anchorAt(event->pos()));
-        if (anchor.scheme() == "kjots") {
-            quint64 target = anchor.path().mid(1).toULongLong();
-            bookshelf->jumpToId(target);
-        } else {
-            new KRun(anchor, this);
+    if ((event->modifiers() & Qt::ControlModifier) && !anchorAt(event->pos()).isEmpty()) {
+        if (!m_cursorChanged) {
+            QApplication::setOverrideCursor(Qt::PointingHandCursor);
+            m_cursorChanged = true;
+        }
+    } else {
+        if (m_cursorChanged) {
+            QApplication::restoreOverrideCursor();
+            m_cursorChanged = false;
         }
     }
-#endif
-    KTextEdit::mouseReleaseEvent(event);
+    KRichTextEdit::mouseMoveEvent(event);
+}
+
+void KJotsEdit::leaveEvent(QEvent *event)
+{
+    if (m_cursorChanged) {
+        QApplication::restoreOverrideCursor();
+        m_cursorChanged = false;
+    }
+    KRichTextEdit::leaveEvent(event);
+}
+
+void KJotsEdit::mousePressEvent(QMouseEvent *event)
+{
+    QUrl url = anchorAt(event->pos());
+    if ((event->modifiers() & Qt::ControlModifier) && (event->button() & Qt::LeftButton) && !url.isEmpty()) {
+        Q_EMIT linkClicked(url);
+    } else {
+        KRichTextEdit::mousePressEvent(event);
+    }
 }
 
 void KJotsEdit::pastePlainText()
@@ -330,8 +354,39 @@ bool KJotsEdit::event(QEvent *event)
 {
     if (event->type() == QEvent::WindowDeactivate) {
         savePage();
+    } else if (event->type() == QEvent::ToolTip) {
+        tooltipEvent(static_cast<QHelpEvent *>(event));
     }
     return KRichTextWidget::event(event);
+}
+
+void KJotsEdit::tooltipEvent(QHelpEvent *event)
+{
+    QUrl url(anchorAt(event->pos()));
+    QString message;
+
+    if (url.isValid()) {
+        if (url.scheme() == QStringLiteral("kjots")) {
+            QModelIndex idx = KJotsModel::modelIndexForUrl(m_selectionModel->model(), url);
+            auto item = idx.data(KJotsModel::ItemRole).value<Item>();
+            if (item.isValid()) {
+                message = i18nc("@info:tooltip %1 is page name", "Ctrl+click to open page: %1", idx.data().toString());
+            } else {
+                auto col = idx.data(KJotsModel::CollectionRole).value<Collection>();
+                if (col.isValid()) {
+                    message = i18nc("@info:tooltip %1 is book name", "Ctrl+click to open book: %1", idx.data().toString());
+                }
+            }
+        } else {
+            message = i18nc("@info:tooltip %1 is hyperlink address", "Ctrl+click to follow the hyperlink: %1", url.toString(QUrl::RemovePassword));
+        }
+    }
+
+    if (!message.isEmpty()) {
+        QToolTip::showText(event->globalPos(), message);
+    } else {
+        QToolTip::hideText();
+    }
 }
 
 void KJotsEdit::focusOutEvent(QFocusEvent *event)

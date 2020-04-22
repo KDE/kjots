@@ -43,15 +43,22 @@ public:
     void insertFromMimeData(const QMimeData *) override;
 
 protected:
+    /* To be able to change cursor when hoverng over links */
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void leaveEvent(QEvent *event) override;
+
     /** Override to make ctrl+click follow links */
-    void mouseReleaseEvent(QMouseEvent *) override;
+    void mousePressEvent(QMouseEvent *) override;
+
+    void contextMenuEvent(QContextMenuEvent *event) override;
 
     void focusOutEvent(QFocusEvent *) override;
 
     bool event(QEvent *event) override;
 
+    void tooltipEvent(QHelpEvent *event);
+
 public Q_SLOTS:
-    void mousePopupMenuImplementation(const QPoint &pos);
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     void tryDisableEditing();
     void onAutoBullet(void);
@@ -65,12 +72,15 @@ public Q_SLOTS:
     void insertDate();
     void insertImage();
 
+Q_SIGNALS:
+    void linkClicked(const QUrl &url);
 private:
     void createAutoDecimalList();
     KActionCollection *actionCollection;
     bool allowAutoDecimal;
     QItemSelectionModel *m_selectionModel;
 
+    bool m_cursorChanged = false;
 };
 
 #endif // __KJOTSEDIT_H
