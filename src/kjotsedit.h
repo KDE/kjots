@@ -54,7 +54,6 @@ public Q_SLOTS:
     void mousePopupMenuImplementation(const QPoint &pos);
     void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     void tryDisableEditing();
-    void onBookshelfSelection(void);
     void onAutoBullet(void);
     void onLinkify(void);
     void addCheckmark(void);

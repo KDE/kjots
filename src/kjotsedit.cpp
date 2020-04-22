@@ -155,51 +155,6 @@ void KJotsEdit::tryDisableEditing()
     setReadOnly(false);
 }
 
-void KJotsEdit::onBookshelfSelection(void)
-{
-    // TODO: PORT. Review and remove. Possibly keep the bug workaround.
-#if 0
-    QList<QTreeWidgetItem *> selection = bookshelf->selectedItems();
-    int selectionSize = selection.size();
-
-    if (selectionSize !=  1) {
-        disableEditing();
-    } else {
-        KJotsPage *newPage = dynamic_cast<KJotsPage *>(selection[0]);
-        if (!newPage) {
-            disableEditing();
-        } else {
-            setEnabled(newPage->isEditable());
-            setReadOnly(!newPage->isEditable());
-            if (currentPage != newPage) {
-                if (currentPage) {
-                    currentPage->setCursor(textCursor());
-                }
-                currentPage = newPage;
-
-                setDocument(currentPage->body());
-                if (!currentPage->getCursor().isNull()) {
-                    setTextCursor(currentPage->getCursor());
-                }
-
-                QStackedWidget *stack = static_cast<QStackedWidget *>(parent());
-                stack->setCurrentWidget(this);
-                setFocus();
-
-                if (textCursor().atStart()) {
-                    // Reflect formatting when switching pages and the first word is formatted
-                    // Work-around for qrextedit bug. The format does not seem to exist
-                    // before the first character. Submitted to qt-bugs, id 192886.
-                    moveCursor(QTextCursor::Right);
-                    moveCursor(QTextCursor::Left);
-                }
-
-            }
-        }
-    }
-#endif
-}
-
 void KJotsEdit::onAutoBullet(void)
 {
     KTextEdit::AutoFormatting currentFormatting = autoFormatting();
