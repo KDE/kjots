@@ -169,40 +169,19 @@ void KJotsTreeView::renameEntry()
 
 void KJotsTreeView::copyLinkAddress()
 {
-    QModelIndexList rows = selectionModel()->selectedRows();
-
+    const QModelIndexList rows = selectionModel()->selectedRows();
     if (rows.size() != 1) {
         return;
     }
+    const QModelIndex idx = rows.at(0);
 
-    QModelIndex idx = rows.at(0);
-
-    QString title = idx.data().toString();
+    const QString title = idx.data().toString();
+    const QString link = QStringLiteral("<a href=\"%1\">%2</a> ").arg(idx.data(KJotsModel::UrlRole).toString(), title);
 
     Item item = idx.data(KJotsModel::ItemRole).value<Item>();
 
     QMimeData *mimeData = new QMimeData();
-
-    QString link;
-    if (item.isValid()) {
-        Q_ASSERT(item.hasPayload<KMime::Message::Ptr>());
-        if (!item.hasPayload<KMime::Message::Ptr>()) {
-            return;
-        }
-
-        link = QString::fromLatin1("<a href=\"%1\">%2</a>").arg(item.url().url()).arg(title);
-    } else {
-        Collection col = idx.data(KJotsModel::CollectionRole).value<Collection>();
-
-        Q_ASSERT(col.isValid());
-        if (!col.isValid()) {
-            return;
-        }
-
-        link = QString::fromLatin1("<a href=\"%1\">%2</a>").arg(col.url().url()).arg(title);
-    }
-
-    mimeData->setData(QLatin1String("kjots/internal_link"), link.toUtf8());
+    mimeData->setData(QStringLiteral("kjots/internal_link"), link.toUtf8());
     mimeData->setText(title);
     QApplication::clipboard()->setMimeData(mimeData);
 }

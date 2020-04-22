@@ -254,15 +254,13 @@ bool KJotsEdit::canInsertFromMimeData(const QMimeData *source) const
 
 void KJotsEdit::insertFromMimeData(const QMimeData *source)
 {
-    if (source->formats().contains(QLatin1String("kjots/internal_link"))) {
-        insertHtml(QLatin1String(source->data(QLatin1String("kjots/internal_link"))));
+    if (source->formats().contains(QStringLiteral("kjots/internal_link"))) {
+        insertHtml(source->data(QStringLiteral("kjots/internal_link")));
     } else if (source->hasUrls()) {
         const QList<QUrl> urls = source->urls();
         for (const QUrl &url : urls) {
             if (url.isValid()) {
-                QString html = QString::fromLatin1("<a href='%1'>%2</a> ")
-                               .arg(QString::fromUtf8(url.toEncoded()))
-                               .arg(url.toString(QUrl::RemovePassword));
+                QString html = QStringLiteral("<a href=\"%1\">%2</a>").arg(QString::fromUtf8(url.toEncoded()), url.toString(QUrl::RemovePassword));
                 insertHtml(html);
             }
         }
