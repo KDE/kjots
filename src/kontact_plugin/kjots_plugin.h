@@ -24,6 +24,7 @@
 #define KJOTS_PLUGIN_H
 
 #include <KontactInterface/UniqueAppHandler>
+#include <kontactinterface_version.h>
 
 namespace KontactInterface
 {
@@ -62,7 +63,11 @@ public:
     QStringList invisibleToolbarActions() const Q_DECL_OVERRIDE;
 
 protected:
+#if KONTACTINTERFACE_VERSION >= QT_VERSION_CHECK(5, 14, 42)
+    KParts::Part *createPart() override;
+#else
     KParts::ReadOnlyPart *createPart() Q_DECL_OVERRIDE;
+#endif
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 
 private:

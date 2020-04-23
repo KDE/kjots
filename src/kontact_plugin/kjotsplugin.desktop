@@ -3,7 +3,7 @@ Type=Service
 Icon=kjots
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=kontact_kjotsplugin
+X-KDE-Library=kontact5/kontact_kjotsplugin
 X-KDE-KontactPluginVersion=10
 X-KDE-KontactPartLibraryName=kjotspart
 X-KDE-KontactPartExecutableName=kjots
