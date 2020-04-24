@@ -36,12 +36,17 @@ class KJotsEdit : public KRichTextWidget
 {
     Q_OBJECT
 public:
-    explicit KJotsEdit(QItemSelectionModel *selectionModel, QWidget *);
+    explicit KJotsEdit(QWidget *);
 
     void delayedInitialization(KActionCollection *);
     bool canInsertFromMimeData(const QMimeData *) const override;
     void insertFromMimeData(const QMimeData *) override;
-
+    /**
+     * Load document based on KJotsModel index
+     *
+     * @returns true if loaded sucessfully
+     */
+    bool setModelIndex(const QModelIndex &index);
 protected:
     /* To be able to change cursor when hoverng over links */
     void mouseMoveEvent(QMouseEvent *event) override;
@@ -59,8 +64,6 @@ protected:
     void tooltipEvent(QHelpEvent *event);
 
 public Q_SLOTS:
-    void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
-    void tryDisableEditing();
     void onAutoBullet(void);
     void onLinkify(void);
     void addCheckmark(void);
@@ -78,7 +81,7 @@ private:
     void createAutoDecimalList();
     KActionCollection *actionCollection;
     bool allowAutoDecimal;
-    QItemSelectionModel *m_selectionModel;
+    std::unique_ptr<QPersistentModelIndex> m_index;
 
     bool m_cursorChanged = false;
 };

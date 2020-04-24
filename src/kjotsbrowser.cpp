@@ -29,8 +29,8 @@
 #include <qdebug.h>
 #include <AkonadiCore/EntityTreeModel>
 
-KJotsBrowser::KJotsBrowser(QItemSelectionModel *selectionModel, QWidget *parent)
-    : QTextBrowser(parent), m_itemSelectionModel(selectionModel)
+KJotsBrowser::KJotsBrowser(QWidget *parent)
+    : QTextBrowser(parent)
 {
     setWordWrapMode(QTextOption::WordWrap);
 }

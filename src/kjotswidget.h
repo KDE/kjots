@@ -121,6 +121,9 @@ protected:
 
     std::unique_ptr<QPrinter> setupPrinter(QPrinter::PrinterMode mode = QPrinter::ScreenResolution);
 protected Q_SLOTS:
+    /**
+     * Renders contents on either KJotsEdit or KJotsBrowser based on KJotsTreeView selection
+     */
     void renderSelection();
     void changeTheme();
     void exportSelectionToHtml();
@@ -136,7 +139,6 @@ protected Q_SLOTS:
     void openLink(const QUrl &url);
 private Q_SLOTS:
     void delayedInitialization();
-    void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight);
     void bookshelfEditItemFinished(QWidget *, QAbstractItemDelegate::EndEditHint);
     bool canGo(int role, int step) const;

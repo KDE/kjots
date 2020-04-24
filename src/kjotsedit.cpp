@@ -30,7 +30,6 @@
 #include <QStackedWidget>
 #include <QUrl>
 #include <QMenu>
-#include <QItemSelectionModel>
 #include <QPointer>
 #include <QClipboard>
 #include <QApplication>
@@ -54,16 +53,14 @@
 #include "noteshared/notelockattribute.h"
 #include "noteshared/noteeditorutils.h"
 
-Q_DECLARE_METATYPE(QTextDocument *)
 Q_DECLARE_METATYPE(QTextCursor)
 
 using namespace Akonadi;
 
-KJotsEdit::KJotsEdit(QItemSelectionModel *selectionModel, QWidget *parent)
+KJotsEdit::KJotsEdit(QWidget *parent)
     : KRichTextWidget(parent),
       actionCollection(nullptr),
-      allowAutoDecimal(false),
-      m_selectionModel(selectionModel)
+      allowAutoDecimal(false)
 {
     setMouseTracking(true);
     setAcceptRichText(true);
@@ -76,9 +73,6 @@ KJotsEdit::KJotsEdit(QItemSelectionModel *selectionModel, QWidget *parent)
                        | SupportFormatPainting);
 
     setFocusPolicy(Qt::StrongFocus);
-
-    connect(m_selectionModel, &QItemSelectionModel::selectionChanged, this, &KJotsEdit::selectionChanged);
-    connect(m_selectionModel->model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)), SLOT(tryDisableEditing()));
 }
 
 void KJotsEdit::contextMenuEvent(QContextMenuEvent *event)
@@ -132,35 +126,49 @@ void KJotsEdit::insertImage()
     NoteShared::NoteEditorUtils().insertImage(document(), cursor, this);
 }
 
-void KJotsEdit::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+bool KJotsEdit::setModelIndex(const QModelIndex &index)
 {
-    Q_UNUSED(selected)
-    Q_UNUSED(deselected)
-    tryDisableEditing();
-}
-
-void KJotsEdit::tryDisableEditing()
-{
-    if (!m_selectionModel->hasSelection()) {
-        return setReadOnly(true);
+    bool newDocument = m_index && (*m_index != index);
+    // Saving the old document, if it wa changed
+    if (newDocument) {
+        savePage();
     }
-
-    QModelIndexList list = m_selectionModel->selectedRows();
-    if (list.size() != 1) {
-        return setReadOnly(true);
+    m_index = std::make_unique<QPersistentModelIndex>(index);
+    // Loading document
+    auto document = m_index->data(KJotsModel::DocumentRole).value<QTextDocument *>();
+    if (!document) {
+        setReadOnly(true);
+        return false;
     }
-
-    Item item = list.first().data(EntityTreeModel::ItemRole).value<Item>();
-
+    setDocument(document);
+    // Setting cursor
+    auto cursor = document->property("textCursor").value<QTextCursor>();
+    if (!cursor.isNull()) {
+        setTextCursor(cursor);
+    } else {
+        // This is a work-around for QTextEdit bug. If the first letter of the document is formatted,
+        // QTextCursor doesn't follow this format. One can either move the cursor 1 symbol to the right
+        // and then 1 symbol to the left as a workaround, or just explicitly move it to the start.
+        // Submitted to qt-bugs, id 192886.
+        //  -- (don't know the fate of this bug, as for April 2020 it is unaccessible)
+        moveCursor(QTextCursor::Start);
+    }
+    // Setting focus if document was changed
+    if (newDocument) {
+        setFocus();
+    }
+    // Setting ReadOnly
+    auto item = m_index->data(EntityTreeModel::ItemRole).value<Item>();
     if (!item.isValid()) {
-        return setReadOnly(true);
+        setReadOnly(true);
+        return false;
+    } else if (item.hasAttribute<NoteShared::NoteLockAttribute>()) {
+        setReadOnly(true);
+        return true;
+    } else {
+        setReadOnly(false);
+        return true;
     }
-
-    if (item.hasAttribute<NoteShared::NoteLockAttribute>()) {
-        return setReadOnly(true);
-    }
-
-    setReadOnly(false);
 }
 
 void KJotsEdit::onAutoBullet(void)
@@ -231,8 +239,12 @@ void KJotsEdit::onAutoDecimal(void)
 
 void KJotsEdit::onLinkify(void)
 {
+    // Nothing is yet opened, ignoring
+    if (!m_index) {
+        return;
+    }
     selectLinkText();
-    QPointer<KJotsLinkDialog> linkDialog = new KJotsLinkDialog(const_cast<QAbstractItemModel *>(m_selectionModel->model()), this);
+    QPointer<KJotsLinkDialog> linkDialog = new KJotsLinkDialog(const_cast<QAbstractItemModel*>(m_index->model()), this);
     linkDialog->setLinkText(currentLinkText());
     linkDialog->setLinkUrl(currentLinkUrl());
 
@@ -350,6 +362,10 @@ bool KJotsEdit::event(QEvent *event)
 
 void KJotsEdit::tooltipEvent(QHelpEvent *event)
 {
+    // Nothing is opened, ignoring
+    if (!m_index) {
+        return;
+    }
     QUrl url(anchorAt(event->pos()));
     QString message;
 
@@ -385,29 +401,14 @@ void KJotsEdit::savePage()
         return;
     }
 
-    QModelIndexList rows = m_selectionModel->selectedRows();
-
-    if (rows.size() != 1) {
+    auto item = m_index->data(EntityTreeModel::ItemRole).value<Item>();
+    if (!item.isValid() || !item.hasPayload<KMime::Message::Ptr>()) {
         return;
     }
-
-    QModelIndex index = rows.at(0);
-
-    Item item = index.data(EntityTreeModel::ItemRole).value<Item>();
-
-    if (!item.isValid()) {
-        return;
-    }
-
-    if (!item.hasPayload<KMime::Message::Ptr>()) {
-        return;
-    }
-
-    QAbstractItemModel *model = const_cast<QAbstractItemModel *>(m_selectionModel->model());
-
+    auto model = const_cast<QAbstractItemModel *>(m_index->model());
     document()->setModified(false);
     document()->setProperty("textCursor", QVariant::fromValue(textCursor()));
-    model->setData(index, QVariant::fromValue(document()), KJotsModel::DocumentRole);
+    model->setData(*m_index, QVariant::fromValue(document()), KJotsModel::DocumentRole);
 }
 
 /* ex: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab: */

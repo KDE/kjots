@@ -176,12 +176,12 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     treeview->setSelectionMode(QAbstractItemView::ExtendedSelection);
     treeview->setEditTriggers(QAbstractItemView::DoubleClicked);
 
-    connect(treeview->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), SLOT(selectionChanged(QItemSelection,QItemSelection)));
-
     selProxy = new KSelectionProxyModel(treeview->selectionModel(), this);
     selProxy->setSourceModel(treeview->model());
 
     // TODO: Write a QAbstractItemView subclass to render kjots selection.
+
+    // TODO: handle dataChanged properly, i.e. if item was changed from outside
     connect(selProxy, &KSelectionProxyModel::dataChanged, this, &KJotsWidget::renderSelection);
     connect(selProxy, &KSelectionProxyModel::rowsInserted, this, &KJotsWidget::renderSelection);
     connect(selProxy, &KSelectionProxyModel::rowsRemoved, this, &KJotsWidget::renderSelection);
@@ -190,14 +190,14 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 
     KActionCollection *actionCollection = xmlGuiClient->actionCollection();
 
-    editor = new KJotsEdit(treeview->selectionModel(), stackedWidget);
+    editor = new KJotsEdit(stackedWidget);
     connect(editor, &KJotsEdit::linkClicked, this, &KJotsWidget::openLink);
     actionCollection->addActions(editor->createActions());
     stackedWidget->addWidget(editor);
 
     layout->addWidget(m_splitter);
 
-    browser = new KJotsBrowser(treeview->selectionModel(), stackedWidget);
+    browser = new KJotsBrowser(stackedWidget);
     connect(browser, &KJotsBrowser::linkClicked, this, &KJotsWidget::openLink);
     stackedWidget->addWidget(browser);
     stackedWidget->setCurrentWidget(browser);
@@ -955,44 +955,6 @@ QString KJotsWidget::renderSelectionToXml()
     return result;
 }
 
-void KJotsWidget::renderSelection()
-{
-    const int rows = selProxy->rowCount();
-
-    // If the selection is a single page, present it for editing...
-    if (rows == 1) {
-        QModelIndex idx = selProxy->index(0, 0, QModelIndex());
-
-        QTextDocument *document = idx.data(KJotsModel::DocumentRole).value<QTextDocument *>();
-
-        if (document) {
-            editor->setDocument(document);
-            QTextCursor textCursor = document->property("textCursor").value<QTextCursor>();
-            if (!textCursor.isNull()) {
-                editor->setTextCursor(textCursor);
-            } else {
-                // This is a work-around for QTextEdit bug. If the first letter of the document is formatted, 
-                // QTextCursor doesn't follow this format. One can either move the cursor 1 symbol to the right
-                // and then 1 symbol to the left as a workaround, or just explicitly move it to the start.
-                // Submitted to qt-bugs, id 192886.
-                //  -- (don't know the fate of this bug, as for April 2020 it is unaccessible)
-                editor->moveCursor(QTextCursor::Start);
-            }
-            stackedWidget->setCurrentWidget(editor);
-            editor->setFocus();
-            return;
-        } // else fallthrough
-    }
-
-    // ... Otherwise, render the selection read-only.
-
-    QTextDocument doc;
-    QTextCursor cursor(&doc);
-
-    browser->setHtml(renderSelectionToHtml());
-    stackedWidget->setCurrentWidget(browser);
-}
-
 QString KJotsWidget::getThemeFromUser()
 {
     return QString();
@@ -1211,21 +1173,27 @@ bool KJotsWidget::canGoPreviousBook() const
     return canGo(EntityTreeModel::CollectionIdRole, -1);
 }
 
-void KJotsWidget::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+void KJotsWidget::renderSelection()
 {
-    Q_UNUSED(selected)
-
     Q_EMIT canGoNextBookChanged(canGoPreviousBook());
     Q_EMIT canGoNextPageChanged(canGoNextPage());
     Q_EMIT canGoPreviousBookChanged(canGoPreviousBook());
     Q_EMIT canGoPreviousPageChanged(canGoPreviousPage());
 
-    if (deselected.size() == 1) {
-        editor->document()->setProperty("textCursor", QVariant::fromValue(editor->textCursor()));
-        if (editor->document()->isModified()) {
-            treeview->model()->setData(deselected.indexes().first(), QVariant::fromValue(editor->document()), KJotsModel::DocumentRole);
+    const int rows = selProxy->rowCount();
+    // If the selection is a single page, present it for editing...
+    if (rows == 1) {
+        QModelIndex idx = selProxy->index(0, 0, QModelIndex());
+        if (editor->setModelIndex(idx)) {
+            stackedWidget->setCurrentWidget(editor);
+            return;
         }
+        // If something went wrong, we show user the browser
     }
+
+    // ... Otherwise, render the selection read-only.
+    browser->setHtml(renderSelectionToHtml());
+    stackedWidget->setCurrentWidget(browser);
 }
 
 /*!

@@ -31,7 +31,7 @@ class KJotsBrowser : public QTextBrowser
 {
     Q_OBJECT
 public:
-    explicit KJotsBrowser(QItemSelectionModel *selectionModel, QWidget *);
+    explicit KJotsBrowser(QWidget *);
 
     void delayedInitialization();
 
