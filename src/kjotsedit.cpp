@@ -251,9 +251,7 @@ void KJotsEdit::addCheckmark(void)
 
 bool KJotsEdit::canInsertFromMimeData(const QMimeData *source) const
 {
-    if (source->formats().contains(QLatin1String("kjots/internal_link"))) {
-        return true;
-    } else if (source->hasUrls()) {
+    if (source->hasUrls()) {
         return true;
     } else {
         return KTextEdit::canInsertFromMimeData(source);
@@ -262,14 +260,18 @@ bool KJotsEdit::canInsertFromMimeData(const QMimeData *source) const
 
 void KJotsEdit::insertFromMimeData(const QMimeData *source)
 {
-    if (source->formats().contains(QStringLiteral("kjots/internal_link"))) {
-        insertHtml(source->data(QStringLiteral("kjots/internal_link")));
-    } else if (source->hasUrls()) {
+    if (source->hasUrls()) {
         const QList<QUrl> urls = source->urls();
         for (const QUrl &url : urls) {
-            if (url.isValid()) {
-                QString html = QStringLiteral("<a href=\"%1\">%2</a>").arg(QString::fromUtf8(url.toEncoded()), url.toString(QUrl::RemovePassword));
-                insertHtml(html);
+            if (url.scheme() == QStringLiteral("akonadi")) {
+                QModelIndex idx = KJotsModel::modelIndexForUrl(m_selectionModel->model(), url);
+                if (idx.isValid()) {
+                    insertHtml(QStringLiteral("<a href=\"%1\">%2</a>").arg(idx.data(KJotsModel::EntityUrlRole).toString(),
+                                                                           idx.data().toString()));
+                }
+            } else {
+                QString text = source->hasText() ? source->text() : url.toString(QUrl::RemovePassword);
+                insertHtml(QStringLiteral("<a href=\"%1\">%2</a>").arg(QString::fromUtf8(url.toEncoded()), text));
             }
         }
     } else if (source->hasHtml()) {
@@ -352,16 +354,12 @@ void KJotsEdit::tooltipEvent(QHelpEvent *event)
     QString message;
 
     if (url.isValid()) {
-        if (url.scheme() == QStringLiteral("kjots")) {
-            QModelIndex idx = KJotsModel::modelIndexForUrl(m_selectionModel->model(), url);
-            auto item = idx.data(KJotsModel::ItemRole).value<Item>();
-            if (item.isValid()) {
+        if (url.scheme() == QStringLiteral("akonadi")) {
+            const QModelIndex idx = KJotsModel::modelIndexForUrl(m_selectionModel->model(), url);
+            if (idx.data(EntityTreeModel::ItemRole).value<Item>().isValid()) {
                 message = i18nc("@info:tooltip %1 is page name", "Ctrl+click to open page: %1", idx.data().toString());
-            } else {
-                auto col = idx.data(KJotsModel::CollectionRole).value<Collection>();
-                if (col.isValid()) {
-                    message = i18nc("@info:tooltip %1 is book name", "Ctrl+click to open book: %1", idx.data().toString());
-                }
+            } else if (idx.data(EntityTreeModel::CollectionRole).value<Collection>().isValid()) {
+                message = i18nc("@info:tooltip %1 is book name", "Ctrl+click to open book: %1", idx.data().toString());
             }
         } else {
             message = i18nc("@info:tooltip %1 is hyperlink address", "Ctrl+click to follow the hyperlink: %1", url.toString(QUrl::RemovePassword));

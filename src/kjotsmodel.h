@@ -84,8 +84,7 @@ public:
     enum KJotsRoles {
         GrantleeObjectRole = EntityTreeModel::UserRole,
         DocumentRole,
-        DocumentCursorPositionRole,
-        UrlRole
+        DocumentCursorPositionRole
     };
 
     // We don't reimplement the Collection overload.

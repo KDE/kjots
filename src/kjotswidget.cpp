@@ -1759,7 +1759,7 @@ void KJotsWidget::actionSortChildrenByDate()
 
 void KJotsWidget::openLink(const QUrl &url)
 {
-    if (url.scheme() == QStringLiteral("kjots")) {
+    if (url.scheme() == QStringLiteral("akonadi")) {
         treeview->selectionModel()->select(KJotsModel::modelIndexForUrl(treeview->model(), url), QItemSelectionModel::ClearAndSelect);
     } else {
         new KRun(url, this);

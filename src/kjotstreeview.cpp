@@ -173,16 +173,10 @@ void KJotsTreeView::copyLinkAddress()
     if (rows.size() != 1) {
         return;
     }
-    const QModelIndex idx = rows.at(0);
-
-    const QString title = idx.data().toString();
-    const QString link = QStringLiteral("<a href=\"%1\">%2</a> ").arg(idx.data(KJotsModel::UrlRole).toString(), title);
-
-    Item item = idx.data(KJotsModel::ItemRole).value<Item>();
-
+    const QModelIndex idx = rows.first();
     QMimeData *mimeData = new QMimeData();
-    mimeData->setData(QStringLiteral("kjots/internal_link"), link.toUtf8());
-    mimeData->setText(title);
+    mimeData->setText(idx.data().toString());
+    mimeData->setUrls({idx.data(KJotsModel::EntityUrlRole).toUrl()});
     QApplication::clipboard()->setMimeData(mimeData);
 }
 

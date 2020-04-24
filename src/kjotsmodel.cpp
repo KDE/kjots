@@ -91,7 +91,7 @@ QString KJotsEntity::plainContent() const
 
 QString KJotsEntity::url() const
 {
-    return m_index.data(KJotsModel::UrlRole).value<QString>();
+    return m_index.data(KJotsModel::EntityUrlRole).toString();
 }
 
 qint64 KJotsEntity::entityId() const
@@ -277,18 +277,6 @@ QVariant KJotsModel::data(const QModelIndex &index, int role) const
         }
     }
 
-    if (role == KJotsModel::UrlRole) {
-        const auto item = index.data(ItemRole).value<Item>();
-        if (item.isValid()) {
-            return QStringLiteral("kjots://org.kjots.page/%1").arg(item.id());
-        }
-        const auto col = index.data(CollectionRole).value<Collection>();
-        if (col.isValid()) {
-            return QStringLiteral("kjots://org.kjots.book/%1").arg(col.id());
-        }
-        return QString();
-    }
-
     return EntityTreeModel::data(index, role);
 }
 
@@ -303,21 +291,18 @@ QVariant KJotsModel::entityData(const Akonadi::Item &item, int column, int role)
 
 QModelIndex KJotsModel::modelIndexForUrl(const QAbstractItemModel *model, const QUrl &url)
 {
-    if (url.scheme() != QStringLiteral("kjots")) {
+    if (url.scheme() != QStringLiteral("akonadi")) {
         return QModelIndex();
     }
-    const qint64 targetId = url.path().mid(1).toLongLong();
-
-    if (url.host() == QStringLiteral("org.kjots.book")) {
-        return Akonadi::EntityTreeModel::modelIndexForCollection(model, Collection(targetId));
-    } else if (url.host() == QStringLiteral("org.kjots.page")) {
-        const QModelIndexList itemIndexes = Akonadi::EntityTreeModel::modelIndexesForItem(model, Item(targetId));
-        if (itemIndexes.isEmpty()) {
-            return QModelIndex();
+    const auto item = Item::fromUrl(url);
+    const auto col = Collection::fromUrl(url);
+    if (item.isValid()) {
+        const QModelIndexList idxs = EntityTreeModel::modelIndexesForItem(model, item);
+        if (!idxs.isEmpty()) {
+            return idxs.first();
         }
-        return itemIndexes.first();
-    } else {
-        qWarning() << "Could not recognize URL" << url;
-        return QModelIndex();
+    } else if (col.isValid()) {
+        return EntityTreeModel::modelIndexForCollection(model, col);
     }
+    return QModelIndex();
 }

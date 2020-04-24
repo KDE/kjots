@@ -126,16 +126,17 @@ void KJotsLinkDialog::setLinkText(const QString &linkText)
 void KJotsLinkDialog::setLinkUrl(const QString &linkUrl)
 {
     const QUrl url(linkUrl);
-    if (url.scheme() != QStringLiteral("kjots")) {
+    if (url.scheme() == QStringLiteral("akonadi")) {
+        QModelIndex idx = KJotsModel::modelIndexForUrl(m_descendantsProxyModel, url);
+        if (idx.isValid()) {
+            hrefComboRadioButton->setChecked(true);
+            hrefCombo->view()->setCurrentIndex(idx);
+            hrefCombo->setCurrentIndex(idx.row());
+        }
+    } else {
         linkUrlLineEdit->setText(linkUrl);
         linkUrlLineEditRadioButton->setChecked(true);
         return;
-    }
-    QModelIndex idx = KJotsModel::modelIndexForUrl(m_descendantsProxyModel, url);
-    if (idx.isValid()) {
-        hrefComboRadioButton->setChecked(true);
-        hrefCombo->view()->setCurrentIndex(idx);
-        hrefCombo->setCurrentIndex(idx.row());
     }
 }
 
@@ -159,7 +160,7 @@ void KJotsLinkDialog::trySetEntry(const QString &text)
 QString KJotsLinkDialog::linkUrl() const
 {
     if (hrefComboRadioButton->isChecked()) {
-        return hrefCombo->view()->currentIndex().data(KJotsModel::UrlRole).value<QString>();
+        return hrefCombo->view()->currentIndex().data(KJotsModel::EntityUrlRole).toString();
     } else {
         return linkUrlLineEdit->text();
     }
