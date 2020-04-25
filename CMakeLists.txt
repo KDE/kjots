@@ -18,7 +18,7 @@ include(ECMAddAppIcon)
 
 set(KJOTS_VERSION "5.0.2")
 
-set(KF5_VERSION "5.16.0")
+set(KF5_VERSION "5.69.0")
 # Only what is in Applications/15.12
 set(KDEPIMLIBS_LIB_VERSION "5.1.0")
 set(KMIME_LIB_VERSION "4.87.0")
