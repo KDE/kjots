@@ -36,6 +36,7 @@
 #include <QApplication>
 #include <QAction>
 #include <QToolTip>
+#include <QTextDocumentFragment>
 
 #include <KActionCollection>
 #include <KLocalizedString>
@@ -274,36 +275,21 @@ void KJotsEdit::insertFromMimeData(const QMimeData *source)
     } else if (source->hasHtml()) {
         // Don't have an action to set top and bottom margins on paragraphs yet.
         // Remove the margins for all inserted html.
-//         qDebug() << source->html();
-        QString str = source->html();
-        int styleBegin = 0;
-        while ((styleBegin = str.indexOf(QLatin1String("style=\""), styleBegin, Qt::CaseInsensitive) + 7) != (-1 + 7)) {
-            int styleEnd = str.indexOf(QLatin1Char('"'), styleBegin);
-            int styleFragmentStart = styleBegin;
-            int styleFragmentEnd = styleBegin;
-            while ((styleFragmentEnd = str.indexOf(QLatin1String(";"), styleFragmentEnd) + 1) != (-1 + 1)) {
-                if (styleFragmentEnd > styleEnd) {
-                    break;
-                }
-                int fragmentLength = styleFragmentEnd - styleFragmentStart;
-                if (str.mid(styleFragmentStart, fragmentLength).contains(QLatin1String("margin"), Qt::CaseInsensitive)) {
-                    str.remove(styleFragmentStart, fragmentLength);
-                    styleEnd -= fragmentLength;
-                    styleFragmentEnd = styleFragmentStart;
+        QTextDocument dummy;
+        dummy.setHtml(source->html());
+        QTextCursor c(&dummy);
+        QTextBlockFormat fmt = c.blockFormat();
+        fmt.setTopMargin(0);
+        fmt.setBottomMargin(0);
+        fmt.setLeftMargin(0);
+        fmt.setRightMargin(0);
+        c.movePosition(QTextCursor::End, QTextCursor::KeepAnchor);
+        c.mergeBlockFormat(fmt);
 
-                    if (styleBegin == styleEnd) {
-                        str.remove(styleBegin - 7, 7 + 1); // remove the now empty style attribute.
-                    }
-                } else {
-                    styleFragmentStart = styleFragmentEnd;
-                }
-            }
-            styleBegin = styleEnd;
-        }
-//         qDebug() << str;
-        insertHtml(str);
+        textCursor().insertFragment(QTextDocumentFragment(c));
+        ensureCursorVisible();
     } else {
-        KTextEdit::insertFromMimeData(source);
+        KRichTextEdit::insertFromMimeData(source);
     }
 }
 
