@@ -179,17 +179,16 @@ bool KJotsModel::setData(const QModelIndex &index, const QVariant &value, int ro
             }
             return EntityTreeModel::setData(index, QVariant::fromValue(col), CollectionRole);
         }
-        KMime::Message::Ptr m = item.payload<KMime::Message::Ptr>();
-
-        m->subject(true)->fromUnicodeString(value.toString(), "utf-8");
-        m->assemble();
-        item.setPayload<KMime::Message::Ptr>(m);
+        NoteUtils::NoteMessageWrapper note(item.payload<KMime::Message::Ptr>());
+        note.setTitle(value.toString());
+        note.setLastModifiedDate(QDateTime::currentDateTime());
+        item.setPayload(note.message());
 
         if (item.hasAttribute<EntityDisplayAttribute>()) {
             EntityDisplayAttribute *displayAttribute = item.attribute<EntityDisplayAttribute>();
             displayAttribute->setDisplayName(value.toString());
         }
-        return EntityTreeModel::setData(index, QVariant::fromValue<Item>(item), ItemRole);
+        return EntityTreeModel::setData(index, QVariant::fromValue(item), ItemRole);
     }
 
     if (role == KJotsModel::DocumentRole) {
@@ -197,24 +196,18 @@ bool KJotsModel::setData(const QModelIndex &index, const QVariant &value, int ro
         if (!item.hasPayload<KMime::Message::Ptr>()) {
             return false;
         }
-        KMime::Message::Ptr note = item.payload<KMime::Message::Ptr>();
         QTextDocument *document = value.value<QTextDocument *>();
 
+        NoteUtils::NoteMessageWrapper note(item.payload<KMime::Message::Ptr>());
         bool isRichText = KPIMTextEdit::TextUtils::containsFormatting(document);
-
-        note->contentType()->setMimeType(isRichText ? "text/html" : "text/plain");
-        note->contentType()->setCharset("utf-8");
-        note->contentTransferEncoding(true)->setEncoding(KMime::Headers::CEquPr);
-        note->mainBodyPart()->fromUnicodeString(isRichText ? document->toHtml() : document->toPlainText());
-        note->assemble();
-        item.setPayload<KMime::Message::Ptr>(note);
-        return EntityTreeModel::setData(index, QVariant::fromValue<Item>(item), ItemRole);
-    }
-
-    if (role == KJotsModel::DocumentCursorPositionRole) {
-        Item item = index.data(ItemRole).value<Item>();
-        m_cursorPositions.insert(item.id(), value.toInt());
-        return true;
+        if (isRichText) {
+            note.setText( document->toHtml(), Qt::RichText );
+        } else {
+            note.setText( document->toPlainText(), Qt::PlainText );
+        }
+        note.setLastModifiedDate(QDateTime::currentDateTime());
+        item.setPayload(note.message());
+        return EntityTreeModel::setData(index, QVariant::fromValue(item), ItemRole);
     }
 
     return EntityTreeModel::setData(index, value, role);
@@ -237,32 +230,20 @@ QVariant KJotsModel::data(const QModelIndex &index, int role) const
             return QVariant();
         }
 
-        KMime::Message::Ptr note = item.payload<KMime::Message::Ptr>();
-        QTextDocument *document = new QTextDocument;
-        const QString decodedText = note->mainBodyPart()->decodedText();
-        if (note->contentType()->isHTMLText()
-            || decodedText.startsWith(QLatin1String("<!DOCTYPE"))
-            || decodedText.startsWith(QLatin1String("<html>"))) {
-            document->setHtml(decodedText);
+        NoteUtils::NoteMessageWrapper note(item.payload<KMime::Message::Ptr>());
+        const QString doc = note.text();
+        auto document = new QTextDocument();
+        if (note.textFormat() == Qt::RichText
+                || doc.startsWith(u"<!DOCTYPE")
+                || doc.startsWith(u"<html>"))
+        {
+            document->setHtml(doc);
         } else {
-            document->setPlainText(decodedText);
+            document->setPlainText(doc);
         }
 
         m_documents.insert(itemId, document);
         return QVariant::fromValue(document);
-    }
-
-    if (role == KJotsModel::DocumentCursorPositionRole) {
-        const Item item = index.data(ItemRole).value<Item>();
-        if (!item.isValid()) {
-            return 0;
-        }
-
-        if (m_cursorPositions.contains(item.id())) {
-            return m_cursorPositions.value(item.id());
-        }
-
-        return 0;
     }
 
     if (role == Qt::DecorationRole) {
@@ -283,8 +264,8 @@ QVariant KJotsModel::data(const QModelIndex &index, int role) const
 QVariant KJotsModel::entityData(const Akonadi::Item &item, int column, int role) const
 {
     if ((role == Qt::EditRole || role == Qt::DisplayRole) && item.hasPayload<KMime::Message::Ptr>()) {
-        KMime::Message::Ptr page = item.payload<KMime::Message::Ptr>();
-        return page->subject()->asUnicodeString();
+        NoteUtils::NoteMessageWrapper note(item.payload<KMime::Message::Ptr>());
+        return note.title();
     }
     return EntityTreeModel::entityData(item, column, role);
 }

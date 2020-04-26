@@ -83,8 +83,7 @@ public:
 
     enum KJotsRoles {
         GrantleeObjectRole = EntityTreeModel::UserRole,
-        DocumentRole,
-        DocumentCursorPositionRole
+        DocumentRole
     };
 
     // We don't reimplement the Collection overload.
@@ -99,8 +98,6 @@ public:
 private:
     QHash<Collection::Id, QColor> m_colors;
     mutable QHash<Item::Id, QTextDocument *> m_documents;
-    QHash<Item::Id, int> m_cursorPositions;
-
 };
 
 #endif

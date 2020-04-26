@@ -44,7 +44,6 @@ private Q_SLOTS:
     void rootFetchFinished(KJob *job);
     void topLevelFetchFinished(KJob *job);
     void createFinished(KJob *job);
-    void itemCreateFinished(KJob *job);
 
 };
 

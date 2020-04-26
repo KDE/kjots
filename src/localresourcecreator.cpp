@@ -141,34 +141,23 @@ void LocalResourceCreator::createFinished(KJob *job)
     item.setParentCollection(collectionCreateJob->collection());
     item.setMimeType(Akonadi::NoteUtils::noteMimeType());
 
-    KMime::Message::Ptr note(new KMime::Message());
-
-    QString title = i18nc("The default name for new pages.", "New Page");
-    QByteArray encoding("utf-8");
-
-    note->subject(true)->fromUnicodeString(title, encoding);
-    note->contentType(true)->setMimeType("text/plain");
-    note->date(true)->setDateTime(QDateTime::currentDateTime());
-    note->from(true)->fromUnicodeString(QLatin1String("Kjots@kde4"), encoding);
+    Akonadi::NoteUtils::NoteMessageWrapper note(KMime::Message::Ptr(new KMime::Message));
+    note.setFrom(QStringLiteral("KJots@KDE5"));
+    note.setTitle(i18nc("The default name for new pages.", "New Page"));
+    note.setCreationDate(QDateTime::currentDateTime());
+    note.setLastModifiedDate(QDateTime::currentDateTime());
     // Need a non-empty body part so that the serializer regards this as a valid message.
-    note->mainBodyPart()->fromUnicodeString(QLatin1String(" "));
+    note.setText(QStringLiteral(" "));
 
-    note->assemble();
+    item.setPayload(note.message());
+    item.attribute<Akonadi::EntityDisplayAttribute>(Akonadi::Item::AddIfMissing)->setIconName(QStringLiteral("text-plain"));
 
-    item.setPayload(note);
-    Akonadi::EntityDisplayAttribute *eda = new Akonadi::EntityDisplayAttribute();
-    eda->setIconName(QLatin1String("text-plain"));
-    item.addAttribute(eda);
-
-    Akonadi::ItemCreateJob *itemCreateJob = new Akonadi::ItemCreateJob(item,  collectionCreateJob->collection(), this);
-    connect(itemCreateJob, &Akonadi::ItemCreateJob::result, this, &LocalResourceCreator::itemCreateFinished);
-}
-
-void LocalResourceCreator::itemCreateFinished(KJob *job)
-{
-    if (job->error()) {
-        qWarning() << job->errorString();
-    }
-    deleteLater();
+    auto itemJob = new Akonadi::ItemCreateJob(item,  collectionCreateJob->collection(), this);
+    connect(itemJob, &Akonadi::ItemCreateJob::result, this, [this, itemJob](KJob*){
+                if (itemJob->error()) {
+                    qWarning() << "Failed to create a note:" << itemJob->errorString();
+                }
+                deleteLater();
+            });
 }
 

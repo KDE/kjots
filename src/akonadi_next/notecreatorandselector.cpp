@@ -84,27 +84,16 @@ void NoteCreatorAndSelector::doCreateNote()
     Item newItem;
     newItem.setMimeType(Akonadi::NoteUtils::noteMimeType());
 
-    KMime::Message::Ptr newPage = KMime::Message::Ptr(new KMime::Message());
-
-    QString title = i18nc("The default name for new pages.", "New Page");
-    QByteArray encoding("utf-8");
-
-    newPage->subject(true)->fromUnicodeString(title, encoding);
-    newPage->contentType(true)->setMimeType("text/plain");
-    newPage->contentType()->setCharset("utf-8");
-    newPage->contentTransferEncoding(true)->setEncoding(KMime::Headers::CEquPr);
-    newPage->date(true)->setDateTime(QDateTime::currentDateTime());
-    newPage->from(true)->fromUnicodeString(QString::fromLatin1("Kjots@kde4"), encoding);
+    Akonadi::NoteUtils::NoteMessageWrapper note(KMime::Message::Ptr(new KMime::Message));
+    note.setFrom(QStringLiteral("KJots@KDE5"));
+    note.setTitle(i18nc("The default name for new pages.", "New Page"));
+    note.setCreationDate(QDateTime::currentDateTime());
+    note.setLastModifiedDate(QDateTime::currentDateTime());
     // Need a non-empty body part so that the serializer regards this as a valid message.
-    newPage->mainBodyPart()->fromUnicodeString(QString::fromLatin1(" "));
+    note.setText(QStringLiteral(" "));
 
-    newPage->assemble();
-
-    newItem.setPayload(newPage);
-
-    Akonadi::EntityDisplayAttribute *eda = new Akonadi::EntityDisplayAttribute();
-    eda->setIconName(QStringLiteral("text-plain"));
-    newItem.addAttribute(eda);
+    newItem.setPayload(note.message());
+    newItem.attribute<Akonadi::EntityDisplayAttribute>(Akonadi::Item::AddIfMissing)->setIconName(QStringLiteral("text-plain"));
 
     Akonadi::ItemCreateJob *job = new Akonadi::ItemCreateJob(newItem, Collection(m_containerCollectionId), this);
     connect(job, &Akonadi::ItemCreateJob::result, this, &NoteCreatorAndSelector::noteCreationFinished);
