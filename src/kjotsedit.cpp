@@ -272,11 +272,15 @@ bool KJotsEdit::canInsertFromMimeData(const QMimeData *source) const
 
 void KJotsEdit::insertFromMimeData(const QMimeData *source)
 {
+    // Nothing is opened, ignoring
+    if (!m_index) {
+        return;
+    }
     if (source->hasUrls()) {
         const QList<QUrl> urls = source->urls();
         for (const QUrl &url : urls) {
             if (url.scheme() == QStringLiteral("akonadi")) {
-                QModelIndex idx = KJotsModel::modelIndexForUrl(m_selectionModel->model(), url);
+                QModelIndex idx = KJotsModel::modelIndexForUrl(m_index->model(), url);
                 if (idx.isValid()) {
                     insertHtml(QStringLiteral("<a href=\"%1\">%2</a>").arg(idx.data(KJotsModel::EntityUrlRole).toString(),
                                                                            idx.data().toString()));
@@ -371,7 +375,7 @@ void KJotsEdit::tooltipEvent(QHelpEvent *event)
 
     if (url.isValid()) {
         if (url.scheme() == QStringLiteral("akonadi")) {
-            const QModelIndex idx = KJotsModel::modelIndexForUrl(m_selectionModel->model(), url);
+            const QModelIndex idx = KJotsModel::modelIndexForUrl(m_index->model(), url);
             if (idx.data(EntityTreeModel::ItemRole).value<Item>().isValid()) {
                 message = i18nc("@info:tooltip %1 is page name", "Ctrl+click to open page: %1", idx.data().toString());
             } else if (idx.data(EntityTreeModel::CollectionRole).value<Collection>().isValid()) {
@@ -397,7 +401,7 @@ void KJotsEdit::focusOutEvent(QFocusEvent *event)
 
 void KJotsEdit::savePage()
 {
-    if (!document()->isModified()) {
+    if (!document()->isModified() || !m_index) {
         return;
     }
 
