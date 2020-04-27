@@ -1184,7 +1184,7 @@ void KJotsWidget::renderSelection()
     // If the selection is a single page, present it for editing...
     if (rows == 1) {
         QModelIndex idx = selProxy->index(0, 0, QModelIndex());
-        if (editor->setModelIndex(idx)) {
+        if (editor->setModelIndex(selProxy->mapToSource(idx))) {
             stackedWidget->setCurrentWidget(editor);
             return;
         }
