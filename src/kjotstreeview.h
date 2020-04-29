@@ -35,11 +35,13 @@ public:
     void delayedInitialization();
     QString captionForSelection(const QString &sep) const;
 
+public Q_SLOTS:
+    void renameEntry();
+
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
 protected Q_SLOTS:
-    void renameEntry();
     void copyLinkAddress();
     void changeColor();
 

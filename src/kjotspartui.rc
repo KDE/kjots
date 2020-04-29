@@ -1,17 +1,18 @@
 <!DOCTYPE kpartgui>
-<kpartgui version="13" name="kjots" >
+<kpartgui version="14" name="kjots" >
  <MenuBar>
 
   <Menu name="file">
    <Action name="new_page"/>
    <Action name="new_book"/>
    <Separator/>
+   <Action name="file_save"/>
    <Action name="save_to"/>
    <Action name="import"/>
    <Action name="del_page"/>
    <Action name="del_folder"/>
    <Separator/>
-   <Action name="rename_entry"/>
+   <Action name="renamefile"/>
    <Separator/>
    <Action name="file_print"/>
    <Action name="file_print_preview"/>
@@ -42,8 +43,8 @@
 
   <Menu name="go">
    <text>&amp;Go</text>
-   <Action name="go_next_page"/>
-   <Action name="go_prev_page"/>
+   <Action name="go_next"/>
+   <Action name="go_previous"/>
    <Separator/>
    <Action name="go_prev_book"/>
    <Action name="go_next_book"/>

@@ -57,7 +57,7 @@ void KJotsTreeView::contextMenuEvent(QContextMenuEvent *event)
     popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("new_book")));
     if (singleselection) {
         popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("new_page")));
-        popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("rename_entry")));
+        popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::RenameFile))));
 
         popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("copy_link_address")));
         popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("change_color")));
@@ -93,7 +93,6 @@ void KJotsTreeView::contextMenuEvent(QContextMenuEvent *event)
 
 void KJotsTreeView::delayedInitialization()
 {
-    connect(m_xmlGuiClient->actionCollection()->action(QLatin1String("rename_entry")), &QAction::triggered, this, &KJotsTreeView::renameEntry);
     connect(m_xmlGuiClient->actionCollection()->action(QLatin1String("copy_link_address")), &QAction::triggered, this, &KJotsTreeView::copyLinkAddress);
     connect(m_xmlGuiClient->actionCollection()->action(QLatin1String("change_color")), &QAction::triggered, this, &KJotsTreeView::changeColor);
 }
@@ -125,46 +124,11 @@ QString KJotsTreeView::captionForSelection(const QString &sep) const
 
 void KJotsTreeView::renameEntry()
 {
-    QModelIndexList rows = selectionModel()->selectedRows();
-
+    const QModelIndexList rows = selectionModel()->selectedRows();
     if (rows.size() != 1) {
         return;
     }
-
-    QModelIndex idx = rows.at(0);
-
-    QString title = idx.data().toString();
-
-    Item item = idx.data(KJotsModel::ItemRole).value<Item>();
-    if (item.isValid()) {
-        Q_ASSERT(item.hasPayload<KMime::Message::Ptr>());
-        if (!item.hasPayload<KMime::Message::Ptr>()) {
-            return;
-        }
-
-        bool ok;
-        const QString name = QInputDialog::getText(this, i18n("Rename Page"),
-                             i18n("Page title:"), QLineEdit::Normal, title, &ok);
-
-        if (ok) {
-            model()->setData(idx, name, Qt::EditRole);
-        }
-        return;
-    }
-
-    Collection col = idx.data(KJotsModel::CollectionRole).value<Collection>();
-    Q_ASSERT(col.isValid());
-    if (!col.isValid()) {
-        return;
-    }
-
-    bool ok;
-    const QString name = QInputDialog::getText(this, i18n("Rename Book"),
-                         i18n("Book name:"), QLineEdit::Normal, title, &ok);
-
-    if (ok) {
-        model()->setData(idx, name, Qt::EditRole);
-    }
+    edit(rows.first());
 }
 
 void KJotsTreeView::copyLinkAddress()

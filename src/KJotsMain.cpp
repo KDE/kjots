@@ -85,7 +85,7 @@ bool KJotsMain::queryClose()
 
 void KJotsMain::onQuit()
 {
-//     component->queryClose();
+    component->queryClose();
     deleteLater();
     qApp->quit();
 }

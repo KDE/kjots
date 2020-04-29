@@ -219,18 +219,12 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     connect(action, &QAction::triggered, this, &KJotsWidget::prevBook);
     connect(this, &KJotsWidget::canGoPreviousBookChanged, action, &QAction::setEnabled);
 
-    action = actionCollection->addAction(QLatin1String("go_next_page"));
-    action->setText(i18n("Next Page"));
-    action->setIcon(QIcon::fromTheme(QLatin1String("go-next")));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_PageDown));
-    connect(action, &QAction::triggered, this, &KJotsWidget::nextPage);
+    action = KStandardAction::next(this, &KJotsWidget::nextPage, actionCollection);
+    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_PageDown));
     connect(this, &KJotsWidget::canGoNextPageChanged, action, &QAction::setEnabled);
 
-    action = actionCollection->addAction(QLatin1String("go_prev_page"));
-    action->setText(i18n("Previous Page"));
-    action->setIcon(QIcon::fromTheme(QLatin1String("go-previous")));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_PageUp));
-    connect(action, &QAction::triggered, this, &KJotsWidget::prevPage);
+    action = KStandardAction::prior(this, &KJotsWidget::prevPage, actionCollection);
+    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_PageUp));
     connect(this, &KJotsWidget::canGoPreviousPageChanged, action, &QAction::setEnabled);
 
     action = actionCollection->addAction(QLatin1String("new_page"));
@@ -262,10 +256,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     action->setIcon(QIcon::fromTheme(QLatin1String("edit-delete")));
     connect(action, &QAction::triggered, this, &KJotsWidget::deleteMultiple);
 
-    action = actionCollection->addAction(QLatin1String("manual_save"));
-    action->setText(i18n("Manual Save"));
-    action->setIcon(QIcon::fromTheme(QLatin1String("document-save")));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_S));
+    KStandardAction::save( editor, &KJotsEdit::savePage, actionCollection);
 
     action = actionCollection->addAction(QLatin1String("auto_bullet"));
     action->setText(i18n("Auto Bullets"));
@@ -290,10 +281,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     action->setIcon(QIcon::fromTheme(QLatin1String("checkmark")));
     action->setEnabled(false);
 
-    action = actionCollection->addAction(QLatin1String("rename_entry"));
-    action->setText(i18n("Rename..."));
-    action->setIcon(QIcon::fromTheme(QLatin1String("edit-rename")));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_M));
+    KStandardAction::renameFile(treeview, &KJotsTreeView::renameEntry, actionCollection);
 
     action = actionCollection->addAction(QLatin1String("insert_date"));
     action->setText(i18n("Insert Date"));
@@ -489,7 +477,7 @@ void KJotsWidget::delayedInitialization()
     // Actions for a single item selection.
     entryActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Find))));
     entryActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Print))));
-    entryActions.insert(actionCollection->action(QLatin1String("rename_entry")));
+    entryActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::RenameFile))));
     entryActions.insert(actionCollection->action(QLatin1String("change_color")));
     entryActions.insert(actionCollection->action(QLatin1String("save_to")));
     entryActions.insert(actionCollection->action(QLatin1String("copy_link_address")));
@@ -498,6 +486,7 @@ void KJotsWidget::delayedInitialization()
     pageActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Cut))));
     pageActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Paste))));
     pageActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Replace))));
+    pageActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Save))));
     pageActions.insert(actionCollection->action(QLatin1String("del_page")));
     pageActions.insert(actionCollection->action(QLatin1String("insert_date")));
     pageActions.insert(actionCollection->action(QLatin1String("auto_bullet")));
@@ -1639,10 +1628,10 @@ void KJotsWidget::dataChanged(const QModelIndex &topLeft, const QModelIndex &bot
 bool KJotsWidget::queryClose()
 {
     KJotsSettings::setSplitterSizes(m_splitter->sizes());
-
     KJotsSettings::self()->save();
     m_orderProxy->saveOrder();
-
+    // TODO: we better wait for a result here!
+    editor->savePage();
     return true;
 }
 
