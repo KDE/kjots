@@ -62,10 +62,6 @@ protected:
      */
     bool openFile() override;
 
-protected Q_SLOTS:
-    void delayedInitialization();
-    void activeAnchorChanged(const QString &, const QString &);
-
 private:
     void initAction();
     KJotsWidget *mComponent;

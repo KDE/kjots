@@ -25,18 +25,25 @@
 #define KJOTSBROWSER_H
 
 #include <QTextBrowser>
-class QItemSelectionModel;
+class QHelpEvent;
+class QAbstractItemModel;
 
 class KJotsBrowser : public QTextBrowser
 {
     Q_OBJECT
 public:
-    explicit KJotsBrowser(QWidget *);
+    explicit KJotsBrowser(QAbstractItemModel *model, QWidget *parent);
 
     void delayedInitialization();
 
+protected:
+    bool event(QEvent *event) override;
+    void tooltipEvent(QHelpEvent *event);
+
 Q_SIGNALS:
     void linkClicked(const QUrl &);
+private:
+    QAbstractItemModel *m_model = nullptr;
 };
 
 #endif

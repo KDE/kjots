@@ -68,8 +68,6 @@ KJotsPart::KJotsPart(QWidget *parentWidget, QObject *parent, const QVariantList 
     // set our XML-UI resource file
     setComponentName(QStringLiteral("kjots"), QStringLiteral("kjots"));
     setXMLFile(QStringLiteral("kjotspartui.rc"));
-
-    QTimer::singleShot(0, this, &KJotsPart::delayedInitialization);
 }
 
 KJotsPart::~KJotsPart()
@@ -87,21 +85,6 @@ void KJotsPart::initAction()
 bool KJotsPart::openFile()
 {
     return false;
-}
-
-void KJotsPart::delayedInitialization()
-{
-    connect(mComponent, &KJotsWidget::activeAnchorChanged, this, &KJotsPart::activeAnchorChanged);
-}
-
-void KJotsPart::activeAnchorChanged(const QString &anchorTarget, const QString &anchorText)
-{
-    if (!anchorTarget.isEmpty()) {
-        mStatusBar->statusBar()->showMessage(i18nc("@info:status Link information; %1 is displayed text, %2 is link destination", "%1 -> %2",
-                                                   anchorText, anchorTarget));
-    } else {
-        mStatusBar->statusBar()->clearMessage();
-    }
 }
 
 //

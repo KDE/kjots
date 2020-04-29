@@ -99,14 +99,6 @@ Q_SIGNALS:
 
     void captionChanged(const QString &newCaption);
 
-    /**
-      Signals that the text cursor in the editor is now on a different anchor, or not on
-      an anchor anymore.
-      @param anchorTarget The href of the focused anchor.
-      @param anchorText The display text of the focused anchor.
-    */
-    void activeAnchorChanged(const QString &anchorTarget, const QString &anchorText);
-
 protected:
     bool canGo(int role, int step) const;
     bool canGoNextPage() const;
@@ -170,8 +162,6 @@ private Q_SLOTS:
 
     void saveState();
     void restoreState();
-
-    void currentCharFormatChanged(const QTextCharFormat &);
 
     void updateConfiguration();
 

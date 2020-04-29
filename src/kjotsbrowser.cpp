@@ -23,14 +23,19 @@
 
 //Own Header
 #include "kjotsbrowser.h"
+#include "kjotsmodel.h"
 
-#include <QItemSelectionModel>
-
+#include <QHelpEvent>
+#include <QToolTip>
 #include <qdebug.h>
+
 #include <AkonadiCore/EntityTreeModel>
 
-KJotsBrowser::KJotsBrowser(QWidget *parent)
+#include <KLocalizedString>
+
+KJotsBrowser::KJotsBrowser(QAbstractItemModel *model, QWidget *parent)
     : QTextBrowser(parent)
+    , m_model(model)
 {
     setWordWrapMode(QTextOption::WordWrap);
 }
@@ -45,6 +50,54 @@ void KJotsBrowser::delayedInitialization()
             Q_EMIT linkClicked(url);
         }
     });
+}
+
+bool KJotsBrowser::event(QEvent *event)
+{
+    if (event->type() == QEvent::ToolTip) {
+        tooltipEvent(static_cast<QHelpEvent*>(event));
+    }
+    return QTextBrowser::event(event);
+}
+
+void KJotsBrowser::tooltipEvent(QHelpEvent *event)
+{
+    // This code is somewhat shared with KJotsEdit
+    QUrl url(anchorAt(event->pos()));
+    QString message;
+
+    if (url.isValid()) {
+        QModelIndex idx;
+        if (url.scheme() == QStringLiteral("akonadi")) {
+            idx = KJotsModel::modelIndexForUrl(m_model, url);
+        } else
+        // This is #page_XXX internal links
+        if (url.scheme().isEmpty() && url.host().isEmpty() && url.path().isEmpty() && url.query().isEmpty()
+                   && url.fragment().startsWith("page_"))
+        {
+            bool ok;
+            Item::Id id = url.fragment().midRef(5).toInt(&ok);
+            const QModelIndexList idxs = EntityTreeModel::modelIndexesForItem(m_model, Item(id));
+            if (ok && !idxs.isEmpty()) {
+                idx = idxs.first();
+            }
+        } else {
+            message = i18nc("@info:tooltip %1 is hyperlink address", "Click to follow the hyperlink: %1", url.toString(QUrl::RemovePassword));
+        }
+        if (idx.isValid()) {
+            if (idx.data(EntityTreeModel::ItemRole).value<Item>().isValid()) {
+                message = i18nc("@info:tooltip %1 is page name", "Click to open page: %1", idx.data().toString());
+            } else if (idx.data(EntityTreeModel::CollectionRole).value<Collection>().isValid()) {
+                message = i18nc("@info:tooltip %1 is book name", "Click to open book: %1", idx.data().toString());
+            }
+        }
+    }
+
+    if (!message.isEmpty()) {
+        QToolTip::showText(event->globalPos(), message);
+    } else {
+        QToolTip::hideText();
+    }
 }
 
 /* ex: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab: */

@@ -198,7 +198,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 
     layout->addWidget(m_splitter);
 
-    browser = new KJotsBrowser(stackedWidget);
+    browser = new KJotsBrowser(m_kjotsModel, stackedWidget);
     connect(browser, &KJotsBrowser::linkClicked, this, &KJotsWidget::openLink);
     stackedWidget->addWidget(browser);
     stackedWidget->setCurrentWidget(browser);
@@ -516,10 +516,8 @@ void KJotsWidget::delayedInitialization()
     treeview->delayedInitialization();
     editor->delayedInitialization(m_xmlGuiClient->actionCollection());
     browser->delayedInitialization();
-
     connect(treeview->itemDelegate(), &QItemDelegate::closeEditor, this, &KJotsWidget::bookshelfEditItemFinished);
 
-    connect(editor, &KJotsEdit::currentCharFormatChanged, this, &KJotsWidget::currentCharFormatChanged);
     updateMenu();
 }
 
@@ -527,24 +525,6 @@ void KJotsWidget::bookshelfEditItemFinished(QWidget *, QAbstractItemDelegate::En
 {
     // Make sure the editor gets focus again after naming a new book/page.
     activeEditor()->setFocus();
-}
-
-void KJotsWidget::currentCharFormatChanged(const QTextCharFormat &fmt)
-{
-    QString selectedAnchor = fmt.anchorHref();
-    if (selectedAnchor != activeAnchor) {
-        activeAnchor = selectedAnchor;
-        if (!selectedAnchor.isEmpty()) {
-            QTextCursor c(editor->textCursor());
-            editor->selectLinkText(&c);
-            QString selectedText = c.selectedText();
-            if (!selectedText.isEmpty()) {
-                Q_EMIT activeAnchorChanged(selectedAnchor, selectedText);
-            }
-        } else {
-            Q_EMIT activeAnchorChanged(QString(), QString());
-        }
-    }
 }
 
 inline QTextEdit *KJotsWidget::activeEditor()

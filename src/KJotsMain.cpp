@@ -53,11 +53,8 @@ KJotsMain::KJotsMain()
 
     setCentralWidget(component);
 
-    connect(component, &KJotsWidget::activeAnchorChanged, this, &KJotsMain::activeAnchorChanged);
-
     setupGUI();
     connect(component, &KJotsWidget::captionChanged, this, &KJotsMain::updateCaption);
-
 }
 
 /*!
@@ -66,16 +63,6 @@ KJotsMain::KJotsMain()
 void KJotsMain::updateCaption(QString caption)
 {
     setCaption(caption);
-}
-
-void KJotsMain::activeAnchorChanged(const QString &anchorTarget, const QString &anchorText)
-{
-    if (!anchorTarget.isEmpty()) {
-        statusBar()->showMessage(i18nc("@info:status Link information; %1 is displayed text, %2 is link destination", "%1 -> %2",
-                                       anchorText, anchorTarget));
-    } else {
-        statusBar()->clearMessage();
-    }
 }
 
 bool KJotsMain::queryClose()

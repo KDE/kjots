@@ -39,7 +39,6 @@ public:
 public Q_SLOTS:
     void updateCaption(QString);
     void onQuit();
-    void activeAnchorChanged(const QString &, const QString &);
 
 protected:
     bool queryClose() override;
