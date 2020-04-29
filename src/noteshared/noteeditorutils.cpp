@@ -50,7 +50,7 @@ void NoteEditorUtils::insertDate(QTextEdit *editor)
     editor->insertPlainText(QLocale().toString(QDateTime::currentDateTime(), QLocale::ShortFormat) + QLatin1Char(' '));
 }
 
-void NoteEditorUtils::insertImage(QTextDocument *doc, QTextCursor &cursor, QTextEdit *par)
+void NoteEditorUtils::insertImage(QTextDocument * /*doc*/, QTextCursor &/*cursor*/, QTextEdit *par)
 {
     QString imageFileName = QFileDialog::getOpenFileName(par, i18n("Select image file"), QLatin1String("."), QLatin1String("Images (*.png *.bmp *.jpg *.jpeg *.jpe)"));
     if (!imageFileName.isEmpty()) {

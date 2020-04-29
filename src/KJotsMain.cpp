@@ -47,14 +47,13 @@ KJotsMain::KJotsMain()
     // Main widget
     //
 
-    KStandardAction::quit(this, SLOT(onQuit()), actionCollection());
+    KStandardAction::quit(this, &KJotsMain::onQuit, actionCollection());
 
     component = new KJotsWidget(this, this);
 
     setCentralWidget(component);
 
-    connect(component, SIGNAL(activeAnchorChanged(QString,QString)),
-            SLOT(activeAnchorChanged(QString,QString)));
+    connect(component, &KJotsWidget::activeAnchorChanged, this, &KJotsMain::activeAnchorChanged);
 
     setupGUI();
     connect(component, &KJotsWidget::captionChanged, this, &KJotsMain::updateCaption);

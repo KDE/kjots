@@ -45,6 +45,7 @@
 #include <QFileDialog>
 #include <QAction>
 #include <QIcon>
+#include <QItemDelegate>
 #include <qdebug.h>
 
 // Akonadi
@@ -324,20 +325,20 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     action->setText(i18n("Sort children by creation date"));
     connect(action, &QAction::triggered, this, &KJotsWidget::actionSortChildrenByDate);
 
-    action = KStandardAction::cut(editor, SLOT(cut()), actionCollection);
+    action = KStandardAction::cut(editor, &KJotsEdit::cut, actionCollection);
     connect(editor, &KJotsEdit::copyAvailable, action, &QAction::setEnabled);
     action->setEnabled(false);
 
-    action = KStandardAction::copy(this, SLOT(copy()), actionCollection);
+    action = KStandardAction::copy(this, &KJotsWidget::copy, actionCollection);
     connect(editor, &KJotsEdit::copyAvailable, action, &QAction::setEnabled);
     connect(browser, &KJotsBrowser::copyAvailable, action, &QAction::setEnabled);
     action->setEnabled(false);
 
-    KStandardAction::paste(editor, SLOT(paste()), actionCollection);
+    KStandardAction::paste(editor, &KJotsEdit::paste, actionCollection);
 
-    KStandardAction::undo(editor, SLOT(undo()), actionCollection);
-    KStandardAction::redo(editor, SLOT(redo()), actionCollection);
-    KStandardAction::selectAll(editor, SLOT(selectAll()), actionCollection);
+    KStandardAction::undo(editor, &KJotsEdit::undo, actionCollection);
+    KStandardAction::redo(editor, &KJotsEdit::redo, actionCollection);
+    KStandardAction::selectAll(editor, &KJotsEdit::selectAll, actionCollection);
 
     action = actionCollection->addAction(QLatin1String("copyIntoTitle"));
     action->setText(i18n("Copy &into Page Title"));
@@ -351,7 +352,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     action->setText(i18nc("@action Paste the text in the clipboard without rich text formatting.", "Paste Plain Text"));
     connect(action, &QAction::triggered, editor, &KJotsEdit::pastePlainText);
 
-    KStandardAction::preferences(this, SLOT(configure()), actionCollection);
+    KStandardAction::preferences(this, &KJotsWidget::configure, actionCollection);
 
     bookmarkMenu = actionCollection->add<KActionMenu>(QLatin1String("bookmarks"));
     bookmarkMenu->setText(i18n("&Bookmarks"));
@@ -359,7 +360,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     connect(bookmarks, &KJotsBookmarks::openLink, this, &KJotsWidget::openLink);
     KBookmarkMenu *bmm = new KBookmarkMenu(
         KBookmarkManager::managerForFile(
-            QStandardPaths::standardLocations(QStandardPaths::AppDataLocation).first() + QStringLiteral("/kjots/bookmarks.xml"),
+            QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/kjots/bookmarks.xml"),
             QStringLiteral("kjots")),
         bookmarks, bookmarkMenu->menu());
 
@@ -372,10 +373,10 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     actionCollection->addAction(QStringLiteral("add_bookmarks_list"), bmm->bookmarkTabsAsFolderAction());
 
 
-    KStandardAction::find(this, SLOT(onShowSearch()), actionCollection);
-    action = KStandardAction::findNext(this, SLOT(onRepeatSearch()), actionCollection);
+    KStandardAction::find(this, &KJotsWidget::onShowSearch, actionCollection);
+    action = KStandardAction::findNext(this, &KJotsWidget::onRepeatSearch, actionCollection);
     action->setEnabled(false);
-    KStandardAction::replace(this, SLOT(onShowReplace()), actionCollection);
+    KStandardAction::replace(this, &KJotsWidget::onShowReplace, actionCollection);
 
     action = actionCollection->addAction(QLatin1String("save_to"));
     action->setText(i18n("Rename..."));
@@ -404,17 +405,17 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     connect(action, &QAction::triggered, this, &KJotsWidget::exportSelectionToXml);
     exportMenu->menu()->addAction(action);
 
-    KStandardAction::print(this, SLOT(printSelection()), actionCollection);
-    KStandardAction::printPreview(this, SLOT(printPreviewSelection()), actionCollection);
+    KStandardAction::print(this, &KJotsWidget::printSelection, actionCollection);
+    KStandardAction::printPreview(this, &KJotsWidget::printPreviewSelection, actionCollection);
 
     if (!KJotsSettings::splitterSizes().isEmpty()) {
         m_splitter->setSizes(KJotsSettings::splitterSizes());
     }
 
-    QTimer::singleShot(0, this, SLOT(delayedInitialization()));
+    QTimer::singleShot(0, this, &KJotsWidget::delayedInitialization);
 
-    connect(treeview->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), SLOT(updateMenu()));
-    connect(treeview->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), SLOT(updateCaption()));
+    connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateMenu);
+    connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateCaption);
 
     connect(m_kjotsModel, &Akonadi::EntityTreeModel::modelAboutToBeReset, this, &KJotsWidget::saveState);
     connect(m_kjotsModel, &Akonadi::EntityTreeModel::modelReset, this, &KJotsWidget::restoreState);
@@ -457,7 +458,7 @@ void KJotsWidget::delayedInitialization()
 
     connect(searchDialog, &KFindDialog::okClicked, this, &KJotsWidget::onStartSearch);
     connect(searchDialog, &KFindDialog::cancelClicked, this, &KJotsWidget::onEndSearch);
-    connect(treeview->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), SLOT(onUpdateSearch()));
+    connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::onUpdateSearch);
     connect(searchDialog, &KFindDialog::optionsChanged, this, &KJotsWidget::onUpdateSearch);
     connect(searchAllPages, &QCheckBox::stateChanged, this, &KJotsWidget::onUpdateSearch);
 
@@ -521,17 +522,15 @@ void KJotsWidget::delayedInitialization()
     updateConfiguration();
 
     connect(m_autosaveTimer, &QTimer::timeout, editor, &KJotsEdit::savePage);
-    connect(treeview->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), m_autosaveTimer, SLOT(start()));
+    connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, m_autosaveTimer, qOverload<>(&QTimer::start));
 
     treeview->delayedInitialization();
     editor->delayedInitialization(m_xmlGuiClient->actionCollection());
     browser->delayedInitialization();
 
-    connect(treeview->itemDelegate(), SIGNAL(closeEditor(QWidget*,QAbstractItemDelegate::EndEditHint)),
-            SLOT(bookshelfEditItemFinished(QWidget*,QAbstractItemDelegate::EndEditHint)));
+    connect(treeview->itemDelegate(), &QItemDelegate::closeEditor, this, &KJotsWidget::bookshelfEditItemFinished);
 
-    connect(editor, SIGNAL(currentCharFormatChanged(QTextCharFormat)),
-            SLOT(currentCharFormatChanged(QTextCharFormat)));
+    connect(editor, &KJotsEdit::currentCharFormatChanged, this, &KJotsWidget::currentCharFormatChanged);
     updateMenu();
 }
 
@@ -655,7 +654,7 @@ void KJotsWidget::configure()
 {
     // create a new preferences dialog...
     KJotsConfigDlg *dialog = new KJotsConfigDlg(i18n("Settings"), this);
-    connect(dialog, SIGNAL(configCommitted()), SLOT(updateConfiguration()));
+    connect(dialog, qOverload<>(&KJotsConfigDlg::configCommitted), this, &KJotsWidget::updateConfiguration);
     dialog->show();
 }
 
@@ -1406,7 +1405,7 @@ void KJotsWidget::onStartReplace()
     replaceStartPage = treeview->selectionModel()->selectedRows().first();
 
     //allow KReplaceDialog to exit so the user can see.
-    QTimer::singleShot(0, this, SLOT(onRepeatReplace()));
+    QTimer::singleShot(0, this, &KJotsWidget::onRepeatReplace);
 }
 
 /*!

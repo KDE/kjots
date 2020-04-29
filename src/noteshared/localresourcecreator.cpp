@@ -21,7 +21,6 @@
 
 #include <AkonadiCore/agentmanager.h>
 #include <AkonadiCore/agentinstancecreatejob.h>
-#pragma message("port QT5")
 
 #include "maildirsettings.h"
 
@@ -47,13 +46,9 @@ QString LocalResourceCreator::akonadiNotesInstanceName()
 void LocalResourceCreator::createIfMissing()
 {
     const Akonadi::AgentInstance::List instances = Akonadi::AgentManager::self()->instances();
-    bool found = false;
-    for (const Akonadi::AgentInstance &instance : instances) {
-        if (instance.type().identifier() == akonadiNotesInstanceName()) {
-            found = true;
-            break;
-        }
-    }
+    const bool found = std::any_of(instances.cbegin(), instances.cend(), [](const Akonadi::AgentInstance &instance) {
+                                    return instance.type().identifier() == akonadiNotesInstanceName();
+                                });
     if (found) {
         deleteLater();
         return;

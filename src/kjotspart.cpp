@@ -69,7 +69,7 @@ KJotsPart::KJotsPart(QWidget *parentWidget, QObject *parent, const QVariantList 
     setComponentName(QStringLiteral("kjots"), QStringLiteral("kjots"));
     setXMLFile(QStringLiteral("kjotspartui.rc"));
 
-    QTimer::singleShot(0, this, SLOT(delayedInitialization()));
+    QTimer::singleShot(0, this, &KJotsPart::delayedInitialization);
 }
 
 KJotsPart::~KJotsPart()
@@ -81,8 +81,7 @@ void KJotsPart::initAction()
 {
     QAction *action = new QAction(QIcon::fromTheme(QLatin1String("configure")), i18n("&Configure KJots..."), this);
     actionCollection()->addAction(QLatin1String("kjots_configure"), action);
-    connect(action, SIGNAL(triggered(bool)), mComponent,
-            SLOT(configure()));
+    connect(action, &QAction::triggered, mComponent, &KJotsWidget::configure);
 }
 
 bool KJotsPart::openFile()
@@ -92,8 +91,7 @@ bool KJotsPart::openFile()
 
 void KJotsPart::delayedInitialization()
 {
-    connect(mComponent, SIGNAL(activeAnchorChanged(QString,QString)),
-            SLOT(activeAnchorChanged(QString,QString)));
+    connect(mComponent, &KJotsWidget::activeAnchorChanged, this, &KJotsPart::activeAnchorChanged);
 }
 
 void KJotsPart::activeAnchorChanged(const QString &anchorTarget, const QString &anchorText)

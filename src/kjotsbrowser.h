@@ -37,9 +37,6 @@ public:
 
 Q_SIGNALS:
     void linkClicked(const QUrl &);
-
-private:
-    QItemSelectionModel *m_itemSelectionModel;
 };
 
 #endif

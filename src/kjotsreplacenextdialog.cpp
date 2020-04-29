@@ -38,21 +38,14 @@ KJotsReplaceNextDialog::KJotsReplaceNextDialog(QWidget *parent) :
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox;
     QPushButton *button = buttonBox->addButton(i18n("&All"), QDialogButtonBox::NoRole);
-    connect(button, SIGNAL(clicked(bool)), this, SLOT(onHandleAll()));
+    connect(button, &QPushButton::clicked, this, &KJotsReplaceNextDialog::onHandleAll);
     button = buttonBox->addButton(i18n("&Skip"), QDialogButtonBox::NoRole);
-    connect(button, SIGNAL(clicked(bool)), this, SLOT(onHandleSkip()));
+    connect(button, &QPushButton::clicked, this, &KJotsReplaceNextDialog::onHandleSkip);
     button = buttonBox->addButton(i18n("Replace"), QDialogButtonBox::NoRole);
-    connect(button, SIGNAL(clicked(bool)), this, SLOT(onHandleReplace()));
+    connect(button, &QPushButton::clicked, this, &KJotsReplaceNextDialog::onHandleReplace);
     button = buttonBox->addButton(QDialogButtonBox::Close);
-    connect(button, SIGNAL(clicked(bool)), this, SLOT(reject()));
+    connect(button, &QPushButton::clicked, this, &KJotsReplaceNextDialog::reject);
     layout->addWidget(buttonBox);
-
-    QVBoxLayout
-    setMainWidget(m_mainLabel);
-
-    connect(this, SIGNAL(user1Clicked()), SLOT(onHandleAll()));
-    connect(this, SIGNAL(user2Clicked()), SLOT(onHandleSkip()));
-    connect(this, SIGNAL(user3Clicked()), SLOT(onHandleReplace()));
 }
 
 void KJotsReplaceNextDialog::setLabel(const QString &pattern, const QString &replacement)

@@ -106,13 +106,13 @@ void KJotsEdit::delayedInitialization(KActionCollection *collection)
 {
     actionCollection = collection;
 
-    connect(actionCollection->action(QLatin1String("auto_bullet")), SIGNAL(triggered()), SLOT(onAutoBullet()));
-    connect(actionCollection->action(QLatin1String("auto_decimal")), SIGNAL(triggered()), SLOT(onAutoDecimal())); //auto decimal list
-    connect(actionCollection->action(QLatin1String("manage_link")), SIGNAL(triggered()), SLOT(onLinkify()));
-    connect(actionCollection->action(QLatin1String("insert_checkmark")), SIGNAL(triggered()), SLOT(addCheckmark()));
-    connect(actionCollection->action(QLatin1String("manual_save")), SIGNAL(triggered()), SLOT(savePage()));
-    connect(actionCollection->action(QLatin1String("insert_date")), SIGNAL(triggered()), SLOT(insertDate()));
-    connect(actionCollection->action(QLatin1String("insert_image")), SIGNAL(triggered()), SLOT(insertImage()));
+    connect(actionCollection->action(QLatin1String("auto_bullet")), &QAction::triggered, this, &KJotsEdit::onAutoBullet);
+    connect(actionCollection->action(QLatin1String("auto_decimal")), &QAction::triggered, this, &KJotsEdit::onAutoDecimal);
+    connect(actionCollection->action(QLatin1String("manage_link")), &QAction::triggered, this, &KJotsEdit::onLinkify);
+    connect(actionCollection->action(QLatin1String("insert_checkmark")), &QAction::triggered, this, &KJotsEdit::addCheckmark);
+    connect(actionCollection->action(QLatin1String("manual_save")), &QAction::triggered, this, &KJotsEdit::savePage);
+    connect(actionCollection->action(QLatin1String("insert_date")), &QAction::triggered, this, &KJotsEdit::insertDate);
+    connect(actionCollection->action(QLatin1String("insert_image")), &QAction::triggered, this, &KJotsEdit::insertImage);
 }
 
 void KJotsEdit::insertDate()

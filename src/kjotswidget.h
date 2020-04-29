@@ -76,14 +76,11 @@ public:
 
     QTextEdit *activeEditor();
 public Q_SLOTS:
+    void configure();
     void prevPage();
     void nextPage();
     void prevBook();
     void nextBook();
-    bool canGoNextPage() const;
-    bool canGoPreviousPage() const;
-    bool canGoNextBook() const;
-    bool canGoPreviousBook() const;
 
     void updateCaption();
     void updateMenu();
@@ -111,6 +108,12 @@ Q_SIGNALS:
     void activeAnchorChanged(const QString &anchorTarget, const QString &anchorText);
 
 protected:
+    bool canGo(int role, int step) const;
+    bool canGoNextPage() const;
+    bool canGoPreviousPage() const;
+    bool canGoNextBook() const;
+    bool canGoPreviousBook() const;
+
     QString renderSelectionToHtml();
     QString renderSelectionToXml();
     QString renderSelectionToPlainText();
@@ -141,14 +144,12 @@ private Q_SLOTS:
     void delayedInitialization();
     void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight);
     void bookshelfEditItemFinished(QWidget *, QAbstractItemDelegate::EndEditHint);
-    bool canGo(int role, int step) const;
 
     void newPageResult(KJob *job);
     void newBookResult(KJob *job);
 
     void copySelectionToTitle();
     void copy();
-    void configure();
 
     void onShowSearch();
     void onUpdateSearch();

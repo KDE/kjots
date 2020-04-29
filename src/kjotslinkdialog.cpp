@@ -111,8 +111,7 @@ KJotsLinkDialog::KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent
     mainLayout->addWidget(buttonBox);
     textLineEdit->setFocus();
 
-    connect(hrefCombo, SIGNAL(editTextChanged(QString)),
-            this, SLOT(trySetEntry(QString)));
+    connect(hrefCombo, &QComboBox::editTextChanged, this, &KJotsLinkDialog::trySetEntry);
 }
 
 void KJotsLinkDialog::setLinkText(const QString &linkText)

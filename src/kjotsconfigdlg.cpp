@@ -45,7 +45,7 @@ KJotsConfigMisc::KJotsConfigMisc(QWidget *parent, const QVariantList &args)
     QHBoxLayout *lay = new QHBoxLayout(this);
     miscPage = new confPageMisc(nullptr);
     lay->addWidget(miscPage);
-    connect(miscPage->autoSaveInterval, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KJotsConfigMisc::modified);
+    connect(miscPage->autoSaveInterval, qOverload<int>(&QSpinBox::valueChanged), this, &KJotsConfigMisc::modified);
     connect(miscPage->autoSave, &QCheckBox::stateChanged, this, &KJotsConfigMisc::modified);
     load();
 }

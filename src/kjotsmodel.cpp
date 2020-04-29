@@ -43,8 +43,8 @@
 Q_DECLARE_METATYPE(QTextDocument *)
 KJotsEntity::KJotsEntity(const QModelIndex &index, QObject *parent)
     : QObject(parent)
+    , m_index(index)
 {
-    m_index = QPersistentModelIndex(index);
 }
 
 void KJotsEntity::setIndex(const QModelIndex &index)
