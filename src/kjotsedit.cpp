@@ -63,7 +63,8 @@ KJotsEdit::KJotsEdit(QWidget *parent)
                        | FullListSupport
                        | SupportAlignment
                        | SupportRuleLine
-                       | SupportFormatPainting);
+                       | SupportFormatPainting
+                       | SupportHeading);
 
     setFocusPolicy(Qt::StrongFocus);
 }
