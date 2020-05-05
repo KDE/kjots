@@ -27,11 +27,10 @@
 #define KJOTSWIDGET_H
 
 #include <QWidget>
-#include <QItemSelection>
 #include <QAbstractItemDelegate>
 #include <QPrinter>
 
-#include <AkonadiCore/Item>
+#include <AkonadiCore/Collection>
 
 #include <grantlee/templateloader.h>
 

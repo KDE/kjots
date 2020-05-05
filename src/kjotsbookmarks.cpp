@@ -22,9 +22,6 @@
 */
 
 #include "kjotsbookmarks.h"
-
-#include <QItemSelectionModel>
-
 #include "kjotsmodel.h"
 #include "kjotstreeview.h"
 

@@ -26,22 +26,13 @@
 #include "aboutdata.h"
 #include "kjotswidget.h"
 
-#include <qdebug.h>
+#include <QIcon>
+#include <QAction>
 
-//#include <kcomponentdata.h>
-//#include <kfiledialog.h>
-#include <kstandardaction.h>
 #include <KActionCollection>
-#include <kpluginfactory.h>
+#include <KPluginFactory>
 #include <KLocalizedString>
 
-#include <QStatusBar>
-#include <QIcon>
-#include <QFile>
-#include <QTextStream>
-#include <QTimer>
-#include <QStandardPaths>
-#include <QAction>
 
 const KAboutData &createAboutData()
 {

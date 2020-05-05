@@ -25,7 +25,7 @@
 #ifndef KJOTSMAIN_H
 #define KJOTSMAIN_H
 
-#include <kxmlguiwindow.h>
+#include <KXmlGuiWindow>
 
 class KJotsWidget;
 

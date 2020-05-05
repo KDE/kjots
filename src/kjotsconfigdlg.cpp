@@ -19,7 +19,6 @@
 #include "kjotsconfigdlg.h"
 #include <QPushButton>
 
-#include <KPluginFactory>
 #include <KConfig>
 #include <KConfigGroup>
 

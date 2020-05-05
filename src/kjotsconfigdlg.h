@@ -19,8 +19,8 @@
 #ifndef KJOTSCONFIGDLG_H
 #define KJOTSCONFIGDLG_H
 
-#include <kcmodule.h>
-#include <kcmultidialog.h>
+#include <KCModule>
+#include <KCMultiDialog>
 #include "ui_confpagemisc.h"
 
 class confPageMisc : public QWidget, public Ui::confPageMisc
@@ -54,7 +54,7 @@ class KJotsConfigDlg : public KCMultiDialog
     Q_OBJECT
 
 public:
-    KJotsConfigDlg(const QString &title, QWidget *parent);
+    explicit KJotsConfigDlg(const QString &title, QWidget *parent);
 
 public Q_SLOTS:
     void slotOk();

@@ -27,13 +27,11 @@
 #include <KontactInterface/PimUniqueApplication>
 
 #include <QCommandLineParser>
+#include <QDebug>
 
 #include <KLocalizedString>
-#include <KConfigGroup>
-#include <KConfig>
 #include <KSharedConfig>
 
-#include <qdebug.h>
 
 int main(int argc, char **argv)
 {

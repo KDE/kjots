@@ -28,13 +28,11 @@
 #include <QMenu>
 #include <QMimeData>
 #include <QColorDialog>
-#include <QInputDialog>
 
 #include <KActionCollection>
 #include <KXMLGUIClient>
 #include <KLocalizedString>
-
-#include <KMime/KMimeMessage>
+#include <KMime/Message>
 
 using namespace Akonadi;
 

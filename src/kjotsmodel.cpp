@@ -23,21 +23,19 @@
 
 #include <QTextDocument>
 #include <QIcon>
-#include <qdebug.h>
 
-#include <AkonadiCore/changerecorder.h>
-#include <AkonadiCore/entitydisplayattribute.h>
+#include <AkonadiCore/ChangeRecorder>
+#include <AkonadiCore/EntityDisplayAttribute>
 #include <Akonadi/Notes/NoteUtils>
-
-#include "noteshared/notelockattribute.h"
-
-#include <KMime/KMimeMessage>
-
-#include <kpimtextedit/textutils.h>
+#include <KMime/Message>
+#include <KPIMTextEdit/TextUtils>
 
 #include <grantlee/markupdirector.h>
 #include <grantlee/texthtmlbuilder.h>
 #include <grantlee/plaintextmarkupbuilder.h>
+
+#include "noteshared/notelockattribute.h"
+
 
 
 Q_DECLARE_METATYPE(QTextDocument *)

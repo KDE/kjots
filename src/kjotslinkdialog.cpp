@@ -32,21 +32,18 @@
 #include <QVBoxLayout>
 
 #include <KLocalizedString>
-#include <kdescendantsproxymodel.h>
+#include <KDescendantsProxyModel>
 
 #include "KJotsSettings.h"
 #include "kjotsbookshelfentryvalidator.h"
 #include "kjotsmodel.h"
 
-#include <AkonadiCore/Item>
-#include <AkonadiCore/EntityTreeModel>
-
 KJotsLinkDialog::KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent)
     : QDialog(parent), m_kjotsModel(kjotsModel)
 {
     setWindowTitle(i18n("Manage Link"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
     setLayout(mainLayout);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
@@ -74,7 +71,7 @@ KJotsLinkDialog::KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent
     hrefCombo = new QComboBox(this);
     linkUrlLineEdit->setClearButtonEnabled(true);
 
-    tree = new QTreeView();
+    tree = new QTreeView(this);
     tree->setModel(proxyModel);
     tree->expandAll();
     tree->setColumnHidden(1, true);
@@ -88,7 +85,7 @@ KJotsLinkDialog::KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent
     KJotsBookshelfEntryValidator *validator = new KJotsBookshelfEntryValidator(proxyModel, this);
     hrefCombo->setValidator(validator);
 
-    QGridLayout *linkLayout = new QGridLayout();
+    QGridLayout *linkLayout = new QGridLayout(this);
     linkUrlLineEditRadioButton = new QRadioButton(entries);
     hrefComboRadioButton = new QRadioButton(entries);
 

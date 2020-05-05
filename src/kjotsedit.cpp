@@ -27,10 +27,8 @@
 
 #include <QMimeData>
 #include <QTextCursor>
-#include <QStackedWidget>
 #include <QUrl>
 #include <QMenu>
-#include <QPointer>
 #include <QClipboard>
 #include <QApplication>
 #include <QAction>
@@ -39,17 +37,12 @@
 
 #include <KActionCollection>
 #include <KLocalizedString>
-//#include <KRun>
-
-#include "kjotslinkdialog.h"
-
-#include <AkonadiCore/entitytreemodel.h>
-#include <AkonadiCore/item.h>
-
 #include <KMime/Message>
 
-#include <qdebug.h>
+#include <AkonadiCore/Item>
+
 #include "kjotsmodel.h"
+#include "kjotslinkdialog.h"
 #include "noteshared/notelockattribute.h"
 #include "noteshared/noteeditorutils.h"
 
@@ -244,15 +237,13 @@ void KJotsEdit::onLinkify(void)
         return;
     }
     selectLinkText();
-    QPointer<KJotsLinkDialog> linkDialog = new KJotsLinkDialog(const_cast<QAbstractItemModel*>(m_index->model()), this);
+    auto linkDialog = std::make_unique<KJotsLinkDialog>(const_cast<QAbstractItemModel*>(m_index->model()), this);
     linkDialog->setLinkText(currentLinkText());
     linkDialog->setLinkUrl(currentLinkUrl());
 
     if (linkDialog->exec()) {
         updateLink(linkDialog->linkUrl(), linkDialog->linkText());
     }
-
-    delete linkDialog;
 }
 
 void KJotsEdit::addCheckmark(void)

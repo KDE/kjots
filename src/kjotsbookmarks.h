@@ -24,7 +24,7 @@
 #ifndef KJOTSBOOKMARKS
 #define KJOTSBOOKMARKS
 
-#include <kbookmarkmanager.h>
+#include <KBookmarkManager>
 
 class KJotsTreeView;
 

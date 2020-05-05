@@ -36,7 +36,7 @@ KJotsReplaceNextDialog::KJotsReplaceNextDialog(QWidget *parent) :
     m_mainLabel = new QLabel(this);
     layout->addWidget(m_mainLabel);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox;
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
     QPushButton *button = buttonBox->addButton(i18n("&All"), QDialogButtonBox::NoRole);
     connect(button, &QPushButton::clicked, this, &KJotsReplaceNextDialog::onHandleAll);
     button = buttonBox->addButton(i18n("&Skip"), QDialogButtonBox::NoRole);

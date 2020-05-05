@@ -24,7 +24,7 @@
 
 #include <QSortFilterProxyModel>
 
-#include <AkonadiCore/collection.h>
+#include <AkonadiCore/Collection>
 
 class KJotsSortProxyModel : public QSortFilterProxyModel
 {

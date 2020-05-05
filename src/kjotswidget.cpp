@@ -27,7 +27,6 @@
 
 // Qt
 #include <QHBoxLayout>
-#include <QInputDialog>
 #include <QSplitter>
 #include <QStackedWidget>
 #include <QTextCursor>
@@ -35,35 +34,29 @@
 #include <QTextDocumentFragment>
 #include <QTimer>
 #include <QPrintDialog>
-#include <QPainter>
-#include <QPointer>
 #include <QPrinter>
 #include <QPrintPreviewDialog>
-#include <QAbstractTextDocumentLayout>
 #include <QDBusConnection>
 #include <QMenu>
 #include <QFileDialog>
 #include <QAction>
 #include <QIcon>
 #include <QItemDelegate>
-#include <qdebug.h>
+#include <QDebug>
 
 // Akonadi
-#include <AkonadiCore/control.h>
-#include <AkonadiCore/collectiondeletejob.h>
-#include <AkonadiCore/collectioncreatejob.h>
-#include <AkonadiCore/changerecorder.h>
-#include <AkonadiCore/entitydisplayattribute.h>
-#include <AkonadiWidgets/entitytreeview.h>
-#include <AkonadiWidgets/etmviewstatesaver.h>
-#include <AkonadiCore/item.h>
+#include <Akonadi/Notes/NoteUtils>
+#include <AkonadiCore/CollectionCreateJob>
+#include <AkonadiCore/CollectionDeleteJob>
+#include <AkonadiCore/ChangeRecorder>
+#include <AkonadiCore/EntityDisplayAttribute>
+#include <AkonadiCore/Item>
 #include <AkonadiCore/ItemCreateJob>
 #include <AkonadiCore/ItemDeleteJob>
-#include <AkonadiCore/itemfetchjob.h>
-#include <AkonadiCore/itemfetchscope.h>
+#include <AkonadiCore/ItemFetchScope>
 #include <AkonadiCore/EntityOrderProxyModel>
+#include <AkonadiWidgets/ETMViewStateSaver>
 #include <AkonadiWidgets/ControlGui>
-#include <Akonadi/Notes/NoteUtils>
 
 #include "akonadi_next/notecreatorandselector.h"
 
@@ -80,16 +73,15 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KReplaceDialog>
-#include <kselectionproxymodel.h>
+#include <KSelectionProxyModel>
 #include <KXMLGUIClient>
-#include <KProcess>
 #include <KActionMenu>
-#include <krandom.h>
+#include <KRandom>
 #include <KSharedConfig>
 #include <KRun>
 
 // KMime
-#include <KMime/KMimeMessage>
+#include <KMime/Message>
 
 // KJots
 #include "kjotsbookmarks.h"
@@ -108,15 +100,13 @@
 
 #include <memory>
 
-Q_DECLARE_METATYPE(QTextDocument *)
-Q_DECLARE_METATYPE(QTextCursor)
 using namespace Akonadi;
 using namespace Grantlee;
 
 KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::WindowFlags f)
     : QWidget(parent, f), m_xmlGuiClient(xmlGuiClient)
 {
-    Akonadi::ControlGui::widgetNeedsAkonadi(this);
+    ControlGui::widgetNeedsAkonadi(this);
 
     KConfigGroup config(KSharedConfig::openConfig(), "General");
     const bool autoCreate = config.readEntry("AutoCreateResourceOnStart", true);
@@ -159,7 +149,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     monitor->fetchCollection(true);
     monitor->setItemFetchScope(scope);
     monitor->setCollectionMonitored(Collection::root());
-    monitor->setMimeTypeMonitored(Akonadi::NoteUtils::noteMimeType());
+    monitor->setMimeTypeMonitored(NoteUtils::noteMimeType());
 
     m_kjotsModel = new KJotsModel(monitor, this);
 
@@ -405,8 +395,8 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateMenu);
     connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateCaption);
 
-    connect(m_kjotsModel, &Akonadi::EntityTreeModel::modelAboutToBeReset, this, &KJotsWidget::saveState);
-    connect(m_kjotsModel, &Akonadi::EntityTreeModel::modelReset, this, &KJotsWidget::restoreState);
+    connect(m_kjotsModel, &EntityTreeModel::modelAboutToBeReset, this, &KJotsWidget::saveState);
+    connect(m_kjotsModel, &EntityTreeModel::modelReset, this, &KJotsWidget::restoreState);
 
     restoreState();
 
@@ -711,7 +701,7 @@ void KJotsWidget::deletePage()
         return;
     }
 
-    (void) new Akonadi::ItemDeleteJob(item, this);
+    (void) new ItemDeleteJob(item, this);
 }
 
 void KJotsWidget::deleteBook()
@@ -746,7 +736,7 @@ void KJotsWidget::deleteBook()
         return;
     }
 
-    (void) new Akonadi::CollectionDeleteJob(col, this);
+    (void) new CollectionDeleteJob(col, this);
 }
 
 void KJotsWidget::newBook()
@@ -768,15 +758,15 @@ void KJotsWidget::newBook()
 
     QString title = i18nc("The default name for new books.", "New Book");
     newCollection.setName(KRandom::randomString(10));
-    newCollection.setContentMimeTypes({Akonadi::Collection::mimeType(), Akonadi::NoteUtils::noteMimeType()});
+    newCollection.setContentMimeTypes({Collection::mimeType(), NoteUtils::noteMimeType()});
 
-    Akonadi::EntityDisplayAttribute *eda = new Akonadi::EntityDisplayAttribute();
+    EntityDisplayAttribute *eda = new EntityDisplayAttribute();
     eda->setIconName(QLatin1String("x-office-address-book"));
     eda->setDisplayName(title);
     newCollection.addAttribute(eda);
 
-    Akonadi::CollectionCreateJob *job = new Akonadi::CollectionCreateJob(newCollection);
-    connect(job, &Akonadi::CollectionCreateJob::result, this, &KJotsWidget::newBookResult);
+    CollectionCreateJob *job = new CollectionCreateJob(newCollection);
+    connect(job, &CollectionCreateJob::result, this, &KJotsWidget::newBookResult);
 }
 
 void KJotsWidget::newPage()
@@ -821,7 +811,7 @@ void KJotsWidget::newBookResult(KJob *job)
         qDebug() << job->errorString();
         return;
     }
-    Akonadi::CollectionCreateJob *createJob = qobject_cast<Akonadi::CollectionCreateJob *>(job);
+    CollectionCreateJob *createJob = qobject_cast<CollectionCreateJob *>(job);
     if (!createJob) {
         return;
     }

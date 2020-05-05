@@ -23,7 +23,7 @@
 */
 
 #include "aboutdata.h"
-#include <kjots-version.h>
+#include "kjots-version.h"
 
 #include <KLocalizedString>
 

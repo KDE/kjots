@@ -22,8 +22,9 @@
 #include "kjotssortproxymodel.h"
 
 #include <AkonadiCore/EntityTreeModel>
+#include <KMime/Message>
 
-#include <KMime/KMimeMessage>
+using namespace Akonadi;
 
 KJotsSortProxyModel::KJotsSortProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
@@ -33,14 +34,14 @@ KJotsSortProxyModel::KJotsSortProxyModel(QObject *parent)
 
 bool KJotsSortProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
-    const Akonadi::Collection::Id colId = left.data(Akonadi::EntityTreeModel::ParentCollectionRole).value<Akonadi::Collection>().id();
+    const Collection::Id colId = left.data(EntityTreeModel::ParentCollectionRole).value<Collection>().id();
 
     if (colId < 0 || m_alphaSorted.contains(colId) || !m_dateTimeSorted.contains(colId)) {
         return QSortFilterProxyModel::lessThan(left, right);
     }
 
-    const Akonadi::Item leftItem = left.data(Akonadi::EntityTreeModel::ItemRole).value<Akonadi::Item>();
-    const Akonadi::Item rightItem = right.data(Akonadi::EntityTreeModel::ItemRole).value<Akonadi::Item>();
+    const Item leftItem = left.data(EntityTreeModel::ItemRole).value<Item>();
+    const Item rightItem = right.data(EntityTreeModel::ItemRole).value<Item>();
 
     if (!leftItem.isValid() || !rightItem.isValid()) {
         return true;
@@ -52,14 +53,14 @@ bool KJotsSortProxyModel::lessThan(const QModelIndex &left, const QModelIndex &r
     return leftNote->date()->dateTime() < rightNote->date()->dateTime();
 }
 
-Akonadi::Collection::Id KJotsSortProxyModel::collectionId(const QModelIndex &parent) const
+Collection::Id KJotsSortProxyModel::collectionId(const QModelIndex &parent) const
 {
     const QModelIndex childIndex = index(0, 0, parent);
     if (!childIndex.isValid()) {
         return -1;
     }
 
-    const Akonadi::Collection collection = childIndex.data(Akonadi::EntityTreeModel::ParentCollectionRole).value<Akonadi::Collection>();
+    const Collection collection = childIndex.data(EntityTreeModel::ParentCollectionRole).value<Collection>();
 
     if (!collection.isValid()) {
         return -1;
@@ -70,7 +71,7 @@ Akonadi::Collection::Id KJotsSortProxyModel::collectionId(const QModelIndex &par
 
 void KJotsSortProxyModel::sortChildrenAlphabetically(const QModelIndex &parent)
 {
-    const Akonadi::Collection::Id id = collectionId(parent);
+    const Collection::Id id = collectionId(parent);
     if (id < 0) {
         return;
     }
@@ -82,7 +83,7 @@ void KJotsSortProxyModel::sortChildrenAlphabetically(const QModelIndex &parent)
 
 void KJotsSortProxyModel::sortChildrenByCreationTime(const QModelIndex &parent)
 {
-    const Akonadi::Collection::Id id = collectionId(parent);
+    const Collection::Id id = collectionId(parent);
     if (id < 0) {
         return;
     }

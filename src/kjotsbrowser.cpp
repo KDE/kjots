@@ -27,9 +27,6 @@
 
 #include <QHelpEvent>
 #include <QToolTip>
-#include <qdebug.h>
-
-#include <AkonadiCore/EntityTreeModel>
 
 #include <KLocalizedString>
 

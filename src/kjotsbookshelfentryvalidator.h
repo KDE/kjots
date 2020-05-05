@@ -23,7 +23,8 @@
 #define KJOTSBOOKSHELFENTRYVALIDATOR
 
 #include <QValidator>
-#include <QAbstractItemModel>
+
+class QAbstractItemModel;
 
 /**
   This class is a validator intended to be used with an editable QComboBox.

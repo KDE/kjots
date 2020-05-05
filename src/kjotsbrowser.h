@@ -25,6 +25,7 @@
 #define KJOTSBROWSER_H
 
 #include <QTextBrowser>
+
 class QHelpEvent;
 class QAbstractItemModel;
 

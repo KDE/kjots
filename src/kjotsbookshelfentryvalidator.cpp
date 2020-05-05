@@ -21,6 +21,8 @@
 
 #include "kjotsbookshelfentryvalidator.h"
 
+#include <QAbstractItemModel>
+
 KJotsBookshelfEntryValidator::KJotsBookshelfEntryValidator(QAbstractItemModel *model, QObject *parent)
     : QValidator(parent)
 {
