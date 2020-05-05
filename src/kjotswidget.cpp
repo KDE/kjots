@@ -396,6 +396,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 
     connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateMenu);
     connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateCaption);
+    connect(treeview->model(), &QAbstractItemModel::dataChanged, this, &KJotsWidget::updateCaption);
 
     connect(m_kjotsModel, &EntityTreeModel::modelAboutToBeReset, this, &KJotsWidget::saveState);
     connect(m_kjotsModel, &EntityTreeModel::modelReset, this, &KJotsWidget::restoreState);
