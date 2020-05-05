@@ -134,7 +134,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     m_loader->setTemplateDirs(QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
                                                         QStringLiteral("kjots/themes"),
                                                         QStandardPaths::LocateDirectory));
-    m_loader->setTheme(QLatin1String("default"));
+    m_loader->setTheme(QStringLiteral("default"));
 
     m_templateEngine->addTemplateLoader(m_loader);
 
@@ -195,16 +195,16 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 
     QAction *action;
 
-    action = actionCollection->addAction(QLatin1String("go_next_book"));
+    action = actionCollection->addAction(QStringLiteral("go_next_book"));
     action->setText(i18n("Next Book"));
-    action->setIcon(QIcon::fromTheme(QLatin1String("go-down")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("go-down")));
     actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_D));
     connect(action, &QAction::triggered, this, &KJotsWidget::nextBook);
     connect(this, &KJotsWidget::canGoNextBookChanged, action, &QAction::setEnabled);
 
-    action = actionCollection->addAction(QLatin1String("go_prev_book"));
+    action = actionCollection->addAction(QStringLiteral("go_prev_book"));
     action->setText(i18n("Previous Book"));
-    action->setIcon(QIcon::fromTheme(QLatin1String("go-up")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("go-up")));
     actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_D));
     connect(action, &QAction::triggered, this, &KJotsWidget::prevBook);
     connect(this, &KJotsWidget::canGoPreviousBookChanged, action, &QAction::setEnabled);
@@ -217,89 +217,89 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_PageUp));
     connect(this, &KJotsWidget::canGoPreviousPageChanged, action, &QAction::setEnabled);
 
-    action = actionCollection->addAction(QLatin1String("new_page"));
+    action = actionCollection->addAction(QStringLiteral("new_page"));
     action->setText(i18n("&New Page"));
     actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_N));
-    action->setIcon(QIcon::fromTheme(QLatin1String("document-new")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
     connect(action, &QAction::triggered, this, &KJotsWidget::newPage);
 
-    action = actionCollection->addAction(QLatin1String("new_book"));
+    action = actionCollection->addAction(QStringLiteral("new_book"));
     action->setText(i18n("New &Book..."));
     actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_N));
-    action->setIcon(QIcon::fromTheme(QLatin1String("address-book-new")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("address-book-new")));
     connect(action, &QAction::triggered, this, &KJotsWidget::newBook);
 
-    action = actionCollection->addAction(QLatin1String("del_page"));
+    action = actionCollection->addAction(QStringLiteral("del_page"));
     action->setText(i18n("&Delete Page"));
     actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_Delete));
-    action->setIcon(QIcon::fromTheme(QLatin1String("edit-delete-page")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete-page")));
     connect(action, &QAction::triggered, this, &KJotsWidget::deletePage);
 
-    action = actionCollection->addAction(QLatin1String("del_folder"));
+    action = actionCollection->addAction(QStringLiteral("del_folder"));
     action->setText(i18n("Delete Boo&k"));
     actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Delete));
-    action->setIcon(QIcon::fromTheme(QLatin1String("edit-delete")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
     connect(action, &QAction::triggered, this, &KJotsWidget::deleteBook);
 
-    action = actionCollection->addAction(QLatin1String("del_mult"));
+    action = actionCollection->addAction(QStringLiteral("del_mult"));
     action->setText(i18n("Delete Selected"));
-    action->setIcon(QIcon::fromTheme(QLatin1String("edit-delete")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
     connect(action, &QAction::triggered, this, &KJotsWidget::deleteMultiple);
 
     KStandardAction::save( editor, &KJotsEdit::savePage, actionCollection);
 
-    action = actionCollection->addAction(QLatin1String("auto_bullet"));
+    action = actionCollection->addAction(QStringLiteral("auto_bullet"));
     action->setText(i18n("Auto Bullets"));
-    action->setIcon(QIcon::fromTheme(QLatin1String("format-list-unordered")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("format-list-unordered")));
     action->setCheckable(true);
 
-    action = actionCollection->addAction(QLatin1String("auto_decimal"));
+    action = actionCollection->addAction(QStringLiteral("auto_decimal"));
     action->setText(i18n("Auto Decimal List"));
-    action->setIcon(QIcon::fromTheme(QLatin1String("format-list-ordered")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("format-list-ordered")));
     action->setCheckable(true);
 
-    action = actionCollection->addAction(QLatin1String("manage_link"));
+    action = actionCollection->addAction(QStringLiteral("manage_link"));
     action->setText(i18n("Link"));
-    action->setIcon(QIcon::fromTheme(QLatin1String("insert-link")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("insert-link")));
 
-    action = actionCollection->addAction(QLatin1String("insert_image"));
+    action = actionCollection->addAction(QStringLiteral("insert_image"));
     action->setText(i18n("Insert Image"));
-    action->setIcon(QIcon::fromTheme(QLatin1String("insert-image")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("insert-image")));
 
-    action = actionCollection->addAction(QLatin1String("insert_checkmark"));
+    action = actionCollection->addAction(QStringLiteral("insert_checkmark"));
     action->setText(i18n("Insert Checkmark"));
-    action->setIcon(QIcon::fromTheme(QLatin1String("checkmark")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("checkmark")));
     action->setEnabled(false);
 
     KStandardAction::renameFile(treeview, &KJotsTreeView::renameEntry, actionCollection);
 
-    action = actionCollection->addAction(QLatin1String("insert_date"));
+    action = actionCollection->addAction(QStringLiteral("insert_date"));
     action->setText(i18n("Insert Date"));
     actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I));
-    action->setIcon(QIcon::fromTheme(QLatin1String("view-calendar-time-spent")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("view-calendar-time-spent")));
 
-    action = actionCollection->addAction(QLatin1String("change_color"));
-    action->setIcon(QIcon::fromTheme(QLatin1String("format-fill-color")));
+    action = actionCollection->addAction(QStringLiteral("change_color"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("format-fill-color")));
     action->setText(i18n("Change Color..."));
 
-    action = actionCollection->addAction(QLatin1String("copy_link_address"));
+    action = actionCollection->addAction(QStringLiteral("copy_link_address"));
     action->setText(i18n("Copy Link Address"));
 
-    action = actionCollection->addAction(QLatin1String("lock"));
+    action = actionCollection->addAction(QStringLiteral("lock"));
     action->setText(i18n("Lock Selected"));
-    action->setIcon(QIcon::fromTheme(QLatin1String("emblem-locked")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("emblem-locked")));
     connect(action, &QAction::triggered, this, &KJotsWidget::actionLock);
 
-    action = actionCollection->addAction(QLatin1String("unlock"));
+    action = actionCollection->addAction(QStringLiteral("unlock"));
     action->setText(i18n("Unlock Selected"));
-    action->setIcon(QIcon::fromTheme(QLatin1String("emblem-unlocked")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("emblem-unlocked")));
     connect(action, &QAction::triggered, this, &KJotsWidget::actionUnlock);
 
-    action = actionCollection->addAction(QLatin1String("sort_children_alpha"));
+    action = actionCollection->addAction(QStringLiteral("sort_children_alpha"));
     action->setText(i18n("Sort children alphabetically"));
     connect(action, &QAction::triggered, this, &KJotsWidget::actionSortChildrenAlpha);
 
-    action = actionCollection->addAction(QLatin1String("sort_children_by_date"));
+    action = actionCollection->addAction(QStringLiteral("sort_children_by_date"));
     action->setText(i18n("Sort children by creation date"));
     connect(action, &QAction::triggered, this, &KJotsWidget::actionSortChildrenByDate);
 
@@ -320,21 +320,21 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     KStandardAction::redo(editor, &KJotsEdit::redo, actionCollection);
     KStandardAction::selectAll(editor, &KJotsEdit::selectAll, actionCollection);
 
-    action = actionCollection->addAction(QLatin1String("copyIntoTitle"));
+    action = actionCollection->addAction(QStringLiteral("copyIntoTitle"));
     action->setText(i18n("Copy &into Page Title"));
     actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_T));
-    action->setIcon(QIcon::fromTheme(QLatin1String("edit-copy")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
     connect(action, &QAction::triggered, this, &KJotsWidget::copySelectionToTitle);
     connect(editor, &KJotsEdit::copyAvailable, action, &QAction::setEnabled);
     action->setEnabled(false);
 
-    action = actionCollection->addAction(QLatin1String("paste_plain_text"));
+    action = actionCollection->addAction(QStringLiteral("paste_plain_text"));
     action->setText(i18nc("@action Paste the text in the clipboard without rich text formatting.", "Paste Plain Text"));
     connect(action, &QAction::triggered, editor, &KJotsEdit::pastePlainText);
 
     KStandardAction::preferences(this, &KJotsWidget::configure, actionCollection);
 
-    bookmarkMenu = actionCollection->add<KActionMenu>(QLatin1String("bookmarks"));
+    bookmarkMenu = actionCollection->add<KActionMenu>(QStringLiteral("bookmarks"));
     bookmarkMenu->setText(i18n("&Bookmarks"));
     KJotsBookmarks *bookmarks = new KJotsBookmarks(treeview);
     connect(bookmarks, &KJotsBookmarks::openLink, this, &KJotsWidget::openLink);
@@ -358,30 +358,30 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     action->setEnabled(false);
     KStandardAction::replace(this, &KJotsWidget::onShowReplace, actionCollection);
 
-    action = actionCollection->addAction(QLatin1String("save_to"));
+    action = actionCollection->addAction(QStringLiteral("save_to"));
     action->setText(i18n("Rename..."));
-    action->setIcon(QIcon::fromTheme(QLatin1String("edit-rename")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("edit-rename")));
     actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_M));
 
-    KActionMenu *exportMenu = actionCollection->add<KActionMenu>(QLatin1String("save_to"));
+    KActionMenu *exportMenu = actionCollection->add<KActionMenu>(QStringLiteral("save_to"));
     exportMenu->setText(i18n("Export"));
-    exportMenu->setIcon(QIcon::fromTheme(QLatin1String("document-export")));
+    exportMenu->setIcon(QIcon::fromTheme(QStringLiteral("document-export")));
 
-    action = actionCollection->addAction(QLatin1String("save_to_ascii"));
+    action = actionCollection->addAction(QStringLiteral("save_to_ascii"));
     action->setText(i18n("To Text File..."));
-    action->setIcon(QIcon::fromTheme(QLatin1String("text-plain")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("text-plain")));
     connect(action, &QAction::triggered, this, &KJotsWidget::exportSelectionToPlainText);
     exportMenu->menu()->addAction(action);
 
-    action = actionCollection->addAction(QLatin1String("save_to_html"));
+    action = actionCollection->addAction(QStringLiteral("save_to_html"));
     action->setText(i18n("To HTML File..."));
-    action->setIcon(QIcon::fromTheme(QLatin1String("text-html")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("text-html")));
     connect(action, &QAction::triggered, this, &KJotsWidget::exportSelectionToHtml);
     exportMenu->menu()->addAction(action);
 
-    action = actionCollection->addAction(QLatin1String("save_to_book"));
+    action = actionCollection->addAction(QStringLiteral("save_to_book"));
     action->setText(i18n("To Book File..."));
-    action->setIcon(QIcon::fromTheme(QLatin1String("x-office-address-book")));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("x-office-address-book")));
     connect(action, &QAction::triggered, this, &KJotsWidget::exportSelectionToXml);
     exportMenu->menu()->addAction(action);
 
@@ -402,7 +402,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 
     restoreState();
 
-    QDBusConnection::sessionBus().registerObject(QLatin1String("/KJotsWidget"), this, QDBusConnection::ExportScriptableContents);
+    QDBusConnection::sessionBus().registerObject(QStringLiteral("/KJotsWidget"), this, QDBusConnection::ExportScriptableContents);
 }
 
 KJotsWidget::~KJotsWidget()
@@ -467,37 +467,37 @@ void KJotsWidget::delayedInitialization()
     KActionCollection *actionCollection = m_xmlGuiClient->actionCollection();
 
     // Actions for a single item selection.
-    entryActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Find))));
-    entryActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Print))));
-    entryActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::RenameFile))));
-    entryActions.insert(actionCollection->action(QLatin1String("change_color")));
-    entryActions.insert(actionCollection->action(QLatin1String("save_to")));
-    entryActions.insert(actionCollection->action(QLatin1String("copy_link_address")));
+    entryActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))));
+    entryActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Print))));
+    entryActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::RenameFile))));
+    entryActions.insert(actionCollection->action(QStringLiteral("change_color")));
+    entryActions.insert(actionCollection->action(QStringLiteral("save_to")));
+    entryActions.insert(actionCollection->action(QStringLiteral("copy_link_address")));
 
     // Actions that are used only when a page is selected.
-    pageActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Cut))));
-    pageActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Paste))));
-    pageActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Replace))));
-    pageActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Save))));
-    pageActions.insert(actionCollection->action(QLatin1String("del_page")));
-    pageActions.insert(actionCollection->action(QLatin1String("insert_date")));
-    pageActions.insert(actionCollection->action(QLatin1String("auto_bullet")));
-    pageActions.insert(actionCollection->action(QLatin1String("auto_decimal")));
-    pageActions.insert(actionCollection->action(QLatin1String("manage_link")));
-    pageActions.insert(actionCollection->action(QLatin1String("insert_checkmark")));
+    pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Cut))));
+    pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Paste))));
+    pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Replace))));
+    pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Save))));
+    pageActions.insert(actionCollection->action(QStringLiteral("del_page")));
+    pageActions.insert(actionCollection->action(QStringLiteral("insert_date")));
+    pageActions.insert(actionCollection->action(QStringLiteral("auto_bullet")));
+    pageActions.insert(actionCollection->action(QStringLiteral("auto_decimal")));
+    pageActions.insert(actionCollection->action(QStringLiteral("manage_link")));
+    pageActions.insert(actionCollection->action(QStringLiteral("insert_checkmark")));
 
     // Actions that are used only when a book is selected.
-    bookActions.insert(actionCollection->action(QLatin1String("save_to_book")));
-    bookActions.insert(actionCollection->action(QLatin1String("del_folder")));
-    bookActions.insert(actionCollection->action(QLatin1String("sort_children_alpha")));
-    bookActions.insert(actionCollection->action(QLatin1String("sort_children_by_date")));
+    bookActions.insert(actionCollection->action(QStringLiteral("save_to_book")));
+    bookActions.insert(actionCollection->action(QStringLiteral("del_folder")));
+    bookActions.insert(actionCollection->action(QStringLiteral("sort_children_alpha")));
+    bookActions.insert(actionCollection->action(QStringLiteral("sort_children_by_date")));
 
     // Actions that are used when multiple items are selected.
-    multiselectionActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Find))));
-    multiselectionActions.insert(actionCollection->action(QLatin1String(KStandardAction::name(KStandardAction::Print))));
-    multiselectionActions.insert(actionCollection->action(QLatin1String("del_mult")));
-    multiselectionActions.insert(actionCollection->action(QLatin1String("save_to")));
-    multiselectionActions.insert(actionCollection->action(QLatin1String("change_color")));
+    multiselectionActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))));
+    multiselectionActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Print))));
+    multiselectionActions.insert(actionCollection->action(QStringLiteral("del_mult")));
+    multiselectionActions.insert(actionCollection->action(QStringLiteral("save_to")));
+    multiselectionActions.insert(actionCollection->action(QStringLiteral("change_color")));
 
     m_autosaveTimer = new QTimer(this);
     updateConfiguration();
@@ -590,7 +590,7 @@ void KJotsWidget::updateMenu()
             editor->setActionsEnabled(false);
         } else {
             for (QAction *action : qAsConst(pageActions)) {
-                if (action->objectName() == QLatin1String(name(KStandardAction::Cut))) {
+                if (action->objectName() == QString::fromLatin1(name(KStandardAction::Cut))) {
                     action->setEnabled(activeEditor()->textCursor().hasSelection());
                 } else {
                     action->setEnabled(true);
@@ -692,7 +692,7 @@ void KJotsWidget::deletePage()
 
     if (KMessageBox::warningContinueCancel(topLevelWidget(),
                                            i18nc("remove the page, by title", "<qt>Are you sure you want to delete the page <strong>%1</strong>?</qt>", idx.data().toString()),
-                                           i18n("Delete"), KStandardGuiItem::del(), KStandardGuiItem::cancel(), QLatin1String("DeletePageWarning")) == KMessageBox::Cancel) {
+                                           i18n("Delete"), KStandardGuiItem::del(), KStandardGuiItem::cancel(), QStringLiteral("DeletePageWarning")) == KMessageBox::Cancel) {
         return;
     }
 
@@ -727,7 +727,7 @@ void KJotsWidget::deleteBook()
     }
     if (KMessageBox::warningContinueCancel(topLevelWidget(),
                                            i18nc("remove the book, by title", "<qt>Are you sure you want to delete the book <strong>%1</strong>?</qt>", idx.data().toString()),
-                                           i18n("Delete"), KStandardGuiItem::del(), KStandardGuiItem::cancel(), QLatin1String("DeleteBookWarning")) == KMessageBox::Cancel) {
+                                           i18n("Delete"), KStandardGuiItem::del(), KStandardGuiItem::cancel(), QStringLiteral("DeleteBookWarning")) == KMessageBox::Cancel) {
         return;
     }
 
@@ -756,7 +756,7 @@ void KJotsWidget::newBook()
     newCollection.setContentMimeTypes({Collection::mimeType(), NoteUtils::noteMimeType()});
 
     EntityDisplayAttribute *eda = new EntityDisplayAttribute();
-    eda->setIconName(QLatin1String("x-office-address-book"));
+    eda->setIconName(QStringLiteral("x-office-address-book"));
     eda->setDisplayName(title);
     newCollection.addAttribute(eda);
 
@@ -835,12 +835,12 @@ QString KJotsWidget::renderSelectionToHtml()
         objectList << QVariant::fromValue(static_cast<QObject *>(kjotsEntity));
     }
 
-    hash.insert(QLatin1String("entities"), objectList);
-    hash.insert(QLatin1String("i18n_TABLE_OF_CONTENTS"),
+    hash.insert(QStringLiteral("entities"), objectList);
+    hash.insert(QStringLiteral("i18n_TABLE_OF_CONTENTS"),
                 i18nc("Header for 'Table of contents' section of rendered output", "Table of contents"));
     Context c(hash);
 
-    Template t = m_templateEngine->loadByName(QLatin1String("template.html"));
+    Template t = m_templateEngine->loadByName(QStringLiteral("template.html"));
 
     QString result = t->render(&c);
 
@@ -865,12 +865,12 @@ QString KJotsWidget::renderSelectionToPlainText()
         objectList << QVariant::fromValue(static_cast<QObject *>(kjotsEntity));
     }
 
-    hash.insert(QLatin1String("entities"), objectList);
-    hash.insert(QLatin1String("i18n_TABLE_OF_CONTENTS"),
+    hash.insert(QStringLiteral("entities"), objectList);
+    hash.insert(QStringLiteral("i18n_TABLE_OF_CONTENTS"),
                 i18nc("Header for 'Table of contents' section of rendered output", "Table of contents"));
     Context c(hash);
 
-    Template t = m_templateEngine->loadByName(QLatin1String("template.txt"));
+    Template t = m_templateEngine->loadByName(QStringLiteral("template.txt"));
 
     QString result = t->render(&c);
 
@@ -895,12 +895,12 @@ QString KJotsWidget::renderSelectionToXml()
         objectList << QVariant::fromValue(static_cast<QObject *>(kjotsEntity));
     }
 
-    hash.insert(QLatin1String("entities"), objectList);
+    hash.insert(QStringLiteral("entities"), objectList);
     Context c(hash);
 
     QString currentTheme = m_loader->themeName();
-    m_loader->setTheme(QLatin1String("xml_output"));
-    Template t = m_templateEngine->loadByName(QLatin1String("template.xml"));
+    m_loader->setTheme(QStringLiteral("xml_output"));
+    Template t = m_templateEngine->loadByName(QStringLiteral("template.xml"));
 
     QString result = t->render(&c);
 
@@ -917,7 +917,7 @@ QString KJotsWidget::getThemeFromUser()
                                          tr("Theme name:"), QLineEdit::Normal,
                                          m_loader->themeName(), &ok);
     if (!ok || text.isEmpty()) {
-        return QLatin1String("default");
+        return QStringLiteral("default");
     }
 
     return text;
@@ -937,7 +937,7 @@ void KJotsWidget::exportSelectionToHtml()
     QString currentTheme = m_loader->themeName();
     QString themeName = getThemeFromUser();
     if (themeName.isEmpty()) {
-        themeName = QLatin1String("default");
+        themeName = QStringLiteral("default");
     }
     m_loader->setTheme(themeName);
 
@@ -960,7 +960,7 @@ void KJotsWidget::exportSelectionToPlainText()
 {
     QString currentTheme = m_loader->themeName();
 
-    m_loader->setTheme(QLatin1String("plain_text"));
+    m_loader->setTheme(QStringLiteral("plain_text"));
 
     QString filename = QFileDialog::getSaveFileName();
     if (!filename.isEmpty()) {
@@ -981,7 +981,7 @@ void KJotsWidget::exportSelectionToXml()
 {
     QString currentTheme = m_loader->themeName();
 
-    m_loader->setTheme(QLatin1String("xml_output"));
+    m_loader->setTheme(QStringLiteral("xml_output"));
 
     QString filename = QFileDialog::getSaveFileName();
     if (!filename.isEmpty()) {
@@ -1033,7 +1033,7 @@ void KJotsWidget::print(QPrinter *printer)
         printDocument.setHtml(activeEditor()->textCursor().selection().toHtml());
     } else {
         QString currentTheme = m_loader->themeName();
-        m_loader->setTheme(QLatin1String("default"));
+        m_loader->setTheme(QStringLiteral("default"));
         printDocument.setHtml(renderSelectionToHtml());
         m_loader->setTheme(currentTheme);
     }
@@ -1244,7 +1244,7 @@ void KJotsWidget::onStartSearch()
         }
     }
 
-    m_xmlGuiClient->actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::FindNext)))->setEnabled(true);
+    m_xmlGuiClient->actionCollection()->action(QString::fromLatin1(KStandardAction::name(KStandardAction::FindNext)))->setEnabled(true);
 
     onRepeatSearch();
 }
@@ -1256,7 +1256,7 @@ void KJotsWidget::onRepeatSearch()
 {
     if (search(false) == 0) {
         KMessageBox::sorry(nullptr, i18n("<qt>No matches found.</qt>"));
-        m_xmlGuiClient->actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::FindNext)))->setEnabled(false);
+        m_xmlGuiClient->actionCollection()->action(QString::fromLatin1(KStandardAction::name(KStandardAction::FindNext)))->setEnabled(false);
     }
 }
 
@@ -1265,7 +1265,7 @@ void KJotsWidget::onRepeatSearch()
 */
 void KJotsWidget::onEndSearch()
 {
-    m_xmlGuiClient->actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::FindNext)))->setEnabled(false);
+    m_xmlGuiClient->actionCollection()->action(QString::fromLatin1(KStandardAction::name(KStandardAction::FindNext)))->setEnabled(false);
 }
 
 /*!
@@ -1573,7 +1573,7 @@ int KJotsWidget::search(bool replacing)
 
 void KJotsWidget::updateCaption()
 {
-    Q_EMIT captionChanged(treeview->captionForSelection(QLatin1String(" / ")));
+    Q_EMIT captionChanged(treeview->captionForSelection(QStringLiteral(" / ")));
 }
 
 bool KJotsWidget::queryClose()

@@ -68,8 +68,8 @@ KJotsPart::~KJotsPart()
 
 void KJotsPart::initAction()
 {
-    QAction *action = new QAction(QIcon::fromTheme(QLatin1String("configure")), i18n("&Configure KJots..."), this);
-    actionCollection()->addAction(QLatin1String("kjots_configure"), action);
+    QAction *action = new QAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("&Configure KJots..."), this);
+    actionCollection()->addAction(QStringLiteral("kjots_configure"), action);
     connect(action, &QAction::triggered, mComponent, &KJotsWidget::configure);
 }
 

@@ -55,7 +55,7 @@ KJotsLinkDialog::KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent
 
     KDescendantsProxyModel *proxyModel = new KDescendantsProxyModel(this);
     proxyModel->setSourceModel(kjotsModel);
-    proxyModel->setAncestorSeparator(QLatin1String(" / "));
+    proxyModel->setAncestorSeparator(QStringLiteral(" / "));
 
     m_descendantsProxyModel = proxyModel;
 

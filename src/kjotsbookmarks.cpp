@@ -32,7 +32,7 @@ KJotsBookmarks::KJotsBookmarks(KJotsTreeView *treeView) :
 
 void KJotsBookmarks::openBookmark(const KBookmark &bookmark, Qt::MouseButtons, Qt::KeyboardModifiers)
 {
-    if (bookmark.url().scheme() != QStringLiteral("akonadi")) {
+    if (bookmark.url().scheme() != QLatin1String("akonadi")) {
         return;
     }
     Q_EMIT openLink(bookmark.url());
@@ -68,6 +68,6 @@ QUrl KJotsBookmarks::currentUrl() const
 
 QString KJotsBookmarks::currentTitle() const
 {
-    return m_treeView->captionForSelection(QLatin1String(": "));
+    return m_treeView->captionForSelection(QStringLiteral(": "));
 }
 

@@ -78,7 +78,7 @@ void LocalResourceCreator::slotInstanceCreated(KJob *job)
 
     instance.setName(i18nc("Default name for resource holding notes", "Local Notes"));
     org::kde::Akonadi::Maildir::Settings *iface = new org::kde::Akonadi::Maildir::Settings(
-        QLatin1String("org.freedesktop.Akonadi.Resource.") + instance.identifier(),
+        QStringLiteral("org.freedesktop.Akonadi.Resource.") + instance.identifier(),
         QStringLiteral("/Settings"), QDBusConnection::sessionBus(), this);
 
     // TODO: Make errors user-visible.

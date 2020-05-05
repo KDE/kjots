@@ -30,7 +30,7 @@ KJotsConfigDlg::KJotsConfigDlg(const QString &title, QWidget *parent)
     setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::RestoreDefaults);
     button(QDialogButtonBox::Ok)->setDefault(true);
 
-    addModule(QLatin1String("kjots_config_misc"));
+    addModule(QStringLiteral("kjots_config_misc"));
     connect(button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &KJotsConfigDlg::slotOk);
 }
 
@@ -56,7 +56,7 @@ void KJotsConfigMisc::modified()
 
 void KJotsConfigMisc::load()
 {
-    KConfig config(QLatin1String("kjotsrc"));
+    KConfig config(QStringLiteral("kjotsrc"));
     KConfigGroup group = config.group("kjots");
     miscPage->autoSaveInterval->setValue(group.readEntry("AutoSaveInterval", 5));
     miscPage->autoSave->setChecked(group.readEntry("AutoSave", true));
@@ -65,7 +65,7 @@ void KJotsConfigMisc::load()
 
 void KJotsConfigMisc::save()
 {
-    KConfig config(QLatin1String("kjotsrc"));
+    KConfig config(QStringLiteral("kjotsrc"));
     KConfigGroup group = config.group("kjots");
     group.writeEntry("AutoSaveInterval", miscPage->autoSaveInterval->value());
     group.writeEntry("AutoSave", miscPage->autoSave->isChecked());

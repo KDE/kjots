@@ -114,7 +114,7 @@ void LocalResourceCreator::topLevelFetchFinished(KJob *job)
     collection.setContentMimeTypes({Akonadi::Collection::mimeType(), Akonadi::NoteUtils::noteMimeType()});
 
     Akonadi::EntityDisplayAttribute *eda = new Akonadi::EntityDisplayAttribute();
-    eda->setIconName(QLatin1String("x-office-address-book"));
+    eda->setIconName(QStringLiteral("x-office-address-book"));
     eda->setDisplayName(title);
     collection.addAttribute(eda);
 

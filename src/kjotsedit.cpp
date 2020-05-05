@@ -73,14 +73,14 @@ void KJotsEdit::contextMenuEvent(QContextMenuEvent *event)
     QMenu *popup = mousePopupMenu();
     if (popup) {
         popup->addSeparator();
-        QAction *act = actionCollection->action(QLatin1String("copyIntoTitle"));
+        QAction *act = actionCollection->action(QStringLiteral("copyIntoTitle"));
         popup->addAction(act);
-        act = actionCollection->action(QLatin1String("insert_checkmark"));
+        act = actionCollection->action(QStringLiteral("insert_checkmark"));
         act->setEnabled(!isReadOnly());
         popup->addAction(act);
 
         if (!qApp->clipboard()->text().isEmpty()) {
-            act = actionCollection->action(QLatin1String("paste_plain_text"));
+            act = actionCollection->action(QStringLiteral("paste_plain_text"));
             act->setEnabled(!isReadOnly());
             popup->addAction(act);
         }
@@ -99,13 +99,13 @@ void KJotsEdit::delayedInitialization(KActionCollection *collection)
 {
     actionCollection = collection;
 
-    connect(actionCollection->action(QLatin1String("auto_bullet")), &QAction::triggered, this, &KJotsEdit::onAutoBullet);
-    connect(actionCollection->action(QLatin1String("auto_decimal")), &QAction::triggered, this, &KJotsEdit::onAutoDecimal);
-    connect(actionCollection->action(QLatin1String("manage_link")), &QAction::triggered, this, &KJotsEdit::onLinkify);
-    connect(actionCollection->action(QLatin1String("insert_checkmark")), &QAction::triggered, this, &KJotsEdit::addCheckmark);
-    connect(actionCollection->action(QLatin1String("manual_save")), &QAction::triggered, this, &KJotsEdit::savePage);
-    connect(actionCollection->action(QLatin1String("insert_date")), &QAction::triggered, this, &KJotsEdit::insertDate);
-    connect(actionCollection->action(QLatin1String("insert_image")), &QAction::triggered, this, &KJotsEdit::insertImage);
+    connect(actionCollection->action(QStringLiteral("auto_bullet")), &QAction::triggered, this, &KJotsEdit::onAutoBullet);
+    connect(actionCollection->action(QStringLiteral("auto_decimal")), &QAction::triggered, this, &KJotsEdit::onAutoDecimal);
+    connect(actionCollection->action(QStringLiteral("manage_link")), &QAction::triggered, this, &KJotsEdit::onLinkify);
+    connect(actionCollection->action(QStringLiteral("insert_checkmark")), &QAction::triggered, this, &KJotsEdit::addCheckmark);
+    connect(actionCollection->action(QStringLiteral("manual_save")), &QAction::triggered, this, &KJotsEdit::savePage);
+    connect(actionCollection->action(QStringLiteral("insert_date")), &QAction::triggered, this, &KJotsEdit::insertDate);
+    connect(actionCollection->action(QStringLiteral("insert_image")), &QAction::triggered, this, &KJotsEdit::insertImage);
 }
 
 void KJotsEdit::insertDate()
@@ -172,10 +172,10 @@ void KJotsEdit::onAutoBullet(void)
 
     if (currentFormatting == KTextEdit::AutoBulletList) {
         setAutoFormatting(KTextEdit::AutoNone);
-        actionCollection->action(QLatin1String("auto_bullet"))->setChecked(false);
+        actionCollection->action(QStringLiteral("auto_bullet"))->setChecked(false);
     } else {
         setAutoFormatting(KTextEdit::AutoBulletList);
-        actionCollection->action(QLatin1String("auto_bullet"))->setChecked(true);
+        actionCollection->action(QStringLiteral("auto_bullet"))->setChecked(true);
     }
 }
 
@@ -222,11 +222,11 @@ void KJotsEdit::onAutoDecimal(void)
     if (allowAutoDecimal == true) {
         allowAutoDecimal = false;
         disconnect(this, &KJotsEdit::textChanged, this, &KJotsEdit::DecimalList);
-        actionCollection->action(QLatin1String("auto_decimal"))->setChecked(false);
+        actionCollection->action(QStringLiteral("auto_decimal"))->setChecked(false);
     } else {
         allowAutoDecimal = true;
         connect(this, &KJotsEdit::textChanged, this, &KJotsEdit::DecimalList);
-        actionCollection->action(QLatin1String("auto_decimal"))->setChecked(true);
+        actionCollection->action(QStringLiteral("auto_decimal"))->setChecked(true);
     }
 }
 

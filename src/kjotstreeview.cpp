@@ -52,36 +52,36 @@ void KJotsTreeView::contextMenuEvent(QContextMenuEvent *event)
     const bool singleselection = rows.size() == 1;
     const bool multiselection = rows.size() > 1;
 
-    popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("new_book")));
+    popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("new_book")));
     if (singleselection) {
-        popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("new_page")));
-        popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::RenameFile))));
+        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("new_page")));
+        popup->addAction(m_xmlGuiClient->actionCollection()->action(QString::fromLatin1(KStandardAction::name(KStandardAction::RenameFile))));
 
-        popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("copy_link_address")));
-        popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("change_color")));
+        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("copy_link_address")));
+        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("change_color")));
 
-        popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("sort_children_alpha")));
-        popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("sort_children_by_date")));
+        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("sort_children_alpha")));
+        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("sort_children_by_date")));
     }
     if (!noselection) {
-        popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("save_to")));
+        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("save_to")));
     }
     popup->addSeparator();
 
-    popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("lock")));
-    popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("unlock")));
+    popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("lock")));
+    popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("unlock")));
 
     if (singleselection) {
         Item item = rows.at(0).data(KJotsModel::ItemRole).value<Item>();
         if (item.isValid()) {
-            popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("del_page")));
+            popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("del_page")));
         } else {
-            popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("del_folder")));
+            popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("del_folder")));
         }
     }
 
     if (multiselection) {
-        popup->addAction(m_xmlGuiClient->actionCollection()->action(QLatin1String("del_mult")));
+        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("del_mult")));
     }
 
     popup->exec(event->globalPos());
@@ -91,8 +91,8 @@ void KJotsTreeView::contextMenuEvent(QContextMenuEvent *event)
 
 void KJotsTreeView::delayedInitialization()
 {
-    connect(m_xmlGuiClient->actionCollection()->action(QLatin1String("copy_link_address")), &QAction::triggered, this, &KJotsTreeView::copyLinkAddress);
-    connect(m_xmlGuiClient->actionCollection()->action(QLatin1String("change_color")), &QAction::triggered, this, &KJotsTreeView::changeColor);
+    connect(m_xmlGuiClient->actionCollection()->action(QStringLiteral("copy_link_address")), &QAction::triggered, this, &KJotsTreeView::copyLinkAddress);
+    connect(m_xmlGuiClient->actionCollection()->action(QStringLiteral("change_color")), &QAction::triggered, this, &KJotsTreeView::changeColor);
 }
 
 QString KJotsTreeView::captionForSelection(const QString &sep) const

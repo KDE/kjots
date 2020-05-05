@@ -247,11 +247,11 @@ QVariant KJotsModel::data(const QModelIndex &index, int role) const
     if (role == Qt::DecorationRole) {
         const Item item = index.data(ItemRole).value<Item>();
         if (item.isValid() && item.hasAttribute<NoteShared::NoteLockAttribute>()) {
-            return QIcon::fromTheme(QLatin1String("emblem-locked"));
+            return QIcon::fromTheme(QStringLiteral("emblem-locked"));
         } else {
             const Collection col = index.data(CollectionRole).value<Collection>();
             if (col.isValid() && col.hasAttribute<NoteShared::NoteLockAttribute>()) {
-                return QIcon::fromTheme(QLatin1String("emblem-locked"));
+                return QIcon::fromTheme(QStringLiteral("emblem-locked"));
             }
         }
     }

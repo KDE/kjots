@@ -70,7 +70,7 @@ void KJotsBrowser::tooltipEvent(QHelpEvent *event)
         } else
         // This is #page_XXX internal links
         if (url.scheme().isEmpty() && url.host().isEmpty() && url.path().isEmpty() && url.query().isEmpty()
-                   && url.fragment().startsWith("page_"))
+                   && url.fragment().startsWith(QLatin1String("page_")))
         {
             bool ok;
             Item::Id id = url.fragment().midRef(5).toInt(&ok);

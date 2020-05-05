@@ -52,6 +52,7 @@ find_package(Xsltproc)
 
 ##################### Definitions #####################
 add_definitions(-DQT_NO_KEYWORDS)
+add_definitions(-DQT_NO_CAST_FROM_ASCII)
 
 ##################### Targets #######################
 
