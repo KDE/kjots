@@ -133,14 +133,11 @@ protected Q_SLOTS:
     void openLink(const QUrl &url);
 private Q_SLOTS:
     void delayedInitialization();
-    void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight);
-    void bookshelfEditItemFinished(QWidget *, QAbstractItemDelegate::EndEditHint);
 
     void newPageResult(KJob *job);
     void newBookResult(KJob *job);
 
     void copySelectionToTitle();
-    void copy();
 
     void onShowSearch();
     void onUpdateSearch();

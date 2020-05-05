@@ -307,7 +307,9 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     connect(editor, &KJotsEdit::copyAvailable, action, &QAction::setEnabled);
     action->setEnabled(false);
 
-    action = KStandardAction::copy(this, &KJotsWidget::copy, actionCollection);
+    action = KStandardAction::copy(this, [this](){
+            activeEditor()->copy();
+        }, actionCollection);
     connect(editor, &KJotsEdit::copyAvailable, action, &QAction::setEnabled);
     connect(browser, &KJotsBrowser::copyAvailable, action, &QAction::setEnabled);
     action->setEnabled(false);
@@ -506,15 +508,13 @@ void KJotsWidget::delayedInitialization()
     treeview->delayedInitialization();
     editor->delayedInitialization(m_xmlGuiClient->actionCollection());
     browser->delayedInitialization();
-    connect(treeview->itemDelegate(), &QItemDelegate::closeEditor, this, &KJotsWidget::bookshelfEditItemFinished);
+
+    // Make sure the editor gets focus again after naming a new book/page.
+    connect(treeview->itemDelegate(), &QItemDelegate::closeEditor, this, [this](){
+            activeEditor()->setFocus();
+        });
 
     updateMenu();
-}
-
-void KJotsWidget::bookshelfEditItemFinished(QWidget *, QAbstractItemDelegate::EndEditHint)
-{
-    // Make sure the editor gets focus again after naming a new book/page.
-    activeEditor()->setFocus();
 }
 
 inline QTextEdit *KJotsWidget::activeEditor()
@@ -602,11 +602,6 @@ void KJotsWidget::updateMenu()
             editor->setActionsEnabled(true);
         }
     }
-}
-
-void KJotsWidget::copy()
-{
-    activeEditor()->copy();
 }
 
 void KJotsWidget::configure()
@@ -1579,20 +1574,6 @@ int KJotsWidget::search(bool replacing)
 void KJotsWidget::updateCaption()
 {
     Q_EMIT captionChanged(treeview->captionForSelection(QLatin1String(" / ")));
-}
-
-void KJotsWidget::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight)
-{
-    QModelIndexList rows = treeview->selectionModel()->selectedRows();
-
-    if (rows.size() != 1) {
-        return;
-    }
-
-    QItemSelection changed(topLeft, bottomRight);
-    if (changed.contains(rows.first())) {
-        Q_EMIT captionChanged(treeview->captionForSelection(QLatin1String(" / ")));
-    }
 }
 
 bool KJotsWidget::queryClose()
