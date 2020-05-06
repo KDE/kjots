@@ -103,7 +103,6 @@ void KJotsEdit::delayedInitialization(KActionCollection *collection)
     connect(actionCollection->action(QStringLiteral("auto_decimal")), &QAction::triggered, this, &KJotsEdit::onAutoDecimal);
     connect(actionCollection->action(QStringLiteral("manage_link")), &QAction::triggered, this, &KJotsEdit::onLinkify);
     connect(actionCollection->action(QStringLiteral("insert_checkmark")), &QAction::triggered, this, &KJotsEdit::addCheckmark);
-    connect(actionCollection->action(QStringLiteral("manual_save")), &QAction::triggered, this, &KJotsEdit::savePage);
     connect(actionCollection->action(QStringLiteral("insert_date")), &QAction::triggered, this, &KJotsEdit::insertDate);
     connect(actionCollection->action(QStringLiteral("insert_image")), &QAction::triggered, this, &KJotsEdit::insertImage);
 }
