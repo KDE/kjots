@@ -358,11 +358,6 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     action->setEnabled(false);
     KStandardAction::replace(this, &KJotsWidget::onShowReplace, actionCollection);
 
-    action = actionCollection->addAction(QStringLiteral("save_to"));
-    action->setText(i18n("Rename..."));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("edit-rename")));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_M));
-
     KActionMenu *exportMenu = actionCollection->add<KActionMenu>(QStringLiteral("save_to"));
     exportMenu->setText(i18n("Export"));
     exportMenu->setIcon(QIcon::fromTheme(QStringLiteral("document-export")));
