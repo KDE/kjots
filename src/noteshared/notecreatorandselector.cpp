@@ -30,11 +30,10 @@
 #include <AkonadiCore/EntityTreeModel>
 #include <Akonadi/Notes/NoteUtils>
 
-#include "akonadinext_debug.h"
+#include "noteshared_debug.h"
 
 using namespace Akonadi;
-
-using namespace Akonotes;
+using namespace NoteShared;
 
 NoteCreatorAndSelector::NoteCreatorAndSelector(QItemSelectionModel *primaryModel, QItemSelectionModel *secondaryModel, QObject *parent)
     : QObject(parent),
@@ -103,7 +102,7 @@ void NoteCreatorAndSelector::doCreateNote()
 void NoteCreatorAndSelector::noteCreationFinished(KJob *job)
 {
     if (job->error()) {
-        qCWarning(AKONADINEXT_LOG) << job->errorString();
+        qCWarning(NOTESHARED_LOG) << job->errorString();
         return;
     }
     Akonadi::ItemCreateJob *createJob = qobject_cast<Akonadi::ItemCreateJob *>(job);

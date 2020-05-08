@@ -1,4 +1,5 @@
 set(noteshared_SRCS
+    notecreatorandselector.cpp
     notelockattribute.cpp
     noteeditorutils.cpp
     localresourcecreator.cpp

@@ -3,9 +3,6 @@
 # is at least until the noteshared library is split out from kdepim
 # repository and we can link against it
 add_subdirectory(noteshared)
-# akonadi_next is dead in kdepim, those are two utility classes salvaged from
-# it that were used by KJots. We could eventually move this to Akonadi Note
-add_subdirectory(akonadi_next)
 
 add_subdirectory(kontact_plugin)
 
@@ -45,7 +42,6 @@ set(kjots_common_SRCS
 
 add_library(kjots_common STATIC ${kjots_common_SRCS})
 target_link_libraries(kjots_common
-  akonadi_next
   noteshared
   Qt5::DBus
   Qt5::PrintSupport

@@ -30,7 +30,7 @@
 
 class KJob;
 
-namespace Akonotes
+namespace NoteShared
 {
 
 /**

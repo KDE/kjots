@@ -58,7 +58,7 @@
 #include <AkonadiWidgets/ETMViewStateSaver>
 #include <AkonadiWidgets/ControlGui>
 
-#include "akonadi_next/notecreatorandselector.h"
+#include "noteshared/notecreatorandselector.h"
 
 // Grantlee
 #include <grantlee/template.h>
@@ -785,7 +785,7 @@ void KJotsWidget::newPage()
 
 void KJotsWidget::doCreateNewPage(const Collection &collection)
 {
-    Akonotes::NoteCreatorAndSelector *creatorAndSelector = new Akonotes::NoteCreatorAndSelector(treeview->selectionModel());
+    auto creatorAndSelector = new NoteShared::NoteCreatorAndSelector(treeview->selectionModel());
     creatorAndSelector->createNote(collection);
 }
 
