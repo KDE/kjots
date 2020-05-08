@@ -26,13 +26,17 @@
 
 class KXMLGUIClient;
 
+namespace Akonadi {
+class StandardNoteActionManager;
+}
+
 class KJotsTreeView : public Akonadi::EntityTreeView
 {
     Q_OBJECT
 public:
-    explicit KJotsTreeView(KXMLGUIClient *xmlGuiClient, QWidget *parent = nullptr);
+    explicit KJotsTreeView(KXMLGUIClient *xmlGuiClient,
+                           QWidget *parent = nullptr);
 
-    void delayedInitialization();
     QString captionForSelection(const QString &sep) const;
 
 public Q_SLOTS:
@@ -41,13 +45,8 @@ public Q_SLOTS:
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
-protected Q_SLOTS:
-    void copyLinkAddress();
-    void changeColor();
-
 private:
     KXMLGUIClient *m_xmlGuiClient;
-
 };
 
 #endif

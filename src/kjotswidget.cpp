@@ -58,8 +58,6 @@
 #include <AkonadiWidgets/ETMViewStateSaver>
 #include <AkonadiWidgets/ControlGui>
 
-#include "noteshared/notecreatorandselector.h"
-
 // Grantlee
 #include <grantlee/template.h>
 #include <grantlee/engine.h>
@@ -92,10 +90,9 @@
 #include "kjotsconfigdlg.h"
 #include "kjotsreplacenextdialog.h"
 #include "KJotsSettings.h"
-#include "kjotslockjob.h"
 #include "kjotsbrowser.h"
-
 #include "noteshared/notelockattribute.h"
+#include "noteshared/standardnoteactionmanager.h"
 #include "localresourcecreator.h"
 
 #include <memory>
@@ -104,7 +101,8 @@ using namespace Akonadi;
 using namespace Grantlee;
 
 KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::WindowFlags f)
-    : QWidget(parent, f), m_xmlGuiClient(xmlGuiClient)
+    : QWidget(parent, f)
+    , m_xmlGuiClient(xmlGuiClient)
 {
     ControlGui::widgetNeedsAkonadi(this);
 
@@ -170,6 +168,11 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     selProxy = new KSelectionProxyModel(treeview->selectionModel(), this);
     selProxy->setSourceModel(treeview->model());
 
+    m_actionManager = new StandardNoteActionManager(xmlGuiClient->actionCollection(), this);
+    m_actionManager->setCollectionSelectionModel(treeview->selectionModel());
+    m_actionManager->setItemSelectionModel(treeview->selectionModel());
+    m_actionManager->createAllActions();
+
     // TODO: Write a QAbstractItemView subclass to render kjots selection.
 
     // TODO: handle dataChanged properly, i.e. if item was changed from outside
@@ -217,34 +220,13 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_PageUp));
     connect(this, &KJotsWidget::canGoPreviousPageChanged, action, &QAction::setEnabled);
 
-    action = actionCollection->addAction(QStringLiteral("new_page"));
-    action->setText(i18n("&New Page"));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_N));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
-    connect(action, &QAction::triggered, this, &KJotsWidget::newPage);
+    actionCollection->setDefaultShortcut(m_actionManager->action(StandardActionManager::CreateCollection),
+                                         QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_N));
+    actionCollection->setDefaultShortcut(m_actionManager->action(StandardActionManager::DeleteCollections),
+                                         QKeySequence(Qt::CTRL + Qt::Key_Delete));
+    actionCollection->setDefaultShortcut(m_actionManager->action(StandardActionManager::DeleteItems),
+                                         QKeySequence(Qt::CTRL + Qt::Key_Delete));
 
-    action = actionCollection->addAction(QStringLiteral("new_book"));
-    action->setText(i18n("New &Book..."));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_N));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("address-book-new")));
-    connect(action, &QAction::triggered, this, &KJotsWidget::newBook);
-
-    action = actionCollection->addAction(QStringLiteral("del_page"));
-    action->setText(i18n("&Delete Page"));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_Delete));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete-page")));
-    connect(action, &QAction::triggered, this, &KJotsWidget::deletePage);
-
-    action = actionCollection->addAction(QStringLiteral("del_folder"));
-    action->setText(i18n("Delete Boo&k"));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Delete));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
-    connect(action, &QAction::triggered, this, &KJotsWidget::deleteBook);
-
-    action = actionCollection->addAction(QStringLiteral("del_mult"));
-    action->setText(i18n("Delete Selected"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
-    connect(action, &QAction::triggered, this, &KJotsWidget::deleteMultiple);
 
     KStandardAction::save( editor, &KJotsEdit::savePage, actionCollection);
 
@@ -277,23 +259,6 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     action->setText(i18n("Insert Date"));
     actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I));
     action->setIcon(QIcon::fromTheme(QStringLiteral("view-calendar-time-spent")));
-
-    action = actionCollection->addAction(QStringLiteral("change_color"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("format-fill-color")));
-    action->setText(i18n("Change Color..."));
-
-    action = actionCollection->addAction(QStringLiteral("copy_link_address"));
-    action->setText(i18n("Copy Link Address"));
-
-    action = actionCollection->addAction(QStringLiteral("lock"));
-    action->setText(i18n("Lock Selected"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("emblem-locked")));
-    connect(action, &QAction::triggered, this, &KJotsWidget::actionLock);
-
-    action = actionCollection->addAction(QStringLiteral("unlock"));
-    action->setText(i18n("Unlock Selected"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("emblem-unlocked")));
-    connect(action, &QAction::triggered, this, &KJotsWidget::actionUnlock);
 
     action = actionCollection->addAction(QStringLiteral("sort_children_alpha"));
     action->setText(i18n("Sort children alphabetically"));
@@ -466,16 +431,17 @@ void KJotsWidget::delayedInitialization()
     entryActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))));
     entryActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Print))));
     entryActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::RenameFile))));
-    entryActions.insert(actionCollection->action(QStringLiteral("change_color")));
+    entryActions.insert(m_actionManager->action(StandardNoteActionManager::ChangeColor));
     entryActions.insert(actionCollection->action(QStringLiteral("save_to")));
-    entryActions.insert(actionCollection->action(QStringLiteral("copy_link_address")));
+    entryActions.insert(m_actionManager->action(StandardActionManager::CopyItems));
+    entryActions.insert(m_actionManager->action(StandardActionManager::CopyCollections));
 
     // Actions that are used only when a page is selected.
     pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Cut))));
     pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Paste))));
     pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Replace))));
     pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Save))));
-    pageActions.insert(actionCollection->action(QStringLiteral("del_page")));
+    pageActions.insert(m_actionManager->action(StandardActionManager::DeleteItems));
     pageActions.insert(actionCollection->action(QStringLiteral("insert_date")));
     pageActions.insert(actionCollection->action(QStringLiteral("auto_bullet")));
     pageActions.insert(actionCollection->action(QStringLiteral("auto_decimal")));
@@ -484,16 +450,15 @@ void KJotsWidget::delayedInitialization()
 
     // Actions that are used only when a book is selected.
     bookActions.insert(actionCollection->action(QStringLiteral("save_to_book")));
-    bookActions.insert(actionCollection->action(QStringLiteral("del_folder")));
+    bookActions.insert(m_actionManager->action(StandardActionManager::DeleteCollections));
     bookActions.insert(actionCollection->action(QStringLiteral("sort_children_alpha")));
     bookActions.insert(actionCollection->action(QStringLiteral("sort_children_by_date")));
 
     // Actions that are used when multiple items are selected.
     multiselectionActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))));
     multiselectionActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Print))));
-    multiselectionActions.insert(actionCollection->action(QStringLiteral("del_mult")));
     multiselectionActions.insert(actionCollection->action(QStringLiteral("save_to")));
-    multiselectionActions.insert(actionCollection->action(QStringLiteral("change_color")));
+    multiselectionActions.insert(m_actionManager->action(StandardNoteActionManager::ChangeColor));
 
     m_autosaveTimer = new QTimer(this);
     updateConfiguration();
@@ -501,7 +466,6 @@ void KJotsWidget::delayedInitialization()
     connect(m_autosaveTimer, &QTimer::timeout, editor, &KJotsEdit::savePage);
     connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, m_autosaveTimer, qOverload<>(&QTimer::start));
 
-    treeview->delayedInitialization();
     editor->delayedInitialization(m_xmlGuiClient->actionCollection());
     browser->delayedInitialization();
 
@@ -573,14 +537,8 @@ void KJotsWidget::updateMenu()
             for (QAction *action : qAsConst(pageActions)) {
                 action->setEnabled(false);
             }
-            const bool colIsRootCollection = (col.parentCollection() == Collection::root());
             for (QAction *action : qAsConst(bookActions)) {
-                if (action->objectName() == QLatin1String("del_folder") && colIsRootCollection) {
-                    action->setEnabled(false);
-                } else {
-                    action->setEnabled(true);
-                }
-
+                action->setEnabled(true);
             }
 
             editor->setActionsEnabled(false);
@@ -634,184 +592,6 @@ void KJotsWidget::copySelectionToTitle()
 
         treeview->model()->setData(idx, newTitle);
     }
-}
-
-void KJotsWidget::deleteMultiple()
-{
-    const QModelIndexList selectedRows = treeview->selectionModel()->selectedRows();
-
-    if (KMessageBox::questionYesNo(this,
-                                   i18n("Do you really want to delete all selected books and pages?"),
-                                   i18n("Delete?"), KStandardGuiItem::del(), KStandardGuiItem::cancel(),
-                                   QString(), KMessageBox::Dangerous) != KMessageBox::Yes) {
-        return;
-    }
-
-    for (const QModelIndex &index : selectedRows) {
-        bool ok;
-        qlonglong id = index.data(EntityTreeModel::ItemIdRole).toLongLong(&ok);
-        Q_ASSERT(ok);
-        if (id >= 0) {
-            new ItemDeleteJob(Item(id), this);
-        } else {
-            id = index.data(EntityTreeModel::CollectionIdRole).toLongLong(&ok);
-            Q_ASSERT(ok);
-            if (id >= 0) {
-                new CollectionDeleteJob(Collection(id), this);
-            }
-        }
-    }
-}
-
-void KJotsWidget::deletePage()
-{
-    QModelIndexList selectedRows = treeview->selectionModel()->selectedRows();
-
-    if (selectedRows.size() != 1) {
-        return;
-    }
-
-    const QModelIndex idx = selectedRows.at(0);
-    Item item = idx.data(EntityTreeModel::ItemRole).value<Item>();
-
-    if (!item.isValid()) {
-        return;
-    }
-
-    if (item.hasAttribute<NoteShared::NoteLockAttribute>()) {
-
-        KMessageBox::information(topLevelWidget(),
-                                 i18n("This page is locked. You can only delete it when you first unlock it."),
-                                 i18n("Item is locked"));
-        return;
-    }
-
-    if (KMessageBox::warningContinueCancel(topLevelWidget(),
-                                           i18nc("remove the page, by title", "<qt>Are you sure you want to delete the page <strong>%1</strong>?</qt>", idx.data().toString()),
-                                           i18n("Delete"), KStandardGuiItem::del(), KStandardGuiItem::cancel(), QStringLiteral("DeletePageWarning")) == KMessageBox::Cancel) {
-        return;
-    }
-
-    (void) new ItemDeleteJob(item, this);
-}
-
-void KJotsWidget::deleteBook()
-{
-    QModelIndexList selectedRows = treeview->selectionModel()->selectedRows();
-
-    if (selectedRows.size() != 1) {
-        return;
-    }
-
-    const QModelIndex idx = selectedRows.at(0);
-    Collection col = idx.data(EntityTreeModel::CollectionRole).value<Collection>();
-
-    if (!col.isValid()) {
-        return;
-    }
-
-    if (col.parentCollection() == Collection::root()) {
-        return;
-    }
-
-    if (col.hasAttribute<NoteShared::NoteLockAttribute>()) {
-
-        KMessageBox::information(topLevelWidget(),
-                                 i18n("This book is locked. You can only delete it when you first unlock it."),
-                                 i18n("Item is locked"));
-        return;
-    }
-    if (KMessageBox::warningContinueCancel(topLevelWidget(),
-                                           i18nc("remove the book, by title", "<qt>Are you sure you want to delete the book <strong>%1</strong>?</qt>", idx.data().toString()),
-                                           i18n("Delete"), KStandardGuiItem::del(), KStandardGuiItem::cancel(), QStringLiteral("DeleteBookWarning")) == KMessageBox::Cancel) {
-        return;
-    }
-
-    (void) new CollectionDeleteJob(col, this);
-}
-
-void KJotsWidget::newBook()
-{
-    QModelIndexList selectedRows = treeview->selectionModel()->selectedRows();
-
-    if (selectedRows.size() != 1) {
-        return;
-    }
-
-    Collection col = selectedRows.at(0).data(EntityTreeModel::CollectionRole).value<Collection>();
-
-    if (!col.isValid()) {
-        return;
-    }
-
-    Collection newCollection;
-    newCollection.setParentCollection(col);
-
-    QString title = i18nc("The default name for new books.", "New Book");
-    newCollection.setName(KRandom::randomString(10));
-    newCollection.setContentMimeTypes({Collection::mimeType(), NoteUtils::noteMimeType()});
-
-    EntityDisplayAttribute *eda = new EntityDisplayAttribute();
-    eda->setIconName(QStringLiteral("x-office-address-book"));
-    eda->setDisplayName(title);
-    newCollection.addAttribute(eda);
-
-    CollectionCreateJob *job = new CollectionCreateJob(newCollection);
-    connect(job, &CollectionCreateJob::result, this, &KJotsWidget::newBookResult);
-}
-
-void KJotsWidget::newPage()
-{
-    QModelIndexList selectedRows = treeview->selectionModel()->selectedRows();
-
-    if (selectedRows.size() != 1) {
-        return;
-    }
-
-    Item item = selectedRows.at(0).data(EntityTreeModel::ItemRole).value<Item>();
-
-    Collection col;
-    if (item.isValid()) {
-        col = selectedRows.at(0).data(EntityTreeModel::ParentCollectionRole).value<Collection>();
-    } else {
-        col = selectedRows.at(0).data(EntityTreeModel::CollectionRole).value<Collection>();
-    }
-
-    if (!col.isValid()) {
-        return;
-    }
-    doCreateNewPage(col);
-}
-
-void KJotsWidget::doCreateNewPage(const Collection &collection)
-{
-    auto creatorAndSelector = new NoteShared::NoteCreatorAndSelector(treeview->selectionModel());
-    creatorAndSelector->createNote(collection);
-}
-
-void KJotsWidget::newPageResult(KJob *job)
-{
-    if (job->error()) {
-        qDebug() << job->errorString();
-    }
-}
-
-void KJotsWidget::newBookResult(KJob *job)
-{
-    if (job->error()) {
-        qDebug() << job->errorString();
-        return;
-    }
-    CollectionCreateJob *createJob = qobject_cast<CollectionCreateJob *>(job);
-    if (!createJob) {
-        return;
-    }
-    const Collection collection = createJob->collection();
-    if (!collection.isValid()) {
-        return;
-    }
-
-    doCreateNewPage(collection);
 }
 
 QString KJotsWidget::renderSelectionToHtml()
@@ -1580,62 +1360,6 @@ bool KJotsWidget::queryClose()
     // TODO: we better wait for a result here!
     editor->savePage();
     return true;
-}
-
-void KJotsWidget::actionLock()
-{
-    const QModelIndexList selection = treeview->selectionModel()->selectedRows();
-
-    if (selection.isEmpty()) {
-        return;
-    }
-
-    Collection::List collections;
-    Item::List items;
-    for (const QModelIndex &idx : selection) {
-        Collection col = idx.data(EntityTreeModel::CollectionRole).value<Collection>();
-        if (col.isValid()) {
-            collections << col;
-        } else {
-            Item item = idx.data(EntityTreeModel::ItemRole).value<Item>();
-            if (item.isValid()) {
-                items << item;
-            }
-        }
-    }
-    if (collections.isEmpty() && items.isEmpty()) {
-        return;
-    }
-
-    new KJotsLockJob(collections, items, this);
-}
-
-void KJotsWidget::actionUnlock()
-{
-    const QModelIndexList selection = treeview->selectionModel()->selectedRows();
-
-    if (selection.isEmpty()) {
-        return;
-    }
-
-    Collection::List collections;
-    Item::List items;
-    for (const QModelIndex &idx : selection) {
-        Collection col = idx.data(EntityTreeModel::CollectionRole).value<Collection>();
-        if (col.isValid()) {
-            collections << col;
-        } else {
-            Item item = idx.data(EntityTreeModel::ItemRole).value<Item>();
-            if (item.isValid()) {
-                items << item;
-            }
-        }
-    }
-    if (collections.isEmpty() && items.isEmpty()) {
-        return;
-    }
-
-    new KJotsLockJob(collections, items, KJotsLockJob::UnlockJob, this);
 }
 
 void KJotsWidget::actionSortChildrenAlpha()

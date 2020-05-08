@@ -3,6 +3,7 @@ set(noteshared_SRCS
     notelockattribute.cpp
     noteeditorutils.cpp
     localresourcecreator.cpp
+    standardnoteactionmanager.cpp
 )
 
 ecm_qt_declare_logging_category(noteshared_SRCS
@@ -37,6 +38,7 @@ target_link_libraries(noteshared
     KF5::I18n
     KF5::AkonadiCore
     KF5::AkonadiNotes
+    KF5::XmlGui
 )
 
 target_include_directories(noteshared PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)

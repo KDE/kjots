@@ -1,7 +1,4 @@
 
-# noteshared contains copy of some classes from kdepim/noteshared. This
-# is at least until the noteshared library is split out from kdepim
-# repository and we can link against it
 add_subdirectory(noteshared)
 
 add_subdirectory(kontact_plugin)
@@ -25,7 +22,6 @@ ki18n_wrap_ui(kjots_config_SRCS confpagemisc.ui)
 
 set(kjots_common_SRCS
   aboutdata.cpp
-  kjotslockjob.cpp
   kjotsedit.cpp
   kjotstreeview.cpp
   kjotsbookmarks.cpp

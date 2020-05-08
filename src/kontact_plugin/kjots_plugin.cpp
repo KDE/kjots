@@ -78,7 +78,7 @@ bool KJotsPlugin::isRunningStandalone() const
 
 QStringList KJotsPlugin::invisibleToolbarActions() const
 {
-    return { QStringLiteral("new_page"), QStringLiteral("new_book") };
+    return { QStringLiteral("akonadi_note_create"), QStringLiteral("akonadi_collection_create") };
 }
 
 #if KONTACTINTERFACE_VERSION >= QT_VERSION_CHECK(5, 14, 42)

@@ -38,7 +38,7 @@ using namespace NoteShared;
 NoteCreatorAndSelector::NoteCreatorAndSelector(QItemSelectionModel *primaryModel, QItemSelectionModel *secondaryModel, QObject *parent)
     : QObject(parent),
       m_primarySelectionModel(primaryModel),
-      m_secondarySelectionModel(secondaryModel == 0 ? primaryModel : secondaryModel),
+      m_secondarySelectionModel(secondaryModel == nullptr ? primaryModel : secondaryModel),
       m_containerCollectionId(-1),
       m_newNoteId(-1),
       m_giveupTimer(new QTimer(this))

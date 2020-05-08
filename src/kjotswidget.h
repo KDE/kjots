@@ -53,6 +53,7 @@ namespace Akonadi
 {
 class EntityTreeModel;
 class EntityOrderProxyModel;
+class StandardNoteActionManager;
 }
 
 namespace Grantlee
@@ -83,10 +84,6 @@ public Q_SLOTS:
 
     void updateCaption();
     void updateMenu();
-    void doCreateNewPage(const Akonadi::Collection &collection);
-
-    Q_SCRIPTABLE void newPage();
-    Q_SCRIPTABLE void newBook();
 
     Q_SCRIPTABLE bool queryClose();
 
@@ -126,16 +123,9 @@ protected Q_SLOTS:
     void printSelection();
     void printPreviewSelection();
 
-    void deletePage();
-    void deleteBook();
-    void deleteMultiple();
-
     void openLink(const QUrl &url);
 private Q_SLOTS:
     void delayedInitialization();
-
-    void newPageResult(KJob *job);
-    void newBookResult(KJob *job);
 
     void copySelectionToTitle();
 
@@ -151,8 +141,6 @@ private Q_SLOTS:
     void onRepeatReplace();
     void onEndReplace();
 
-    void actionLock();
-    void actionUnlock();
     void actionSortChildrenAlpha();
     void actionSortChildrenByDate();
 
@@ -165,6 +153,7 @@ private Q_SLOTS:
 
 private:
     KXMLGUIClient  *m_xmlGuiClient;
+    Akonadi::StandardNoteActionManager *m_actionManager = nullptr;
     KJotsEdit      *editor;
     KJotsBrowser   *browser;
     QStackedWidget *stackedWidget;

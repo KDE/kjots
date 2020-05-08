@@ -37,7 +37,8 @@
 using namespace Akonadi;
 
 KJotsTreeView::KJotsTreeView(KXMLGUIClient *xmlGuiClient, QWidget *parent)
-    : EntityTreeView(xmlGuiClient, parent), m_xmlGuiClient(xmlGuiClient)
+    : EntityTreeView(xmlGuiClient, parent)
+    , m_xmlGuiClient(xmlGuiClient)
 {
 
 }
@@ -46,53 +47,48 @@ void KJotsTreeView::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu *popup = new QMenu(this);
 
-    QModelIndexList rows = selectionModel()->selectedRows();
-
+    const QModelIndexList rows = selectionModel()->selectedRows();
     const bool noselection = rows.isEmpty();
     const bool singleselection = rows.size() == 1;
-    const bool multiselection = rows.size() > 1;
+    const bool itemSelected = singleselection && rows.first().data(EntityTreeModel::ItemRole).value<Item>().isValid();
 
-    popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("new_book")));
     if (singleselection) {
-        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("new_page")));
+        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("akonadi_note_create")));
+        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("akonadi_collection_create")));
         popup->addAction(m_xmlGuiClient->actionCollection()->action(QString::fromLatin1(KStandardAction::name(KStandardAction::RenameFile))));
+        if (itemSelected) {
+            popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("akonadi_item_copy")));
+        } else {
+            popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("akonadi_collection_copy")));
+        }
 
-        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("copy_link_address")));
-        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("change_color")));
+        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("akonadi_change_color")));
 
         popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("sort_children_alpha")));
         popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("sort_children_by_date")));
+    } else if (!noselection) {
+        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("akonadi_collection_create")));
+        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("akonadi_change_color")));
     }
     if (!noselection) {
         popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("save_to")));
     }
     popup->addSeparator();
 
-    popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("lock")));
-    popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("unlock")));
+    popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("akonadi_note_lock")));
+    popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("akonadi_note_unlock")));
 
     if (singleselection) {
-        Item item = rows.at(0).data(KJotsModel::ItemRole).value<Item>();
-        if (item.isValid()) {
-            popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("del_page")));
+        if (itemSelected) {
+            popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("akonadi_item_delete")));
         } else {
-            popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("del_folder")));
+            popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("akonadi_collection_delete")));
         }
-    }
-
-    if (multiselection) {
-        popup->addAction(m_xmlGuiClient->actionCollection()->action(QStringLiteral("del_mult")));
     }
 
     popup->exec(event->globalPos());
 
     delete popup;
-}
-
-void KJotsTreeView::delayedInitialization()
-{
-    connect(m_xmlGuiClient->actionCollection()->action(QStringLiteral("copy_link_address")), &QAction::triggered, this, &KJotsTreeView::copyLinkAddress);
-    connect(m_xmlGuiClient->actionCollection()->action(QStringLiteral("change_color")), &QAction::triggered, this, &KJotsTreeView::changeColor);
 }
 
 QString KJotsTreeView::captionForSelection(const QString &sep) const
@@ -128,29 +124,3 @@ void KJotsTreeView::renameEntry()
     }
     edit(rows.first());
 }
-
-void KJotsTreeView::copyLinkAddress()
-{
-    const QModelIndexList rows = selectionModel()->selectedRows();
-    if (rows.size() != 1) {
-        return;
-    }
-    const QModelIndex idx = rows.first();
-    QMimeData *mimeData = new QMimeData();
-    mimeData->setText(idx.data().toString());
-    mimeData->setUrls({idx.data(KJotsModel::EntityUrlRole).toUrl()});
-    QApplication::clipboard()->setMimeData(mimeData);
-}
-
-void KJotsTreeView::changeColor()
-{
-    QColor myColor;
-    myColor = QColorDialog::getColor();
-    if (myColor.isValid()) {
-        const QModelIndexList rows = selectionModel()->selectedRows();
-        for (const QModelIndex &idx : rows) {
-            model()->setData(idx, myColor, Qt::BackgroundRole);
-        }
-    }
-}
-
