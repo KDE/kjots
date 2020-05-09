@@ -23,10 +23,11 @@
 
 #include "kjotsbookmarks.h"
 #include "kjotsmodel.h"
-#include "kjotstreeview.h"
 
-KJotsBookmarks::KJotsBookmarks(KJotsTreeView *treeView) :
-    m_treeView(treeView)
+#include <QItemSelectionModel>
+
+KJotsBookmarks::KJotsBookmarks(QItemSelectionModel *model)
+    : m_model(model)
 {
 }
 
@@ -40,16 +41,16 @@ void KJotsBookmarks::openBookmark(const KBookmark &bookmark, Qt::MouseButtons, Q
 
 QString KJotsBookmarks::currentIcon() const
 {
-    const QModelIndexList rows = m_treeView->selectionModel()->selectedRows();
+    const QModelIndexList rows = m_model->selectedRows();
     if (rows.size() != 1) {
         return QString();
     }
     const QModelIndex idx = rows.first();
-    auto collection = idx.data(EntityTreeModel::CollectionRole).value<Collection>();
+    const auto collection = idx.data(EntityTreeModel::CollectionRole).value<Collection>();
     if (collection.isValid()) {
         return QStringLiteral("x-office-address-book");
     }
-    auto item = idx.data(EntityTreeModel::ItemRole).value<Item>();
+    const auto item = idx.data(EntityTreeModel::ItemRole).value<Item>();
     if (item.isValid()) {
         return QStringLiteral("x-office-document");
     }
@@ -58,7 +59,7 @@ QString KJotsBookmarks::currentIcon() const
 
 QUrl KJotsBookmarks::currentUrl() const
 {
-    const QModelIndexList rows = m_treeView->selectionModel()->selectedRows();
+    const QModelIndexList rows = m_model->selectedRows();
     if (rows.size() != 1) {
         return QUrl();
     } else {
@@ -68,6 +69,11 @@ QUrl KJotsBookmarks::currentUrl() const
 
 QString KJotsBookmarks::currentTitle() const
 {
-    return m_treeView->captionForSelection(QStringLiteral(": "));
+    const QModelIndexList rows = m_model->selectedRows();
+    if (rows.size() != 1) {
+        return QString();
+    } else {
+        return KJotsModel::itemPath(rows.first(), QStringLiteral(": "));
+    }
 }
 

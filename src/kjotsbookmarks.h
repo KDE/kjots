@@ -26,14 +26,14 @@
 
 #include <KBookmarkManager>
 
-class KJotsTreeView;
+class QItemSelectionModel;
 
 class KJotsBookmarks : public QObject, public KBookmarkOwner
 {
     Q_OBJECT
 
 public:
-    explicit KJotsBookmarks(KJotsTreeView *treeView);
+    explicit KJotsBookmarks(QItemSelectionModel *model);
 
     QUrl currentUrl() const override;
     QString currentIcon() const override;
@@ -44,7 +44,7 @@ Q_SIGNALS:
     void openLink(const QUrl &url);
 
 private:
-    KJotsTreeView *m_treeView;
+    QItemSelectionModel *m_model = nullptr;
 };
 
 #endif

@@ -301,7 +301,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 
     bookmarkMenu = actionCollection->add<KActionMenu>(QStringLiteral("bookmarks"));
     bookmarkMenu->setText(i18n("&Bookmarks"));
-    KJotsBookmarks *bookmarks = new KJotsBookmarks(treeview);
+    KJotsBookmarks *bookmarks = new KJotsBookmarks(treeview->selectionModel());
     connect(bookmarks, &KJotsBookmarks::openLink, this, &KJotsWidget::openLink);
     KBookmarkMenu *bmm = new KBookmarkMenu(
         KBookmarkManager::managerForFile(
@@ -1349,7 +1349,14 @@ int KJotsWidget::search(bool replacing)
 
 void KJotsWidget::updateCaption()
 {
-    Q_EMIT captionChanged(treeview->captionForSelection(QStringLiteral(" / ")));
+    const QModelIndexList selection = treeview->selectionModel()->selectedRows();
+    QString caption;
+    if (selection.size() == 1) {
+        caption = KJotsModel::itemPath(selection.first());
+    } else if (selection.size() > 1) {
+        caption = i18n("Multiple selection");
+    }
+    Q_EMIT captionChanged(caption);
 }
 
 bool KJotsWidget::queryClose()

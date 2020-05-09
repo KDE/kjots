@@ -285,3 +285,19 @@ QModelIndex KJotsModel::modelIndexForUrl(const QAbstractItemModel *model, const 
     }
     return QModelIndex();
 }
+
+QString KJotsModel::itemPath(const QModelIndex &index, const QString &sep)
+{
+    QString caption;
+    QModelIndex curIndex = index;
+    while (curIndex.isValid()) {
+        QModelIndex parentBook = curIndex.parent();
+        if (parentBook.isValid()) {
+            caption = sep + curIndex.data().toString() + caption;
+        } else {
+            caption = curIndex.data().toString() + caption;
+        }
+        curIndex = parentBook;
+    }
+    return caption;
+}

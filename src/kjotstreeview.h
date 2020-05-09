@@ -37,8 +37,6 @@ public:
     explicit KJotsTreeView(KXMLGUIClient *xmlGuiClient,
                            QWidget *parent = nullptr);
 
-    QString captionForSelection(const QString &sep) const;
-
 public Q_SLOTS:
     void renameEntry();
 

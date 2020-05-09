@@ -95,6 +95,11 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
 
     static QModelIndex modelIndexForUrl(const QAbstractItemModel *model, const QUrl &url);
+    /**
+     * A helper function which returns a full "path" to the @p item (e.g. "Resource / Notebook / Note")
+     * using @p sep as a separator. If multiple items are selected, returns "Multiple selection"
+     */
+    static QString itemPath(const QModelIndex &index, const QString &sep = QStringLiteral(" / "));
 private:
     QHash<Collection::Id, QColor> m_colors;
     mutable QHash<Item::Id, QTextDocument *> m_documents;
