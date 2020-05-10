@@ -143,7 +143,7 @@ bool KJotsEdit::setModelIndex(const QModelIndex &index)
         // QTextCursor doesn't follow this format. One can either move the cursor 1 symbol to the right
         // and then 1 symbol to the left as a workaround, or just explicitly move it to the start.
         // Submitted to qt-bugs, id 192886.
-        //  -- (don't know the fate of this bug, as for April 2020 it is unaccessible)
+        //  -- (don't know the fate of this bug, as for April 2020 it is inaccessible)
         moveCursor(QTextCursor::Start);
     }
     // Setting focus if document was changed

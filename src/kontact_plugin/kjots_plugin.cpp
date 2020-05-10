@@ -36,7 +36,7 @@
 #if KONTACTINTERFACE_VERSION < QT_VERSION_CHECK(5, 14, 42)
 /**
   Exports Kontact plugin.
-  @param pluginclass the class to instanciate (must derive from KontactInterface::Plugin
+  @param pluginclass the class to instantiate (must derive from KontactInterface::Plugin
   @param jsonFile filename of the JSON file, generated from a .desktop file
  */
 #define EXPORT_KONTACT_PLUGIN_WITH_JSON( pluginclass, jsonFile ) \

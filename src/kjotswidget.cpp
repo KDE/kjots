@@ -1139,7 +1139,7 @@ void KJotsWidget::onStartReplace()
 }
 
 /*!
-    Only called after onStartReplace. Kept the name scheme for consistancy.
+    Only called after onStartReplace. Kept the name scheme for consistency.
 */
 void KJotsWidget::onRepeatReplace()
 {

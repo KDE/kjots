@@ -42,7 +42,7 @@ void KJotsBrowser::delayedInitialization()
     connect(this, &KJotsBrowser::anchorClicked, this, [this](const QUrl &url){
         if (!url.toString().startsWith(QLatin1Char('#'))) {
             // QTextBrowser tries to automatically handle the url. We only want it for anchor navigation
-            // (i.e. "#page12" links). This can be overriden by setting the source to an invalid QUrl
+            // (i.e. "#page12" links). This can be overridden by setting the source to an invalid QUrl
             setSource(QUrl());
             Q_EMIT linkClicked(url);
         }

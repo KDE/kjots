@@ -45,11 +45,11 @@ public:
     /**
      * Load document based on KJotsModel index
      *
-     * @returns true if loaded sucessfully
+     * @returns true if loaded successfully
      */
     bool setModelIndex(const QModelIndex &index);
 protected:
-    /* To be able to change cursor when hoverng over links */
+    /* To be able to change cursor when hovering over links */
     void mouseMoveEvent(QMouseEvent *event) override;
     void leaveEvent(QEvent *event) override;
 
