@@ -20,19 +20,19 @@
 
 #include "kjotslinkdialog.h"
 
-#include <QLabel>
+#include <QComboBox>
 #include <QCompleter>
+#include <QDialogButtonBox>
 #include <QGridLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
 #include <QRadioButton>
 #include <QTreeView>
-#include <QComboBox>
-#include <QLineEdit>
-#include <QDialogButtonBox>
-#include <QPushButton>
 #include <QVBoxLayout>
 
-#include <KLocalizedString>
 #include <KDescendantsProxyModel>
+#include <KLocalizedString>
 
 #include "KJotsSettings.h"
 #include "kjotsbookshelfentryvalidator.h"
@@ -42,26 +42,26 @@ KJotsLinkDialog::KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent
     : QDialog(parent), m_kjotsModel(kjotsModel)
 {
     setWindowTitle(i18n("Manage Link"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto *mainLayout = new QVBoxLayout(this);
     setLayout(mainLayout);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
-    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    okButton->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Return));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &KJotsLinkDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &KJotsLinkDialog::reject);
     okButton->setDefault(true);
     setModal(true);
 
-    KDescendantsProxyModel *proxyModel = new KDescendantsProxyModel(this);
+    auto *proxyModel = new KDescendantsProxyModel(this);
     proxyModel->setSourceModel(kjotsModel);
     proxyModel->setAncestorSeparator(QStringLiteral(" / "));
 
     m_descendantsProxyModel = proxyModel;
 
-    QWidget *entries = new QWidget(this);
+    auto *entries = new QWidget(this);
 
-    QGridLayout *layout = new QGridLayout(entries);
+    auto *layout = new QGridLayout(entries);
 
     textLabel = new QLabel(i18n("Link Text:"), this);
     textLineEdit = new QLineEdit(this);
@@ -79,13 +79,13 @@ KJotsLinkDialog::KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent
     hrefCombo->setView(tree);
 
     hrefCombo->setEditable(true);
-    QCompleter *completer = new QCompleter(proxyModel, this);
+    auto *completer = new QCompleter(proxyModel, this);
     completer->setCaseSensitivity(Qt::CaseInsensitive);
     hrefCombo->setCompleter(completer);
-    KJotsBookshelfEntryValidator *validator = new KJotsBookshelfEntryValidator(proxyModel, this);
+    auto *validator = new KJotsBookshelfEntryValidator(proxyModel, this);
     hrefCombo->setValidator(validator);
 
-    QGridLayout *linkLayout = new QGridLayout(this);
+    auto *linkLayout = new QGridLayout(this);
     linkUrlLineEditRadioButton = new QRadioButton(entries);
     hrefComboRadioButton = new QRadioButton(entries);
 

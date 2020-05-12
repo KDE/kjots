@@ -69,7 +69,7 @@ protected:
     void tooltipEvent(QHelpEvent *event);
 
 public Q_SLOTS:
-    void onAutoBullet(void);
+    void onAutoBullet();
     void onLinkify(void);
     void addCheckmark(void);
     void onAutoDecimal(void);

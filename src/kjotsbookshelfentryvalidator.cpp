@@ -47,14 +47,14 @@ QValidator::State KJotsBookshelfEntryValidator::validate(QString &input, int &po
 
     if (list.empty()) {
         return Invalid;
-    } else {
-        for (const QModelIndex &index : list) {
-            if (0 == QString::compare(m_model->data(index).toString(), input, Qt::CaseInsensitive)) {
-                return Acceptable;
-            }
-            return Intermediate;
-        }
     }
-    return Invalid;
+
+    if (std::any_of(list.cbegin(), list.cend(), [&input](const QModelIndex &index) {
+            return QString::compare(index.data().toString(), input, Qt::CaseInsensitive);
+        })) {
+        return Acceptable;
+    } else {
+        return Intermediate;
+    }
 }
 

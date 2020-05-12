@@ -33,7 +33,7 @@ class KJotsBookmarks : public QObject, public KBookmarkOwner
     Q_OBJECT
 
 public:
-    explicit KJotsBookmarks(QItemSelectionModel *model);
+    explicit KJotsBookmarks(QItemSelectionModel *model, QObject *parent = nullptr);
 
     QUrl currentUrl() const override;
     QString currentIcon() const override;

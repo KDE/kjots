@@ -26,8 +26,8 @@
 #include <KMime/Message>
 
 #include <AkonadiCore/EntityDisplayAttribute>
-#include <AkonadiCore/ItemCreateJob>
 #include <AkonadiCore/EntityTreeModel>
+#include <AkonadiCore/ItemCreateJob>
 #include <Akonadi/Notes/NoteUtils>
 
 #include "noteshared_debug.h"
@@ -48,9 +48,7 @@ NoteCreatorAndSelector::NoteCreatorAndSelector(QItemSelectionModel *primaryModel
     connect(m_giveupTimer, &QTimer::timeout, this, &NoteCreatorAndSelector::deleteLater);
 }
 
-NoteCreatorAndSelector::~NoteCreatorAndSelector()
-{
-}
+NoteCreatorAndSelector::~NoteCreatorAndSelector() = default;
 
 void NoteCreatorAndSelector::createNote(const Akonadi::Collection &containerCollection)
 {
@@ -94,7 +92,7 @@ void NoteCreatorAndSelector::doCreateNote()
     newItem.setPayload(note.message());
     newItem.attribute<Akonadi::EntityDisplayAttribute>(Akonadi::Item::AddIfMissing)->setIconName(QStringLiteral("text-plain"));
 
-    Akonadi::ItemCreateJob *job = new Akonadi::ItemCreateJob(newItem, Collection(m_containerCollectionId), this);
+    auto *job = new Akonadi::ItemCreateJob(newItem, Collection(m_containerCollectionId), this);
     connect(job, &Akonadi::ItemCreateJob::result, this, &NoteCreatorAndSelector::noteCreationFinished);
 
 }
@@ -105,7 +103,7 @@ void NoteCreatorAndSelector::noteCreationFinished(KJob *job)
         qCWarning(NOTESHARED_LOG) << job->errorString();
         return;
     }
-    Akonadi::ItemCreateJob *createJob = qobject_cast<Akonadi::ItemCreateJob *>(job);
+    auto *createJob = qobject_cast<Akonadi::ItemCreateJob *>(job);
     Q_ASSERT(createJob);
 
     Item newItem = createJob->item();

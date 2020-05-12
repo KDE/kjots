@@ -25,13 +25,11 @@ class QWidget;
 
 namespace NoteShared
 {
-class NoteEditorUtils
+namespace NoteEditorUtils
 {
-public:
-    NoteEditorUtils();
-    void addCheckmark(QTextCursor &cursor);
-    void insertDate(QTextEdit *editor);
-    void insertImage(QTextDocument *doc, QTextCursor &cursor, QTextEdit *par);
+void addCheckmark(QTextCursor &cursor);
+void insertDate(QTextEdit *editor);
+void insertImage(QTextDocument *doc, QTextCursor &cursor, QTextEdit *par);
 };
 }
 #endif // NOTEEDITORUTILS_H

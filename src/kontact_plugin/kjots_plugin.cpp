@@ -28,10 +28,11 @@
 #include <KontactInterface/Core>
 
 #include <QAction>
-#include <KActionCollection>
-#include <KLocalizedString>
 #include <QIcon>
 #include <QStandardPaths>
+
+#include <KActionCollection>
+#include <KLocalizedString>
 
 #if KONTACTINTERFACE_VERSION < QT_VERSION_CHECK(5, 14, 42)
 /**
@@ -53,22 +54,13 @@
 
 EXPORT_KONTACT_PLUGIN_WITH_JSON(KJotsPlugin, "kjotsplugin.json")
 
-KJotsPlugin::KJotsPlugin(KontactInterface::Core *core, const QVariantList &)
+KJotsPlugin::KJotsPlugin(KontactInterface::Core *core, const QVariantList &/*args*/)
     : KontactInterface::Plugin(core, core, "kjots")
 {
     setComponentName(QStringLiteral("kjots"), QStringLiteral("kjots"));
 
     mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
         new KontactInterface::UniqueAppHandlerFactory<KJotsUniqueAppHandler>(), this);
-}
-
-void KJotsPlugin::setHelpText(QAction *action, const QString &text)
-{
-    action->setStatusTip(text);
-    action->setToolTip(text);
-    if (action->whatsThis().isEmpty()) {
-        action->setWhatsThis(text);
-    }
 }
 
 bool KJotsPlugin::isRunningStandalone() const

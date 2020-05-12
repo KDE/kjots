@@ -34,7 +34,7 @@ class KJotsMain : public KXmlGuiWindow
     Q_OBJECT
 
 public:
-    explicit KJotsMain();
+    explicit KJotsMain(QWidget *parent = nullptr);
 
 public Q_SLOTS:
     void onQuit();
@@ -44,7 +44,6 @@ protected:
 
 private:
     KJotsWidget *component;
-
 };
 
 #endif // KJotsMainNew_included

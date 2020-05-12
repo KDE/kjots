@@ -57,7 +57,7 @@ QString KJotsEntity::title() const
 
 QString KJotsEntity::content() const
 {
-    QTextDocument *document = m_index.data(KJotsModel::DocumentRole).value<QTextDocument *>();
+    auto *document = m_index.data(KJotsModel::DocumentRole).value<QTextDocument *>();
     if (!document) {
         return QString();
     }
@@ -73,7 +73,7 @@ QString KJotsEntity::content() const
 
 QString KJotsEntity::plainContent() const
 {
-    QTextDocument *document = m_index.data(KJotsModel::DocumentRole).value<QTextDocument *>();
+    auto *document = m_index.data(KJotsModel::DocumentRole).value<QTextDocument *>();
     if (!document) {
         return QString();
     }
@@ -132,7 +132,7 @@ QVariantList KJotsEntity::entities() const
     const int column = 0;
     QModelIndex childIndex = model->index(row++, column, m_index);
     while (childIndex.isValid()) {
-        auto obj = new KJotsEntity(childIndex);
+        auto *obj = new KJotsEntity(childIndex);
         list << QVariant::fromValue(obj);
         childIndex = model->index(row++, column, m_index);
     }
@@ -172,7 +172,7 @@ bool KJotsModel::setData(const QModelIndex &index, const QVariant &value, int ro
             Collection col = index.data(CollectionRole).value<Collection>();
             col.setName(value.toString());
             if (col.hasAttribute<EntityDisplayAttribute>()) {
-                EntityDisplayAttribute *eda = col.attribute<EntityDisplayAttribute>();
+                auto *eda = col.attribute<EntityDisplayAttribute>();
                 eda->setDisplayName(value.toString());
             }
             return EntityTreeModel::setData(index, QVariant::fromValue(col), CollectionRole);
@@ -183,7 +183,7 @@ bool KJotsModel::setData(const QModelIndex &index, const QVariant &value, int ro
         item.setPayload(note.message());
 
         if (item.hasAttribute<EntityDisplayAttribute>()) {
-            EntityDisplayAttribute *displayAttribute = item.attribute<EntityDisplayAttribute>();
+            auto *displayAttribute = item.attribute<EntityDisplayAttribute>();
             displayAttribute->setDisplayName(value.toString());
         }
         return EntityTreeModel::setData(index, QVariant::fromValue(item), ItemRole);
@@ -194,7 +194,7 @@ bool KJotsModel::setData(const QModelIndex &index, const QVariant &value, int ro
         if (!item.hasPayload<KMime::Message::Ptr>()) {
             return false;
         }
-        QTextDocument *document = value.value<QTextDocument *>();
+        auto *document = value.value<QTextDocument *>();
 
         NoteUtils::NoteMessageWrapper note(item.payload<KMime::Message::Ptr>());
         bool isRichText = KPIMTextEdit::TextUtils::containsFormatting(document);
@@ -231,7 +231,7 @@ QVariant KJotsModel::data(const QModelIndex &index, int role) const
 
         NoteUtils::NoteMessageWrapper note(item.payload<KMime::Message::Ptr>());
         const QString doc = note.text();
-        auto document = new QTextDocument();
+        auto *document = new QTextDocument();
         if (note.textFormat() == Qt::RichText
                 || doc.startsWith(u"<!DOCTYPE")
                 || doc.startsWith(u"<html>"))
@@ -249,11 +249,10 @@ QVariant KJotsModel::data(const QModelIndex &index, int role) const
         const Item item = index.data(ItemRole).value<Item>();
         if (item.isValid() && item.hasAttribute<NoteShared::NoteLockAttribute>()) {
             return QIcon::fromTheme(QStringLiteral("emblem-locked"));
-        } else {
-            const Collection col = index.data(CollectionRole).value<Collection>();
-            if (col.isValid() && col.hasAttribute<NoteShared::NoteLockAttribute>()) {
-                return QIcon::fromTheme(QStringLiteral("emblem-locked"));
-            }
+        }
+        const Collection col = index.data(CollectionRole).value<Collection>();
+        if (col.isValid() && col.hasAttribute<NoteShared::NoteLockAttribute>()) {
+            return QIcon::fromTheme(QStringLiteral("emblem-locked"));
         }
     }
 
@@ -272,7 +271,7 @@ QVariant KJotsModel::entityData(const Akonadi::Item &item, int column, int role)
 QModelIndex KJotsModel::modelIndexForUrl(const QAbstractItemModel *model, const QUrl &url)
 {
     if (url.scheme() != QStringLiteral("akonadi")) {
-        return QModelIndex();
+        return {};
     }
     const auto item = Item::fromUrl(url);
     const auto col = Collection::fromUrl(url);
@@ -284,7 +283,7 @@ QModelIndex KJotsModel::modelIndexForUrl(const QAbstractItemModel *model, const 
     } else if (col.isValid()) {
         return EntityTreeModel::modelIndexForCollection(model, col);
     }
-    return QModelIndex();
+    return {};
 }
 
 QString KJotsModel::itemPath(const QModelIndex &index, const QString &sep)

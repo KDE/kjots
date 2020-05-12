@@ -111,7 +111,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     config.writeEntry("AutoCreateResourceOnStart", autoCreate);
     config.sync();
     if (autoCreate) {
-        LocalResourceCreator *creator = new LocalResourceCreator(this);
+        auto *creator = new LocalResourceCreator(this);
         creator->createIfMissing();
     }
 
@@ -121,7 +121,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     // I think we can live without this
     //m_splitter->setOpaqueResize(KGlobalSettings::opaqueResize());
 
-    QHBoxLayout *layout = new QHBoxLayout(this);
+    auto *layout = new QHBoxLayout(this);
     layout->setMargin(0);
 
     m_templateEngine = new Engine(this);
@@ -143,7 +143,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     scope.fetchAttribute< EntityDisplayAttribute >();
     scope.fetchAttribute< NoteShared::NoteLockAttribute >();
 
-    ChangeRecorder *monitor = new ChangeRecorder(this);
+    auto *monitor = new ChangeRecorder(this);
     monitor->fetchCollection(true);
     monitor->setItemFetchScope(scope);
     monitor->setCollectionMonitored(Collection::root());
@@ -213,11 +213,11 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     connect(this, &KJotsWidget::canGoPreviousBookChanged, action, &QAction::setEnabled);
 
     action = KStandardAction::next(this, &KJotsWidget::nextPage, actionCollection);
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_PageDown));
+    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_PageDown));
     connect(this, &KJotsWidget::canGoNextPageChanged, action, &QAction::setEnabled);
 
     action = KStandardAction::prior(this, &KJotsWidget::prevPage, actionCollection);
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_PageUp));
+    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_PageUp));
     connect(this, &KJotsWidget::canGoPreviousPageChanged, action, &QAction::setEnabled);
 
     actionCollection->setDefaultShortcut(m_actionManager->action(StandardActionManager::CreateCollection),
@@ -301,9 +301,9 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 
     bookmarkMenu = actionCollection->add<KActionMenu>(QStringLiteral("bookmarks"));
     bookmarkMenu->setText(i18n("&Bookmarks"));
-    KJotsBookmarks *bookmarks = new KJotsBookmarks(treeview->selectionModel());
+    auto *bookmarks = new KJotsBookmarks(treeview->selectionModel(), this);
     connect(bookmarks, &KJotsBookmarks::openLink, this, &KJotsWidget::openLink);
-    KBookmarkMenu *bmm = new KBookmarkMenu(
+    auto *bmm = new KBookmarkMenu(
         KBookmarkManager::managerForFile(
             QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/kjots/bookmarks.xml"),
             QStringLiteral("kjots")),
@@ -323,7 +323,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     action->setEnabled(false);
     KStandardAction::replace(this, &KJotsWidget::onShowReplace, actionCollection);
 
-    KActionMenu *exportMenu = actionCollection->add<KActionMenu>(QStringLiteral("save_to"));
+    auto *exportMenu = actionCollection->add<KActionMenu>(QStringLiteral("save_to"));
     exportMenu->setText(i18n("Export"));
     exportMenu->setIcon(QIcon::fromTheme(QStringLiteral("document-export")));
 
@@ -372,7 +372,7 @@ KJotsWidget::~KJotsWidget()
 
 void KJotsWidget::restoreState()
 {
-    ETMViewStateSaver *saver = new ETMViewStateSaver;
+    auto *saver = new ETMViewStateSaver;
     saver->setView(treeview);
     KConfigGroup cfg(KSharedConfig::openConfig(), "TreeState");
     saver->restoreState(cfg);
@@ -391,7 +391,7 @@ void KJotsWidget::delayedInitialization()
 {
     //TODO: Save previous searches in settings file?
     searchDialog = new KFindDialog(this, 0, QStringList(), false);
-    QGridLayout *layout = new QGridLayout(searchDialog->findExtension());
+    auto *layout = new QGridLayout(searchDialog->findExtension());
     layout->setMargin(0);
     searchAllPages = new QCheckBox(i18n("Search all pages"), searchDialog->findExtension());
     layout->addWidget(searchAllPages, 0, 0);
@@ -403,7 +403,7 @@ void KJotsWidget::delayedInitialization()
     connect(searchAllPages, &QCheckBox::stateChanged, this, &KJotsWidget::onUpdateSearch);
 
     replaceDialog = new KReplaceDialog(this, 0, searchHistory, replaceHistory, false);
-    QGridLayout *layout2 = new QGridLayout(replaceDialog->findExtension());
+    auto *layout2 = new QGridLayout(replaceDialog->findExtension());
     layout2->setMargin(0);
     replaceAllPages = new QCheckBox(i18n("Search all pages"), replaceDialog->findExtension());
     layout2->addWidget(replaceAllPages, 0, 0);
@@ -559,7 +559,7 @@ void KJotsWidget::updateMenu()
 void KJotsWidget::configure()
 {
     // create a new preferences dialog...
-    KJotsConfigDlg *dialog = new KJotsConfigDlg(i18n("Settings"), this);
+    auto *dialog = new KJotsConfigDlg(i18n("Settings"), this);
     connect(dialog, qOverload<>(&KJotsConfigDlg::configCommitted), this, &KJotsWidget::updateConfiguration);
     dialog->show();
 }
@@ -1073,9 +1073,7 @@ void KJotsWidget::onRepeatReplace()
                                  i18np("<qt>Replaced %2 of 1 occurrence.</qt>", "<qt>Replaced %2 of %1 occurrences.</qt>", found, replaced));
     }
 
-    if (dlg) {
-        delete dlg;
-    }
+    delete dlg;
 }
 
 /*!

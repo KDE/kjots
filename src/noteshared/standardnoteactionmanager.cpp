@@ -26,17 +26,17 @@
 #include <QColorDialog>
 #include <QItemSelectionModel>
 
-#include <Akonadi/Notes/NoteUtils>
 #include <AkonadiCore/EntityDisplayAttribute>
 #include <AkonadiCore/EntityTreeModel>
 #include <AkonadiCore/CollectionModifyJob>
 #include <AkonadiCore/ItemModifyJob>
+#include <Akonadi/Notes/NoteUtils>
 
 #include <KXmlGui/KActionCollection>
 #include <KLocalizedString>
 
-#include "notelockattribute.h"
 #include "notecreatorandselector.h"
+#include "notelockattribute.h"
 
 using namespace Akonadi;
 
@@ -47,11 +47,9 @@ public:
         : mActionCollection(actionCollection)
         , mParentWidget(parentWidget)
         , mGenericManager(std::make_unique<StandardActionManager>(actionCollection, parentWidget))
-        , mCollectionSelectionModel(nullptr)
-        , mItemSelectionModel(nullptr)
         , mParent(parent)
     {
-        mParent->connect(mGenericManager.get(), &StandardActionManager::actionStateUpdated,
+        QObject::connect(mGenericManager.get(), &StandardActionManager::actionStateUpdated,
                          mParent, &StandardNoteActionManager::actionStateUpdated);
 
         mGenericManager->setMimeTypeFilter({ NoteUtils::noteMimeType() });
@@ -368,9 +366,8 @@ public:
         if (collections.count() != 1) {
             return;
         }
-        Collection collection = collections.first();
-        auto creatorAndSelector = new NoteShared::NoteCreatorAndSelector(mCollectionSelectionModel, mItemSelectionModel, mParent);
-        creatorAndSelector->createNote(collection);
+        auto *creatorAndSelector = new NoteShared::NoteCreatorAndSelector(mCollectionSelectionModel, mItemSelectionModel, mParent);
+        creatorAndSelector->createNote(collections.constFirst());
     }
 
     void slotChangeColor() {

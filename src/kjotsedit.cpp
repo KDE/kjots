@@ -25,15 +25,15 @@
 //Own Header
 #include "kjotsedit.h"
 
+#include <QAction>
+#include <QApplication>
+#include <QClipboard>
+#include <QMenu>
 #include <QMimeData>
 #include <QTextCursor>
-#include <QUrl>
-#include <QMenu>
-#include <QClipboard>
-#include <QApplication>
-#include <QAction>
-#include <QToolTip>
 #include <QTextDocumentFragment>
+#include <QToolTip>
+#include <QUrl>
 
 #include <KActionCollection>
 #include <KLocalizedString>
@@ -41,10 +41,10 @@
 
 #include <AkonadiCore/Item>
 
-#include "kjotsmodel.h"
 #include "kjotslinkdialog.h"
-#include "noteshared/notelockattribute.h"
+#include "kjotsmodel.h"
 #include "noteshared/noteeditorutils.h"
+#include "noteshared/notelockattribute.h"
 
 Q_DECLARE_METATYPE(QTextCursor)
 
@@ -115,13 +115,13 @@ bool KJotsEdit::modified()
 
 void KJotsEdit::insertDate()
 {
-    NoteShared::NoteEditorUtils().insertDate(this);
+    NoteShared::NoteEditorUtils::insertDate(this);
 }
 
 void KJotsEdit::insertImage()
 {
     QTextCursor cursor = textCursor();
-    NoteShared::NoteEditorUtils().insertImage(document(), cursor, this);
+    NoteShared::NoteEditorUtils::insertImage(document(), cursor, this);
 }
 
 bool KJotsEdit::setModelIndex(const QModelIndex &index)
@@ -133,7 +133,7 @@ bool KJotsEdit::setModelIndex(const QModelIndex &index)
     }
     m_index = std::make_unique<QPersistentModelIndex>(index);
     // Loading document
-    auto doc = m_index->data(KJotsModel::DocumentRole).value<QTextDocument *>();
+    auto *doc = m_index->data(KJotsModel::DocumentRole).value<QTextDocument *>();
     if (!doc) {
         setReadOnly(true);
         return false;
@@ -173,7 +173,7 @@ bool KJotsEdit::setModelIndex(const QModelIndex &index)
     }
 }
 
-void KJotsEdit::onAutoBullet(void)
+void KJotsEdit::onAutoBullet()
 {
     KTextEdit::AutoFormatting currentFormatting = autoFormatting();
 
@@ -188,7 +188,7 @@ void KJotsEdit::onAutoBullet(void)
     }
 }
 
-void KJotsEdit::createAutoDecimalList(void)
+void KJotsEdit::createAutoDecimalList()
 {
     //this is an adaptation of Qt's createAutoBulletList() function for creating a bulleted list, except in this case I use it to create a decimal list.
     QTextCursor cursor = textCursor();
@@ -209,7 +209,7 @@ void KJotsEdit::createAutoDecimalList(void)
     setTextCursor(cursor);
 }
 
-void KJotsEdit::DecimalList(void)
+void KJotsEdit::DecimalList()
 {
     QTextCursor cursor = textCursor();
 
@@ -226,9 +226,9 @@ void KJotsEdit::DecimalList(void)
     }
 }
 
-void KJotsEdit::onAutoDecimal(void)
+void KJotsEdit::onAutoDecimal()
 {
-    if (allowAutoDecimal == true) {
+    if (allowAutoDecimal) {
         allowAutoDecimal = false;
         disconnect(this, &KJotsEdit::textChanged, this, &KJotsEdit::DecimalList);
         actionCollection->action(QStringLiteral("auto_decimal"))->setChecked(false);
@@ -239,7 +239,7 @@ void KJotsEdit::onAutoDecimal(void)
     }
 }
 
-void KJotsEdit::onLinkify(void)
+void KJotsEdit::onLinkify()
 {
     // Nothing is yet opened, ignoring
     if (!m_index) {
@@ -255,10 +255,10 @@ void KJotsEdit::onLinkify(void)
     }
 }
 
-void KJotsEdit::addCheckmark(void)
+void KJotsEdit::addCheckmark()
 {
     QTextCursor cursor = textCursor();
-    NoteShared::NoteEditorUtils().addCheckmark(cursor);
+    NoteShared::NoteEditorUtils::addCheckmark(cursor);
 }
 
 bool KJotsEdit::canInsertFromMimeData(const QMimeData *source) const
@@ -409,7 +409,7 @@ void KJotsEdit::savePage()
     if (!item.isValid() || !item.hasPayload<KMime::Message::Ptr>()) {
         return;
     }
-    auto model = const_cast<QAbstractItemModel *>(m_index->model());
+    auto *model = const_cast<QAbstractItemModel *>(m_index->model());
     document()->setModified(false);
     document()->setProperty("textCursor", QVariant::fromValue(textCursor()));
     model->setData(*m_index, QVariant::fromValue(document()), KJotsModel::DocumentRole);

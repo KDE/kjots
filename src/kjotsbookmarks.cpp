@@ -26,17 +26,18 @@
 
 #include <QItemSelectionModel>
 
-KJotsBookmarks::KJotsBookmarks(QItemSelectionModel *model)
-    : m_model(model)
+KJotsBookmarks::KJotsBookmarks(QItemSelectionModel *model, QObject *parent)
+    : QObject(parent)
+    , m_model(model)
 {
 }
 
-void KJotsBookmarks::openBookmark(const KBookmark &bookmark, Qt::MouseButtons, Qt::KeyboardModifiers)
+void KJotsBookmarks::openBookmark(const KBookmark &bm, Qt::MouseButtons /*mb*/, Qt::KeyboardModifiers /*km*/)
 {
-    if (bookmark.url().scheme() != QLatin1String("akonadi")) {
+    if (bm.url().scheme() != QLatin1String("akonadi")) {
         return;
     }
-    Q_EMIT openLink(bookmark.url());
+    Q_EMIT openLink(bm.url());
 }
 
 QString KJotsBookmarks::currentIcon() const

@@ -45,7 +45,7 @@ LocalResourceCreator::LocalResourceCreator(QObject *parent)
 
 void LocalResourceCreator::finishCreateResource()
 {
-    Akonadi::CollectionFetchJob *collectionFetchJob = new Akonadi::CollectionFetchJob(Akonadi::Collection::root(), Akonadi::CollectionFetchJob::FirstLevel, this);
+    auto *collectionFetchJob = new Akonadi::CollectionFetchJob(Akonadi::Collection::root(), Akonadi::CollectionFetchJob::FirstLevel, this);
     connect(collectionFetchJob, &Akonadi::CollectionFetchJob::result, this, &LocalResourceCreator::rootFetchFinished);
 }
 
@@ -57,7 +57,7 @@ void LocalResourceCreator::rootFetchFinished(KJob *job)
         return;
     }
 
-    Akonadi::CollectionFetchJob *lastCollectionFetchJob = qobject_cast<Akonadi::CollectionFetchJob *>(job);
+    auto *lastCollectionFetchJob = qobject_cast<Akonadi::CollectionFetchJob *>(job);
     if (!lastCollectionFetchJob) {
         deleteLater();
         return;

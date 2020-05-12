@@ -25,30 +25,26 @@
 #include "KJotsMain.h"
 
 #include <KActionCollection>
-#include <KStandardAction>
 #include <KLocalizedString>
+#include <KStandardAction>
 
 #include <QApplication>
 
 #include "KJotsSettings.h"
 #include "kjotsbookmarks.h"
-#include "kjotsedit.h"
 #include "kjotsbrowser.h"
+#include "kjotsedit.h"
 #include "kjotswidget.h"
 
 
 //----------------------------------------------------------------------
 // KJOTSMAIN
 //----------------------------------------------------------------------
-KJotsMain::KJotsMain()
+KJotsMain::KJotsMain(QWidget *parent)
+    : KXmlGuiWindow(parent)
+    , component(new KJotsWidget(this, this))
 {
-
-    // Main widget
-    //
-
     KStandardAction::quit(this, &KJotsMain::onQuit, actionCollection());
-
-    component = new KJotsWidget(this, this);
 
     setCentralWidget(component);
 

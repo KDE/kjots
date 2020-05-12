@@ -45,7 +45,7 @@ KJotsTreeView::KJotsTreeView(KXMLGUIClient *xmlGuiClient, QWidget *parent)
 
 void KJotsTreeView::contextMenuEvent(QContextMenuEvent *event)
 {
-    QMenu *popup = new QMenu(this);
+    auto *popup = new QMenu(this);
 
     const QModelIndexList rows = selectionModel()->selectedRows();
     const bool noselection = rows.isEmpty();

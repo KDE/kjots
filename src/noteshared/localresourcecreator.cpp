@@ -19,10 +19,10 @@
 
 #include "localresourcecreator.h"
 
-#include <Akonadi/Notes/NoteUtils>
 #include <AkonadiCore/AgentManager>
 #include <AkonadiCore/AgentInstanceCreateJob>
 #include <AkonadiCore/ResourceSynchronizationJob>
+#include <Akonadi/Notes/NoteUtils>
 
 #include <KLocalizedString>
 
@@ -59,7 +59,7 @@ void LocalResourceCreator::createInstance()
 {
     Akonadi::AgentType notesType = Akonadi::AgentManager::self()->type(akonadiNotesInstanceName());
 
-    Akonadi::AgentInstanceCreateJob *job = new Akonadi::AgentInstanceCreateJob(notesType);
+    auto *job = new Akonadi::AgentInstanceCreateJob(notesType);
     connect(job, &Akonadi::AgentInstanceCreateJob::result, this, &LocalResourceCreator::slotInstanceCreated);
 
     job->start();
@@ -73,11 +73,11 @@ void LocalResourceCreator::slotInstanceCreated(KJob *job)
         return;
     }
 
-    Akonadi::AgentInstanceCreateJob *createJob = qobject_cast<Akonadi::AgentInstanceCreateJob *>(job);
+    auto *createJob = qobject_cast<Akonadi::AgentInstanceCreateJob *>(job);
     Akonadi::AgentInstance instance = createJob->instance();
 
     instance.setName(i18nc("Default name for resource holding notes", "Local Notes"));
-    org::kde::Akonadi::Maildir::Settings *iface = new org::kde::Akonadi::Maildir::Settings(
+    auto *iface = new org::kde::Akonadi::Maildir::Settings(
         QStringLiteral("org.freedesktop.Akonadi.Resource.") + instance.identifier(),
         QStringLiteral("/Settings"), QDBusConnection::sessionBus(), this);
 
@@ -91,7 +91,7 @@ void LocalResourceCreator::slotInstanceCreated(KJob *job)
     delete iface;
     instance.reconfigure();
 
-    Akonadi::ResourceSynchronizationJob *syncJob = new Akonadi::ResourceSynchronizationJob(instance, this);
+    auto *syncJob = new Akonadi::ResourceSynchronizationJob(instance, this);
     connect(syncJob, &Akonadi::ResourceSynchronizationJob::result, this, &LocalResourceCreator::slotSyncDone);
     syncJob->start();
 }

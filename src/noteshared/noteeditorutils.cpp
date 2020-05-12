@@ -28,29 +28,22 @@
 #include <QDateTime>
 #include <QFileInfo>
 
-using namespace NoteShared;
-NoteEditorUtils::NoteEditorUtils()
-{
+using namespace NoteShared::NoteEditorUtils;
 
-}
-
-void NoteEditorUtils::addCheckmark(QTextCursor &cursor)
+void NoteShared::NoteEditorUtils::addCheckmark(QTextCursor &cursor)
 {
-    static const QChar unicode[] = {0x2713};
-    const int size = sizeof(unicode) / sizeof(QChar);
     const int position = cursor.position();
     cursor.movePosition(QTextCursor::StartOfLine);
-    const QString checkMark = QString::fromRawData(unicode, size);
-    cursor.insertText(checkMark);
-    cursor.setPosition(position + checkMark.size());
+    cursor.insertText(QString::fromUtf16(u"\U00002713"));
+    cursor.setPosition(position + 1);
 }
 
-void NoteEditorUtils::insertDate(QTextEdit *editor)
+void NoteShared::NoteEditorUtils::insertDate(QTextEdit *editor)
 {
     editor->insertPlainText(QLocale().toString(QDateTime::currentDateTime(), QLocale::ShortFormat) + QLatin1Char(' '));
 }
 
-void NoteEditorUtils::insertImage(QTextDocument * /*doc*/, QTextCursor &/*cursor*/, QTextEdit *par)
+void NoteShared::NoteEditorUtils::insertImage(QTextDocument * /*doc*/, QTextCursor &/*cursor*/, QTextEdit *par)
 {
     QString imageFileName = QFileDialog::getOpenFileName(par, i18n("Select image file"), QStringLiteral("."), QStringLiteral("Images (*.png *.bmp *.jpg *.jpeg *.jpe)"));
     if (!imageFileName.isEmpty()) {
