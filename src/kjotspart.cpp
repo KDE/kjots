@@ -59,6 +59,8 @@ KJotsPart::KJotsPart(QWidget *parentWidget, QObject *parent, const QVariantList 
     // set our XML-UI resource file
     setComponentName(QStringLiteral("kjots"), QStringLiteral("kjots"));
     setXMLFile(QStringLiteral("kjotspartui.rc"));
+
+    connect(mComponent, &KJotsWidget::captionChanged, this, &KJotsPart::setWindowCaption);
 }
 
 KJotsPart::~KJotsPart()
