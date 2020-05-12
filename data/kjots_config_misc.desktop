@@ -1,5 +1,5 @@
 [Desktop Entry]
-Icon=kjots
+Icon=preferences-other
 Type=Service
 X-KDE-ServiceTypes=KCModule
 
@@ -8,7 +8,7 @@ X-KDE-Library=kcm_kjots
 X-KDE-HasReadOnlyMode=false
 X-KDE-ParentApp=kjots
 X-KDE-ParentComponents=kjots,kontact_kjotsplugin
-X-KDE-CfgDlgHierarchy=Notebooks
+X-KDE-CfgDlgHierarchy=Notes
 X-KDE-Weight=200
 
 Name=Misc

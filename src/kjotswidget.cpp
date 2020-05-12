@@ -77,6 +77,7 @@
 #include <KRandom>
 #include <KSharedConfig>
 #include <KRun>
+#include <KConfigDialog>
 
 // KMime
 #include <KMime/Message>
@@ -558,9 +559,12 @@ void KJotsWidget::updateMenu()
 
 void KJotsWidget::configure()
 {
-    // create a new preferences dialog...
-    auto *dialog = new KJotsConfigDlg(i18n("Settings"), this);
-    connect(dialog, qOverload<>(&KJotsConfigDlg::configCommitted), this, &KJotsWidget::updateConfiguration);
+    if (KConfigDialog::showDialog(QStringLiteral("kjotssettings"))) {
+        return;
+    }
+    auto* dialog = new KConfigDialog(this, QStringLiteral("kjotssettings"), KJotsSettings::self());
+    dialog->addPage(new KJotsConfigMisc(dialog), i18nc("@title:window config dialog page", "Misc"), QStringLiteral("preferences-other"));
+    connect(dialog, &KConfigDialog::settingsChanged, this, &KJotsWidget::updateConfiguration);
     dialog->show();
 }
 
