@@ -102,10 +102,8 @@ protected:
     bool canGoNextBook() const;
     bool canGoPreviousBook() const;
 
+    QString renderSelectionTo(const QString &theme, const QString &templ);
     QString renderSelectionToHtml();
-    QString renderSelectionToXml();
-    QString renderSelectionToPlainText();
-    QString getThemeFromUser();
 
     void selectNext(int role, int step);
     int search(bool);
@@ -116,10 +114,7 @@ protected Q_SLOTS:
      * Renders contents on either KJotsEdit or KJotsBrowser based on KJotsTreeView selection
      */
     void renderSelection();
-    void changeTheme();
-    void exportSelectionToHtml();
-    void exportSelectionToPlainText();
-    void exportSelectionToXml();
+    void exportSelection(const QString &theme, const QString &templ);
     void printSelection();
     void printPreviewSelection();
 

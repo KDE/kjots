@@ -214,7 +214,8 @@ bool KJotsModel::setData(const QModelIndex &index, const QVariant &value, int ro
 QVariant KJotsModel::data(const QModelIndex &index, int role) const
 {
     if (GrantleeObjectRole == role) {
-        QObject *obj = new KJotsEntity(index);
+        auto *obj = new KJotsEntity(index);
+        obj->setIndex(index);
         return QVariant::fromValue(obj);
     }
 

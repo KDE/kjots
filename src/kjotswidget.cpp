@@ -330,19 +330,17 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     action = actionCollection->addAction(QStringLiteral("save_to_ascii"));
     action->setText(i18n("To Text File..."));
     action->setIcon(QIcon::fromTheme(QStringLiteral("text-plain")));
-    connect(action, &QAction::triggered, this, &KJotsWidget::exportSelectionToPlainText);
+    connect(action, &QAction::triggered, this, [this](){
+            exportSelection(QStringLiteral("plain_text"), QStringLiteral("template.txt"));
+        });
     exportMenu->menu()->addAction(action);
 
     action = actionCollection->addAction(QStringLiteral("save_to_html"));
     action->setText(i18n("To HTML File..."));
     action->setIcon(QIcon::fromTheme(QStringLiteral("text-html")));
-    connect(action, &QAction::triggered, this, &KJotsWidget::exportSelectionToHtml);
-    exportMenu->menu()->addAction(action);
-
-    action = actionCollection->addAction(QStringLiteral("save_to_book"));
-    action->setText(i18n("To Book File..."));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("x-office-address-book")));
-    connect(action, &QAction::triggered, this, &KJotsWidget::exportSelectionToXml);
+    connect(action, &QAction::triggered, this, [this](){
+            exportSelection(QStringLiteral("default"), QStringLiteral("template.html"));
+        });
     exportMenu->menu()->addAction(action);
 
     KStandardAction::print(this, &KJotsWidget::printSelection, actionCollection);
@@ -450,7 +448,6 @@ void KJotsWidget::delayedInitialization()
     pageActions.insert(actionCollection->action(QStringLiteral("insert_checkmark")));
 
     // Actions that are used only when a book is selected.
-    bookActions.insert(actionCollection->action(QStringLiteral("save_to_book")));
     bookActions.insert(m_actionManager->action(StandardActionManager::DeleteCollections));
     bookActions.insert(actionCollection->action(QStringLiteral("sort_children_alpha")));
     bookActions.insert(actionCollection->action(QStringLiteral("sort_children_by_date")));
@@ -595,184 +592,46 @@ void KJotsWidget::copySelectionToTitle()
     }
 }
 
+QString KJotsWidget::renderSelectionTo(const QString &theme, const QString &templ)
+{
+    QList<QVariant> objectList;
+    const int rows = selProxy->rowCount();
+    const int column = 0;
+    for (int row = 0; row < rows; ++row) {
+        QModelIndex idx = selProxy->index(row, column, QModelIndex());
+        objectList << idx.data(KJotsModel::GrantleeObjectRole);
+    }
+    QHash<QString, QVariant> hash = {{QStringLiteral("entities"), objectList},
+                                     {QStringLiteral("i18n_TABLE_OF_CONTENTS"), i18nc("Header for 'Table of contents' section of rendered output", "Table of contents")}};
+    Context c(hash);
+
+    const QString currentTheme = m_loader->themeName();
+    m_loader->setTheme(theme);
+    Template t = m_templateEngine->loadByName(templ);
+    const QString result = t->render(&c);
+    m_loader->setTheme(currentTheme);
+    return result;
+}
+
 QString KJotsWidget::renderSelectionToHtml()
 {
-    QHash<QString, QVariant> hash;
-
-    QList<QVariant> objectList;
-
-    const int rows = selProxy->rowCount();
-    const int column = 0;
-    for (int row = 0; row < rows; ++row) {
-        QModelIndex idx = selProxy->index(row, column, QModelIndex());
-
-        QObject *obj = idx.data(KJotsModel::GrantleeObjectRole).value<QObject *>();
-        KJotsEntity *kjotsEntity = qobject_cast<KJotsEntity *>(obj);
-        kjotsEntity->setIndex(idx);
-        objectList << QVariant::fromValue(static_cast<QObject *>(kjotsEntity));
-    }
-
-    hash.insert(QStringLiteral("entities"), objectList);
-    hash.insert(QStringLiteral("i18n_TABLE_OF_CONTENTS"),
-                i18nc("Header for 'Table of contents' section of rendered output", "Table of contents"));
-    Context c(hash);
-
-    Template t = m_templateEngine->loadByName(QStringLiteral("template.html"));
-
-    QString result = t->render(&c);
-
-    // TODO: handle errors.
-    return result;
+    return renderSelectionTo(QStringLiteral("default"), QStringLiteral("template.html"));
 }
 
-QString KJotsWidget::renderSelectionToPlainText()
+void KJotsWidget::exportSelection(const QString &theme, const QString &templ)
 {
-    QHash<QString, QVariant> hash;
-
-    QList<QVariant> objectList;
-
-    const int rows = selProxy->rowCount();
-    const int column = 0;
-    for (int row = 0; row < rows; ++row) {
-        QModelIndex idx = selProxy->index(row, column, QModelIndex());
-
-        QObject *obj = idx.data(KJotsModel::GrantleeObjectRole).value<QObject *>();
-        KJotsEntity *kjotsEntity = qobject_cast<KJotsEntity *>(obj);
-        kjotsEntity->setIndex(idx);
-        objectList << QVariant::fromValue(static_cast<QObject *>(kjotsEntity));
-    }
-
-    hash.insert(QStringLiteral("entities"), objectList);
-    hash.insert(QStringLiteral("i18n_TABLE_OF_CONTENTS"),
-                i18nc("Header for 'Table of contents' section of rendered output", "Table of contents"));
-    Context c(hash);
-
-    Template t = m_templateEngine->loadByName(QStringLiteral("template.txt"));
-
-    QString result = t->render(&c);
-
-    // TODO: handle errors.
-    return result;
-}
-
-QString KJotsWidget::renderSelectionToXml()
-{
-    QHash<QString, QVariant> hash;
-
-    QList<QVariant> objectList;
-
-    const int rows = selProxy->rowCount();
-    const int column = 0;
-    for (int row = 0; row < rows; ++row) {
-        QModelIndex idx = selProxy->index(row, column, QModelIndex());
-
-        QObject *obj = idx.data(KJotsModel::GrantleeObjectRole).value<QObject *>();
-        KJotsEntity *kjotsEntity = qobject_cast<KJotsEntity *>(obj);
-        kjotsEntity->setIndex(idx);
-        objectList << QVariant::fromValue(static_cast<QObject *>(kjotsEntity));
-    }
-
-    hash.insert(QStringLiteral("entities"), objectList);
-    Context c(hash);
-
-    QString currentTheme = m_loader->themeName();
-    m_loader->setTheme(QStringLiteral("xml_output"));
-    Template t = m_templateEngine->loadByName(QStringLiteral("template.xml"));
-
-    QString result = t->render(&c);
-
-    m_loader->setTheme(currentTheme);
-    return result;
-}
-
-QString KJotsWidget::getThemeFromUser()
-{
-    return QString();
-#if 0
-    bool ok;
-    QString text = QInputDialog::getText(this, i18n("Change Theme"),
-                                         tr("Theme name:"), QLineEdit::Normal,
-                                         m_loader->themeName(), &ok);
-    if (!ok || text.isEmpty()) {
-        return QStringLiteral("default");
-    }
-
-    return text;
-#endif
-}
-
-void KJotsWidget::changeTheme()
-{
-#if 0
-    m_loader->setTheme(getThemeFromUser());
-    renderSelection();
-#endif
-}
-
-void KJotsWidget::exportSelectionToHtml()
-{
-    QString currentTheme = m_loader->themeName();
-    QString themeName = getThemeFromUser();
-    if (themeName.isEmpty()) {
-        themeName = QStringLiteral("default");
-    }
-    m_loader->setTheme(themeName);
-
+    // TODO: dialog captions & etc
     QString filename = QFileDialog::getSaveFileName();
-    if (!filename.isEmpty()) {
-        QFile exportFile(filename);
-        if (!exportFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
-            m_loader->setTheme(currentTheme);
-            KMessageBox::error(nullptr, i18n("<qt>Error opening internal file.</qt>"));
-            return;
-        }
-        exportFile.write(renderSelectionToHtml().toUtf8());
-
-        exportFile.close();
+    if (filename.isEmpty()) {
+        return;
     }
-    m_loader->setTheme(currentTheme);
-}
-
-void KJotsWidget::exportSelectionToPlainText()
-{
-    QString currentTheme = m_loader->themeName();
-
-    m_loader->setTheme(QStringLiteral("plain_text"));
-
-    QString filename = QFileDialog::getSaveFileName();
-    if (!filename.isEmpty()) {
-        QFile exportFile(filename);
-        if (!exportFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
-            m_loader->setTheme(currentTheme);
-            KMessageBox::error(nullptr, i18n("<qt>Error opening internal file.</qt>"));
-            return;
-        }
-        exportFile.write(renderSelectionToPlainText().toUtf8());
-
-        exportFile.close();
+    QFile exportFile(filename);
+    if (!exportFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        KMessageBox::error(this, i18n("<qt>Could not open \"%1\" for writing</qt>", filename));
+        return;
     }
-    m_loader->setTheme(currentTheme);
-}
-
-void KJotsWidget::exportSelectionToXml()
-{
-    QString currentTheme = m_loader->themeName();
-
-    m_loader->setTheme(QStringLiteral("xml_output"));
-
-    QString filename = QFileDialog::getSaveFileName();
-    if (!filename.isEmpty()) {
-        QFile exportFile(filename);
-        if (!exportFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
-            m_loader->setTheme(currentTheme);
-            KMessageBox::error(nullptr, i18n("<qt>Error opening internal file.</qt>"));
-            return;
-        }
-        exportFile.write(renderSelectionToXml().toUtf8());
-
-        exportFile.close();
-    }
-    m_loader->setTheme(currentTheme);
+    exportFile.write(renderSelectionTo(theme, templ).toUtf8());
+    exportFile.close();
 }
 
 std::unique_ptr<QPrinter> KJotsWidget::setupPrinter(QPrinter::PrinterMode mode)
