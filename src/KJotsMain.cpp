@@ -53,15 +53,7 @@ KJotsMain::KJotsMain()
     setCentralWidget(component);
 
     setupGUI();
-    connect(component, &KJotsWidget::captionChanged, this, &KJotsMain::updateCaption);
-}
-
-/*!
-    Sets the window caption.
-*/
-void KJotsMain::updateCaption(QString caption)
-{
-    setCaption(caption);
+    connect(component, &KJotsWidget::captionChanged, this, qOverload<const QString &>(&KJotsMain::setCaption));
 }
 
 bool KJotsMain::queryClose()

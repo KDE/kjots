@@ -37,7 +37,6 @@ public:
     explicit KJotsMain();
 
 public Q_SLOTS:
-    void updateCaption(QString);
     void onQuit();
 
 protected:
