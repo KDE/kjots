@@ -48,6 +48,10 @@ public:
      * @returns true if loaded successfully
      */
     bool setModelIndex(const QModelIndex &index);
+    /**
+     * Returns the current modified state of the document
+     */
+    bool modified();
 protected:
     /* To be able to change cursor when hovering over links */
     void mouseMoveEvent(QMouseEvent *event) override;
@@ -78,6 +82,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void linkClicked(const QUrl &url);
+    void documentModified(bool modified);
 private:
     void createAutoDecimalList();
     KActionCollection *actionCollection;

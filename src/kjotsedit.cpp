@@ -108,6 +108,11 @@ void KJotsEdit::delayedInitialization(KActionCollection *collection)
     connect(actionCollection->action(QStringLiteral("insert_image")), &QAction::triggered, this, &KJotsEdit::insertImage);
 }
 
+bool KJotsEdit::modified()
+{
+    return document()->isModified();
+}
+
 void KJotsEdit::insertDate()
 {
     NoteShared::NoteEditorUtils().insertDate(this);
@@ -128,14 +133,18 @@ bool KJotsEdit::setModelIndex(const QModelIndex &index)
     }
     m_index = std::make_unique<QPersistentModelIndex>(index);
     // Loading document
-    auto document = m_index->data(KJotsModel::DocumentRole).value<QTextDocument *>();
-    if (!document) {
+    auto doc = m_index->data(KJotsModel::DocumentRole).value<QTextDocument *>();
+    if (!doc) {
         setReadOnly(true);
         return false;
     }
-    setDocument(document);
+
+    disconnect(document(), &QTextDocument::modificationChanged, this, &KJotsEdit::documentModified);
+    setDocument(doc);
+    connect(doc, &QTextDocument::modificationChanged, this, &KJotsEdit::documentModified);
+
     // Setting cursor
-    auto cursor = document->property("textCursor").value<QTextCursor>();
+    auto cursor = doc->property("textCursor").value<QTextCursor>();
     if (!cursor.isNull()) {
         setTextCursor(cursor);
     } else {

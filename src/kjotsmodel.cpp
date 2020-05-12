@@ -239,7 +239,7 @@ QVariant KJotsModel::data(const QModelIndex &index, int role) const
         } else {
             document->setPlainText(doc);
         }
-
+        document->setModified(false);
         m_documents.insert(itemId, document);
         return QVariant::fromValue(document);
     }

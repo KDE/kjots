@@ -357,6 +357,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateMenu);
     connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateCaption);
     connect(treeview->model(), &QAbstractItemModel::dataChanged, this, &KJotsWidget::updateCaption);
+    connect(editor, &KJotsEdit::documentModified, this, &KJotsWidget::updateCaption);
 
     connect(m_kjotsModel, &EntityTreeModel::modelAboutToBeReset, this, &KJotsWidget::saveState);
     connect(m_kjotsModel, &EntityTreeModel::modelReset, this, &KJotsWidget::restoreState);
@@ -1353,8 +1354,11 @@ void KJotsWidget::updateCaption()
     QString caption;
     if (selection.size() == 1) {
         caption = KJotsModel::itemPath(selection.first());
+        if (editor->modified()) {
+            caption.append(QStringLiteral(" *"));
+        }
     } else if (selection.size() > 1) {
-        caption = i18n("Multiple selection");
+        caption = i18nc("@title:window", "Multiple selection");
     }
     Q_EMIT captionChanged(caption);
 }
