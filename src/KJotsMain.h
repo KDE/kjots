@@ -36,9 +36,6 @@ class KJotsMain : public KXmlGuiWindow
 public:
     explicit KJotsMain(QWidget *parent = nullptr);
 
-public Q_SLOTS:
-    void onQuit();
-
 protected:
     bool queryClose() override;
 

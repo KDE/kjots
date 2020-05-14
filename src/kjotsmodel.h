@@ -96,6 +96,10 @@ public:
 
     static QModelIndex modelIndexForUrl(const QAbstractItemModel *model, const QUrl &url);
     /**
+     * Returns an Item for @p index, and sets its content by @p document
+     */
+    static Item updateItem(const QModelIndex &index, QTextDocument *document);
+    /**
      * A helper function which returns a full "path" to the @p item (e.g. "Resource / Notebook / Note")
      * using @p sep as a separator. If multiple items are selected, returns "Multiple selection"
      */

@@ -44,7 +44,7 @@ KJotsMain::KJotsMain(QWidget *parent)
     : KXmlGuiWindow(parent)
     , component(new KJotsWidget(this, this))
 {
-    KStandardAction::quit(this, &KJotsMain::onQuit, actionCollection());
+    KStandardAction::quit(this, &KJotsMain::close, actionCollection());
 
     setCentralWidget(component);
 
@@ -56,11 +56,3 @@ bool KJotsMain::queryClose()
 {
     return component->queryClose();
 }
-
-void KJotsMain::onQuit()
-{
-    component->queryClose();
-    deleteLater();
-    qApp->quit();
-}
-

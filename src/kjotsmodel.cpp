@@ -190,21 +190,7 @@ bool KJotsModel::setData(const QModelIndex &index, const QVariant &value, int ro
     }
 
     if (role == KJotsModel::DocumentRole) {
-        Item item = EntityTreeModel::data(index, ItemRole).value<Item>();
-        if (!item.hasPayload<KMime::Message::Ptr>()) {
-            return false;
-        }
-        auto *document = value.value<QTextDocument *>();
-
-        NoteUtils::NoteMessageWrapper note(item.payload<KMime::Message::Ptr>());
-        bool isRichText = KPIMTextEdit::TextUtils::containsFormatting(document);
-        if (isRichText) {
-            note.setText( document->toHtml(), Qt::RichText );
-        } else {
-            note.setText( document->toPlainText(), Qt::PlainText );
-        }
-        note.setLastModifiedDate(QDateTime::currentDateTime());
-        item.setPayload(note.message());
+        Item item = updateItem(index, value.value<QTextDocument *>());
         return EntityTreeModel::setData(index, QVariant::fromValue(item), ItemRole);
     }
 
@@ -284,6 +270,24 @@ QModelIndex KJotsModel::modelIndexForUrl(const QAbstractItemModel *model, const 
         return EntityTreeModel::modelIndexForCollection(model, col);
     }
     return {};
+}
+
+Item KJotsModel::updateItem(const QModelIndex &index, QTextDocument *document)
+{
+    Item item = index.data(ItemRole).value<Item>();
+    if (!item.hasPayload<KMime::Message::Ptr>()) {
+        return Item();
+    }
+    NoteUtils::NoteMessageWrapper note(item.payload<KMime::Message::Ptr>());
+    bool isRichText = KPIMTextEdit::TextUtils::containsFormatting(document);
+    if (isRichText) {
+        note.setText( document->toHtml(), Qt::RichText );
+    } else {
+        note.setText( document->toPlainText(), Qt::PlainText );
+    }
+    note.setLastModifiedDate(QDateTime::currentDateTime());
+    item.setPayload(note.message());
+    return item;
 }
 
 QString KJotsModel::itemPath(const QModelIndex &index, const QString &sep)

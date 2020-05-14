@@ -52,6 +52,7 @@
 #include <AkonadiCore/EntityDisplayAttribute>
 #include <AkonadiCore/Item>
 #include <AkonadiCore/ItemCreateJob>
+#include <AkonadiCore/ItemModifyJob>
 #include <AkonadiCore/ItemDeleteJob>
 #include <AkonadiCore/ItemFetchScope>
 #include <AkonadiCore/EntityOrderProxyModel>
@@ -1226,11 +1227,42 @@ void KJotsWidget::updateCaption()
 
 bool KJotsWidget::queryClose()
 {
+    // Saving the current note
+    // We cannot use async interface (i.e. ETM) here
+    // because we need to abort the close if something went wrong
+    if ((selProxy->rowCount() == 1) && (editor->document()->isModified())) {
+        QModelIndex idx = selProxy->mapToSource(selProxy->index(0, 0, QModelIndex()));
+        auto job = new ItemModifyJob(KJotsModel::updateItem(idx, editor->document()));
+        if (!job->exec()) {
+            int res = KMessageBox::warningContinueCancelDetailed(this,
+                                                                 i18n("Unable to save the note.\n"
+                                                                      "You can save your note to a local file using the \"File - Export\" menu,\n"
+                                                                      "otherwise you will lose your changes!\n"
+                                                                      "Do you want to close anyways?"),
+                                                                 i18n("Close Document"),
+                                                                 KStandardGuiItem::quit(),
+                                                                 KStandardGuiItem::cancel(),
+                                                                 QString(),
+                                                                 KMessageBox::Notify,
+                                                                 i18n("Error message:\n"
+                                                                      "%1", job->errorString()));
+            if (res == KMessageBox::Cancel) {
+                return false;
+            }
+        } else {
+            // Saved successfully.
+            // However, KJotsEdit will still catch focusOutEvent and try saving using async interface
+            // (application will quit soon, so it doesn't really make much sense doing it)
+            // Marking the document as saved explicitly it order to avoid it
+            editor->document()->setModified(false);
+        }
+
+    }
+
     KJotsSettings::setSplitterSizes(m_splitter->sizes());
     KJotsSettings::self()->save();
     m_orderProxy->saveOrder();
-    // TODO: we better wait for a result here!
-    editor->savePage();
+
     return true;
 }
 
