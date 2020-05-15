@@ -48,8 +48,6 @@ find_package(KF5KontactInterface ${KONTACTINTERFACE_LIB_VERSION} CONFIG REQUIRED
 
 find_package(Grantlee5 "5.0" CONFIG REQUIRED)
 
-find_package(Xsltproc)
-
 ##################### Definitions #####################
 add_definitions(-DQT_NO_KEYWORDS)
 add_definitions(-DQT_NO_CAST_FROM_ASCII)

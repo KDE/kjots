@@ -95,7 +95,6 @@
 #include "kjotsbrowser.h"
 #include "noteshared/notelockattribute.h"
 #include "noteshared/standardnoteactionmanager.h"
-#include "localresourcecreator.h"
 
 #include <memory>
 
@@ -107,15 +106,6 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     , m_xmlGuiClient(xmlGuiClient)
 {
     ControlGui::widgetNeedsAkonadi(this);
-
-    KConfigGroup config(KSharedConfig::openConfig(), "General");
-    const bool autoCreate = config.readEntry("AutoCreateResourceOnStart", true);
-    config.writeEntry("AutoCreateResourceOnStart", autoCreate);
-    config.sync();
-    if (autoCreate) {
-        auto *creator = new LocalResourceCreator(this);
-        creator->createIfMissing();
-    }
 
     m_splitter = new QSplitter(this);
 

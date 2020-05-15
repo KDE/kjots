@@ -31,7 +31,6 @@ set(kjots_common_SRCS
   kjotswidget.cpp
   kjotsbrowser.cpp
   kjotslinkdialog.cpp
-  localresourcecreator.cpp
   kjotsbookshelfentryvalidator.cpp
   ${kjots_config_SRCS}
 )
