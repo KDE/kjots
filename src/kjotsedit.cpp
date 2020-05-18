@@ -377,9 +377,9 @@ void KJotsEdit::tooltipEvent(QHelpEvent *event)
         if (url.scheme() == QStringLiteral("akonadi")) {
             const QModelIndex idx = KJotsModel::modelIndexForUrl(m_index->model(), url);
             if (idx.data(EntityTreeModel::ItemRole).value<Item>().isValid()) {
-                message = i18nc("@info:tooltip %1 is page name", "Ctrl+click to open page: %1", idx.data().toString());
+                message = i18nc("@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)", "Ctrl+click to open note: %1", KJotsModel::itemPath(idx));
             } else if (idx.data(EntityTreeModel::CollectionRole).value<Collection>().isValid()) {
-                message = i18nc("@info:tooltip %1 is book name", "Ctrl+click to open book: %1", idx.data().toString());
+                message = i18nc("@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)", "Ctrl+click to open book: %1", KJotsModel::itemPath(idx));
             }
         } else {
             message = i18nc("@info:tooltip %1 is hyperlink address", "Ctrl+click to follow the hyperlink: %1", url.toString(QUrl::RemovePassword));

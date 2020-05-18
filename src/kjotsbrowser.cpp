@@ -83,9 +83,9 @@ void KJotsBrowser::tooltipEvent(QHelpEvent *event)
         }
         if (idx.isValid()) {
             if (idx.data(EntityTreeModel::ItemRole).value<Item>().isValid()) {
-                message = i18nc("@info:tooltip %1 is page name", "Click to open page: %1", idx.data().toString());
+                message = i18nc("@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)", "Click to open note: %1", KJotsModel::itemPath(idx));
             } else if (idx.data(EntityTreeModel::CollectionRole).value<Collection>().isValid()) {
-                message = i18nc("@info:tooltip %1 is book name", "Click to open book: %1", idx.data().toString());
+                message = i18nc("@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)", "Click to open book: %1", KJotsModel::itemPath(idx));
             }
         }
     }
