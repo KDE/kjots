@@ -386,7 +386,7 @@ public:
                 color = attr->backgroundColor();
             }
         }
-        color = QColorDialog::getColor(color, mParentWidget);
+        color = QColorDialog::getColor(color, mParentWidget, QString(), QColorDialog::ShowAlphaChannel);
         if (!color.isValid()) {
             return;
         }
