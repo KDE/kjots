@@ -57,7 +57,7 @@ EXPORT_KONTACT_PLUGIN_WITH_JSON(KJotsPlugin, "kjotsplugin.json")
 KJotsPlugin::KJotsPlugin(KontactInterface::Core *core, const QVariantList &/*args*/)
     : KontactInterface::Plugin(core, core, "kjots")
 {
-    setComponentName(QStringLiteral("kjots"), QStringLiteral("kjots"));
+    setComponentName(QStringLiteral("kjots"), i18n("KJots"));
 
     mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
         new KontactInterface::UniqueAppHandlerFactory<KJotsUniqueAppHandler>(), this);
@@ -84,14 +84,6 @@ KParts::ReadOnlyPart *KJotsPlugin::createPart()
     return loadPart();
 }
 #endif
-
-QStringList KJotsPlugin::configModules() const
-{
-    QStringList modules;
-    modules << QStringLiteral("PIM/kjots.desktop");
-    return modules;
-}
-
 
 void KJotsUniqueAppHandler::loadCommandLineOptions(QCommandLineParser *parser)
 {

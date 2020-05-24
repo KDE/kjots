@@ -34,30 +34,20 @@
 #include <KLocalizedString>
 
 
-const KAboutData &createAboutData()
-{
-    static AboutData aboutData;
-    return aboutData;
-}
-
 K_PLUGIN_FACTORY(KJotsPartFactory, registerPlugin<KJotsPart>();)
 
 KJotsPart::KJotsPart(QWidget *parentWidget, QObject *parent, const QVariantList & /*args*/)
     : KParts::ReadOnlyPart(parent)
 {
-    // we need an instance
-    //QT5 setComponentData( KJotsPartFactory::componentData() );
-
     // this should be your custom internal widget
     mComponent = new KJotsWidget(parentWidget, this);
 
-    mStatusBar = new KParts::StatusBarExtension(this);
     // notify the part that this is our internal widget
     setWidget(mComponent);
     initAction();
 
     // set our XML-UI resource file
-    setComponentName(QStringLiteral("kjots"), QStringLiteral("kjots"));
+    setComponentName(QStringLiteral("kjots"), i18n("KJots"));
     setXMLFile(QStringLiteral("kjotspartui.rc"));
 
     connect(mComponent, &KJotsWidget::captionChanged, this, &KJotsPart::setWindowCaption);
@@ -80,9 +70,4 @@ bool KJotsPart::openFile()
     return false;
 }
 
-//
-// bool KJotsPart::saveFile()
-// {
-//     return false;
-// }
 #include "kjotspart.moc"

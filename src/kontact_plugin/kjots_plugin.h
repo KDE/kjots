@@ -57,7 +57,6 @@ public:
         return 475;
     }
 
-    virtual QStringList configModules() const;
     bool isRunningStandalone() const Q_DECL_OVERRIDE;
 
     QStringList invisibleToolbarActions() const Q_DECL_OVERRIDE;

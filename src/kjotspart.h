@@ -53,9 +53,6 @@ public:
      * Destructor
      */
     ~KJotsPart() override;
-
-    static KAboutData *createAboutData();
-
 protected:
     /**
      * This must be implemented by each part
@@ -65,7 +62,6 @@ protected:
 private:
     void initAction();
     KJotsWidget *mComponent;
-    KParts::StatusBarExtension *mStatusBar;
 };
 
 #endif // KJOTSPART_H
