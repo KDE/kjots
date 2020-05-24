@@ -36,8 +36,10 @@
 #include <QUrl>
 
 #include <KActionCollection>
+#include <KStandardGuiItem>
 #include <KLocalizedString>
 #include <KMime/Message>
+#include <KPIMTextEdit/RichTextComposerControler>
 
 #include <AkonadiCore/Item>
 
@@ -49,9 +51,10 @@
 Q_DECLARE_METATYPE(QTextCursor)
 
 using namespace Akonadi;
+using namespace KPIMTextEdit;
 
 KJotsEdit::KJotsEdit(QWidget *parent)
-    : KRichTextWidget(parent),
+    : RichTextComposer(parent),
       actionCollection(nullptr),
       allowAutoDecimal(false)
 {
@@ -59,38 +62,41 @@ KJotsEdit::KJotsEdit(QWidget *parent)
     setAcceptRichText(true);
     setWordWrapMode(QTextOption::WordWrap);
     setCheckSpellingEnabled(true);
-    setRichTextSupport(FullTextFormattingSupport
-                       | FullListSupport
-                       | SupportAlignment
-                       | SupportRuleLine
-                       | SupportFormatPainting
-                       | SupportHeading);
-
     setFocusPolicy(Qt::StrongFocus);
 }
 
 void KJotsEdit::contextMenuEvent(QContextMenuEvent *event)
 {
-    QMenu *popup = mousePopupMenu();
+    QMenu *popup = mousePopupMenu(event->pos());
     if (popup) {
+        const QList<QAction*> actionList = popup->actions();
+        QAction *act;
+        if (!qApp->clipboard()->text().isEmpty()) {
+            act = actionCollection->action(QStringLiteral("paste_without_formatting"));
+            act->setIcon(QIcon::fromTheme(QStringLiteral("edit-paste")));
+            act->setEnabled(!isReadOnly());
+            // HACK: menu actions are following: Undo, Redo, Separator, Cut, Copy, Paste, Delete, Clear
+            // We want to insert "Paste Without Formatting" right after standard Paste (which is at pos 6)
+            // Let's hope QTextEdit and KPIMTextEdit::RichTextEditor doesn't break it
+            // (and we don't break anything either)
+            const int pasteActionPosition = 6;
+            if (actionList.count() >= pasteActionPosition) {
+                popup->insertAction(popup->actions().at(pasteActionPosition), act);
+            } else {
+                popup->addAction(act);
+            }
+        }
         popup->addSeparator();
-        QAction *act = actionCollection->action(QStringLiteral("copyIntoTitle"));
+        act = actionCollection->action(QStringLiteral("copyIntoTitle"));
         popup->addAction(act);
         act = actionCollection->action(QStringLiteral("insert_checkmark"));
         act->setEnabled(!isReadOnly());
         popup->addAction(act);
 
-        if (!qApp->clipboard()->text().isEmpty()) {
-            act = actionCollection->action(QStringLiteral("paste_plain_text"));
-            act->setEnabled(!isReadOnly());
-            popup->addAction(act);
-        }
-
         if (!anchorAt(event->pos()).isNull()) {
             popup->addAction(actionCollection->action(QStringLiteral("manage_link")));
         }
 
-        aboutToShowContextMenu(popup);
         popup->exec(event->globalPos());
         delete popup;
     }
@@ -105,7 +111,6 @@ void KJotsEdit::delayedInitialization(KActionCollection *collection)
     connect(actionCollection->action(QStringLiteral("manage_link")), &QAction::triggered, this, &KJotsEdit::onLinkify);
     connect(actionCollection->action(QStringLiteral("insert_checkmark")), &QAction::triggered, this, &KJotsEdit::addCheckmark);
     connect(actionCollection->action(QStringLiteral("insert_date")), &QAction::triggered, this, &KJotsEdit::insertDate);
-    connect(actionCollection->action(QStringLiteral("insert_image")), &QAction::triggered, this, &KJotsEdit::insertImage);
 }
 
 bool KJotsEdit::modified()
@@ -116,12 +121,6 @@ bool KJotsEdit::modified()
 void KJotsEdit::insertDate()
 {
     NoteShared::NoteEditorUtils::insertDate(this);
-}
-
-void KJotsEdit::insertImage()
-{
-    QTextCursor cursor = textCursor();
-    NoteShared::NoteEditorUtils::insertImage(document(), cursor, this);
 }
 
 bool KJotsEdit::setModelIndex(const QModelIndex &index)
@@ -245,13 +244,13 @@ void KJotsEdit::onLinkify()
     if (!m_index) {
         return;
     }
-    selectLinkText();
+    composerControler()->selectLinkText();
     auto linkDialog = std::make_unique<KJotsLinkDialog>(const_cast<QAbstractItemModel*>(m_index->model()), this);
-    linkDialog->setLinkText(currentLinkText());
-    linkDialog->setLinkUrl(currentLinkUrl());
+    linkDialog->setLinkText(composerControler()->currentLinkText());
+    linkDialog->setLinkUrl(composerControler()->currentLinkUrl());
 
     if (linkDialog->exec()) {
-        updateLink(linkDialog->linkUrl(), linkDialog->linkText());
+        composerControler()->updateLink(linkDialog->linkUrl(), linkDialog->linkText());
     }
 }
 
@@ -266,7 +265,7 @@ bool KJotsEdit::canInsertFromMimeData(const QMimeData *source) const
     if (source->hasUrls()) {
         return true;
     } else {
-        return KTextEdit::canInsertFromMimeData(source);
+        return RichTextComposer::canInsertFromMimeData(source);
     }
 }
 
@@ -307,7 +306,7 @@ void KJotsEdit::insertFromMimeData(const QMimeData *source)
         textCursor().insertFragment(QTextDocumentFragment(c));
         ensureCursorVisible();
     } else {
-        KRichTextEdit::insertFromMimeData(source);
+        RichTextComposer::insertFromMimeData(source);
     }
 }
 
@@ -324,7 +323,7 @@ void KJotsEdit::mouseMoveEvent(QMouseEvent *event)
             m_cursorChanged = false;
         }
     }
-    KRichTextEdit::mouseMoveEvent(event);
+    RichTextComposer::mouseMoveEvent(event);
 }
 
 void KJotsEdit::leaveEvent(QEvent *event)
@@ -333,7 +332,7 @@ void KJotsEdit::leaveEvent(QEvent *event)
         QApplication::restoreOverrideCursor();
         m_cursorChanged = false;
     }
-    KRichTextEdit::leaveEvent(event);
+    RichTextComposer::leaveEvent(event);
 }
 
 void KJotsEdit::mousePressEvent(QMouseEvent *event)
@@ -342,15 +341,7 @@ void KJotsEdit::mousePressEvent(QMouseEvent *event)
     if ((event->modifiers() & Qt::ControlModifier) && (event->button() & Qt::LeftButton) && !url.isEmpty()) {
         Q_EMIT linkClicked(url);
     } else {
-        KRichTextEdit::mousePressEvent(event);
-    }
-}
-
-void KJotsEdit::pastePlainText()
-{
-    QString text = qApp->clipboard()->text();
-    if (!text.isEmpty()) {
-        insertPlainText(text);
+        RichTextComposer::mousePressEvent(event);
     }
 }
 
@@ -361,7 +352,7 @@ bool KJotsEdit::event(QEvent *event)
     } else if (event->type() == QEvent::ToolTip) {
         tooltipEvent(static_cast<QHelpEvent *>(event));
     }
-    return KRichTextWidget::event(event);
+    return RichTextComposer::event(event);
 }
 
 void KJotsEdit::tooltipEvent(QHelpEvent *event)
@@ -396,7 +387,7 @@ void KJotsEdit::tooltipEvent(QHelpEvent *event)
 void KJotsEdit::focusOutEvent(QFocusEvent *event)
 {
     savePage();
-    KRichTextWidget::focusOutEvent(event);
+    RichTextComposer::focusOutEvent(event);
 }
 
 void KJotsEdit::savePage()

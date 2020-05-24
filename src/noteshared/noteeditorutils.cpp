@@ -42,25 +42,3 @@ void NoteShared::NoteEditorUtils::insertDate(QTextEdit *editor)
 {
     editor->insertPlainText(QLocale().toString(QDateTime::currentDateTime(), QLocale::ShortFormat) + QLatin1Char(' '));
 }
-
-void NoteShared::NoteEditorUtils::insertImage(QTextDocument * /*doc*/, QTextCursor &/*cursor*/, QTextEdit *par)
-{
-    QString imageFileName = QFileDialog::getOpenFileName(par, i18n("Select image file"), QStringLiteral("."), QStringLiteral("Images (*.png *.bmp *.jpg *.jpeg *.jpe)"));
-    if (!imageFileName.isEmpty()) {
-        QFileInfo qfio = QFileInfo(imageFileName);
-        QImage imgRes(imageFileName);
-        if (!imgRes.isNull()) {
-            QMimeDatabase mimedb;
-            QByteArray imageData;
-            QBuffer buffer(&imageData);
-            QMimeType filemime = mimedb.mimeTypeForFile(qfio);
-            QString filetype = filemime.name();
-            QByteArray formatChars = filemime.preferredSuffix().toUpper().toLatin1();
-
-            buffer.open(QIODevice::WriteOnly);
-            imgRes.save(&buffer, formatChars.data());
-            QString Base64Image = QString::fromLatin1(imageData.toBase64().data());//is null
-            par->insertHtml(QStringLiteral("<img src=\"data:%1;base64,%2\" />").arg(filetype, Base64Image));
-        }
-    }
-}

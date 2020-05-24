@@ -25,7 +25,6 @@ set(kjots_common_SRCS
   kjotsedit.cpp
   kjotstreeview.cpp
   kjotsbookmarks.cpp
-  kjotsreplacenextdialog.cpp
   kjotsmodel.cpp
   kjotssortproxymodel.cpp
   kjotswidget.cpp

@@ -47,6 +47,7 @@ class KJob;
 class KReplaceDialog;
 class KSelectionProxyModel;
 class KJotsBrowser;
+class KJotsBrowserWidget;
 class KXMLGUIClient;
 
 namespace Akonadi
@@ -59,6 +60,11 @@ class StandardNoteActionManager;
 namespace Grantlee
 {
 class Engine;
+}
+
+namespace KPIMTextEdit
+{
+class RichTextEditorWidget;
 }
 
 class KJotsEdit;
@@ -106,7 +112,6 @@ protected:
     QString renderSelectionToHtml();
 
     void selectNext(int role, int step);
-    int search(bool);
 
     std::unique_ptr<QPrinter> setupPrinter(QPrinter::PrinterMode mode = QPrinter::ScreenResolution);
 protected Q_SLOTS:
@@ -124,18 +129,6 @@ private Q_SLOTS:
 
     void copySelectionToTitle();
 
-    void onShowSearch();
-    void onUpdateSearch();
-    void onStartSearch();
-    void onRepeatSearch();
-    void onEndSearch();
-
-    void onShowReplace();
-    void onUpdateReplace();
-    void onStartReplace();
-    void onRepeatReplace();
-    void onEndReplace();
-
     void actionSortChildrenAlpha();
     void actionSortChildrenByDate();
 
@@ -150,7 +143,9 @@ private:
     KXMLGUIClient  *m_xmlGuiClient;
     Akonadi::StandardNoteActionManager *m_actionManager = nullptr;
     KJotsEdit      *editor;
-    KJotsBrowser   *browser;
+    KPIMTextEdit::RichTextEditorWidget *m_editorWidget = nullptr;
+    KJotsBrowserWidget *m_browserWidget = nullptr;
+
     QStackedWidget *stackedWidget;
     KActionMenu    *bookmarkMenu;
     Akonadi::EntityTreeModel *m_kjotsModel;
@@ -165,17 +160,6 @@ private:
 
     Grantlee::Engine *m_templateEngine;
     QSharedPointer<Grantlee::FileSystemTemplateLoader> m_loader;
-
-    KFindDialog *searchDialog;
-    QStringList searchHistory;
-    int searchBeginPos, searchEndPos, searchPos;
-    QCheckBox *searchAllPages;
-
-    KReplaceDialog *replaceDialog;
-    QStringList replaceHistory;
-    int replaceBeginPos, replaceEndPos, replacePos;
-    QCheckBox *replaceAllPages;
-    QModelIndex replaceStartPage;
 
     QSet<QAction *> entryActions, pageActions, bookActions, multiselectionActions;
 };

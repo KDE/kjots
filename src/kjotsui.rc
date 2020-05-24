@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui version="14" name="kjots" >
+<kpartgui version="15" name="kjots" >
  <MenuBar>
 
   <Menu name="file">
@@ -38,8 +38,6 @@
       <Action name="format_list_indent_more"/>
       <Action name="format_list_indent_less"/>
       <Separator lineSeparator="true"/>
-      <Action name="insert_horizontal_rule"/>
-      <Action name="manage_link"/>
       <Action name="format_painter"/>
   </Menu>
 
@@ -52,8 +50,11 @@
   </Menu>
 
   <Menu name="tools">
+   <Action name="add_image"/>
+   <Action name="insert_table"/>
+   <Action name="insert_horizontal_rule"/>
+   <Action name="manage_link"/>
    <Action name="insert_date"/>
-   <Action name="insert_image"/>
    <Action name="copyIntoTitle"/>
   </Menu>
 
@@ -106,7 +107,12 @@
     <Action name="format_list_style"/>
     <Action name="format_list_indent_more"/>
     <Action name="format_list_indent_less"/>
-    <Separator lineSeparator="true"/>
+</ToolBar>
+
+<ToolBar name="toolsToolBar">
+    <text>Tools Toolbar</text>
+    <Action name="add_image"/>
+    <Action name="insert_table"/>
     <Action name="insert_horizontal_rule"/>
     <Action name="manage_link"/>
 </ToolBar>

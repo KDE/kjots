@@ -67,11 +67,8 @@
 // KDE
 #include <KActionCollection>
 #include <KBookmarkMenu>
-#include <KFind>
-#include <KFindDialog>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KReplaceDialog>
 #include <KSelectionProxyModel>
 #include <KXMLGUIClient>
 #include <KActionMenu>
@@ -79,6 +76,9 @@
 #include <KSharedConfig>
 #include <KRun>
 #include <KConfigDialog>
+
+#include <KPIMTextEdit/RichTextComposerActions>
+#include <KPIMTextEdit/RichTextEditorWidget>
 
 // KMime
 #include <KMime/Message>
@@ -90,7 +90,6 @@
 #include "kjotsedit.h"
 #include "kjotstreeview.h"
 #include "kjotsconfigdlg.h"
-#include "kjotsreplacenextdialog.h"
 #include "KJotsSettings.h"
 #include "kjotsbrowser.h"
 #include "noteshared/notelockattribute.h"
@@ -178,15 +177,18 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 
     editor = new KJotsEdit(stackedWidget);
     connect(editor, &KJotsEdit::linkClicked, this, &KJotsWidget::openLink);
-    actionCollection->addActions(editor->createActions());
-    stackedWidget->addWidget(editor);
+    editor->createActions(actionCollection);
+    editor->activateRichText();
+    m_editorWidget = new KPIMTextEdit::RichTextEditorWidget(editor, stackedWidget);
+    stackedWidget->addWidget(m_editorWidget);
 
     layout->addWidget(m_splitter);
 
-    browser = new KJotsBrowser(m_kjotsModel, stackedWidget);
-    connect(browser, &KJotsBrowser::linkClicked, this, &KJotsWidget::openLink);
-    stackedWidget->addWidget(browser);
-    stackedWidget->setCurrentWidget(browser);
+    m_browserWidget = new KJotsBrowserWidget(std::make_unique<KJotsBrowser>(m_kjotsModel, actionCollection),
+                                             stackedWidget);
+    stackedWidget->addWidget(m_browserWidget);
+    stackedWidget->setCurrentWidget(m_browserWidget);
+    connect(m_browserWidget->browser(), &KJotsBrowser::linkClicked, this, &KJotsWidget::openLink);
 
     QAction *action;
 
@@ -236,10 +238,6 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     action->setText(i18n("Link"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("insert-link")));
 
-    action = actionCollection->addAction(QStringLiteral("insert_image"));
-    action->setText(i18n("Insert Image"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("insert-image")));
-
     action = actionCollection->addAction(QStringLiteral("insert_checkmark"));
     action->setText(i18n("Insert Checkmark"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("checkmark")));
@@ -268,7 +266,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
             activeEditor()->copy();
         }, actionCollection);
     connect(editor, &KJotsEdit::copyAvailable, action, &QAction::setEnabled);
-    connect(browser, &KJotsBrowser::copyAvailable, action, &QAction::setEnabled);
+    connect(m_browserWidget->browser(), &KJotsBrowser::copyAvailable, action, &QAction::setEnabled);
     action->setEnabled(false);
 
     KStandardAction::paste(editor, &KJotsEdit::paste, actionCollection);
@@ -284,10 +282,6 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     connect(action, &QAction::triggered, this, &KJotsWidget::copySelectionToTitle);
     connect(editor, &KJotsEdit::copyAvailable, action, &QAction::setEnabled);
     action->setEnabled(false);
-
-    action = actionCollection->addAction(QStringLiteral("paste_plain_text"));
-    action->setText(i18nc("@action Paste the text in the clipboard without rich text formatting.", "Paste Plain Text"));
-    connect(action, &QAction::triggered, editor, &KJotsEdit::pastePlainText);
 
     KStandardAction::preferences(this, &KJotsWidget::configure, actionCollection);
 
@@ -310,10 +304,25 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     actionCollection->addAction(QStringLiteral("add_bookmarks_list"), bmm->bookmarkTabsAsFolderAction());
 
 
-    KStandardAction::find(this, &KJotsWidget::onShowSearch, actionCollection);
-    action = KStandardAction::findNext(this, &KJotsWidget::onRepeatSearch, actionCollection);
-    action->setEnabled(false);
-    KStandardAction::replace(this, &KJotsWidget::onShowReplace, actionCollection);
+    KStandardAction::find(this, [this](){
+            if (m_editorWidget->isVisible()) {
+                m_editorWidget->slotFind();
+            } else {
+                m_browserWidget->slotFind();
+            }
+        }, actionCollection);
+    KStandardAction::findNext(this, [this](){
+            if (m_editorWidget->isVisible()) {
+                m_editorWidget->slotFindNext();
+            } else {
+                m_browserWidget->slotFindNext();
+            }
+        }, actionCollection);
+    KStandardAction::replace(this, [this](){
+            if (m_editorWidget->isVisible()) {
+                m_editorWidget->slotReplace();
+            }
+        }, actionCollection);
 
     auto *exportMenu = actionCollection->add<KActionMenu>(QStringLiteral("save_to"));
     exportMenu->setText(i18n("Export"));
@@ -381,30 +390,6 @@ void KJotsWidget::saveState()
 
 void KJotsWidget::delayedInitialization()
 {
-    //TODO: Save previous searches in settings file?
-    searchDialog = new KFindDialog(this, 0, QStringList(), false);
-    auto *layout = new QGridLayout(searchDialog->findExtension());
-    layout->setMargin(0);
-    searchAllPages = new QCheckBox(i18n("Search all pages"), searchDialog->findExtension());
-    layout->addWidget(searchAllPages, 0, 0);
-
-    connect(searchDialog, &KFindDialog::okClicked, this, &KJotsWidget::onStartSearch);
-    connect(searchDialog, &KFindDialog::cancelClicked, this, &KJotsWidget::onEndSearch);
-    connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::onUpdateSearch);
-    connect(searchDialog, &KFindDialog::optionsChanged, this, &KJotsWidget::onUpdateSearch);
-    connect(searchAllPages, &QCheckBox::stateChanged, this, &KJotsWidget::onUpdateSearch);
-
-    replaceDialog = new KReplaceDialog(this, 0, searchHistory, replaceHistory, false);
-    auto *layout2 = new QGridLayout(replaceDialog->findExtension());
-    layout2->setMargin(0);
-    replaceAllPages = new QCheckBox(i18n("Search all pages"), replaceDialog->findExtension());
-    layout2->addWidget(replaceAllPages, 0, 0);
-
-    connect(replaceDialog, &KReplaceDialog::okClicked, this, &KJotsWidget::onStartReplace);
-    connect(replaceDialog, &KReplaceDialog::cancelClicked, this, &KJotsWidget::onEndReplace);
-    connect(replaceDialog, &KReplaceDialog::optionsChanged, this, &KJotsWidget::onUpdateReplace);
-    connect(replaceAllPages, &QCheckBox::stateChanged, this, &KJotsWidget::onUpdateReplace);
-
     // Actions are enabled or disabled based on whether the selection is a single page, a single book
     // multiple selections, or no selection.
     //
@@ -457,7 +442,6 @@ void KJotsWidget::delayedInitialization()
     connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, m_autosaveTimer, qOverload<>(&QTimer::start));
 
     editor->delayedInitialization(m_xmlGuiClient->actionCollection());
-    browser->delayedInitialization();
 
     // Make sure the editor gets focus again after naming a new book/page.
     connect(treeview->itemDelegate(), &QItemDelegate::closeEditor, this, [this](){
@@ -469,8 +453,8 @@ void KJotsWidget::delayedInitialization()
 
 inline QTextEdit *KJotsWidget::activeEditor()
 {
-    if (browser->isVisible()) {
-        return browser;
+    if (m_browserWidget->isVisible()) {
+        return m_browserWidget->browser();
     } else {
         return editor;
     }
@@ -495,7 +479,7 @@ void KJotsWidget::updateMenu()
         for (QAction *action : qAsConst(pageActions)) {
             action->setEnabled(false);
         }
-        editor->setActionsEnabled(false);
+        editor->composerActions()->setActionsEnabled(false);
     } else if (selectionSize > 1) {
         for (QAction *action : qAsConst(entryActions)) {
             action->setEnabled(false);
@@ -510,7 +494,7 @@ void KJotsWidget::updateMenu()
             action->setEnabled(true);
         }
 
-        editor->setActionsEnabled(false);
+        editor->composerActions()->setActionsEnabled(false);
     } else {
 
         for (QAction *action : qAsConst(multiselectionActions)) {
@@ -531,7 +515,7 @@ void KJotsWidget::updateMenu()
                 action->setEnabled(true);
             }
 
-            editor->setActionsEnabled(false);
+            editor->composerActions()->setActionsEnabled(false);
         } else {
             for (QAction *action : qAsConst(pageActions)) {
                 if (action->objectName() == QString::fromLatin1(name(KStandardAction::Cut))) {
@@ -543,7 +527,8 @@ void KJotsWidget::updateMenu()
             for (QAction *action : qAsConst(bookActions)) {
                 action->setEnabled(false);
             }
-            editor->setActionsEnabled(true);
+
+            editor->composerActions()->setActionsEnabled(true);
         }
     }
 }
@@ -769,435 +754,15 @@ void KJotsWidget::renderSelection()
     if (rows == 1) {
         QModelIndex idx = selProxy->index(0, 0, QModelIndex());
         if (editor->setModelIndex(selProxy->mapToSource(idx))) {
-            stackedWidget->setCurrentWidget(editor);
+            stackedWidget->setCurrentWidget(m_editorWidget);
             return;
         }
         // If something went wrong, we show user the browser
     }
 
     // ... Otherwise, render the selection read-only.
-    browser->setHtml(renderSelectionToHtml());
-    stackedWidget->setCurrentWidget(browser);
-}
-
-/*!
-  Shows the search dialog when "Find" is selected.
-*/
-void KJotsWidget::onShowSearch()
-{
-    onUpdateSearch();
-
-    QTextEdit *browserOrEditor = activeEditor();
-
-    if (browserOrEditor->textCursor().hasSelection()) {
-        searchDialog->setHasSelection(true);
-        long dialogOptions = searchDialog->options();
-        dialogOptions |= KFind::SelectedText;
-        searchDialog->setOptions(dialogOptions);
-    } else {
-        searchDialog->setHasSelection(false);
-    }
-
-    searchDialog->setFindHistory(searchHistory);
-    searchDialog->show();
-    onUpdateSearch();
-}
-
-/*!
-    Updates the search dialog if the user is switching selections while it is open.
-*/
-void KJotsWidget::onUpdateSearch()
-{
-    if (searchDialog->isVisible()) {
-        long searchOptions = searchDialog->options();
-        if (searchOptions & KFind::SelectedText) {
-            searchAllPages->setCheckState(Qt::Unchecked);
-            searchAllPages->setEnabled(false);
-        } else {
-            searchAllPages->setEnabled(true);
-        }
-
-        if (searchAllPages->checkState() == Qt::Checked) {
-            searchOptions &= ~KFind::SelectedText;
-            searchDialog->setOptions(searchOptions);
-            searchDialog->setHasSelection(false);
-        } else {
-            if (activeEditor()->textCursor().hasSelection()) {
-                searchDialog->setHasSelection(true);
-            }
-        }
-
-        if (activeEditor()->textCursor().hasSelection()) {
-            if (searchAllPages->checkState() == Qt::Unchecked) {
-                searchDialog->setHasSelection(true);
-            }
-        } else {
-            searchOptions &= ~KFind::SelectedText;
-            searchDialog->setOptions(searchOptions);
-            searchDialog->setHasSelection(false);
-        }
-    }
-}
-
-/*!
-    Called when the user presses OK in the search dialog.
-*/
-void KJotsWidget::onStartSearch()
-{
-    QString searchPattern = searchDialog->pattern();
-    if (!searchHistory.contains(searchPattern)) {
-        searchHistory.prepend(searchPattern);
-    }
-
-    QTextEdit *browserOrEditor = activeEditor();
-    QTextCursor cursor = browserOrEditor->textCursor();
-
-    long searchOptions = searchDialog->options();
-    if (searchOptions & KFind::FromCursor) {
-        searchPos = cursor.position();
-        searchBeginPos = 0;
-        cursor.movePosition(QTextCursor::End);
-        searchEndPos = cursor.position();
-    } else {
-        if (searchOptions & KFind::SelectedText) {
-            searchBeginPos = cursor.selectionStart();
-            searchEndPos = cursor.selectionEnd();
-        } else {
-            searchBeginPos = 0;
-            cursor.movePosition(QTextCursor::End);
-            searchEndPos = cursor.position();
-        }
-
-        if (searchOptions & KFind::FindBackwards) {
-            searchPos = searchEndPos;
-        } else {
-            searchPos = searchBeginPos;
-        }
-    }
-
-    m_xmlGuiClient->actionCollection()->action(QString::fromLatin1(KStandardAction::name(KStandardAction::FindNext)))->setEnabled(true);
-
-    onRepeatSearch();
-}
-
-/*!
-    Called when user chooses "Find Next"
-*/
-void KJotsWidget::onRepeatSearch()
-{
-    if (search(false) == 0) {
-        KMessageBox::sorry(nullptr, i18n("<qt>No matches found.</qt>"));
-        m_xmlGuiClient->actionCollection()->action(QString::fromLatin1(KStandardAction::name(KStandardAction::FindNext)))->setEnabled(false);
-    }
-}
-
-/*!
-    Called when user presses Cancel in find dialog.
-*/
-void KJotsWidget::onEndSearch()
-{
-    m_xmlGuiClient->actionCollection()->action(QString::fromLatin1(KStandardAction::name(KStandardAction::FindNext)))->setEnabled(false);
-}
-
-/*!
-    Shows the replace dialog when "Replace" is selected.
-*/
-void KJotsWidget::onShowReplace()
-{
-    Q_ASSERT(editor->isVisible());
-
-    if (editor->textCursor().hasSelection()) {
-        replaceDialog->setHasSelection(true);
-        long dialogOptions = replaceDialog->options();
-        dialogOptions |= KFind::SelectedText;
-        replaceDialog->setOptions(dialogOptions);
-    } else {
-        replaceDialog->setHasSelection(false);
-    }
-
-    replaceDialog->setFindHistory(searchHistory);
-    replaceDialog->setReplacementHistory(replaceHistory);
-    replaceDialog->show();
-    onUpdateReplace();
-}
-
-/*!
-    Updates the replace dialog if the user is switching selections while it is open.
-*/
-void KJotsWidget::onUpdateReplace()
-{
-    if (replaceDialog->isVisible()) {
-        long replaceOptions = replaceDialog->options();
-        if (replaceOptions & KFind::SelectedText) {
-            replaceAllPages->setCheckState(Qt::Unchecked);
-            replaceAllPages->setEnabled(false);
-        } else {
-            replaceAllPages->setEnabled(true);
-        }
-
-        if (replaceAllPages->checkState() == Qt::Checked) {
-            replaceOptions &= ~KFind::SelectedText;
-            replaceDialog->setOptions(replaceOptions);
-            replaceDialog->setHasSelection(false);
-        } else {
-            if (activeEditor()->textCursor().hasSelection()) {
-                replaceDialog->setHasSelection(true);
-            }
-        }
-    }
-}
-
-/*!
-    Called when the user presses OK in the replace dialog.
-*/
-void KJotsWidget::onStartReplace()
-{
-    QString searchPattern = replaceDialog->pattern();
-    if (!searchHistory.contains(searchPattern)) {
-        searchHistory.prepend(searchPattern);
-    }
-
-    QString replacePattern = replaceDialog->replacement();
-    if (!replaceHistory.contains(replacePattern)) {
-        replaceHistory.prepend(replacePattern);
-    }
-
-    QTextCursor cursor = editor->textCursor();
-
-    long replaceOptions = replaceDialog->options();
-    if (replaceOptions & KFind::FromCursor) {
-        replacePos = cursor.position();
-        replaceBeginPos = 0;
-        cursor.movePosition(QTextCursor::End);
-        replaceEndPos = cursor.position();
-    } else {
-        if (replaceOptions & KFind::SelectedText) {
-            replaceBeginPos = cursor.selectionStart();
-            replaceEndPos = cursor.selectionEnd();
-        } else {
-            replaceBeginPos = 0;
-            cursor.movePosition(QTextCursor::End);
-            replaceEndPos = cursor.position();
-        }
-
-        if (replaceOptions & KFind::FindBackwards) {
-            replacePos = replaceEndPos;
-        } else {
-            replacePos = replaceBeginPos;
-        }
-    }
-
-    replaceStartPage = treeview->selectionModel()->selectedRows().first();
-
-    //allow KReplaceDialog to exit so the user can see.
-    QTimer::singleShot(0, this, &KJotsWidget::onRepeatReplace);
-}
-
-/*!
-    Only called after onStartReplace. Kept the name scheme for consistency.
-*/
-void KJotsWidget::onRepeatReplace()
-{
-    KJotsReplaceNextDialog *dlg = nullptr;
-
-    QString searchPattern = replaceDialog->pattern();
-    QString replacePattern = replaceDialog->replacement();
-    int found = 0;
-    int replaced = 0;
-
-    long replaceOptions = replaceDialog->options();
-    if (replaceOptions & KReplaceDialog::PromptOnReplace) {
-        dlg = new KJotsReplaceNextDialog(this);
-    }
-
-    while (true) {
-    if (!search(true))
-        {
-            break;
-        }
-
-        QTextCursor cursor = editor->textCursor();
-        if (!cursor.hasSelection())
-        {
-            break;
-        } else {
-            ++found;
-        }
-
-        QString replacementText = replacePattern;
-        if (replaceOptions & KReplaceDialog::BackReference)
-        {
-            QRegExp regExp(searchPattern, (replaceOptions & Qt::CaseSensitive) ?
-            Qt::CaseSensitive : Qt::CaseInsensitive, QRegExp::RegExp2);
-            regExp.indexIn(cursor.selectedText());
-            int capCount = regExp.captureCount();
-            for (int i = 0; i <= capCount; ++i) {
-                QString c = QString::fromLatin1("\\%1").arg(i);
-                replacementText.replace(c, regExp.cap(i));
-            }
-        }
-
-        if (replaceOptions & KReplaceDialog::PromptOnReplace)
-        {
-            dlg->setLabel(cursor.selectedText(), replacementText);
-
-            if (!dlg->exec()) {
-                break;
-            }
-
-            if (dlg->answer() != KJotsReplaceNextDialog::Skip) {
-                cursor.insertText(replacementText);
-                editor->setTextCursor(cursor);
-                ++replaced;
-            }
-
-            if (dlg->answer() == KJotsReplaceNextDialog::All) {
-                replaceOptions |= ~KReplaceDialog::PromptOnReplace;
-            }
-        } else {
-            cursor.insertText(replacementText);
-            editor->setTextCursor(cursor);
-            ++replaced;
-        }
-    }
-
-    if (replaced == found) {
-        KMessageBox::information(nullptr, i18np("<qt>Replaced 1 occurrence.</qt>", "<qt>Replaced %1 occurrences.</qt>", replaced));
-    } else if (replaced < found) {
-        KMessageBox::information(nullptr,
-                                 i18np("<qt>Replaced %2 of 1 occurrence.</qt>", "<qt>Replaced %2 of %1 occurrences.</qt>", found, replaced));
-    }
-
-    delete dlg;
-}
-
-/*!
-    Called when user presses Cancel in replace dialog. Just a placeholder for now.
-*/
-void KJotsWidget::onEndReplace()
-{
-}
-
-/*!
-    Searches for the given pattern, with the given options. This is huge and
-    unwieldly function, but the operation we're performing is huge and unwieldly.
-*/
-int KJotsWidget::search(bool replacing)
-{
-    int rc = 0;
-    int *beginPos = replacing ? &replaceBeginPos : &searchBeginPos;
-    int *endPos = replacing ? &replaceEndPos : &searchEndPos;
-    long options = replacing ? replaceDialog->options() : searchDialog->options();
-    QString pattern = replacing ? replaceDialog->pattern() : searchDialog->pattern();
-    int *curPos = replacing ? &replacePos : &searchPos;
-
-    QModelIndex startPage = replacing ? replaceStartPage : treeview->selectionModel()->selectedRows().first();
-
-    bool allPages = false;
-    QCheckBox *box = replacing ? replaceAllPages : searchAllPages;
-    if (box->isEnabled() && box->checkState() == Qt::Checked) {
-        allPages = true;
-    }
-
-    QTextDocument::FindFlags findFlags;
-    if (options & Qt::CaseSensitive) {
-        findFlags |= QTextDocument::FindCaseSensitively;
-    }
-
-    if (options & KFind::WholeWordsOnly) {
-        findFlags |= QTextDocument::FindWholeWords;
-    }
-
-    if (options & KFind::FindBackwards) {
-        findFlags |= QTextDocument::FindBackward;
-    }
-
-    // We will find a match or return 0
-    int attempts = 0;
-    while (true) {
-    ++attempts;
-
-    QTextEdit *browserOrEditor = activeEditor();
-        QTextDocument *theDoc = browserOrEditor->document();
-
-        QTextCursor cursor;
-        if (options & KFind::RegularExpression)
-        {
-            QRegExp regExp(pattern, (options & Qt::CaseSensitive) ?
-            Qt::CaseSensitive : Qt::CaseInsensitive, QRegExp::RegExp2);
-            cursor = theDoc->find(regExp, *curPos, findFlags);
-        } else {
-            cursor = theDoc->find(pattern, *curPos, findFlags);
-        }
-
-        if (cursor.hasSelection())
-        {
-            if (cursor.selectionStart() >= *beginPos && cursor.selectionEnd() <= *endPos) {
-                browserOrEditor->setTextCursor(cursor);
-                browserOrEditor->ensureCursorVisible();
-                *curPos = (options & KFind::FindBackwards) ?
-                cursor.selectionStart() : cursor.selectionEnd();
-                rc = 1;
-                break;
-            }
-        }
-
-        //No match. Determine what to do next.
-
-        if (replacing && !(options & KFind::FromCursor) && !allPages)
-        {
-            break;
-        }
-
-        if ((options & KFind::FromCursor) && !allPages)
-        {
-            if (KMessageBox::questionYesNo(this,
-                                           i18n("<qt>End of search area reached. Do you want to wrap around and continue?</qt>")) ==
-                    KMessageBox::No) {
-                rc = 3;
-                break;
-            }
-        }
-
-        if (allPages)
-        {
-            if (options & KFind::FindBackwards) {
-                if (canGoPreviousPage()) {
-                    prevPage();
-                }
-            } else {
-                if (canGoNextPage()) {
-                    nextPage();
-                }
-            }
-
-            if (startPage == treeview->selectionModel()->selectedRows().first()) {
-                rc = 0;
-                break;
-            }
-
-            *beginPos = 0;
-            cursor = editor->textCursor();
-            cursor.movePosition(QTextCursor::End);
-            *endPos = cursor.position();
-            *curPos = (options & KFind::FindBackwards) ? *endPos : *beginPos;
-            continue;
-        }
-
-        // By now, we should have figured out what to do. In all remaining cases we
-        // will automatically loop and try to "find next" from the top/bottom, because
-        // I like this behavior the best.
-        if (attempts <= 1)
-        {
-            *curPos = (options & KFind::FindBackwards) ? *endPos : *beginPos;
-        } else {
-            // We've already tried the loop and failed to find anything. Bail.
-            rc = 0;
-            break;
-        }
-    }
-
-    return rc;
+    m_browserWidget->browser()->setHtml(renderSelectionToHtml());
+    stackedWidget->setCurrentWidget(m_browserWidget);
 }
 
 void KJotsWidget::updateCaption()

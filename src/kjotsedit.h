@@ -27,13 +27,14 @@
 #define KJOTSEDIT_H
 
 #include <KRichTextWidget>
+#include <KPIMTextEdit/RichTextComposer>
 
 class QItemSelection;
 class QItemSelectionModel;
 
 class KActionCollection;
 
-class KJotsEdit : public KRichTextWidget
+class KJotsEdit : public KPIMTextEdit::RichTextComposer
 {
     Q_OBJECT
 public:
@@ -74,11 +75,9 @@ public Q_SLOTS:
     void addCheckmark(void);
     void onAutoDecimal(void);
     void DecimalList(void);
-    void pastePlainText(void);
 
     void savePage();
     void insertDate();
-    void insertImage();
 
 Q_SIGNALS:
     void linkClicked(const QUrl &url);

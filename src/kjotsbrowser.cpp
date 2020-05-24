@@ -25,20 +25,96 @@
 #include "kjotsbrowser.h"
 #include "kjotsmodel.h"
 
+#include <KPIMTextEdit/RichTextEditFindBar>
+#include <KPIMTextEdit/TextToSpeechWidget>
+#include <KPIMTextEdit/SlideContainer>
+
 #include <QHelpEvent>
 #include <QToolTip>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QMenu>
 
+#include <KActionCollection>
 #include <KLocalizedString>
+#include <KStandardAction>
 
-KJotsBrowser::KJotsBrowser(QAbstractItemModel *model, QWidget *parent)
-    : QTextBrowser(parent)
-    , m_model(model)
+class Q_DECL_HIDDEN KJotsBrowserWidgetPrivate
 {
-    setWordWrapMode(QTextOption::WordWrap);
+public:
+    explicit KJotsBrowserWidgetPrivate(std::unique_ptr<KJotsBrowser> browser, QWidget *widget)
+        : mBrowser(std::move(browser))
+        , mSliderContainer(widget)
+        , mFindBar(mBrowser.get(), &mSliderContainer)
+        , mTextToSpeechWidget(widget)
+    {
+    }
+
+    std::unique_ptr<KJotsBrowser> mBrowser;
+    KPIMTextEdit::SlideContainer mSliderContainer;
+    KPIMTextEdit::RichTextEditFindBar mFindBar;
+    KPIMTextEdit::TextToSpeechWidget mTextToSpeechWidget;
+};
+
+KJotsBrowserWidget::KJotsBrowserWidget(std::unique_ptr<KJotsBrowser> browser, QWidget *parent)
+    : QWidget(parent)
+    , d(new KJotsBrowserWidgetPrivate(std::move(browser), this))
+{
+    d->mBrowser->setParent(this);
+    d->mSliderContainer.setContent(&d->mFindBar);
+    d->mFindBar.setHideWhenClose(false);
+
+    connect(&d->mFindBar, &KPIMTextEdit::RichTextEditFindBar::hideFindBar, this, &KJotsBrowserWidget::slotHideFindBar);
+    connect(d->mBrowser.get(), &KJotsBrowser::say, &d->mTextToSpeechWidget, &KPIMTextEdit::TextToSpeechWidget::say);
+
+    QVBoxLayout *lay = new QVBoxLayout(this);
+    lay->setContentsMargins(0, 0, 0, 0);
+    lay->addWidget(&d->mTextToSpeechWidget);
+    lay->addWidget(d->mBrowser.get());
+    lay->addWidget(&d->mSliderContainer);
 }
 
-void KJotsBrowser::delayedInitialization()
+KJotsBrowserWidget::~KJotsBrowserWidget() = default;
+
+KJotsBrowser* KJotsBrowserWidget::browser()
 {
+    return d->mBrowser.get();
+}
+
+void KJotsBrowserWidget::slotFind()
+{
+    if (d->mBrowser->textCursor().hasSelection()) {
+        d->mFindBar.setText(d->mBrowser->textCursor().selectedText());
+    }
+    d->mBrowser->moveCursor(QTextCursor::Start);
+
+    d->mFindBar.showFind();
+    d->mSliderContainer.slideIn();
+    d->mFindBar.focusAndSetCursor();
+}
+
+void KJotsBrowserWidget::slotFindNext()
+{
+    if (d->mFindBar.isVisible()) {
+        d->mFindBar.findNext();
+    } else {
+        slotFind();
+    }
+}
+
+void KJotsBrowserWidget::slotHideFindBar()
+{
+    d->mSliderContainer.slideOut();
+    d->mBrowser->setFocus();
+}
+
+KJotsBrowser::KJotsBrowser(QAbstractItemModel *model, KActionCollection *actionCollection, QWidget *parent)
+    : QTextBrowser(parent)
+    , m_model(model)
+    , m_actionCollection(actionCollection)
+{
+    setWordWrapMode(QTextOption::WordWrap);
+
     connect(this, &KJotsBrowser::anchorClicked, this, [this](const QUrl &url){
         if (!url.toString().startsWith(QLatin1Char('#'))) {
             // QTextBrowser tries to automatically handle the url. We only want it for anchor navigation
@@ -47,6 +123,27 @@ void KJotsBrowser::delayedInitialization()
             Q_EMIT linkClicked(url);
         }
     });
+}
+
+void KJotsBrowser::contextMenuEvent(QContextMenuEvent *event)
+{
+    QMenu *popup = createStandardContextMenu(event->pos());
+    if (!popup) {
+        return;
+    }
+    popup->addSeparator();
+    popup->addAction(m_actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))));
+    popup->addSeparator();
+    if (!document()->isEmpty() && KPIMTextEdit::TextToSpeech::self()->isReady()) {
+        QAction *speakAction = popup->addAction(i18nc("@info:action", "Speak Text"));
+        speakAction->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")));
+        connect(speakAction, &QAction::triggered, this, [this](){
+                const QString text = textCursor().hasSelection() ? textCursor().selectedText() : document()->toPlainText();
+                Q_EMIT say(text);
+            });
+    }
+    popup->exec(event->globalPos());
+    delete popup;
 }
 
 bool KJotsBrowser::event(QEvent *event)
