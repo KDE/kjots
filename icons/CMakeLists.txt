@@ -6,9 +6,3 @@ ecm_install_icons(ICONS ${app_icons}
                   DESTINATION ${ICON_INSTALL_DIR}
                   THEME hicolor
 )
-
-file(GLOB action_icons *-actions-*)
-ecm_install_icons(ICONS ${action_icons}
-                  DESTINATION ${ICON_INSTALL_DIR}
-                  THEME oxygen
-)
