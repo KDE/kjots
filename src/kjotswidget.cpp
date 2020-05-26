@@ -413,17 +413,13 @@ void KJotsWidget::delayedInitialization()
     entryActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))));
     entryActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Print))));
     entryActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::RenameFile))));
-    entryActions.insert(m_actionManager->action(StandardNoteActionManager::ChangeColor));
     entryActions.insert(actionCollection->action(QStringLiteral("save_to")));
-    entryActions.insert(m_actionManager->action(StandardActionManager::CopyItems));
-    entryActions.insert(m_actionManager->action(StandardActionManager::CopyCollections));
 
     // Actions that are used only when a page is selected.
     pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Cut))));
     pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Paste))));
     pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Replace))));
     pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Save))));
-    pageActions.insert(m_actionManager->action(StandardActionManager::DeleteItems));
     pageActions.insert(actionCollection->action(QStringLiteral("insert_date")));
     pageActions.insert(actionCollection->action(QStringLiteral("auto_bullet")));
     pageActions.insert(actionCollection->action(QStringLiteral("auto_decimal")));
@@ -431,7 +427,6 @@ void KJotsWidget::delayedInitialization()
     pageActions.insert(actionCollection->action(QStringLiteral("insert_checkmark")));
 
     // Actions that are used only when a book is selected.
-    bookActions.insert(m_actionManager->action(StandardActionManager::DeleteCollections));
     bookActions.insert(actionCollection->action(QStringLiteral("sort_children_alpha")));
     bookActions.insert(actionCollection->action(QStringLiteral("sort_children_by_date")));
 
@@ -439,7 +434,6 @@ void KJotsWidget::delayedInitialization()
     multiselectionActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))));
     multiselectionActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Print))));
     multiselectionActions.insert(actionCollection->action(QStringLiteral("save_to")));
-    multiselectionActions.insert(m_actionManager->action(StandardNoteActionManager::ChangeColor));
 
     m_autosaveTimer = new QTimer(this);
     updateConfiguration();

@@ -328,6 +328,11 @@ public:
                                    (collection.rights() & Akonadi::Collection::CanCreateItem) &&
                                    (!collection.hasAttribute<NoteShared::NoteLockAttribute>()));
             }
+
+            action = mActions.value(StandardNoteActionManager::ChangeColor);
+            if (action) {
+                action->setEnabled(collections.count() > 0 || items.count() > 0);
+            }
         } else {
             if (mActions.contains(StandardNoteActionManager::Lock)) {
                 mActions[StandardNoteActionManager::Lock]->setEnabled(false);
