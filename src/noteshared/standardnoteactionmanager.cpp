@@ -313,6 +313,21 @@ public:
                 }
                 action->setEnabled(hasLockedItems || hasLockedCollection);
             }
+
+            action = mActions.value(StandardNoteActionManager::CreateNote);
+            if (action) {
+                Akonadi::Collection collection;
+                if (collections.count() == 1) {
+                    collection = collections.first();
+                } else if (collections.count() == 0) {
+                    if (items.count() > 0) {
+                        collection = mItemSelectionModel->selectedRows().first().data(EntityTreeModel::ParentCollectionRole).value<Collection>();
+                    }
+                }
+                action->setEnabled(collection.isValid() &&
+                                   (collection.rights() & Akonadi::Collection::CanCreateItem) &&
+                                   (!collection.hasAttribute<NoteShared::NoteLockAttribute>()));
+            }
         } else {
             if (mActions.contains(StandardNoteActionManager::Lock)) {
                 mActions[StandardNoteActionManager::Lock]->setEnabled(false);
@@ -363,11 +378,21 @@ public:
             return;
         }
         const Collection::List collections = mParent->selectedCollections();
-        if (collections.count() != 1) {
+        if (collections.count() > 1) {
             return;
         }
+        Akonadi::Collection collection;
+        if (collections.count() == 1) {
+            collection = collections.first();
+        } else {
+            const Item::List items = mParent->selectedItems();
+            if (items.count() == 0) {
+                return;
+            }
+            collection = items.first().parentCollection();
+        }
         auto *creatorAndSelector = new NoteShared::NoteCreatorAndSelector(mCollectionSelectionModel, mItemSelectionModel, mParent);
-        creatorAndSelector->createNote(collections.constFirst());
+        creatorAndSelector->createNote(collection);
     }
 
     void slotChangeColor() {

@@ -71,6 +71,40 @@
   </Menu>
 </MenuBar>
 
+<Menu name="akonadi_itemview_contextmenu">
+  <Action name="akonadi_note_create"/>
+  <Separator/>
+  <Action name="renamefile"/>
+  <Action name="akonadi_change_color"/>
+  <Separator/>
+  <Action name="akonadi_item_copy"/>
+  <Action name="akonadi_item_delete"/>
+  <Separator/>
+  <Action name="save_to"/>
+  <Separator/>
+  <Action name="akonadi_note_lock"/>
+  <Action name="akonadi_note_unlock"/>
+</Menu>
+
+<Menu name="akonadi_collectionview_contextmenu">
+  <Action name="akonadi_note_create"/>
+  <Action name="akonadi_collection_create"/>
+  <Separator/>
+  <Action name="renamefile"/>
+  <Action name="akonadi_change_color"/>
+  <Separator/>
+  <Action name="akonadi_collection_copy"/>
+  <Action name="akonadi_collection_delete"/>
+  <Separator/>
+  <Action name="sort_children_alpha"/>
+  <Action name="sort_children_by_date"/>
+  <Separator/>
+  <Action name="save_to"/>
+  <Separator/>
+  <Action name="akonadi_note_lock"/>
+  <Action name="akonadi_note_unlock"/>
+</Menu>
+
 <ToolBar name="mainToolBar" fullWidth="true" noMerge="1" iconText="icononly">
   <text>Main Toolbar</text>
   <Action name="akonadi_note_create"/>

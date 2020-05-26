@@ -23,7 +23,6 @@ ki18n_wrap_ui(kjots_config_SRCS confpagemisc.ui)
 set(kjots_common_SRCS
   aboutdata.cpp
   kjotsedit.cpp
-  kjotstreeview.cpp
   kjotsbookmarks.cpp
   kjotsmodel.cpp
   kjotssortproxymodel.cpp

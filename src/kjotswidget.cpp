@@ -56,6 +56,7 @@
 #include <AkonadiCore/ItemDeleteJob>
 #include <AkonadiCore/ItemFetchScope>
 #include <AkonadiCore/EntityOrderProxyModel>
+#include <AkonadiWidgets/EntityTreeView>
 #include <AkonadiWidgets/ETMViewStateSaver>
 #include <AkonadiWidgets/ControlGui>
 
@@ -88,7 +89,6 @@
 #include "kjotssortproxymodel.h"
 #include "kjotsmodel.h"
 #include "kjotsedit.h"
-#include "kjotstreeview.h"
 #include "kjotsconfigdlg.h"
 #include "KJotsSettings.h"
 #include "kjotsbrowser.h"
@@ -127,7 +127,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 
     m_templateEngine->addTemplateLoader(m_loader);
 
-    treeview = new KJotsTreeView(xmlGuiClient, m_splitter);
+    m_treeview = new EntityTreeView(xmlGuiClient, m_splitter);
 
     ItemFetchScope scope;
     scope.fetchFullPayload(true);   // Need to have full item when adding it to the internal data structure
@@ -152,16 +152,16 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 
     m_orderProxy->setOrderConfig(cfg);
 
-    treeview->setModel(m_orderProxy);
-    treeview->setSelectionMode(QAbstractItemView::ExtendedSelection);
-    treeview->setEditTriggers(QAbstractItemView::DoubleClicked);
+    m_treeview->setModel(m_orderProxy);
+    m_treeview->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    m_treeview->setEditTriggers(QAbstractItemView::DoubleClicked);
 
-    selProxy = new KSelectionProxyModel(treeview->selectionModel(), this);
-    selProxy->setSourceModel(treeview->model());
+    selProxy = new KSelectionProxyModel(m_treeview->selectionModel(), this);
+    selProxy->setSourceModel(m_treeview->model());
 
     m_actionManager = new StandardNoteActionManager(xmlGuiClient->actionCollection(), this);
-    m_actionManager->setCollectionSelectionModel(treeview->selectionModel());
-    m_actionManager->setItemSelectionModel(treeview->selectionModel());
+    m_actionManager->setCollectionSelectionModel(m_treeview->selectionModel());
+    m_actionManager->setItemSelectionModel(m_treeview->selectionModel());
     m_actionManager->createAllActions();
 
     // TODO: Write a QAbstractItemView subclass to render kjots selection.
@@ -243,7 +243,13 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     action->setIcon(QIcon::fromTheme(QStringLiteral("checkmark")));
     action->setEnabled(false);
 
-    KStandardAction::renameFile(treeview, &KJotsTreeView::renameEntry, actionCollection);
+    KStandardAction::renameFile(m_treeview, [this](){
+            const QModelIndexList rows = m_treeview->selectionModel()->selectedRows();
+            if (rows.size() != 1) {
+                return;
+            }
+            m_treeview->edit(rows.first());
+        }, actionCollection);
 
     action = actionCollection->addAction(QStringLiteral("insert_date"));
     action->setText(i18n("Insert Date"));
@@ -287,7 +293,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 
     bookmarkMenu = actionCollection->add<KActionMenu>(QStringLiteral("bookmarks"));
     bookmarkMenu->setText(i18n("&Bookmarks"));
-    auto *bookmarks = new KJotsBookmarks(treeview->selectionModel(), this);
+    auto *bookmarks = new KJotsBookmarks(m_treeview->selectionModel(), this);
     connect(bookmarks, &KJotsBookmarks::openLink, this, &KJotsWidget::openLink);
     auto *bmm = new KBookmarkMenu(
         KBookmarkManager::managerForFile(
@@ -353,9 +359,9 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 
     QTimer::singleShot(0, this, &KJotsWidget::delayedInitialization);
 
-    connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateMenu);
-    connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateCaption);
-    connect(treeview->model(), &QAbstractItemModel::dataChanged, this, &KJotsWidget::updateCaption);
+    connect(m_treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateMenu);
+    connect(m_treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateCaption);
+    connect(m_treeview->model(), &QAbstractItemModel::dataChanged, this, &KJotsWidget::updateCaption);
     connect(editor, &KJotsEdit::documentModified, this, &KJotsWidget::updateCaption);
 
     connect(m_kjotsModel, &EntityTreeModel::modelAboutToBeReset, this, &KJotsWidget::saveState);
@@ -374,7 +380,7 @@ KJotsWidget::~KJotsWidget()
 void KJotsWidget::restoreState()
 {
     auto *saver = new ETMViewStateSaver;
-    saver->setView(treeview);
+    saver->setView(m_treeview);
     KConfigGroup cfg(KSharedConfig::openConfig(), "TreeState");
     saver->restoreState(cfg);
 }
@@ -382,7 +388,7 @@ void KJotsWidget::restoreState()
 void KJotsWidget::saveState()
 {
     ETMViewStateSaver saver;
-    saver.setView(treeview);
+    saver.setView(m_treeview);
     KConfigGroup cfg(KSharedConfig::openConfig(), "TreeState");
     saver.saveState(cfg);
     cfg.sync();
@@ -439,12 +445,12 @@ void KJotsWidget::delayedInitialization()
     updateConfiguration();
 
     connect(m_autosaveTimer, &QTimer::timeout, editor, &KJotsEdit::savePage);
-    connect(treeview->selectionModel(), &QItemSelectionModel::selectionChanged, m_autosaveTimer, qOverload<>(&QTimer::start));
+    connect(m_treeview->selectionModel(), &QItemSelectionModel::selectionChanged, m_autosaveTimer, qOverload<>(&QTimer::start));
 
     editor->delayedInitialization(m_xmlGuiClient->actionCollection());
 
     // Make sure the editor gets focus again after naming a new book/page.
-    connect(treeview->itemDelegate(), &QItemDelegate::closeEditor, this, [this](){
+    connect(m_treeview->itemDelegate(), &QItemDelegate::closeEditor, this, [this](){
             activeEditor()->setFocus();
         });
 
@@ -462,7 +468,7 @@ inline QTextEdit *KJotsWidget::activeEditor()
 
 void KJotsWidget::updateMenu()
 {
-    QModelIndexList selection = treeview->selectionModel()->selectedRows();
+    QModelIndexList selection = m_treeview->selectionModel()->selectedRows();
     int selectionSize = selection.size();
 
     if (!selectionSize) {
@@ -560,7 +566,7 @@ void KJotsWidget::copySelectionToTitle()
 
     if (!newTitle.isEmpty()) {
 
-        QModelIndexList rows = treeview->selectionModel()->selectedRows();
+        QModelIndexList rows = m_treeview->selectionModel()->selectedRows();
 
         if (rows.size() != 1) {
             return;
@@ -568,7 +574,7 @@ void KJotsWidget::copySelectionToTitle()
 
         QModelIndex idx = rows.at(0);
 
-        treeview->model()->setData(idx, newTitle);
+        m_treeview->model()->setData(idx, newTitle);
     }
 }
 
@@ -658,7 +664,7 @@ void KJotsWidget::print(QPrinter *printer)
 
 void KJotsWidget::selectNext(int role, int step)
 {
-    QModelIndexList list = treeview->selectionModel()->selectedRows();
+    QModelIndexList list = m_treeview->selectionModel()->selectedRows();
     Q_ASSERT(list.size() == 1);
 
     QModelIndex idx = list.at(0);
@@ -668,7 +674,7 @@ void KJotsWidget::selectNext(int role, int step)
     QModelIndex sibling = idx.sibling(idx.row() + step, column);
     while (sibling.isValid()) {
         if (sibling.data(role).toInt() >= 0) {
-            treeview->selectionModel()->select(sibling, QItemSelectionModel::SelectCurrent);
+            m_treeview->selectionModel()->select(sibling, QItemSelectionModel::SelectCurrent);
             return;
         }
         sibling = sibling.sibling(sibling.row() + step, column);
@@ -698,7 +704,7 @@ void KJotsWidget::prevPage()
 
 bool KJotsWidget::canGo(int role, int step) const
 {
-    QModelIndexList list = treeview->selectionModel()->selectedRows();
+    QModelIndexList list = m_treeview->selectionModel()->selectedRows();
     if (list.size() != 1) {
         return false;
     }
@@ -767,7 +773,7 @@ void KJotsWidget::renderSelection()
 
 void KJotsWidget::updateCaption()
 {
-    const QModelIndexList selection = treeview->selectionModel()->selectedRows();
+    const QModelIndexList selection = m_treeview->selectionModel()->selectedRows();
     QString caption;
     if (selection.size() == 1) {
         caption = KJotsModel::itemPath(selection.first());
@@ -823,7 +829,7 @@ bool KJotsWidget::queryClose()
 
 void KJotsWidget::actionSortChildrenAlpha()
 {
-    const QModelIndexList selection = treeview->selectionModel()->selectedRows();
+    const QModelIndexList selection = m_treeview->selectionModel()->selectedRows();
 
     for (const QModelIndex &index : selection) {
         const QPersistentModelIndex persistent(index);
@@ -834,7 +840,7 @@ void KJotsWidget::actionSortChildrenAlpha()
 
 void KJotsWidget::actionSortChildrenByDate()
 {
-    const QModelIndexList selection = treeview->selectionModel()->selectedRows();
+    const QModelIndexList selection = m_treeview->selectionModel()->selectedRows();
 
     for (const QModelIndex &index : selection) {
         const QPersistentModelIndex persistent(index);
@@ -846,7 +852,7 @@ void KJotsWidget::actionSortChildrenByDate()
 void KJotsWidget::openLink(const QUrl &url)
 {
     if (url.scheme() == QStringLiteral("akonadi")) {
-        treeview->selectionModel()->select(KJotsModel::modelIndexForUrl(treeview->model(), url), QItemSelectionModel::ClearAndSelect);
+        m_treeview->selectionModel()->select(KJotsModel::modelIndexForUrl(m_treeview->model(), url), QItemSelectionModel::ClearAndSelect);
     } else {
         new KRun(url, this);
     }
