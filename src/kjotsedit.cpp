@@ -53,16 +53,93 @@ Q_DECLARE_METATYPE(QTextCursor)
 using namespace Akonadi;
 using namespace KPIMTextEdit;
 
-KJotsEdit::KJotsEdit(QWidget *parent)
-    : RichTextComposer(parent),
-      actionCollection(nullptr),
-      allowAutoDecimal(false)
+class Q_DECL_HIDDEN KJotsEdit::Private {
+public:
+    Private() = default;
+    ~Private() = default;
+
+    QAction *action_copy_into_title = nullptr;
+    QAction *action_manage_link = nullptr;
+    QAction *action_auto_bullet = nullptr;
+    QAction *action_auto_decimal = nullptr;
+    QAction *action_insert_date = nullptr;
+    QVector<QAction *> richTextActionList;
+};
+
+KJotsEdit::KJotsEdit(QWidget *parent, KActionCollection *actionCollection)
+    : RichTextComposer(parent)
+    , d(new Private)
+    , m_actionCollection(actionCollection)
+    , allowAutoDecimal(false)
 {
     setMouseTracking(true);
     setAcceptRichText(true);
     setWordWrapMode(QTextOption::WordWrap);
     setCheckSpellingEnabled(true);
     setFocusPolicy(Qt::StrongFocus);
+
+    createActions(m_actionCollection);
+    activateRichText();
+}
+
+KJotsEdit::~KJotsEdit() = default;
+
+void KJotsEdit::createActions(KActionCollection *ac)
+{
+    RichTextComposer::createActions(ac);
+
+    d->action_copy_into_title = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")),
+                                            i18nc("@action", "Copy &Into Page Title"), this);
+    connect(d->action_copy_into_title, &QAction::triggered, this, &KJotsEdit::copySelectionIntoTitle);
+    connect(this, &KJotsEdit::copyAvailable, d->action_copy_into_title, &QAction::setEnabled);
+    d->action_copy_into_title->setEnabled(false);
+    d->richTextActionList.append(d->action_copy_into_title);
+    if (ac) {
+        ac->addAction(QStringLiteral("copy_into_title"), d->action_copy_into_title);
+    }
+
+    d->action_manage_link = new QAction(QIcon::fromTheme(QStringLiteral("insert-link")),
+                                        i18nc("@action creates and manages hyperlinks", "Link"), this);
+    connect(d->action_manage_link, &QAction::triggered, this, &KJotsEdit::onLinkify);
+    d->richTextActionList.append(d->action_manage_link);
+    if (ac) {
+        ac->addAction(QStringLiteral("manage_note_link"), d->action_manage_link);
+    }
+
+    d->action_auto_bullet = new QAction(QIcon::fromTheme(QStringLiteral("format-list-unordered")),
+                                        i18nc("@action", "Auto Bullet List"), this);
+    d->action_auto_bullet->setCheckable(true);
+    connect(d->action_auto_bullet, &QAction::triggered, this, &KJotsEdit::onAutoBullet);
+    d->richTextActionList.append(d->action_auto_bullet);
+    if (ac) {
+        ac->addAction(QStringLiteral("auto_bullet"), d->action_auto_bullet);
+    }
+
+    d->action_auto_decimal = new QAction(QIcon::fromTheme(QStringLiteral("format-list-ordered")),
+                                         i18nc("@action", "Auto Decimal List"), this);
+    d->action_auto_decimal->setCheckable(true);
+    connect(d->action_auto_decimal, &QAction::triggered, this, &KJotsEdit::onAutoDecimal);
+    d->richTextActionList.append(d->action_auto_decimal);
+    if (ac) {
+        ac->addAction(QStringLiteral("auto_decimal"), d->action_auto_decimal);
+    }
+
+    d->action_insert_date = new QAction(QIcon::fromTheme(QStringLiteral("view-calendar-time-spent")),
+                                        i18nc("@action", "Insert Date"), this);
+    connect(d->action_insert_date, &QAction::triggered, this, &KJotsEdit::insertDate);
+    d->richTextActionList.append(d->action_insert_date);
+    if (ac) {
+        ac->addAction(QStringLiteral("insert_date"), d->action_insert_date);
+        ac->setDefaultShortcut(d->action_insert_date, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I));
+    }
+}
+
+void KJotsEdit::setEnableActions(bool enable)
+{
+    RichTextComposer::setEnableActions(enable);
+    for (QAction *action : qAsConst(d->richTextActionList)) {
+        action->setEnabled(enable);
+    }
 }
 
 void KJotsEdit::contextMenuEvent(QContextMenuEvent *event)
@@ -70,9 +147,8 @@ void KJotsEdit::contextMenuEvent(QContextMenuEvent *event)
     QMenu *popup = mousePopupMenu(event->pos());
     if (popup) {
         const QList<QAction*> actionList = popup->actions();
-        QAction *act;
         if (!qApp->clipboard()->text().isEmpty()) {
-            act = actionCollection->action(QStringLiteral("paste_without_formatting"));
+            QAction *act = m_actionCollection->action(QStringLiteral("paste_without_formatting"));
             act->setIcon(QIcon::fromTheme(QStringLiteral("edit-paste")));
             act->setEnabled(!isReadOnly());
             // HACK: menu actions are following: Undo, Redo, Separator, Cut, Copy, Paste, Delete, Clear
@@ -87,30 +163,15 @@ void KJotsEdit::contextMenuEvent(QContextMenuEvent *event)
             }
         }
         popup->addSeparator();
-        act = actionCollection->action(QStringLiteral("copyIntoTitle"));
-        popup->addAction(act);
-        act = actionCollection->action(QStringLiteral("insert_checkmark"));
-        act->setEnabled(!isReadOnly());
-        popup->addAction(act);
+        popup->addAction(d->action_copy_into_title);
 
         if (!anchorAt(event->pos()).isNull()) {
-            popup->addAction(actionCollection->action(QStringLiteral("manage_link")));
+            popup->addAction(d->action_manage_link);
         }
 
         popup->exec(event->globalPos());
         delete popup;
     }
-}
-
-void KJotsEdit::delayedInitialization(KActionCollection *collection)
-{
-    actionCollection = collection;
-
-    connect(actionCollection->action(QStringLiteral("auto_bullet")), &QAction::triggered, this, &KJotsEdit::onAutoBullet);
-    connect(actionCollection->action(QStringLiteral("auto_decimal")), &QAction::triggered, this, &KJotsEdit::onAutoDecimal);
-    connect(actionCollection->action(QStringLiteral("manage_link")), &QAction::triggered, this, &KJotsEdit::onLinkify);
-    connect(actionCollection->action(QStringLiteral("insert_checkmark")), &QAction::triggered, this, &KJotsEdit::addCheckmark);
-    connect(actionCollection->action(QStringLiteral("insert_date")), &QAction::triggered, this, &KJotsEdit::insertDate);
 }
 
 bool KJotsEdit::modified()
@@ -180,10 +241,10 @@ void KJotsEdit::onAutoBullet()
 
     if (currentFormatting == KTextEdit::AutoBulletList) {
         setAutoFormatting(KTextEdit::AutoNone);
-        actionCollection->action(QStringLiteral("auto_bullet"))->setChecked(false);
+        d->action_auto_bullet->setChecked(false);
     } else {
         setAutoFormatting(KTextEdit::AutoBulletList);
-        actionCollection->action(QStringLiteral("auto_bullet"))->setChecked(true);
+        d->action_auto_bullet->setChecked(true);
     }
 }
 
@@ -230,11 +291,11 @@ void KJotsEdit::onAutoDecimal()
     if (allowAutoDecimal) {
         allowAutoDecimal = false;
         disconnect(this, &KJotsEdit::textChanged, this, &KJotsEdit::DecimalList);
-        actionCollection->action(QStringLiteral("auto_decimal"))->setChecked(false);
+        d->action_auto_decimal->setChecked(false);
     } else {
         allowAutoDecimal = true;
         connect(this, &KJotsEdit::textChanged, this, &KJotsEdit::DecimalList);
-        actionCollection->action(QStringLiteral("auto_decimal"))->setChecked(true);
+        d->action_auto_decimal->setChecked(true);
     }
 }
 
@@ -254,10 +315,14 @@ void KJotsEdit::onLinkify()
     }
 }
 
-void KJotsEdit::addCheckmark()
+void KJotsEdit::copySelectionIntoTitle()
 {
-    QTextCursor cursor = textCursor();
-    NoteShared::NoteEditorUtils::addCheckmark(cursor);
+    if (!m_index) {
+        return;
+    }
+    const QString newTitle(textCursor().selectedText());
+    auto *model = const_cast<QAbstractItemModel *>(m_index->model());
+    model->setData(*m_index, newTitle);
 }
 
 bool KJotsEdit::canInsertFromMimeData(const QMimeData *source) const

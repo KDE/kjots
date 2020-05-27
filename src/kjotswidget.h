@@ -53,7 +53,6 @@ class KXMLGUIClient;
 namespace Akonadi
 {
 class EntityOrderProxyModel;
-class EntityTreeModel;
 class EntityTreeView;
 class StandardNoteActionManager;
 }
@@ -69,6 +68,7 @@ class RichTextEditorWidget;
 }
 
 class KJotsEdit;
+class KJotsModel;
 class KJotsTreeView;
 class KJotsSortProxyModel;
 
@@ -103,6 +103,9 @@ Q_SIGNALS:
     void captionChanged(const QString &newCaption);
 
 protected:
+    void setupGui();
+    void setupActions();
+
     bool canGo(int role, int step) const;
     bool canGoNextPage() const;
     bool canGoPreviousPage() const;
@@ -128,8 +131,6 @@ protected Q_SLOTS:
 private Q_SLOTS:
     void delayedInitialization();
 
-    void copySelectionToTitle();
-
     void actionSortChildrenAlpha();
     void actionSortChildrenByDate();
 
@@ -139,30 +140,31 @@ private Q_SLOTS:
     void updateConfiguration();
 
     void print(QPrinter *printer);
-
 private:
-    KXMLGUIClient  *m_xmlGuiClient;
+    // Grantlee
+    Grantlee::Engine *m_templateEngine = nullptr;
+    QSharedPointer<Grantlee::FileSystemTemplateLoader> m_loader;
+
+    // XMLGui && Actions
+    KXMLGUIClient  *m_xmlGuiClient = nullptr;
     Akonadi::StandardNoteActionManager *m_actionManager = nullptr;
-    KJotsEdit      *editor;
+    QSet<QAction *> entryActions, pageActions, bookActions, multiselectionActions;
+
+    // UI
+    QSplitter *m_splitter = nullptr;
+    QStackedWidget *m_stackedWidget = nullptr;
+    Akonadi::EntityTreeView *m_treeview = nullptr;
+    KJotsEdit      *m_editor = nullptr;
     KPIMTextEdit::RichTextEditorWidget *m_editorWidget = nullptr;
     KJotsBrowserWidget *m_browserWidget = nullptr;
 
-    QStackedWidget *stackedWidget;
-    KActionMenu    *bookmarkMenu;
-    Akonadi::EntityTreeModel *m_kjotsModel;
-    KSelectionProxyModel *selProxy;
-    KJotsSortProxyModel *m_sortProxyModel;
-    Akonadi::EntityOrderProxyModel *m_orderProxy;
-    Akonadi::EntityTreeView *m_treeview = nullptr;
-    QSplitter *m_splitter;
-    QTimer *m_autosaveTimer;
+    // Models
+    KJotsModel *m_kjotsModel = nullptr;
+    KSelectionProxyModel *m_collectionSelectionProxyModel = nullptr;
+    KJotsSortProxyModel *m_sortProxyModel = nullptr;
+    Akonadi::EntityOrderProxyModel *m_orderProxy = nullptr;
 
-    QString activeAnchor;
-
-    Grantlee::Engine *m_templateEngine;
-    QSharedPointer<Grantlee::FileSystemTemplateLoader> m_loader;
-
-    QSet<QAction *> entryActions, pageActions, bookActions, multiselectionActions;
+    QTimer *m_autosaveTimer = nullptr;
 };
 
 #endif

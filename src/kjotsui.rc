@@ -56,9 +56,9 @@
    <Action name="add_image"/>
    <Action name="insert_table"/>
    <Action name="insert_horizontal_rule"/>
-   <Action name="manage_link"/>
+   <Action name="manage_note_link"/>
    <Action name="insert_date"/>
-   <Action name="copyIntoTitle"/>
+   <Action name="copy_into_title"/>
   </Menu>
 
   <Action name="bookmarks"/>
@@ -156,6 +156,6 @@
     <Action name="add_image"/>
     <Action name="insert_table"/>
     <Action name="insert_horizontal_rule"/>
-    <Action name="manage_link"/>
+    <Action name="manage_note_link"/>
 </ToolBar>
 </kpartgui>

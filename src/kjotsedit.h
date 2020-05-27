@@ -38,9 +38,9 @@ class KJotsEdit : public KPIMTextEdit::RichTextComposer
 {
     Q_OBJECT
 public:
-    explicit KJotsEdit(QWidget *);
+    explicit KJotsEdit(QWidget *parent, KActionCollection *m_actionCollection);
+    ~KJotsEdit();
 
-    void delayedInitialization(KActionCollection *);
     bool canInsertFromMimeData(const QMimeData *) const override;
     void insertFromMimeData(const QMimeData *) override;
     /**
@@ -53,6 +53,9 @@ public:
      * Returns the current modified state of the document
      */
     bool modified();
+
+    void createActions(KActionCollection *ac);
+    void setEnableActions(bool enable);
 protected:
     /* To be able to change cursor when hovering over links */
     void mouseMoveEvent(QMouseEvent *event) override;
@@ -72,19 +75,22 @@ protected:
 public Q_SLOTS:
     void onAutoBullet();
     void onLinkify(void);
-    void addCheckmark(void);
     void onAutoDecimal(void);
     void DecimalList(void);
 
     void savePage();
     void insertDate();
+    void copySelectionIntoTitle();
 
 Q_SIGNALS:
     void linkClicked(const QUrl &url);
     void documentModified(bool modified);
 private:
+    class Private;
+    std::unique_ptr<Private> const d;
+
     void createAutoDecimalList();
-    KActionCollection *actionCollection;
+    KActionCollection *m_actionCollection;
     bool allowAutoDecimal;
     std::unique_ptr<QPersistentModelIndex> m_index;
 

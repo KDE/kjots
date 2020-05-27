@@ -106,29 +106,19 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 {
     ControlGui::widgetNeedsAkonadi(this);
 
-    m_splitter = new QSplitter(this);
-
-    m_splitter->setStretchFactor(1, 1);
-    // I think we can live without this
-    //m_splitter->setOpaqueResize(KGlobalSettings::opaqueResize());
-
-    auto *layout = new QHBoxLayout(this);
-    layout->setMargin(0);
-
-    m_templateEngine = new Engine(this);
-    // We don't have custom plugins, so this should not be needed
-    //m_templateEngine->setPluginPaths(KStd.findDirs("lib", QString()));
-
+    // Grantlee
     m_loader = QSharedPointer<FileSystemTemplateLoader>(new FileSystemTemplateLoader());
     m_loader->setTemplateDirs(QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
                                                         QStringLiteral("kjots/themes"),
                                                         QStandardPaths::LocateDirectory));
     m_loader->setTheme(QStringLiteral("default"));
-
+    m_templateEngine = new Engine(this);
     m_templateEngine->addTemplateLoader(m_loader);
 
-    m_treeview = new EntityTreeView(xmlGuiClient, m_splitter);
-
+    // GUI & Actions
+    setupGui();
+    setupActions();
+    // Models
     ItemFetchScope scope;
     scope.fetchFullPayload(true);   // Need to have full item when adding it to the internal data structure
     scope.fetchAttribute< EntityDisplayAttribute >();
@@ -147,72 +137,96 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 
     m_orderProxy = new EntityOrderProxyModel(this);
     m_orderProxy->setSourceModel(m_sortProxyModel);
-
     KConfigGroup cfg(KSharedConfig::openConfig(), "KJotsEntityOrder");
-
     m_orderProxy->setOrderConfig(cfg);
 
     m_treeview->setModel(m_orderProxy);
+    m_actionManager->setCollectionSelectionModel(m_treeview->selectionModel());
+    m_actionManager->setItemSelectionModel(m_treeview->selectionModel());
+
+    m_collectionSelectionProxyModel = new KSelectionProxyModel(m_treeview->selectionModel(), this);
+    m_collectionSelectionProxyModel->setSourceModel(m_treeview->model());
+
+    // TODO: handle dataChanged properly, i.e. if item was changed from outside
+    connect(m_collectionSelectionProxyModel, &KSelectionProxyModel::dataChanged, this, &KJotsWidget::renderSelection);
+    connect(m_collectionSelectionProxyModel, &KSelectionProxyModel::rowsInserted, this, &KJotsWidget::renderSelection);
+    connect(m_collectionSelectionProxyModel, &KSelectionProxyModel::rowsRemoved, this, &KJotsWidget::renderSelection);
+
+    connect(m_editor, &KJotsEdit::linkClicked, this, &KJotsWidget::openLink);
+    connect(m_browserWidget->browser(), &KJotsBrowser::linkClicked, this, &KJotsWidget::openLink);
+
+    connect(m_treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateMenu);
+    connect(m_treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateCaption);
+    connect(m_treeview->model(), &QAbstractItemModel::dataChanged, this, &KJotsWidget::updateCaption);
+    connect(m_editor, &KJotsEdit::documentModified, this, &KJotsWidget::updateCaption);
+
+    connect(m_kjotsModel, &EntityTreeModel::modelAboutToBeReset, this, &KJotsWidget::saveState);
+    connect(m_kjotsModel, &EntityTreeModel::modelReset, this, &KJotsWidget::restoreState);
+
+    QTimer::singleShot(0, this, &KJotsWidget::delayedInitialization);
+
+    // Autosave timer
+    m_autosaveTimer = new QTimer(this);
+    updateConfiguration();
+    connect(m_autosaveTimer, &QTimer::timeout, m_editor, &KJotsEdit::savePage);
+    connect(m_treeview->selectionModel(), &QItemSelectionModel::selectionChanged, m_autosaveTimer, qOverload<>(&QTimer::start));
+
+    restoreState();
+
+    QDBusConnection::sessionBus().registerObject(QStringLiteral("/KJotsWidget"), this, QDBusConnection::ExportScriptableContents);
+}
+
+KJotsWidget::~KJotsWidget()
+{
+    saveState();
+}
+
+void KJotsWidget::setupGui()
+{
+    // Main horizontal layout
+    auto *layout = new QHBoxLayout(this);
+    layout->setMargin(0);
+
+    // Splitter between collection view and browser / editor
+    m_splitter = new QSplitter(this);
+    m_splitter->setStretchFactor(1, 1);
+    layout->addWidget(m_splitter);
+
+    // Collection view
+    m_treeview = new EntityTreeView(m_xmlGuiClient, m_splitter);
     m_treeview->setSelectionMode(QAbstractItemView::ExtendedSelection);
     m_treeview->setEditTriggers(QAbstractItemView::DoubleClicked);
 
-    selProxy = new KSelectionProxyModel(m_treeview->selectionModel(), this);
-    selProxy->setSourceModel(m_treeview->model());
+    // Make sure the editor gets focus again after naming a new book/page.
+    connect(m_treeview->itemDelegate(), &QItemDelegate::closeEditor, this, [this](){
+            activeEditor()->setFocus();
+        });
 
-    m_actionManager = new StandardNoteActionManager(xmlGuiClient->actionCollection(), this);
-    m_actionManager->setCollectionSelectionModel(m_treeview->selectionModel());
-    m_actionManager->setItemSelectionModel(m_treeview->selectionModel());
+    // Stacked widget containing editor & browser
+    m_stackedWidget = new QStackedWidget(m_splitter);
+
+    // Editor
+    m_editor = new KJotsEdit(m_stackedWidget, m_xmlGuiClient->actionCollection());
+    m_editorWidget = new KPIMTextEdit::RichTextEditorWidget(m_editor, m_stackedWidget);
+    m_editor->setParent(m_editorWidget);
+    m_stackedWidget->addWidget(m_editorWidget);
+    // Browser
+    m_browserWidget = new KJotsBrowserWidget(std::make_unique<KJotsBrowser>(m_kjotsModel, m_xmlGuiClient->actionCollection()),
+                                             m_stackedWidget);
+    m_stackedWidget->addWidget(m_browserWidget);
+    m_stackedWidget->setCurrentWidget(m_browserWidget);
+
+    if (!KJotsSettings::splitterSizes().isEmpty()) {
+        m_splitter->setSizes(KJotsSettings::splitterSizes());
+    }
+}
+
+void KJotsWidget::setupActions()
+{
+    KActionCollection *actionCollection = m_xmlGuiClient->actionCollection();
+    // Default Akonadi Notes actions
+    m_actionManager = new StandardNoteActionManager(actionCollection, this);
     m_actionManager->createAllActions();
-
-    // TODO: Write a QAbstractItemView subclass to render kjots selection.
-
-    // TODO: handle dataChanged properly, i.e. if item was changed from outside
-    connect(selProxy, &KSelectionProxyModel::dataChanged, this, &KJotsWidget::renderSelection);
-    connect(selProxy, &KSelectionProxyModel::rowsInserted, this, &KJotsWidget::renderSelection);
-    connect(selProxy, &KSelectionProxyModel::rowsRemoved, this, &KJotsWidget::renderSelection);
-
-    stackedWidget = new QStackedWidget(m_splitter);
-
-    KActionCollection *actionCollection = xmlGuiClient->actionCollection();
-
-    editor = new KJotsEdit(stackedWidget);
-    connect(editor, &KJotsEdit::linkClicked, this, &KJotsWidget::openLink);
-    editor->createActions(actionCollection);
-    editor->activateRichText();
-    m_editorWidget = new KPIMTextEdit::RichTextEditorWidget(editor, stackedWidget);
-    stackedWidget->addWidget(m_editorWidget);
-
-    layout->addWidget(m_splitter);
-
-    m_browserWidget = new KJotsBrowserWidget(std::make_unique<KJotsBrowser>(m_kjotsModel, actionCollection),
-                                             stackedWidget);
-    stackedWidget->addWidget(m_browserWidget);
-    stackedWidget->setCurrentWidget(m_browserWidget);
-    connect(m_browserWidget->browser(), &KJotsBrowser::linkClicked, this, &KJotsWidget::openLink);
-
-    QAction *action;
-
-    action = actionCollection->addAction(QStringLiteral("go_next_book"));
-    action->setText(i18n("Next Book"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("go-down")));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_D));
-    connect(action, &QAction::triggered, this, &KJotsWidget::nextBook);
-    connect(this, &KJotsWidget::canGoNextBookChanged, action, &QAction::setEnabled);
-
-    action = actionCollection->addAction(QStringLiteral("go_prev_book"));
-    action->setText(i18n("Previous Book"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("go-up")));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_D));
-    connect(action, &QAction::triggered, this, &KJotsWidget::prevBook);
-    connect(this, &KJotsWidget::canGoPreviousBookChanged, action, &QAction::setEnabled);
-
-    action = KStandardAction::next(this, &KJotsWidget::nextPage, actionCollection);
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_PageDown));
-    connect(this, &KJotsWidget::canGoNextPageChanged, action, &QAction::setEnabled);
-
-    action = KStandardAction::prior(this, &KJotsWidget::prevPage, actionCollection);
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_PageUp));
-    connect(this, &KJotsWidget::canGoPreviousPageChanged, action, &QAction::setEnabled);
 
     actionCollection->setDefaultShortcut(m_actionManager->action(StandardActionManager::CreateCollection),
                                          QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_N));
@@ -222,26 +236,19 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
                                          QKeySequence(Qt::CTRL + Qt::Key_Delete));
 
 
-    KStandardAction::save( editor, &KJotsEdit::savePage, actionCollection);
+    QAction *action;
+    // Standard actions
+    KStandardAction::preferences(this, &KJotsWidget::configure, actionCollection);
 
-    action = actionCollection->addAction(QStringLiteral("auto_bullet"));
-    action->setText(i18n("Auto Bullets"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("format-list-unordered")));
-    action->setCheckable(true);
+    KStandardAction::save( m_editor, &KJotsEdit::savePage, actionCollection);
 
-    action = actionCollection->addAction(QStringLiteral("auto_decimal"));
-    action->setText(i18n("Auto Decimal List"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("format-list-ordered")));
-    action->setCheckable(true);
+    action = KStandardAction::next(this, &KJotsWidget::nextPage, actionCollection);
+    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_PageDown));
+    connect(this, &KJotsWidget::canGoNextPageChanged, action, &QAction::setEnabled);
 
-    action = actionCollection->addAction(QStringLiteral("manage_link"));
-    action->setText(i18n("Link"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("insert-link")));
-
-    action = actionCollection->addAction(QStringLiteral("insert_checkmark"));
-    action->setText(i18n("Insert Checkmark"));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("checkmark")));
-    action->setEnabled(false);
+    action = KStandardAction::prior(this, &KJotsWidget::prevPage, actionCollection);
+    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_PageUp));
+    connect(this, &KJotsWidget::canGoPreviousPageChanged, action, &QAction::setEnabled);
 
     KStandardAction::renameFile(m_treeview, [this](){
             const QModelIndexList rows = m_treeview->selectionModel()->selectedRows();
@@ -251,64 +258,21 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
             m_treeview->edit(rows.first());
         }, actionCollection);
 
-    action = actionCollection->addAction(QStringLiteral("insert_date"));
-    action->setText(i18n("Insert Date"));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("view-calendar-time-spent")));
-
-    action = actionCollection->addAction(QStringLiteral("sort_children_alpha"));
-    action->setText(i18n("Sort children alphabetically"));
-    connect(action, &QAction::triggered, this, &KJotsWidget::actionSortChildrenAlpha);
-
-    action = actionCollection->addAction(QStringLiteral("sort_children_by_date"));
-    action->setText(i18n("Sort children by creation date"));
-    connect(action, &QAction::triggered, this, &KJotsWidget::actionSortChildrenByDate);
-
-    action = KStandardAction::cut(editor, &KJotsEdit::cut, actionCollection);
-    connect(editor, &KJotsEdit::copyAvailable, action, &QAction::setEnabled);
+    action = KStandardAction::cut(m_editor, &KJotsEdit::cut, actionCollection);
+    connect(m_editor, &KJotsEdit::copyAvailable, action, &QAction::setEnabled);
     action->setEnabled(false);
 
     action = KStandardAction::copy(this, [this](){
             activeEditor()->copy();
         }, actionCollection);
-    connect(editor, &KJotsEdit::copyAvailable, action, &QAction::setEnabled);
+    connect(m_editor, &KJotsEdit::copyAvailable, action, &QAction::setEnabled);
     connect(m_browserWidget->browser(), &KJotsBrowser::copyAvailable, action, &QAction::setEnabled);
     action->setEnabled(false);
 
-    KStandardAction::paste(editor, &KJotsEdit::paste, actionCollection);
-
-    KStandardAction::undo(editor, &KJotsEdit::undo, actionCollection);
-    KStandardAction::redo(editor, &KJotsEdit::redo, actionCollection);
-    KStandardAction::selectAll(editor, &KJotsEdit::selectAll, actionCollection);
-
-    action = actionCollection->addAction(QStringLiteral("copyIntoTitle"));
-    action->setText(i18n("Copy &into Page Title"));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_T));
-    action->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
-    connect(action, &QAction::triggered, this, &KJotsWidget::copySelectionToTitle);
-    connect(editor, &KJotsEdit::copyAvailable, action, &QAction::setEnabled);
-    action->setEnabled(false);
-
-    KStandardAction::preferences(this, &KJotsWidget::configure, actionCollection);
-
-    bookmarkMenu = actionCollection->add<KActionMenu>(QStringLiteral("bookmarks"));
-    bookmarkMenu->setText(i18n("&Bookmarks"));
-    auto *bookmarks = new KJotsBookmarks(m_treeview->selectionModel(), this);
-    connect(bookmarks, &KJotsBookmarks::openLink, this, &KJotsWidget::openLink);
-    auto *bmm = new KBookmarkMenu(
-        KBookmarkManager::managerForFile(
-            QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/kjots/bookmarks.xml"),
-            QStringLiteral("kjots")),
-        bookmarks, bookmarkMenu->menu());
-
-    // "Add bookmark" and "make text bold" actions have conflicting shortcuts (ctrl + b)
-    // Make add_bookmark use ctrl+shift+b to resolve that.
-    QAction *bm_action = bmm->addBookmarkAction();
-    actionCollection->addAction(QStringLiteral("add_bookmark"), bm_action);
-    actionCollection->setDefaultShortcut(bm_action, Qt::CTRL | Qt::SHIFT | Qt::Key_B);
-    actionCollection->addAction(QStringLiteral("edit_bookmark"), bmm->editBookmarksAction());
-    actionCollection->addAction(QStringLiteral("add_bookmarks_list"), bmm->bookmarkTabsAsFolderAction());
-
+    KStandardAction::paste(m_editor, &KJotsEdit::paste, actionCollection);
+    KStandardAction::undo(m_editor, &KJotsEdit::undo, actionCollection);
+    KStandardAction::redo(m_editor, &KJotsEdit::redo, actionCollection);
+    KStandardAction::selectAll(m_editor, &KJotsEdit::selectAll, actionCollection);
 
     KStandardAction::find(this, [this](){
             if (m_editorWidget->isVisible()) {
@@ -330,6 +294,28 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
             }
         }, actionCollection);
 
+    KStandardAction::print(this, &KJotsWidget::printSelection, actionCollection);
+    KStandardAction::printPreview(this, &KJotsWidget::printPreviewSelection, actionCollection);
+
+    // Bookmarks actions
+    auto *bookmarkMenu = actionCollection->add<KActionMenu>(QStringLiteral("bookmarks"));
+    bookmarkMenu->setText(i18n("&Bookmarks"));
+    auto *bookmarks = new KJotsBookmarks(m_treeview->selectionModel(), this);
+    connect(bookmarks, &KJotsBookmarks::openLink, this, &KJotsWidget::openLink);
+    auto *bmm = new KBookmarkMenu(
+        KBookmarkManager::managerForFile(
+            QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/kjots/bookmarks.xml"),
+            QStringLiteral("kjots")),
+        bookmarks, bookmarkMenu->menu());
+    // "Add bookmark" and "make text bold" actions have conflicting shortcuts (ctrl + b)
+    // Make add_bookmark use ctrl+shift+b to resolve that.
+    action = bmm->addBookmarkAction();
+    actionCollection->addAction(QStringLiteral("add_bookmark"), action);
+    actionCollection->setDefaultShortcut(action, Qt::CTRL | Qt::SHIFT | Qt::Key_B);
+    actionCollection->addAction(QStringLiteral("edit_bookmark"), bmm->editBookmarksAction());
+    actionCollection->addAction(QStringLiteral("add_bookmarks_list"), bmm->bookmarkTabsAsFolderAction());
+
+    // Export actions
     auto *exportMenu = actionCollection->add<KActionMenu>(QStringLiteral("save_to"));
     exportMenu->setText(i18n("Export"));
     exportMenu->setIcon(QIcon::fromTheme(QStringLiteral("document-export")));
@@ -350,31 +336,28 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
         });
     exportMenu->menu()->addAction(action);
 
-    KStandardAction::print(this, &KJotsWidget::printSelection, actionCollection);
-    KStandardAction::printPreview(this, &KJotsWidget::printPreviewSelection, actionCollection);
+    // Some extra actions
+    action = actionCollection->addAction(QStringLiteral("go_next_book"));
+    action->setText(i18n("Next Book"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("go-down")));
+    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_D));
+    connect(action, &QAction::triggered, this, &KJotsWidget::nextBook);
+    connect(this, &KJotsWidget::canGoNextBookChanged, action, &QAction::setEnabled);
 
-    if (!KJotsSettings::splitterSizes().isEmpty()) {
-        m_splitter->setSizes(KJotsSettings::splitterSizes());
-    }
+    action = actionCollection->addAction(QStringLiteral("go_prev_book"));
+    action->setText(i18n("Previous Book"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("go-up")));
+    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_D));
+    connect(action, &QAction::triggered, this, &KJotsWidget::prevBook);
+    connect(this, &KJotsWidget::canGoPreviousBookChanged, action, &QAction::setEnabled);
 
-    QTimer::singleShot(0, this, &KJotsWidget::delayedInitialization);
+    action = actionCollection->addAction(QStringLiteral("sort_children_alpha"));
+    action->setText(i18n("Sort children alphabetically"));
+    connect(action, &QAction::triggered, this, &KJotsWidget::actionSortChildrenAlpha);
 
-    connect(m_treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateMenu);
-    connect(m_treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateCaption);
-    connect(m_treeview->model(), &QAbstractItemModel::dataChanged, this, &KJotsWidget::updateCaption);
-    connect(editor, &KJotsEdit::documentModified, this, &KJotsWidget::updateCaption);
-
-    connect(m_kjotsModel, &EntityTreeModel::modelAboutToBeReset, this, &KJotsWidget::saveState);
-    connect(m_kjotsModel, &EntityTreeModel::modelReset, this, &KJotsWidget::restoreState);
-
-    restoreState();
-
-    QDBusConnection::sessionBus().registerObject(QStringLiteral("/KJotsWidget"), this, QDBusConnection::ExportScriptableContents);
-}
-
-KJotsWidget::~KJotsWidget()
-{
-    saveState();
+    action = actionCollection->addAction(QStringLiteral("sort_children_by_date"));
+    action->setText(i18n("Sort children by creation date"));
+    connect(action, &QAction::triggered, this, &KJotsWidget::actionSortChildrenByDate);
 }
 
 void KJotsWidget::restoreState()
@@ -410,43 +393,25 @@ void KJotsWidget::delayedInitialization()
     KActionCollection *actionCollection = m_xmlGuiClient->actionCollection();
 
     // Actions for a single item selection.
-    entryActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))));
-    entryActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Print))));
-    entryActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::RenameFile))));
-    entryActions.insert(actionCollection->action(QStringLiteral("save_to")));
+    entryActions = { actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))),
+                     actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Print))),
+                     actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::RenameFile))),
+                     actionCollection->action(QStringLiteral("save_to")) };
 
     // Actions that are used only when a page is selected.
-    pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Cut))));
-    pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Paste))));
-    pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Replace))));
-    pageActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Save))));
-    pageActions.insert(actionCollection->action(QStringLiteral("insert_date")));
-    pageActions.insert(actionCollection->action(QStringLiteral("auto_bullet")));
-    pageActions.insert(actionCollection->action(QStringLiteral("auto_decimal")));
-    pageActions.insert(actionCollection->action(QStringLiteral("manage_link")));
-    pageActions.insert(actionCollection->action(QStringLiteral("insert_checkmark")));
+    pageActions = { actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Cut))),
+                    actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Paste))),
+                    actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Replace))),
+                    actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Save))) };
 
     // Actions that are used only when a book is selected.
-    bookActions.insert(actionCollection->action(QStringLiteral("sort_children_alpha")));
-    bookActions.insert(actionCollection->action(QStringLiteral("sort_children_by_date")));
+    bookActions = { actionCollection->action(QStringLiteral("sort_children_alpha")),
+                    actionCollection->action(QStringLiteral("sort_children_by_date")) };
 
     // Actions that are used when multiple items are selected.
-    multiselectionActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))));
-    multiselectionActions.insert(actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Print))));
-    multiselectionActions.insert(actionCollection->action(QStringLiteral("save_to")));
-
-    m_autosaveTimer = new QTimer(this);
-    updateConfiguration();
-
-    connect(m_autosaveTimer, &QTimer::timeout, editor, &KJotsEdit::savePage);
-    connect(m_treeview->selectionModel(), &QItemSelectionModel::selectionChanged, m_autosaveTimer, qOverload<>(&QTimer::start));
-
-    editor->delayedInitialization(m_xmlGuiClient->actionCollection());
-
-    // Make sure the editor gets focus again after naming a new book/page.
-    connect(m_treeview->itemDelegate(), &QItemDelegate::closeEditor, this, [this](){
-            activeEditor()->setFocus();
-        });
+    multiselectionActions = { actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))),
+                              actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Print))),
+                              actionCollection->action(QStringLiteral("save_to")) };
 
     updateMenu();
 }
@@ -456,7 +421,7 @@ inline QTextEdit *KJotsWidget::activeEditor()
     if (m_browserWidget->isVisible()) {
         return m_browserWidget->browser();
     } else {
-        return editor;
+        return m_editor;
     }
 }
 
@@ -464,6 +429,8 @@ void KJotsWidget::updateMenu()
 {
     QModelIndexList selection = m_treeview->selectionModel()->selectedRows();
     int selectionSize = selection.size();
+
+    m_editor->setEnableActions(m_stackedWidget->currentWidget() == m_editorWidget);
 
     if (!selectionSize) {
         // no (meaningful?) selection
@@ -479,7 +446,6 @@ void KJotsWidget::updateMenu()
         for (QAction *action : qAsConst(pageActions)) {
             action->setEnabled(false);
         }
-        editor->composerActions()->setActionsEnabled(false);
     } else if (selectionSize > 1) {
         for (QAction *action : qAsConst(entryActions)) {
             action->setEnabled(false);
@@ -493,8 +459,6 @@ void KJotsWidget::updateMenu()
         for (QAction *action : qAsConst(multiselectionActions)) {
             action->setEnabled(true);
         }
-
-        editor->composerActions()->setActionsEnabled(false);
     } else {
 
         for (QAction *action : qAsConst(multiselectionActions)) {
@@ -514,8 +478,6 @@ void KJotsWidget::updateMenu()
             for (QAction *action : qAsConst(bookActions)) {
                 action->setEnabled(true);
             }
-
-            editor->composerActions()->setActionsEnabled(false);
         } else {
             for (QAction *action : qAsConst(pageActions)) {
                 if (action->objectName() == QString::fromLatin1(name(KStandardAction::Cut))) {
@@ -527,8 +489,6 @@ void KJotsWidget::updateMenu()
             for (QAction *action : qAsConst(bookActions)) {
                 action->setEnabled(false);
             }
-
-            editor->composerActions()->setActionsEnabled(true);
         }
     }
 }
@@ -554,31 +514,13 @@ void KJotsWidget::updateConfiguration()
     }
 }
 
-void KJotsWidget::copySelectionToTitle()
-{
-    QString newTitle(editor->textCursor().selectedText());
-
-    if (!newTitle.isEmpty()) {
-
-        QModelIndexList rows = m_treeview->selectionModel()->selectedRows();
-
-        if (rows.size() != 1) {
-            return;
-        }
-
-        QModelIndex idx = rows.at(0);
-
-        m_treeview->model()->setData(idx, newTitle);
-    }
-}
-
 QString KJotsWidget::renderSelectionTo(const QString &theme, const QString &templ)
 {
     QList<QVariant> objectList;
-    const int rows = selProxy->rowCount();
+    const int rows = m_collectionSelectionProxyModel->rowCount();
     const int column = 0;
     for (int row = 0; row < rows; ++row) {
-        QModelIndex idx = selProxy->index(row, column, QModelIndex());
+        QModelIndex idx = m_collectionSelectionProxyModel->index(row, column, QModelIndex());
         objectList << idx.data(KJotsModel::GrantleeObjectRole);
     }
     QHash<QString, QVariant> hash = {{QStringLiteral("entities"), objectList},
@@ -749,12 +691,12 @@ void KJotsWidget::renderSelection()
     Q_EMIT canGoPreviousBookChanged(canGoPreviousBook());
     Q_EMIT canGoPreviousPageChanged(canGoPreviousPage());
 
-    const int rows = selProxy->rowCount();
+    const int rows = m_collectionSelectionProxyModel->rowCount();
     // If the selection is a single page, present it for editing...
     if (rows == 1) {
-        QModelIndex idx = selProxy->index(0, 0, QModelIndex());
-        if (editor->setModelIndex(selProxy->mapToSource(idx))) {
-            stackedWidget->setCurrentWidget(m_editorWidget);
+        QModelIndex idx = m_collectionSelectionProxyModel->index(0, 0, QModelIndex());
+        if (m_editor->setModelIndex(m_collectionSelectionProxyModel->mapToSource(idx))) {
+            m_stackedWidget->setCurrentWidget(m_editorWidget);
             return;
         }
         // If something went wrong, we show user the browser
@@ -762,7 +704,7 @@ void KJotsWidget::renderSelection()
 
     // ... Otherwise, render the selection read-only.
     m_browserWidget->browser()->setHtml(renderSelectionToHtml());
-    stackedWidget->setCurrentWidget(m_browserWidget);
+    m_stackedWidget->setCurrentWidget(m_browserWidget);
 }
 
 void KJotsWidget::updateCaption()
@@ -771,7 +713,7 @@ void KJotsWidget::updateCaption()
     QString caption;
     if (selection.size() == 1) {
         caption = KJotsModel::itemPath(selection.first());
-        if (editor->modified()) {
+        if (m_editor->modified()) {
             caption.append(QStringLiteral(" *"));
         }
     } else if (selection.size() > 1) {
@@ -785,9 +727,9 @@ bool KJotsWidget::queryClose()
     // Saving the current note
     // We cannot use async interface (i.e. ETM) here
     // because we need to abort the close if something went wrong
-    if ((selProxy->rowCount() == 1) && (editor->document()->isModified())) {
-        QModelIndex idx = selProxy->mapToSource(selProxy->index(0, 0, QModelIndex()));
-        auto job = new ItemModifyJob(KJotsModel::updateItem(idx, editor->document()));
+    if ((m_collectionSelectionProxyModel->rowCount() == 1) && (m_editor->document()->isModified())) {
+        QModelIndex idx = m_collectionSelectionProxyModel->mapToSource(m_collectionSelectionProxyModel->index(0, 0, QModelIndex()));
+        auto job = new ItemModifyJob(KJotsModel::updateItem(idx, m_editor->document()));
         if (!job->exec()) {
             int res = KMessageBox::warningContinueCancelDetailed(this,
                                                                  i18n("Unable to save the note.\n"
@@ -809,7 +751,7 @@ bool KJotsWidget::queryClose()
             // However, KJotsEdit will still catch focusOutEvent and try saving using async interface
             // (application will quit soon, so it doesn't really make much sense doing it)
             // Marking the document as saved explicitly it order to avoid it
-            editor->document()->setModified(false);
+            m_editor->document()->setModified(false);
         }
 
     }
