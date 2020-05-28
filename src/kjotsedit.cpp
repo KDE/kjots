@@ -40,6 +40,7 @@
 #include <KLocalizedString>
 #include <KMime/Message>
 #include <KPIMTextEdit/RichTextComposerControler>
+#include <KPIMTextEdit/RichTextComposerActions>
 
 #include <AkonadiCore/Item>
 
@@ -136,7 +137,9 @@ void KJotsEdit::createActions(KActionCollection *ac)
 
 void KJotsEdit::setEnableActions(bool enable)
 {
-    RichTextComposer::setEnableActions(enable);
+    // FIXME: RichTextComposer::setEnableActions(enable) messes with indent actions
+    // due to bug in KPIMTextEdit (should be fixed in 20.08?)
+    composerActions()->setActionsEnabled(enable);
     for (QAction *action : qAsConst(d->richTextActionList)) {
         action->setEnabled(enable);
     }
