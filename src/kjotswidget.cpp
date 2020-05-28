@@ -147,21 +147,16 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     m_collectionSelectionProxyModel = new KSelectionProxyModel(m_treeview->selectionModel(), this);
     m_collectionSelectionProxyModel->setSourceModel(m_treeview->model());
 
-    // TODO: handle dataChanged properly, i.e. if item was changed from outside
-    connect(m_collectionSelectionProxyModel, &KSelectionProxyModel::dataChanged, this, &KJotsWidget::renderSelection);
-    connect(m_collectionSelectionProxyModel, &KSelectionProxyModel::rowsInserted, this, &KJotsWidget::renderSelection);
-    connect(m_collectionSelectionProxyModel, &KSelectionProxyModel::rowsRemoved, this, &KJotsWidget::renderSelection);
-
-    connect(m_editor, &KJotsEdit::linkClicked, this, &KJotsWidget::openLink);
-    connect(m_browserWidget->browser(), &KJotsBrowser::linkClicked, this, &KJotsWidget::openLink);
-
-    connect(m_treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateMenu);
-    connect(m_treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateCaption);
-    connect(m_treeview->model(), &QAbstractItemModel::dataChanged, this, &KJotsWidget::updateCaption);
-    connect(m_editor, &KJotsEdit::documentModified, this, &KJotsWidget::updateCaption);
-
     connect(m_kjotsModel, &EntityTreeModel::modelAboutToBeReset, this, &KJotsWidget::saveState);
     connect(m_kjotsModel, &EntityTreeModel::modelReset, this, &KJotsWidget::restoreState);
+
+    // TODO: handle dataChanged properly, i.e. if item was changed from outside
+    connect(m_treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::renderSelection);
+    connect(m_treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateMenu);
+    connect(m_treeview->selectionModel(), &QItemSelectionModel::selectionChanged, this, &KJotsWidget::updateCaption);
+    connect(m_treeview->model(), &QAbstractItemModel::dataChanged, this, &KJotsWidget::renderSelection);
+    connect(m_treeview->model(), &QAbstractItemModel::dataChanged, this, &KJotsWidget::updateCaption);
+    connect(m_editor, &KJotsEdit::documentModified, this, &KJotsWidget::updateCaption);
 
     QTimer::singleShot(0, this, &KJotsWidget::delayedInitialization);
 
@@ -191,6 +186,9 @@ void KJotsWidget::setupGui()
     m_splitter = new QSplitter(this);
     m_splitter->setStretchFactor(1, 1);
     layout->addWidget(m_splitter);
+    if (!KJotsSettings::splitterSizes().isEmpty()) {
+        m_splitter->setSizes(KJotsSettings::splitterSizes());
+    }
 
     // Collection view
     m_treeview = new EntityTreeView(m_xmlGuiClient, m_splitter);
@@ -210,15 +208,13 @@ void KJotsWidget::setupGui()
     m_editorWidget = new KPIMTextEdit::RichTextEditorWidget(m_editor, m_stackedWidget);
     m_editor->setParent(m_editorWidget);
     m_stackedWidget->addWidget(m_editorWidget);
+    connect(m_editor, &KJotsEdit::linkClicked, this, &KJotsWidget::openLink);
     // Browser
     m_browserWidget = new KJotsBrowserWidget(std::make_unique<KJotsBrowser>(m_kjotsModel, m_xmlGuiClient->actionCollection()),
                                              m_stackedWidget);
     m_stackedWidget->addWidget(m_browserWidget);
     m_stackedWidget->setCurrentWidget(m_browserWidget);
-
-    if (!KJotsSettings::splitterSizes().isEmpty()) {
-        m_splitter->setSizes(KJotsSettings::splitterSizes());
-    }
+    connect(m_browserWidget->browser(), &KJotsBrowser::linkClicked, this, &KJotsWidget::openLink);
 }
 
 void KJotsWidget::setupActions()
