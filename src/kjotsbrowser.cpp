@@ -39,6 +39,8 @@
 #include <KLocalizedString>
 #include <KStandardAction>
 
+using namespace Akonadi;
+
 class Q_DECL_HIDDEN KJotsBrowserWidgetPrivate
 {
 public:

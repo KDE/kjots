@@ -36,9 +36,10 @@
 
 #include "noteshared/notelockattribute.h"
 
-
-
 Q_DECLARE_METATYPE(QTextDocument *)
+
+using namespace Akonadi;
+
 KJotsEntity::KJotsEntity(const QModelIndex &index, QObject *parent)
     : QObject(parent)
     , m_index(index)

@@ -31,8 +31,6 @@ namespace Akonadi
 class ChangeRecorder;
 }
 
-using namespace Akonadi;
-
 /**
  * A wrapper QObject making some book and page properties available to Grantlee.
  */
@@ -74,11 +72,11 @@ private:
     QPersistentModelIndex m_index;
 };
 
-class KJotsModel : public EntityTreeModel
+class KJotsModel : public Akonadi::EntityTreeModel
 {
     Q_OBJECT
 public:
-    explicit KJotsModel(ChangeRecorder *monitor, QObject *parent = nullptr);
+    explicit KJotsModel(Akonadi::ChangeRecorder *monitor, QObject *parent = nullptr);
     ~KJotsModel() override;
 
     enum KJotsRoles {
@@ -98,15 +96,15 @@ public:
     /**
      * Returns an Item for @p index, and sets its content by @p document
      */
-    static Item updateItem(const QModelIndex &index, QTextDocument *document);
+    static Akonadi::Item updateItem(const QModelIndex &index, QTextDocument *document);
     /**
      * A helper function which returns a full "path" to the @p item (e.g. "Resource / Notebook / Note")
      * using @p sep as a separator. If multiple items are selected, returns "Multiple selection"
      */
     static QString itemPath(const QModelIndex &index, const QString &sep = QStringLiteral(" / "));
 private:
-    QHash<Collection::Id, QColor> m_colors;
-    mutable QHash<Item::Id, QTextDocument *> m_documents;
+    QHash<Akonadi::Collection::Id, QColor> m_colors;
+    mutable QHash<Akonadi::Item::Id, QTextDocument *> m_documents;
 };
 
 #endif

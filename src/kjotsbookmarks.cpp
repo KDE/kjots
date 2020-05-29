@@ -26,6 +26,8 @@
 
 #include <QItemSelectionModel>
 
+using namespace Akonadi;
+
 KJotsBookmarks::KJotsBookmarks(QItemSelectionModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
