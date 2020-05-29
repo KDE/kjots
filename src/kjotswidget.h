@@ -78,7 +78,7 @@ class KJotsWidget : public QWidget
     Q_CLASSINFO("D-Bus Interface", "org.kde.KJotsWidget")
 
 public:
-    explicit KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiclient, Qt::WindowFlags f = 0);
+    explicit KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiclient, Qt::WindowFlags f = Qt::WindowFlags());
     ~KJotsWidget();
 
     QTextEdit *activeEditor();
