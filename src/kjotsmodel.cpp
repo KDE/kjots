@@ -180,7 +180,6 @@ bool KJotsModel::setData(const QModelIndex &index, const QVariant &value, int ro
         }
         NoteUtils::NoteMessageWrapper note(item.payload<KMime::Message::Ptr>());
         note.setTitle(value.toString());
-        note.setLastModifiedDate(QDateTime::currentDateTime());
         item.setPayload(note.message());
 
         if (item.hasAttribute<EntityDisplayAttribute>()) {
