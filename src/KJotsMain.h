@@ -43,5 +43,5 @@ private:
     KJotsWidget *component;
 };
 
-#endif // KJotsMainNew_included
+#endif // KJOTSMAIN_H
 /* ex: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab: */

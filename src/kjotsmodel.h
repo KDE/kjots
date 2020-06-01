@@ -77,7 +77,7 @@ class KJotsModel : public Akonadi::EntityTreeModel
     Q_OBJECT
 public:
     explicit KJotsModel(Akonadi::ChangeRecorder *monitor, QObject *parent = nullptr);
-    ~KJotsModel() override;
+    ~KJotsModel();
 
     enum KJotsRoles {
         GrantleeObjectRole = EntityTreeModel::UserRole,
