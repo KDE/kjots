@@ -725,6 +725,7 @@ bool KJotsWidget::queryClose()
     // because we need to abort the close if something went wrong
     if ((m_collectionSelectionProxyModel->rowCount() == 1) && (m_editor->document()->isModified())) {
         QModelIndex idx = m_collectionSelectionProxyModel->mapToSource(m_collectionSelectionProxyModel->index(0, 0, QModelIndex()));
+        m_editor->prepareForSaving();
         auto job = new ItemModifyJob(KJotsModel::updateItem(idx, m_editor->document()));
         if (!job->exec()) {
             int res = KMessageBox::warningContinueCancelDetailed(this,

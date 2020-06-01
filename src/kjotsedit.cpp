@@ -460,21 +460,21 @@ void KJotsEdit::focusOutEvent(QFocusEvent *event)
     RichTextComposer::focusOutEvent(event);
 }
 
+void KJotsEdit::prepareForSaving()
+{
+    document()->setModified(false);
+    document()->setProperty("textCursor", QVariant::fromValue(textCursor()));
+    document()->setProperty("images", QVariant::fromValue(composerControler()->composerImages()->embeddedImages()));
+}
+
 void KJotsEdit::savePage()
 {
     if (!document()->isModified() || !m_index) {
         return;
     }
 
-    auto item = m_index->data(EntityTreeModel::ItemRole).value<Item>();
-    if (!item.isValid() || !item.hasPayload<KMime::Message::Ptr>()) {
-        return;
-    }
-
+    prepareForSaving();
     auto *model = const_cast<QAbstractItemModel *>(m_index->model());
-    document()->setModified(false);
-    document()->setProperty("textCursor", QVariant::fromValue(textCursor()));
-    document()->setProperty("images", QVariant::fromValue(composerControler()->composerImages()->embeddedImages()));
     model->setData(*m_index, QVariant::fromValue(document()), KJotsModel::DocumentRole);
 }
 
