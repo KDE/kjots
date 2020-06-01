@@ -51,6 +51,7 @@
 #include "noteshared/notelockattribute.h"
 
 Q_DECLARE_METATYPE(QTextCursor)
+Q_DECLARE_METATYPE(KPIMTextEdit::ImageList)
 
 using namespace Akonadi;
 using namespace KPIMTextEdit;
@@ -469,18 +470,11 @@ void KJotsEdit::savePage()
     if (!item.isValid() || !item.hasPayload<KMime::Message::Ptr>()) {
         return;
     }
-    // Saving images
-    QString html = document()->toHtml();
-    const KPIMTextEdit::ImageList list = composerControler()->composerImages()->embeddedImages();
-    for (const auto &img : list) {
-        html.replace(QStringLiteral("<img src=\"%1\"").arg(img->imageName),
-                     QStringLiteral("<img src=\"data:image/png;base64,%1\"").arg(QString::fromLatin1(img->image)));
-    }
-    document()->setHtml(html);
 
     auto *model = const_cast<QAbstractItemModel *>(m_index->model());
     document()->setModified(false);
     document()->setProperty("textCursor", QVariant::fromValue(textCursor()));
+    document()->setProperty("images", QVariant::fromValue(composerControler()->composerImages()->embeddedImages()));
     model->setData(*m_index, QVariant::fromValue(document()), KJotsModel::DocumentRole);
 }
 

@@ -27,8 +27,10 @@
 #include <AkonadiCore/ChangeRecorder>
 #include <AkonadiCore/EntityDisplayAttribute>
 #include <Akonadi/Notes/NoteUtils>
+
 #include <KMime/Message>
 #include <KPIMTextEdit/TextUtils>
+#include <KPIMTextEdit/RichTextComposerImages>
 
 #include <grantlee/markupdirector.h>
 #include <grantlee/texthtmlbuilder.h>
@@ -37,6 +39,7 @@
 #include "noteshared/notelockattribute.h"
 
 Q_DECLARE_METATYPE(QTextDocument *)
+Q_DECLARE_METATYPE(KPIMTextEdit::ImageList)
 
 using namespace Akonadi;
 
@@ -227,6 +230,16 @@ QVariant KJotsModel::data(const QModelIndex &index, int role) const
             document->setPlainText(doc);
         }
         document->setModified(false);
+        // Loading embedded images
+        const QVector<NoteUtils::Attachment> attachments = note.attachments();
+        for (const auto &attachment : attachments) {
+            if (attachment.mimetype() == QStringLiteral("image/png") && !attachment.contentID().isEmpty()) {
+                QImage img = QImage::fromData(attachment.data(), "PNG");
+                document->addResource(QTextDocument::ImageResource,
+                                      QUrl(QStringLiteral("cid:")+attachment.contentID()), img);
+            }
+        }
+
         m_documents.insert(itemId, document);
         return QVariant::fromValue(document);
     }
@@ -279,9 +292,23 @@ Item KJotsModel::updateItem(const QModelIndex &index, QTextDocument *document)
         return Item();
     }
     NoteUtils::NoteMessageWrapper note(item.payload<KMime::Message::Ptr>());
+    // Saving embedded images
+    const auto images = document->property("images").value<KPIMTextEdit::ImageList>();
+    QVector<NoteUtils::Attachment> &attachments = note.attachments();
+    attachments.clear();
+    attachments.reserve(images.count());
+    std::transform(images.cbegin(), images.cend(), std::back_inserter(attachments),
+                   [](const QSharedPointer<KPIMTextEdit::EmbeddedImage> &img) {
+            NoteUtils::Attachment attachment(img->image, QStringLiteral("image/png"));
+            attachment.setDataBase64Encoded(true);
+            attachment.setContentID(img->contentID);
+            return attachment;
+        });
+    // Setting text
     bool isRichText = KPIMTextEdit::TextUtils::containsFormatting(document);
     if (isRichText) {
-        note.setText( document->toHtml(), Qt::RichText );
+        const QByteArray html = KPIMTextEdit::RichTextComposerImages::imageNamesToContentIds( document->toHtml().toUtf8(), images);
+        note.setText( QString::fromUtf8(html), Qt::RichText );
     } else {
         note.setText( document->toPlainText(), Qt::PlainText );
     }
