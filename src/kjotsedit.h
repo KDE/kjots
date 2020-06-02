@@ -55,10 +55,12 @@ public:
     bool modified();
 
     /**
-     * Prepares document for saving. Currently it includes providing it with embedded images
+     * Prepares document for saving.
+     *
+     * Currently it includes providing it with embedded images
      * Note: savePage calls it explicitly
      */
-    void prepareForSaving();
+    void prepareDocumentForSaving();
 
     void createActions(KActionCollection *ac);
     void setEnableActions(bool enable);

@@ -462,7 +462,7 @@ void KJotsEdit::focusOutEvent(QFocusEvent *event)
     RichTextComposer::focusOutEvent(event);
 }
 
-void KJotsEdit::prepareForSaving()
+void KJotsEdit::prepareDocumentForSaving()
 {
     document()->setModified(false);
     document()->setProperty("textCursor", QVariant::fromValue(textCursor()));
@@ -475,7 +475,7 @@ void KJotsEdit::savePage()
         return;
     }
 
-    prepareForSaving();
+    prepareDocumentForSaving();
     auto *model = const_cast<QAbstractItemModel *>(d->index.model());
     model->setData(d->index, QVariant::fromValue(document()), KJotsModel::DocumentRole);
 }
