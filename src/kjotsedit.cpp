@@ -61,6 +61,8 @@ public:
     Private() = default;
     ~Private() = default;
 
+    QPersistentModelIndex index;
+
     QAction *action_copy_into_title = nullptr;
     QAction *action_manage_link = nullptr;
     QAction *action_auto_bullet = nullptr;
@@ -191,14 +193,14 @@ void KJotsEdit::insertDate()
 
 bool KJotsEdit::setModelIndex(const QModelIndex &index)
 {
-    bool newDocument = m_index && (*m_index != index);
+    bool newDocument = d->index.isValid() && (d->index != index);
     // Saving the old document, if it wa changed
     if (newDocument) {
         savePage();
     }
-    m_index = std::make_unique<QPersistentModelIndex>(index);
+    d->index = QPersistentModelIndex(index);
     // Loading document
-    auto *doc = m_index->data(KJotsModel::DocumentRole).value<QTextDocument *>();
+    auto *doc = d->index.data(KJotsModel::DocumentRole).value<QTextDocument *>();
     if (!doc) {
         setReadOnly(true);
         return false;
@@ -225,7 +227,7 @@ bool KJotsEdit::setModelIndex(const QModelIndex &index)
         setFocus();
     }
     // Setting ReadOnly
-    auto item = m_index->data(EntityTreeModel::ItemRole).value<Item>();
+    auto item = d->index.data(EntityTreeModel::ItemRole).value<Item>();
     if (!item.isValid()) {
         setReadOnly(true);
         return false;
@@ -307,11 +309,11 @@ void KJotsEdit::onAutoDecimal()
 void KJotsEdit::onLinkify()
 {
     // Nothing is yet opened, ignoring
-    if (!m_index) {
+    if (!d->index.isValid()) {
         return;
     }
     composerControler()->selectLinkText();
-    auto linkDialog = std::make_unique<KJotsLinkDialog>(const_cast<QAbstractItemModel*>(m_index->model()), this);
+    auto linkDialog = std::make_unique<KJotsLinkDialog>(const_cast<QAbstractItemModel*>(d->index.model()), this);
     linkDialog->setLinkText(composerControler()->currentLinkText());
     linkDialog->setLinkUrl(composerControler()->currentLinkUrl());
 
@@ -322,12 +324,12 @@ void KJotsEdit::onLinkify()
 
 void KJotsEdit::copySelectionIntoTitle()
 {
-    if (!m_index) {
+    if (!d->index.isValid()) {
         return;
     }
     const QString newTitle(textCursor().selectedText());
-    auto *model = const_cast<QAbstractItemModel *>(m_index->model());
-    model->setData(*m_index, newTitle);
+    auto *model = const_cast<QAbstractItemModel *>(d->index.model());
+    model->setData(d->index, newTitle);
 }
 
 bool KJotsEdit::canInsertFromMimeData(const QMimeData *source) const
@@ -342,14 +344,14 @@ bool KJotsEdit::canInsertFromMimeData(const QMimeData *source) const
 void KJotsEdit::insertFromMimeData(const QMimeData *source)
 {
     // Nothing is opened, ignoring
-    if (!m_index) {
+    if (!d->index.isValid()) {
         return;
     }
     if (source->hasUrls()) {
         const QList<QUrl> urls = source->urls();
         for (const QUrl &url : urls) {
             if (url.scheme() == QStringLiteral("akonadi")) {
-                QModelIndex idx = KJotsModel::modelIndexForUrl(m_index->model(), url);
+                QModelIndex idx = KJotsModel::modelIndexForUrl(d->index.model(), url);
                 if (idx.isValid()) {
                     insertHtml(QStringLiteral("<a href=\"%1\">%2</a>").arg(idx.data(KJotsModel::EntityUrlRole).toString(),
                                                                            idx.data().toString()));
@@ -428,7 +430,7 @@ bool KJotsEdit::event(QEvent *event)
 void KJotsEdit::tooltipEvent(QHelpEvent *event)
 {
     // Nothing is opened, ignoring
-    if (!m_index) {
+    if (!d->index.isValid()) {
         return;
     }
     QUrl url(anchorAt(event->pos()));
@@ -436,7 +438,7 @@ void KJotsEdit::tooltipEvent(QHelpEvent *event)
 
     if (url.isValid()) {
         if (url.scheme() == QStringLiteral("akonadi")) {
-            const QModelIndex idx = KJotsModel::modelIndexForUrl(m_index->model(), url);
+            const QModelIndex idx = KJotsModel::modelIndexForUrl(d->index.model(), url);
             if (idx.data(EntityTreeModel::ItemRole).value<Item>().isValid()) {
                 message = i18nc("@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)", "Ctrl+click to open note: %1", KJotsModel::itemPath(idx));
             } else if (idx.data(EntityTreeModel::CollectionRole).value<Collection>().isValid()) {
@@ -469,13 +471,13 @@ void KJotsEdit::prepareForSaving()
 
 void KJotsEdit::savePage()
 {
-    if (!document()->isModified() || !m_index) {
+    if (!document()->isModified() || !d->index.isValid()) {
         return;
     }
 
     prepareForSaving();
-    auto *model = const_cast<QAbstractItemModel *>(m_index->model());
-    model->setData(*m_index, QVariant::fromValue(document()), KJotsModel::DocumentRole);
+    auto *model = const_cast<QAbstractItemModel *>(d->index.model());
+    model->setData(d->index, QVariant::fromValue(document()), KJotsModel::DocumentRole);
 }
 
 /* ex: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab: */

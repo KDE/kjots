@@ -98,7 +98,6 @@ private:
     void createAutoDecimalList();
     KActionCollection *m_actionCollection;
     bool allowAutoDecimal;
-    std::unique_ptr<QPersistentModelIndex> m_index;
 
     bool m_cursorChanged = false;
 };
