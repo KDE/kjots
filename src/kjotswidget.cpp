@@ -726,7 +726,7 @@ bool KJotsWidget::queryClose()
     if ((m_collectionSelectionProxyModel->rowCount() == 1) && (m_editor->document()->isModified())) {
         QModelIndex idx = m_collectionSelectionProxyModel->mapToSource(m_collectionSelectionProxyModel->index(0, 0, QModelIndex()));
         m_editor->prepareForSaving();
-        auto job = new ItemModifyJob(KJotsModel::updateItem(idx, m_editor->document()));
+        auto job = new ItemModifyJob(KJotsModel::updateItem(idx.data(EntityTreeModel::ItemRole).value<Item>(), m_editor->document()));
         if (!job->exec()) {
             int res = KMessageBox::warningContinueCancelDetailed(this,
                                                                  i18n("Unable to save the note.\n"

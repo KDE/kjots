@@ -193,7 +193,7 @@ bool KJotsModel::setData(const QModelIndex &index, const QVariant &value, int ro
     }
 
     if (role == KJotsModel::DocumentRole) {
-        Item item = updateItem(index, value.value<QTextDocument *>());
+        Item item = updateItem(index.data(ItemRole).value<Item>(), value.value<QTextDocument *>());
         return EntityTreeModel::setData(index, QVariant::fromValue(item), ItemRole);
     }
 
@@ -285,11 +285,10 @@ QModelIndex KJotsModel::modelIndexForUrl(const QAbstractItemModel *model, const 
     return {};
 }
 
-Item KJotsModel::updateItem(const QModelIndex &index, QTextDocument *document)
+Item KJotsModel::updateItem(const Item &item, QTextDocument *document)
 {
-    Item item = index.data(ItemRole).value<Item>();
     if (!item.hasPayload<KMime::Message::Ptr>()) {
-        return Item();
+        return {};
     }
     NoteUtils::NoteMessageWrapper note(item.payload<KMime::Message::Ptr>());
     // Saving embedded images
@@ -313,8 +312,10 @@ Item KJotsModel::updateItem(const QModelIndex &index, QTextDocument *document)
         note.setText( document->toPlainText(), Qt::PlainText );
     }
     note.setLastModifiedDate(QDateTime::currentDateTime());
-    item.setPayload(note.message());
-    return item;
+
+    Item newItem = item;
+    newItem.setPayload(note.message());
+    return newItem;
 }
 
 QString KJotsModel::itemPath(const QModelIndex &index, const QString &sep)
