@@ -32,26 +32,36 @@
 KJotsLinkDialog::KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::LinkDialog)
+    , m_descendantsProxyModel(new KDescendantsProxyModel(this))
 {
     ui->setupUi(this);
 
-    m_descendantsProxyModel = new KDescendantsProxyModel(this);
     m_descendantsProxyModel->setSourceModel(kjotsModel);
     m_descendantsProxyModel->setAncestorSeparator(QStringLiteral(" / "));
     m_descendantsProxyModel->setDisplayAncestorData(true);
 
     ui->hrefCombo->lineEdit()->setPlaceholderText(i18n("Enter link URL, or another note or note book..."));
-    ui->hrefCombo->setModel(m_descendantsProxyModel);
+    ui->hrefCombo->setModel(m_descendantsProxyModel.get());
     // This is required because otherwise QComboBox will catch Enter, insert a new item and clear
     ui->hrefCombo->setInsertPolicy(QComboBox::NoInsert);
     ui->hrefCombo->setCurrentIndex(-1);
 
-    auto *completer = new QCompleter(m_descendantsProxyModel, this);
+    auto *completer = new QCompleter(m_descendantsProxyModel.get(), this);
     completer->setCaseSensitivity(Qt::CaseInsensitive);
     ui->hrefCombo->setCompleter(completer);
+
+    connect(ui->hrefCombo, &QComboBox::editTextChanged, this, &KJotsLinkDialog::slotTextChanged);
+    connect(ui->textEdit, &QLineEdit::textChanged, this, &KJotsLinkDialog::slotTextChanged);
+    slotTextChanged();
 }
 
 KJotsLinkDialog::~KJotsLinkDialog() = default;
+
+void KJotsLinkDialog::slotTextChanged()
+{
+    const bool ok = !ui->hrefCombo->currentText().trimmed().isEmpty() && !ui->textEdit->text().trimmed().isEmpty();
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(ok);
+}
 
 void KJotsLinkDialog::setLinkText(const QString &linkText)
 {
@@ -63,7 +73,7 @@ void KJotsLinkDialog::setLinkText(const QString &linkText)
 
 void KJotsLinkDialog::setLinkUrl(const QString &linkUrl)
 {
-    const QModelIndex idx = KJotsModel::modelIndexForUrl(m_descendantsProxyModel, QUrl(linkUrl));
+    const QModelIndex idx = KJotsModel::modelIndexForUrl(m_descendantsProxyModel.get(), QUrl(linkUrl));
     if (idx.isValid()) {
         ui->hrefCombo->setCurrentIndex(idx.row());
     } else {
