@@ -23,20 +23,24 @@
 
 #include <QDialog>
 
-class QLabel;
+namespace Ui {
+    class LinkDialog;
+}
+
+class QListView;
+
+class KDescendantsProxyModel;
+
 class QAbstractItemModel;
 class QString;
-class QRadioButton;
-class QTreeView;
 
-class QComboBox;
-class QLineEdit;
 
 class KJotsLinkDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent = nullptr);
+    ~KJotsLinkDialog();
 
     /**
      * Returns the link text shown in the dialog
@@ -61,21 +65,9 @@ public:
      * @return The link url
      */
     QString linkUrl() const;
-
-public Q_SLOTS:
-    void trySetEntry(const QString &text);
-
 private:
-    QLabel *textLabel;
-    QLineEdit *textLineEdit;
-    QLabel *linkUrlLabel;
-    QLineEdit *linkUrlLineEdit;
-    QComboBox *hrefCombo;
-    QRadioButton *linkUrlLineEditRadioButton;
-    QRadioButton *hrefComboRadioButton;
-    QTreeView *tree;
-    QAbstractItemModel *m_kjotsModel;
-    QAbstractItemModel *m_descendantsProxyModel;
+    std::unique_ptr<Ui::LinkDialog> ui;
+    KDescendantsProxyModel *m_descendantsProxyModel;
 };
 
 #endif

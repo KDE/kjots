@@ -29,9 +29,9 @@ set(kjots_common_SRCS
   kjotswidget.cpp
   kjotsbrowser.cpp
   kjotslinkdialog.cpp
-  kjotsbookshelfentryvalidator.cpp
   ${kjots_config_SRCS}
 )
+ki18n_wrap_ui(kjots_common_SRCS linkdialog.ui)
 
 add_library(kjots_common STATIC ${kjots_common_SRCS})
 target_link_libraries(kjots_common

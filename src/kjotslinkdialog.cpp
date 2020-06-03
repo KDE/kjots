@@ -19,146 +19,71 @@
 */
 
 #include "kjotslinkdialog.h"
-
-#include <QComboBox>
-#include <QCompleter>
-#include <QDialogButtonBox>
-#include <QGridLayout>
-#include <QLabel>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QRadioButton>
-#include <QTreeView>
-#include <QVBoxLayout>
-
-#include <KDescendantsProxyModel>
-#include <KLocalizedString>
-
-#include "KJotsSettings.h"
-#include "kjotsbookshelfentryvalidator.h"
+#include "ui_linkdialog.h"
 #include "kjotsmodel.h"
 
+#include <QListView>
+#include <QPushButton>
+#include <QCompleter>
+
+#include <KDescendantsProxyModel>
+
+
 KJotsLinkDialog::KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent)
-    : QDialog(parent), m_kjotsModel(kjotsModel)
+    : QDialog(parent)
+    , ui(new Ui::LinkDialog)
 {
-    setWindowTitle(i18n("Manage Link"));
-    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    auto *mainLayout = new QVBoxLayout(this);
-    setLayout(mainLayout);
-    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setDefault(true);
-    okButton->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Return));
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &KJotsLinkDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &KJotsLinkDialog::reject);
-    okButton->setDefault(true);
-    setModal(true);
+    ui->setupUi(this);
 
-    auto *proxyModel = new KDescendantsProxyModel(this);
-    proxyModel->setSourceModel(kjotsModel);
-    proxyModel->setAncestorSeparator(QStringLiteral(" / "));
+    m_descendantsProxyModel = new KDescendantsProxyModel(this);
+    m_descendantsProxyModel->setSourceModel(kjotsModel);
+    m_descendantsProxyModel->setAncestorSeparator(QStringLiteral(" / "));
+    m_descendantsProxyModel->setDisplayAncestorData(true);
 
-    m_descendantsProxyModel = proxyModel;
+    ui->hrefCombo->lineEdit()->setPlaceholderText(i18n("Enter link URL, or another note or note book..."));
+    ui->hrefCombo->setModel(m_descendantsProxyModel);
+    // This is required because otherwise QComboBox will catch Enter, insert a new item and clear
+    ui->hrefCombo->setInsertPolicy(QComboBox::NoInsert);
+    ui->hrefCombo->setCurrentIndex(-1);
 
-    auto *entries = new QWidget(this);
-
-    auto *layout = new QGridLayout(entries);
-
-    textLabel = new QLabel(i18n("Link Text:"), this);
-    textLineEdit = new QLineEdit(this);
-    textLineEdit->setClearButtonEnabled(true);
-    linkUrlLabel = new QLabel(i18n("Link URL:"), this);
-    linkUrlLineEdit = new QLineEdit(this);
-    hrefCombo = new QComboBox(this);
-    linkUrlLineEdit->setClearButtonEnabled(true);
-
-    tree = new QTreeView(this);
-    tree->setModel(proxyModel);
-    tree->expandAll();
-    tree->setColumnHidden(1, true);
-    hrefCombo->setModel(proxyModel);
-    hrefCombo->setView(tree);
-
-    hrefCombo->setEditable(true);
-    auto *completer = new QCompleter(proxyModel, this);
+    auto *completer = new QCompleter(m_descendantsProxyModel, this);
     completer->setCaseSensitivity(Qt::CaseInsensitive);
-    hrefCombo->setCompleter(completer);
-    auto *validator = new KJotsBookshelfEntryValidator(proxyModel, this);
-    hrefCombo->setValidator(validator);
-
-    auto *linkLayout = new QGridLayout(this);
-    linkUrlLineEditRadioButton = new QRadioButton(entries);
-    hrefComboRadioButton = new QRadioButton(entries);
-
-    connect(linkUrlLineEditRadioButton, &QRadioButton::toggled, linkUrlLineEdit, &QLineEdit::setEnabled);
-    connect(hrefComboRadioButton, &QRadioButton::toggled, hrefCombo, &QComboBox::setEnabled);
-    hrefCombo->setEnabled(false);
-    linkUrlLineEditRadioButton->setChecked(true);
-
-    linkLayout->addWidget(linkUrlLineEditRadioButton, 0, 0);
-    linkLayout->addWidget(linkUrlLineEdit, 0, 1);
-    linkLayout->addWidget(hrefComboRadioButton, 1, 0);
-    linkLayout->addWidget(hrefCombo, 1, 1);
-
-    layout->addWidget(textLabel, 0, 0);
-    layout->addWidget(textLineEdit, 0, 1);
-    layout->addWidget(linkUrlLabel, 1, 0);
-    layout->addLayout(linkLayout, 1, 1);
-
-    mainLayout->addWidget(entries);
-    mainLayout->addWidget(buttonBox);
-    textLineEdit->setFocus();
-
-    connect(hrefCombo, &QComboBox::editTextChanged, this, &KJotsLinkDialog::trySetEntry);
+    ui->hrefCombo->setCompleter(completer);
 }
+
+KJotsLinkDialog::~KJotsLinkDialog() = default;
 
 void KJotsLinkDialog::setLinkText(const QString &linkText)
 {
-    textLineEdit->setText(linkText);
-    if (!linkText.trimmed().isEmpty()) {
-        linkUrlLineEdit->setFocus();
+    ui->textEdit->setText(linkText);
+    if (!linkText.isEmpty()) {
+        ui->textEdit->setFocus();
     }
 }
 
 void KJotsLinkDialog::setLinkUrl(const QString &linkUrl)
 {
-    const QUrl url(linkUrl);
-    if (url.scheme() == QStringLiteral("akonadi")) {
-        QModelIndex idx = KJotsModel::modelIndexForUrl(m_descendantsProxyModel, url);
-        if (idx.isValid()) {
-            hrefComboRadioButton->setChecked(true);
-            hrefCombo->view()->setCurrentIndex(idx);
-            hrefCombo->setCurrentIndex(idx.row());
-        }
+    const QModelIndex idx = KJotsModel::modelIndexForUrl(m_descendantsProxyModel, QUrl(linkUrl));
+    if (idx.isValid()) {
+        ui->hrefCombo->setCurrentIndex(idx.row());
     } else {
-        linkUrlLineEdit->setText(linkUrl);
-        linkUrlLineEditRadioButton->setChecked(true);
-        return;
+        ui->hrefCombo->setCurrentIndex(-1);
+        ui->hrefCombo->setCurrentText(linkUrl);
     }
 }
 
 QString KJotsLinkDialog::linkText() const
 {
-    return textLineEdit->text().trimmed();
-}
-
-void KJotsLinkDialog::trySetEntry(const QString &text)
-{
-    QString t(text);
-    int pos = hrefCombo->lineEdit()->cursorPosition();
-    if (hrefCombo->validator()->validate(t, pos) == KJotsBookshelfEntryValidator::Acceptable) {
-        int row = hrefCombo->findText(t, Qt::MatchFixedString);
-        QModelIndex index = hrefCombo->model()->index(row, 0);
-        hrefCombo->view()->setCurrentIndex(index);
-        hrefCombo->setCurrentIndex(row);
-    }
+    return ui->textEdit->text().trimmed();
 }
 
 QString KJotsLinkDialog::linkUrl() const
 {
-    if (hrefComboRadioButton->isChecked()) {
-        return hrefCombo->view()->currentIndex().data(KJotsModel::EntityUrlRole).toString();
+    const int row = ui->hrefCombo->currentIndex();
+    if (row != -1) {
+        return ui->hrefCombo->model()->index(row, 0).data(KJotsModel::EntityUrlRole).toString();
     } else {
-        return linkUrlLineEdit->text();
+        return ui->hrefCombo->currentText().trimmed();
     }
 }
 
