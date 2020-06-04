@@ -1,7 +1,8 @@
 /*
-    kjots
+    This file is a part of KJots.
 
     Copyright (C) 2008 Stephen Kelly <steveire@gmail.com>
+                  2020 Igor Poboiko <igor.poboiko@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

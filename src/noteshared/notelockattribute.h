@@ -1,4 +1,6 @@
 /*
+    This file is part of KJots.
+
     Copyright (C) 2010 Klarälvdalens Datakonsult AB,
         a KDAB Group company, info@kdab.net,
         author Stephen Kelly <stephen@kdab.com>

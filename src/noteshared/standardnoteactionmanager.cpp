@@ -1,8 +1,8 @@
 /*
     This file is part of KJots.
 
-    Copyright (c) 2020 Igor Poboiko <igor.poboiko@gmail.com>
-                  2009 - 2010 Tobias Koenig <tokoe@kde.org>
+    Copyright (c) 2009 - 2010 Tobias Koenig <tokoe@kde.org>
+                  2020 Igor Poboiko <igor.poboiko@gmail.com>
 
     This library is free software; you can redistribute it and/or modify it
     under the terms of the GNU Library General Public License as published by

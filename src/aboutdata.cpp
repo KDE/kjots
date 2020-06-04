@@ -35,7 +35,8 @@ AboutData::AboutData()
                  KAboutLicense::GPL,
                  i18n("Copyright © 1997–2015 KJots authors"))
 {
-    addAuthor(i18n("Daniel Vrátil"), i18n("Maintainer"), QStringLiteral("dvraitl@kde.org"));
+    addAuthor(i18n("Igor Poboiko"), i18n("Maintainer"), QStringLiteral("igor.poboiko@gmail.com"));
+    addAuthor(i18n("Daniel Vrátil"), i18n("Port to KDE Frameworks 5"), QStringLiteral("dvraitl@kde.org"));
     addAuthor(i18n("Stephen Kelly"), QString(), QStringLiteral("steveire@gmail.com"));
     addAuthor(i18n("Pradeepto K. Bhattacharya"), QString(), QStringLiteral("pradeepto@kde.org"));
     addAuthor(i18n("Jaison Lee"), QString(), QStringLiteral("lee.jaison@gmail.com"));

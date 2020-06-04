@@ -2,10 +2,11 @@
     This file is part of KJots.
 
     Copyright (C) 1997 Christoph Neerfeld <Christoph.Neerfeld@home.ivm.de>
-    Copyright (C) 2002, 2003 Aaron J. Seigo <aseigo@kde.org>
-    Copyright (C) 2003 Stanislav Kljuhhin <crz@hot.ee>
-    Copyright (C) 2005-2006 Jaison Lee <lee.jaison@gmail.com>
-    Copyright (C) 2007-2009 Stephen Kelly <steveire@gmail.com>
+                  2002, 2003 Aaron J. Seigo <aseigo@kde.org>
+                  2003 Stanislav Kljuhhin <crz@hot.ee>
+                  2005-2006 Jaison Lee <lee.jaison@gmail.com>
+                  2007-2009 Stephen Kelly <steveire@gmail.com>
+                  2020 Igor Poboiko <igor.poboiko@gmail.com>
 
     This library is free software; you can redistribute it and/or modify it
     under the terms of the GNU Library General Public License as published by
