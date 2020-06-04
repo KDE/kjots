@@ -33,7 +33,7 @@ AboutData::AboutData()
                  QStringLiteral(KJOTS_VERSION),
                  i18n("KDE note taking utility"),
                  KAboutLicense::GPL,
-                 i18n("Copyright © 1997–2015 KJots authors"))
+                 i18n("Copyright © 1997–2020 KJots authors"))
 {
     addAuthor(i18n("Igor Poboiko"), i18n("Maintainer"), QStringLiteral("igor.poboiko@gmail.com"));
     addAuthor(i18n("Daniel Vrátil"), i18n("Port to KDE Frameworks 5"), QStringLiteral("dvraitl@kde.org"));
