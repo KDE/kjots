@@ -21,6 +21,7 @@
 
 #include "kjotsmodel.h"
 
+#include <QAbstractProxyModel>
 #include <QTextDocument>
 #include <QIcon>
 
@@ -31,6 +32,8 @@
 #include <KMime/Message>
 #include <KPIMTextEdit/TextUtils>
 #include <KPIMTextEdit/RichTextComposerImages>
+#include <KLocalizedString>
+#include <KFormat>
 
 #include <grantlee/markupdirector.h>
 #include <grantlee/texthtmlbuilder.h>
@@ -244,7 +247,7 @@ QVariant KJotsModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(document);
     }
 
-    if (role == Qt::DecorationRole) {
+    if (role == Qt::DecorationRole && index.column() == Title) {
         const Item item = index.data(ItemRole).value<Item>();
         if (item.isValid() && item.hasAttribute<NoteShared::NoteLockAttribute>()) {
             return QIcon::fromTheme(QStringLiteral("emblem-locked"));
@@ -260,11 +263,68 @@ QVariant KJotsModel::data(const QModelIndex &index, int role) const
 
 QVariant KJotsModel::entityData(const Akonadi::Item &item, int column, int role) const
 {
-    if ((role == Qt::EditRole || role == Qt::DisplayRole) && item.hasPayload<KMime::Message::Ptr>()) {
-        NoteUtils::NoteMessageWrapper note(item.payload<KMime::Message::Ptr>());
-        return note.title();
+    if (item.hasPayload<KMime::Message::Ptr>()) {
+        auto message = item.payload<KMime::Message::Ptr>();
+        NoteUtils::NoteMessageWrapper note(message);
+        if (role == Qt::DisplayRole) {
+            switch (column) {
+            case Title:
+                return note.title();
+            case ModificationTime:
+                return KFormat().formatRelativeDateTime(note.lastModifiedDate(), QLocale::ShortFormat);
+            case CreationTime:
+                return KFormat().formatRelativeDateTime(note.creationDate(), QLocale::ShortFormat);
+            case Size:
+                return KFormat().formatByteSize(message->storageSize());
+            }
+        } else if (role == Qt::EditRole) {
+            switch (column) {
+            case Title:
+                return note.title();
+            case ModificationTime:
+                return note.lastModifiedDate();
+            case CreationTime:
+                return note.creationDate();
+            case Size:
+                return message->size();
+            }
+
+        }
     }
     return EntityTreeModel::entityData(item, column, role);
+}
+
+QVariant KJotsModel::entityHeaderData(int section, Qt::Orientation orientation, int role, HeaderGroup headerGroup) const
+{
+    if (role != Qt::DisplayRole || orientation != Qt::Horizontal) {
+        return EntityTreeModel:: entityHeaderData(section, orientation, role, headerGroup);
+    }
+    if (headerGroup == EntityTreeModel::CollectionTreeHeaders) {
+        return i18nc("@title:column", "Name");
+    } else if (headerGroup == EntityTreeModel::ItemListHeaders) {
+        switch (section) {
+        case Title:
+            return i18nc("@title:column title of a note", "Title");
+        case CreationTime:
+            return i18nc("@title:column creation date and time of a note", "Created");
+        case ModificationTime:
+            return i18nc("@title:column last modification date and time of a note", "Modified");
+        case Size:
+            return i18nc("@title:column size of a note", "Size");
+        }
+    }
+    return EntityTreeModel::entityHeaderData(section, orientation, role, headerGroup);
+}
+
+int KJotsModel::entityColumnCount(HeaderGroup headerGroup) const
+{
+    if (headerGroup == EntityTreeModel::CollectionTreeHeaders) {
+        return 1;
+    } else if (headerGroup == EntityTreeModel::ItemListHeaders) {
+        return 4;
+    } else {
+        return EntityTreeModel::entityColumnCount(headerGroup);
+    }
 }
 
 QModelIndex KJotsModel::modelIndexForUrl(const QAbstractItemModel *model, const QUrl &url)
@@ -320,16 +380,22 @@ Item KJotsModel::updateItem(const Item &item, QTextDocument *document)
 
 QString KJotsModel::itemPath(const QModelIndex &index, const QString &sep)
 {
-    QString caption;
+    QStringList path;
     QModelIndex curIndex = index;
     while (curIndex.isValid()) {
-        QModelIndex parentBook = curIndex.parent();
-        if (parentBook.isValid()) {
-            caption = sep + curIndex.data().toString() + caption;
-        } else {
-            caption = curIndex.data().toString() + caption;
-        }
-        curIndex = parentBook;
+        path.prepend(curIndex.data().toString());
+        curIndex = curIndex.parent();
     }
-    return caption;
+    return path.join(sep);
+}
+
+QModelIndex KJotsModel::etmIndex(const QModelIndex &index)
+{
+    QModelIndex result = index;
+    const QAbstractProxyModel *proxy = qobject_cast<const QAbstractProxyModel *>(index.model());
+    while (proxy) {
+        result = proxy->mapToSource(result);
+        proxy = qobject_cast<const QAbstractProxyModel *>(result.model());
+    }
+    return result;
 }

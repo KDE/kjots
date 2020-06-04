@@ -37,7 +37,12 @@ class KJotsBrowser : public QTextBrowser
 {
     Q_OBJECT
 public:
-    explicit KJotsBrowser(QAbstractItemModel *model, KActionCollection *actionCollection, QWidget *parent = nullptr);
+    explicit KJotsBrowser(KActionCollection *actionCollection, QWidget *parent = nullptr);
+    /**
+     * @brief set the ETM which will be used to display
+     * additional information in tooltips
+     */
+    void setModel(QAbstractItemModel *model);
 protected:
     bool event(QEvent *event) override;
     void contextMenuEvent(QContextMenuEvent *event) override;

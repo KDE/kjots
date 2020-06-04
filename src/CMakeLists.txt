@@ -25,7 +25,6 @@ set(kjots_common_SRCS
   kjotsedit.cpp
   kjotsbookmarks.cpp
   kjotsmodel.cpp
-  kjotssortproxymodel.cpp
   kjotswidget.cpp
   kjotsbrowser.cpp
   kjotslinkdialog.cpp
@@ -48,6 +47,7 @@ target_link_libraries(kjots_common
   KF5::PimTextEdit
   KF5::XmlGui
   KF5::KIOWidgets
+  KF5::Libkdepim
   Grantlee5::Templates
   Grantlee5::TextDocument
 )

@@ -84,12 +84,27 @@ public:
         DocumentRole
     };
 
+    enum Column {
+        // Title of a note
+        Title,
+
+        // Modification date / time of a note
+        ModificationTime,
+
+        // Creation date / time of a note
+        CreationTime,
+
+        // Size of a note
+        Size
+    };
+
     // We don't reimplement the Collection overload.
     using EntityTreeModel::entityData;
     QVariant entityData(const Akonadi::Item &item, int column, int role = Qt::DisplayRole) const override;
+    int entityColumnCount(HeaderGroup headerGroup) const override;
+    QVariant entityHeaderData(int section, Qt::Orientation orientation, int role, HeaderGroup headerGroup) const override;
 
     QVariant data(const QModelIndex &index, int role) const override;
-
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
 
     static QModelIndex modelIndexForUrl(const QAbstractItemModel *model, const QUrl &url);
@@ -102,6 +117,11 @@ public:
      * using @p sep as a separator. If multiple items are selected, returns "Multiple selection"
      */
     static QString itemPath(const QModelIndex &index, const QString &sep = QStringLiteral(" / "));
+
+    /**
+     * A helper function which returns an index belonging to the ETM model through bunch of proxy models
+     */
+    static QModelIndex etmIndex(const QModelIndex &index);
 private:
     QHash<Akonadi::Collection::Id, QColor> m_colors;
     mutable QHash<Akonadi::Item::Id, QTextDocument *> m_documents;

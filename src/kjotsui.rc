@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui version="16" name="kjots" >
+<kpartgui version="17" name="kjots" >
 <MenuBar>
   <Menu name="file">
    <Action name="akonadi_note_create"/>
@@ -10,8 +10,7 @@
    <Action name="import"/>
    <Separator/>
    <Action name="renamefile"/>
-   <Action name="akonadi_item_delete"/>
-   <Action name="akonadi_collection_delete"/>
+   <Action name="deletefile"/>
    <Separator/>
    <Action name="file_print"/>
    <Action name="file_print_preview"/>
@@ -40,6 +39,12 @@
       <Action name="format_list_checkbox"/>
       <Separator/>
       <Action name="format_painter"/>
+  </Menu>
+
+  <Menu name="view">
+    <text>&amp;View</text>
+    <Action name="view_mode_two_columns" />
+    <Action name="view_mode_three_columns" />
   </Menu>
 
   <Menu name="go">
@@ -75,15 +80,14 @@
   <Action name="akonadi_note_create"/>
   <Separator/>
   <Action name="renamefile"/>
-  <Action name="akonadi_change_color"/>
+  <Action name="akonadi_note_change_color"/>
   <Separator/>
   <Action name="akonadi_item_copy"/>
   <Action name="akonadi_item_delete"/>
   <Separator/>
   <Action name="save_to"/>
   <Separator/>
-  <Action name="akonadi_note_lock"/>
-  <Action name="akonadi_note_unlock"/>
+  <Action name="akonadi_note_lock_unlock"/>
 </Menu>
 
 <Menu name="akonadi_collectionview_contextmenu">
@@ -91,18 +95,14 @@
   <Action name="akonadi_collection_create"/>
   <Separator/>
   <Action name="renamefile"/>
-  <Action name="akonadi_change_color"/>
+  <Action name="akonadi_notebook_change_color"/>
   <Separator/>
   <Action name="akonadi_collection_copy"/>
   <Action name="akonadi_collection_delete"/>
   <Separator/>
-  <Action name="sort_children_alpha"/>
-  <Action name="sort_children_by_date"/>
-  <Separator/>
   <Action name="save_to"/>
   <Separator/>
-  <Action name="akonadi_note_lock"/>
-  <Action name="akonadi_note_unlock"/>
+  <Action name="akonadi_notebook_lock_unlock"/>
 </Menu>
 
 <ToolBar name="mainToolBar" fullWidth="true" noMerge="1" iconText="icononly">

@@ -110,9 +110,8 @@ void KJotsBrowserWidget::slotHideFindBar()
     d->mBrowser->setFocus();
 }
 
-KJotsBrowser::KJotsBrowser(QAbstractItemModel *model, KActionCollection *actionCollection, QWidget *parent)
+KJotsBrowser::KJotsBrowser(KActionCollection *actionCollection, QWidget *parent)
     : QTextBrowser(parent)
-    , m_model(model)
     , m_actionCollection(actionCollection)
 {
     setWordWrapMode(QTextOption::WordWrap);
@@ -125,6 +124,11 @@ KJotsBrowser::KJotsBrowser(QAbstractItemModel *model, KActionCollection *actionC
             Q_EMIT linkClicked(url);
         }
     });
+}
+
+void KJotsBrowser::setModel(QAbstractItemModel *model)
+{
+    m_model = model;
 }
 
 void KJotsBrowser::contextMenuEvent(QContextMenuEvent *event)
@@ -158,6 +162,9 @@ bool KJotsBrowser::event(QEvent *event)
 
 void KJotsBrowser::tooltipEvent(QHelpEvent *event)
 {
+    if (!m_model) {
+        return;
+    }
     // This code is somewhat shared with KJotsEdit
     QUrl url(anchorAt(event->pos()));
     QString message;

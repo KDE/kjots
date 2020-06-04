@@ -34,12 +34,14 @@
 
 #include <grantlee/templateloader.h>
 
+class QActionGroup;
 class QCheckBox;
 class QTextEdit;
 class QTextCharFormat;
 class QSplitter;
 class QStackedWidget;
 class QModelIndex;
+class QTreeView;
 
 class KActionMenu;
 class KFindDialog;
@@ -52,6 +54,7 @@ class KXMLGUIClient;
 
 namespace Akonadi
 {
+class EntityMimeTypeFilterModel;
 class EntityOrderProxyModel;
 class EntityTreeView;
 class StandardNoteActionManager;
@@ -70,7 +73,6 @@ class RichTextEditorWidget;
 class KJotsEdit;
 class KJotsModel;
 class KJotsTreeView;
-class KJotsSortProxyModel;
 
 class KJotsWidget : public QWidget
 {
@@ -84,15 +86,12 @@ public:
     QTextEdit *activeEditor();
 public Q_SLOTS:
     void configure();
-    void prevPage();
-    void nextPage();
-    void prevBook();
-    void nextBook();
-
     void updateCaption();
     void updateMenu();
 
     Q_SCRIPTABLE bool queryClose();
+
+    void setViewMode(int mode);
 
 Q_SIGNALS:
     void canGoNextPageChanged(bool);
@@ -103,21 +102,18 @@ Q_SIGNALS:
     void captionChanged(const QString &newCaption);
 
 protected:
+    static QModelIndex previousNextEntity(QTreeView *view, int step);
+
     void setupGui();
     void setupActions();
-
-    bool canGo(int role, int step) const;
-    bool canGoNextPage() const;
-    bool canGoPreviousPage() const;
-    bool canGoNextBook() const;
-    bool canGoPreviousBook() const;
 
     QString renderSelectionTo(const QString &theme, const QString &templ);
     QString renderSelectionToHtml();
 
-    void selectNext(int role, int step);
-
     std::unique_ptr<QPrinter> setupPrinter(QPrinter::PrinterMode mode = QPrinter::ScreenResolution);
+
+    void saveSplitterStates() const;
+    void restoreSplitterStates();
 protected Q_SLOTS:
     /**
      * Renders contents on either KJotsEdit or KJotsBrowser based on KJotsTreeView selection
@@ -131,12 +127,8 @@ protected Q_SLOTS:
 private Q_SLOTS:
     void delayedInitialization();
 
-    void actionSortChildrenAlpha();
-    void actionSortChildrenByDate();
-
     void saveState();
     void restoreState();
-
     void updateConfiguration();
 
     void print(QPrinter *printer);
@@ -148,20 +140,24 @@ private:
     // XMLGui && Actions
     KXMLGUIClient  *m_xmlGuiClient = nullptr;
     Akonadi::StandardNoteActionManager *m_actionManager = nullptr;
-    QSet<QAction *> entryActions, pageActions, bookActions, multiselectionActions;
+    QSet<QAction *> anySelectionActions, editorActions;
+    QActionGroup *m_viewModeGroup = nullptr;
 
     // UI
-    QSplitter *m_splitter = nullptr;
+    QSplitter *m_splitter1 = nullptr;
+    QSplitter *m_splitter2 = nullptr;
     QStackedWidget *m_stackedWidget = nullptr;
-    Akonadi::EntityTreeView *m_treeview = nullptr;
+    Akonadi::EntityTreeView *m_collectionView = nullptr;
+    Akonadi::EntityTreeView *m_itemView = nullptr;
     KJotsEdit      *m_editor = nullptr;
     KPIMTextEdit::RichTextEditorWidget *m_editorWidget = nullptr;
     KJotsBrowserWidget *m_browserWidget = nullptr;
 
     // Models
     KJotsModel *m_kjotsModel = nullptr;
+    Akonadi::EntityMimeTypeFilterModel *m_collectionModel = nullptr;
+    Akonadi::EntityMimeTypeFilterModel *m_itemModel = nullptr;
     KSelectionProxyModel *m_collectionSelectionProxyModel = nullptr;
-    KJotsSortProxyModel *m_sortProxyModel = nullptr;
     Akonadi::EntityOrderProxyModel *m_orderProxy = nullptr;
 
     QTimer *m_autosaveTimer = nullptr;

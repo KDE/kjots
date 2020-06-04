@@ -71,7 +71,7 @@ void NoteCreatorAndSelector::trySelectCollection()
     }
 
     m_giveupTimer->stop();
-    m_primarySelectionModel->select(QItemSelection(idx, idx), QItemSelectionModel::Select);
+    m_primarySelectionModel->select(idx, QItemSelectionModel::SelectCurrent);
     disconnect(m_primarySelectionModel->model(), &QAbstractItemModel::rowsInserted, this, &NoteCreatorAndSelector::trySelectCollection);
     doCreateNote();
 }
@@ -94,7 +94,6 @@ void NoteCreatorAndSelector::doCreateNote()
 
     auto *job = new Akonadi::ItemCreateJob(newItem, Collection(m_containerCollectionId), this);
     connect(job, &Akonadi::ItemCreateJob::result, this, &NoteCreatorAndSelector::noteCreationFinished);
-
 }
 
 void NoteCreatorAndSelector::noteCreationFinished(KJob *job)
@@ -110,7 +109,7 @@ void NoteCreatorAndSelector::noteCreationFinished(KJob *job)
     m_newNoteId = newItem.id();
 
     m_giveupTimer->start();
-    connect(m_primarySelectionModel->model(), &QAbstractItemModel::rowsInserted, this, &NoteCreatorAndSelector::trySelectNote);
+    connect(m_secondarySelectionModel->model(), &QAbstractItemModel::rowsInserted, this, &NoteCreatorAndSelector::trySelectNote);
     trySelectNote();
 }
 
@@ -122,6 +121,6 @@ void NoteCreatorAndSelector::trySelectNote()
     }
 
     const QModelIndex idx = list.first();
-    m_secondarySelectionModel->select(QItemSelection(idx, idx), QItemSelectionModel::ClearAndSelect);
+    m_secondarySelectionModel->select(idx, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
 }
 

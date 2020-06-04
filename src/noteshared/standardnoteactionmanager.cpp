@@ -283,38 +283,78 @@ public:
 
     void updateActions()
     {
+        if (mItemSelectionModel) {
+            const Item::List items = mParent->selectedItems();
+            const int countUnlocked = std::count_if(items.cbegin(), items.cend(), [](const Item &item){
+                    return item.isValid() && !item.hasAttribute<NoteShared::NoteLockAttribute>();
+                });
+
+            QAction *action = mActions.value(StandardNoteActionManager::LockUnlockNote);
+            if (action) {
+                action->setEnabled(items.size() > 0);
+                if (countUnlocked > 0) {
+                    action->setData(true);
+                    action->setText(i18ncp("@action", "Lock Note", "Lock Notes", countUnlocked));
+                    action->setIcon(QIcon::fromTheme(QStringLiteral("emblem-locked")));
+                    action->setWhatsThis(i18n("Lock selected notes"));
+                } else if (items.size() > 0) {
+                    action->setData(false);
+                    action->setText(i18ncp("@action", "Unlock Note", "Unlock Notes", items.size()));
+                    action->setIcon(QIcon::fromTheme(QStringLiteral("emblem-locked")));
+                    action->setWhatsThis(i18n("Unlock selected notes"));
+                }
+            }
+
+            action = mGenericManager->action(StandardActionManager::DeleteItems);
+            if (action) {
+                action->setEnabled(countUnlocked == items.size());
+            }
+        } else {
+            QAction *action = mActions.value(StandardNoteActionManager::LockUnlockNote);
+            if (action) {
+                action->setEnabled(false);
+            }
+        }
+
+        if (mCollectionSelectionModel) {
+            const Collection::List collections = mParent->selectedCollections();
+            const int countUnlocked = std::count_if(collections.cbegin(), collections.cend(), [](const Collection &collection){
+                    return collection.isValid() && !collection.hasAttribute<NoteShared::NoteLockAttribute>();
+                });
+
+            QAction *action = mActions.value(StandardNoteActionManager::LockUnlockNoteBook);
+            if (action) {
+                action->setEnabled(collections.size() > 0);
+                if (countUnlocked > 0) {
+                    action->setData(true);
+                    action->setText(i18ncp("@action", "Lock Note Book", "Lock Note Books", countUnlocked));
+                    action->setIcon(QIcon::fromTheme(QStringLiteral("emblem-locked")));
+                    action->setWhatsThis(i18n("Lock selected note books"));
+                } else if (collections.size() > 0) {
+                    action->setData(false);
+                    action->setText(i18ncp("@action", "Unlock Note Book", "Unlock Note Books", collections.size()));
+                    action->setIcon(QIcon::fromTheme(QStringLiteral("emblem-locked")));
+                    action->setWhatsThis(i18n("Unlock selected note books"));
+                }
+            }
+
+            action = mGenericManager->action(StandardActionManager::DeleteCollections);
+            if (action) {
+                action->setEnabled(countUnlocked == collections.size());
+            }
+        } else {
+            QAction *action = mActions.value(StandardNoteActionManager::LockUnlockNoteBook);
+            if (action) {
+                action->setEnabled(false);
+            }
+        }
+
+
         if (mItemSelectionModel && mCollectionSelectionModel) {
             const Collection::List collections = mParent->selectedCollections();
             const Item::List items = mParent->selectedItems();
-            QAction *action = mActions.value(StandardNoteActionManager::Lock);
-            if (action) {
-                bool canLock = std::any_of(collections.cbegin(), collections.cend(), [](const Collection &collection){
-                      return collection.isValid() && !collection.hasAttribute<NoteShared::NoteLockAttribute>();
-                    });
-                canLock = canLock || std::any_of(items.cbegin(), items.cend(), [](const Item &item){
-                        return item.isValid() && !item.hasAttribute<NoteShared::NoteLockAttribute>();
-                    });
-                action->setEnabled(canLock);
-            }
 
-            action = mActions.value(StandardNoteActionManager::Unlock);
-            if (action) {
-                const bool hasLockedCollection = std::any_of(collections.cbegin(), collections.cend(), [](const Collection &collection){
-                      return collection.isValid() && collection.hasAttribute<NoteShared::NoteLockAttribute>();
-                    });
-                if (hasLockedCollection) {
-                    mGenericManager->action(StandardActionManager::DeleteCollections)->setEnabled(false);
-                }
-                const bool hasLockedItems = std::any_of(items.cbegin(), items.cend(), [](const Item &item){
-                        return item.isValid() && item.hasAttribute<NoteShared::NoteLockAttribute>();
-                    });
-                if (hasLockedItems) {
-                    mGenericManager->action(StandardActionManager::DeleteItems)->setEnabled(false);
-                }
-                action->setEnabled(hasLockedItems || hasLockedCollection);
-            }
-
-            action = mActions.value(StandardNoteActionManager::CreateNote);
+            QAction *action = mActions.value(StandardNoteActionManager::CreateNote);
             if (action) {
                 Akonadi::Collection collection;
                 if (collections.count() == 1) {
@@ -329,31 +369,20 @@ public:
                                    (!collection.hasAttribute<NoteShared::NoteLockAttribute>()));
             }
 
-            action = mActions.value(StandardNoteActionManager::ChangeColor);
+            action = mActions.value(StandardNoteActionManager::ChangeNoteColor);
             if (action) {
                 action->setEnabled(collections.count() > 0 || items.count() > 0);
-            }
-        } else {
-            if (mActions.contains(StandardNoteActionManager::Lock)) {
-                mActions[StandardNoteActionManager::Lock]->setEnabled(false);
-            }
-            if (mActions.contains(StandardNoteActionManager::Unlock)) {
-                mActions[StandardNoteActionManager::Unlock]->setEnabled(false);
             }
         }
 
         Q_EMIT mParent->actionStateUpdated();
     }
 
-    void slotLockUnlock(bool lock) {
-        if (!mItemSelectionModel || !mCollectionSelectionModel) {
+    void slotLockUnlockNote() {
+        if (!mItemSelectionModel || mInterceptedActions.contains(LockUnlockNote)) {
             return;
         }
-        if ((lock && mInterceptedActions.contains(Lock)) ||
-            (!lock && mInterceptedActions.contains(Unlock)))
-        {
-            return;
-        }
+        const bool lock = mActions[StandardNoteActionManager::LockUnlockNote]->data().toBool();
         const Item::List items = mParent->selectedItems();
         for (auto item : items) {
             if (item.isValid()) {
@@ -365,6 +394,13 @@ public:
                 new ItemModifyJob(item, mParent);
             }
         }
+    }
+
+    void slotLockUnlockNoteBook() {
+        if (!mCollectionSelectionModel || mInterceptedActions.contains(LockUnlockNoteBook)) {
+            return;
+        }
+        const bool lock = mActions[StandardNoteActionManager::LockUnlockNoteBook]->data().toBool();
         const Collection::List collections = mParent->selectedCollections();
         for (auto collection : collections) {
             if (collection.isValid()) {
@@ -400,18 +436,14 @@ public:
         creatorAndSelector->createNote(collection);
     }
 
-    void slotChangeColor() {
-        if (mInterceptedActions.contains(ChangeColor)) {
+    void slotChangeNoteColor() {
+        if (mInterceptedActions.contains(ChangeNoteColor)) {
             return;
         }
         QColor color = Qt::white;
-        const Collection::List collections = mParent->selectedCollections();
         const Item::List items = mParent->selectedItems();
-        if (collections.size() + items.size() == 1) {
-            const EntityDisplayAttribute *attr = (collections.size() == 1)
-                        ? collections.first().attribute<EntityDisplayAttribute>()
-                        : items.first().attribute<EntityDisplayAttribute>();;
-
+        if (items.size() == 1) {
+            const EntityDisplayAttribute *attr = items.first().attribute<EntityDisplayAttribute>();
             if (attr) {
                 color = attr->backgroundColor();
             }
@@ -423,6 +455,24 @@ public:
         for (auto item : items) {
             item.attribute<EntityDisplayAttribute>(Item::AddIfMissing)->setBackgroundColor(color);
             new ItemModifyJob(item, mParent);
+        }
+    }
+
+    void slotChangeNoteBookColor() {
+        if (mInterceptedActions.contains(ChangeNoteBookColor)) {
+            return;
+        }
+        QColor color = Qt::white;
+        const Collection::List collections = mParent->selectedCollections();
+        if (collections.size() == 1) {
+            const EntityDisplayAttribute *attr = collections.first().attribute<EntityDisplayAttribute>();
+            if (attr) {
+                color = attr->backgroundColor();
+            }
+        }
+        color = QColorDialog::getColor(color, mParentWidget, QString(), QColorDialog::ShowAlphaChannel);
+        if (!color.isValid()) {
+            return;
         }
         for (auto collection : collections) {
             collection.attribute<EntityDisplayAttribute>(Collection::AddIfMissing)->setBackgroundColor(color);
@@ -504,38 +554,34 @@ QAction *StandardNoteActionManager::createAction(Type type)
            d->slotCreateNote();
         });
         break;
-    case Lock:
+    case LockUnlockNote:
         action = new QAction(d->mParentWidget);
-        action->setIcon(QIcon::fromTheme(QStringLiteral("emblem-locked")));
-        action->setText(i18n("Lock Selected"));
-        action->setWhatsThis(i18n("Lock selected note book or notes"));
-        d->mActions.insert(Lock, action);
-        d->mActionCollection->addAction(QStringLiteral("akonadi_note_lock"), action);
-        connect(action, &QAction::triggered, this, [this]() {
-            d->slotLockUnlock(true);
-        });
+        d->mActions.insert(LockUnlockNote, action);
+        d->mActionCollection->addAction(QStringLiteral("akonadi_note_lock_unlock"), action);
+        connect(action, &QAction::triggered, this, [this](){ d->slotLockUnlockNote(); });
         break;
-    case Unlock:
+    case LockUnlockNoteBook:
         action = new QAction(d->mParentWidget);
-        action->setIcon(QIcon::fromTheme(QStringLiteral("emblem-unlocked")));
-        action->setText(i18n("Unlock Selected"));
-        action->setWhatsThis(i18n("Unlock selected note books or notes"));
-        d->mActions.insert(Unlock, action);
-        d->mActionCollection->addAction(QStringLiteral("akonadi_note_unlock"), action);
-        connect(action, &QAction::triggered, this, [this]() {
-            d->slotLockUnlock(false);
-        });
-        break;
-    case ChangeColor:
+        d->mActions.insert(LockUnlockNoteBook, action);
+        d->mActionCollection->addAction(QStringLiteral("akonadi_notebook_lock_unlock"), action);
+        connect(action, &QAction::triggered, this, [this](){ d->slotLockUnlockNoteBook(); });
+    case ChangeNoteColor:
         action = new QAction(d->mParentWidget);
         action->setIcon(QIcon::fromTheme(QStringLiteral("format-fill-color")));
-        action->setText(i18n("Change Color..."));
-        action->setWhatsThis(i18n("Changes the color of a selected note books or notes"));
-        d->mActions.insert(ChangeColor, action);
-        d->mActionCollection->addAction(QStringLiteral("akonadi_change_color"), action);
-        connect(action, &QAction::triggered, this, [this](){
-            d->slotChangeColor();
-        });
+        action->setText(i18n("Change Note Color..."));
+        action->setWhatsThis(i18n("Changes the color of a selected notes"));
+        d->mActions.insert(ChangeNoteColor, action);
+        d->mActionCollection->addAction(QStringLiteral("akonadi_note_change_color"), action);
+        connect(action, &QAction::triggered, this, [this](){ d->slotChangeNoteColor(); });
+        break;
+    case ChangeNoteBookColor:
+        action = new QAction(d->mParentWidget);
+        action->setIcon(QIcon::fromTheme(QStringLiteral("format-fill-color")));
+        action->setText(i18n("Change Note Book Color..."));
+        action->setWhatsThis(i18n("Changes the color of a selected note books"));
+        d->mActions.insert(ChangeNoteColor, action);
+        d->mActionCollection->addAction(QStringLiteral("akonadi_notebook_change_color"), action);
+        connect(action, &QAction::triggered, this, [this](){ d->slotChangeNoteBookColor(); });
         break;
     default:
         Q_ASSERT(false);   // should never happen
@@ -558,9 +604,10 @@ QAction *StandardNoteActionManager::createAction(StandardActionManager::Type typ
 void StandardNoteActionManager::createAllActions()
 {
     (void)createAction(CreateNote);
-    (void)createAction(Lock);
-    (void)createAction(Unlock);
-    (void)createAction(ChangeColor);
+    (void)createAction(LockUnlockNote);
+    (void)createAction(LockUnlockNoteBook);
+    (void)createAction(ChangeNoteColor);
+    (void)createAction(ChangeNoteBookColor);
 
     d->mGenericManager->createAllActions();
     d->updateGenericAllActions();

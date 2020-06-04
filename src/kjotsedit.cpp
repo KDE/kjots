@@ -34,6 +34,7 @@
 #include <QTextDocumentFragment>
 #include <QToolTip>
 #include <QUrl>
+#include <QAbstractItemModel>
 
 #include <KActionCollection>
 #include <KStandardGuiItem>
@@ -62,6 +63,7 @@ public:
     ~Private() = default;
 
     QPersistentModelIndex index;
+    QAbstractItemModel *model = nullptr;
 
     QAction *action_copy_into_title = nullptr;
     QAction *action_manage_link = nullptr;
@@ -193,12 +195,17 @@ void KJotsEdit::insertDate()
 
 bool KJotsEdit::setModelIndex(const QModelIndex &index)
 {
-    bool newDocument = d->index.isValid() && (d->index != index);
-    // Saving the old document, if it wa changed
+    // Mapping index to ETM
+    QModelIndex etmIndex = KJotsModel::etmIndex(index);
+
+    // Saving the old document, if it was changed
+    bool newDocument = d->index.isValid() && (d->index != etmIndex);
     if (newDocument) {
         savePage();
     }
-    d->index = QPersistentModelIndex(index);
+
+    d->model = const_cast<QAbstractItemModel *>(etmIndex.model());
+    d->index = QPersistentModelIndex(etmIndex);
     // Loading document
     auto *doc = d->index.data(KJotsModel::DocumentRole).value<QTextDocument *>();
     if (!doc) {
@@ -328,8 +335,7 @@ void KJotsEdit::copySelectionIntoTitle()
         return;
     }
     const QString newTitle(textCursor().selectedText());
-    auto *model = const_cast<QAbstractItemModel *>(d->index.model());
-    model->setData(d->index, newTitle);
+    d->model->setData(d->index, newTitle);
 }
 
 bool KJotsEdit::canInsertFromMimeData(const QMimeData *source) const
@@ -351,7 +357,7 @@ void KJotsEdit::insertFromMimeData(const QMimeData *source)
         const QList<QUrl> urls = source->urls();
         for (const QUrl &url : urls) {
             if (url.scheme() == QStringLiteral("akonadi")) {
-                QModelIndex idx = KJotsModel::modelIndexForUrl(d->index.model(), url);
+                QModelIndex idx = KJotsModel::modelIndexForUrl(d->model, url);
                 if (idx.isValid()) {
                     insertHtml(QStringLiteral("<a href=\"%1\">%2</a>").arg(idx.data(KJotsModel::EntityUrlRole).toString(),
                                                                            idx.data().toString()));
@@ -438,7 +444,7 @@ void KJotsEdit::tooltipEvent(QHelpEvent *event)
 
     if (url.isValid()) {
         if (url.scheme() == QStringLiteral("akonadi")) {
-            const QModelIndex idx = KJotsModel::modelIndexForUrl(d->index.model(), url);
+            const QModelIndex idx = KJotsModel::modelIndexForUrl(d->model, url);
             if (idx.data(EntityTreeModel::ItemRole).value<Item>().isValid()) {
                 message = i18nc("@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)", "Ctrl+click to open note: %1", KJotsModel::itemPath(idx));
             } else if (idx.data(EntityTreeModel::CollectionRole).value<Collection>().isValid()) {
@@ -476,8 +482,7 @@ void KJotsEdit::savePage()
     }
 
     prepareDocumentForSaving();
-    auto *model = const_cast<QAbstractItemModel *>(d->index.model());
-    model->setData(d->index, QVariant::fromValue(document()), KJotsModel::DocumentRole);
+    d->model->setData(d->index, QVariant::fromValue(document()), KJotsModel::DocumentRole);
 }
 
 /* ex: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab: */

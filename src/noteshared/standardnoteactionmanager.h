@@ -50,9 +50,10 @@ public:
      */
     enum Type {
         CreateNote = StandardActionManager::LastType + 1, ///< Creates a new note
-        Lock,                                             ///< Locks a note or a note book
-        Unlock,                                           ///< Unlocks a note or a note book
-        ChangeColor                                       ///< Changes a color of a note or a note book
+        LockUnlockNote,                                   ///< Locks or unlocks a note
+        LockUnlockNoteBook,                               ///< Locks or unlocks a note book
+        ChangeNoteColor,                                  ///< Changes a color of a note
+        ChangeNoteBookColor                               ///< Changes a color of a note book
     };
 
     /**

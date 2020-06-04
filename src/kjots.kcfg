@@ -5,9 +5,6 @@
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile name="kjotsrc"/>
   <group name="kjots">
-    <entry name="SplitterSizes" type="IntList">
-      <label>How the main window is divided.</label>
-    </entry>
     <entry name="AutoSave" type="Bool">
       <label>Whether books should be saved automatically.</label>
       <default>true</default>
@@ -15,6 +12,13 @@
     <entry name="AutoSaveInterval" type="Int">
       <label>The interval in minutes at which books should be saved automatically.</label>
       <default>5</default>
+    </entry>
+    <entry name="ViewMode" type="Enum">
+      <choices>
+        <choice name="TwoColumn" />
+        <choice name="ThreeColumn" />
+      </choices>
+      <default>2</default>
     </entry>
   </group>
 </kcfg>

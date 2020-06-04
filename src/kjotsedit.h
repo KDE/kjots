@@ -43,8 +43,11 @@ public:
 
     bool canInsertFromMimeData(const QMimeData *) const override;
     void insertFromMimeData(const QMimeData *) override;
+
     /**
-     * Load document based on KJotsModel index
+     * Load document based on @p index
+     * Index can belong to some proxy model, in that case
+     * it will be mapped to the ETM
      *
      * @returns true if loaded successfully
      */
