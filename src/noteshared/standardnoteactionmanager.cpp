@@ -311,6 +311,7 @@ public:
                 const int countUnpinned = std::count_if(items.cbegin(), items.cend(), [](const Item &item){
                         return item.isValid() && !item.hasAttribute<NoteShared::NotePinAttribute>();
                     });
+
                 action->setEnabled(items.size() > 0);
                 if (countUnpinned > 0) {
                     action->setData(true);
@@ -329,6 +330,11 @@ public:
             if (action) {
                 action->setEnabled(countUnlocked == items.size());
             }
+
+            action = mActions.value(StandardNoteActionManager::ChangeNoteColor);
+            if (action) {
+                action->setEnabled(items.count() > 0);
+            }
         } else {
             QAction *action = mActions.value(StandardNoteActionManager::LockUnlockNote);
             if (action) {
@@ -336,6 +342,11 @@ public:
             }
 
             action = mActions.value(StandardNoteActionManager::PinUnpinNote);
+            if (action) {
+                action->setEnabled(false);
+            }
+
+            action = mActions.value(StandardNoteActionManager::ChangeNoteColor);
             if (action) {
                 action->setEnabled(false);
             }
@@ -367,13 +378,22 @@ public:
             if (action) {
                 action->setEnabled(countUnlocked == collections.size());
             }
+
+            action = mActions.value(StandardNoteActionManager::ChangeNoteBookColor);
+            if (action) {
+                action->setEnabled(collections.count() > 0);
+            }
         } else {
             QAction *action = mActions.value(StandardNoteActionManager::LockUnlockNoteBook);
             if (action) {
                 action->setEnabled(false);
             }
-        }
 
+            action = mActions.value(StandardNoteActionManager::ChangeNoteBookColor);
+            if (action) {
+                action->setEnabled(false);
+            }
+        }
 
         if (mItemSelectionModel && mCollectionSelectionModel) {
             const Collection::List collections = mParent->selectedCollections();
@@ -392,11 +412,6 @@ public:
                 action->setEnabled(collection.isValid() &&
                                    (collection.rights() & Akonadi::Collection::CanCreateItem) &&
                                    (!collection.hasAttribute<NoteShared::NoteLockAttribute>()));
-            }
-
-            action = mActions.value(StandardNoteActionManager::ChangeNoteColor);
-            if (action) {
-                action->setEnabled(collections.count() > 0 || items.count() > 0);
             }
         }
 
