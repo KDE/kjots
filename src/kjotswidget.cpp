@@ -217,6 +217,7 @@ void KJotsWidget::setupGui()
 
     // Collection view
     m_collectionView = new EntityTreeView(m_xmlGuiClient, m_splitter1);
+    m_collectionView->setObjectName(QStringLiteral("CollectionView"));
     m_collectionView->setSelectionMode(QAbstractItemView::ExtendedSelection);
     m_collectionView->setEditTriggers(QAbstractItemView::DoubleClicked);
     m_collectionView->setManualSortingActive(true);
@@ -228,6 +229,7 @@ void KJotsWidget::setupGui()
 
     // Item view
     m_itemView = new EntityTreeView(m_xmlGuiClient, m_splitter2);
+    m_itemView->setObjectName(QStringLiteral("ItemView"));
     m_itemView->setSelectionMode(QAbstractItemView::ExtendedSelection);
     m_itemView->setSelectionBehavior(QAbstractItemView::SelectRows);
     m_itemView->setEditTriggers(QAbstractItemView::DoubleClicked);
@@ -290,20 +292,26 @@ void KJotsWidget::saveState()
     }
 }
 
-void KJotsWidget::saveSplitterStates() const
+void KJotsWidget::saveUIStates() const
 {
-    const QString groupName = QStringLiteral("UiState_MainWidgetSplitter_%1").arg(KJotsSettings::viewMode());
+    const QString groupName = QStringLiteral("UiState_MainWidget_%1").arg(KJotsSettings::viewMode());
     KConfigGroup group(KSharedConfig::openConfig(), groupName);
     KPIM::UiStateSaver::saveState(m_splitter1, group);
     KPIM::UiStateSaver::saveState(m_splitter2, group);
+    KPIM::UiStateSaver::saveState(m_collectionView, group);
+    KPIM::UiStateSaver::saveState(m_itemView, group);
+    group.sync();
 }
 
-void KJotsWidget::restoreSplitterStates()
+void KJotsWidget::restoreUIStates()
 {
-    const QString groupName = QStringLiteral("UiState_MainWidgetSplitter_%1").arg(KJotsSettings::viewMode());
+    const QString groupName = QStringLiteral("UiState_MainWidget_%1").arg(KJotsSettings::viewMode());
     KConfigGroup group(KSharedConfig::openConfig(), groupName);
     KPIM::UiStateSaver::restoreState(m_splitter1, group);
     KPIM::UiStateSaver::restoreState(m_splitter2, group);
+    KPIM::UiStateSaver::restoreState(m_collectionView, group);
+    KPIM::UiStateSaver::restoreState(m_itemView, group);
+    group.sync();
 }
 
 void KJotsWidget::setViewMode(int mode)
@@ -312,9 +320,9 @@ void KJotsWidget::setViewMode(int mode)
     m_splitter2->setOrientation(newMode == 1 ? Qt::Vertical : Qt::Horizontal);
     if (mode != 0) {
         KJotsSettings::setViewMode(mode);
-        saveSplitterStates();
+        saveUIStates();
     }
-    restoreSplitterStates();
+    restoreUIStates();
     m_viewModeGroup->actions().at(newMode-1)->setChecked(true);
 }
 
@@ -743,7 +751,7 @@ bool KJotsWidget::queryClose()
         }
     }
 
-    saveSplitterStates();
+    saveUIStates();
     KJotsSettings::self()->save();
     m_orderProxy->saveOrder();
 

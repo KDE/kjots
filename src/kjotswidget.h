@@ -113,8 +113,8 @@ protected:
 
     std::unique_ptr<QPrinter> setupPrinter(QPrinter::PrinterMode mode = QPrinter::ScreenResolution);
 
-    void saveSplitterStates() const;
-    void restoreSplitterStates();
+    void saveUIStates() const;
+    void restoreUIStates();
 protected Q_SLOTS:
     /**
      * Renders contents on either KJotsEdit or KJotsBrowser based on KJotsTreeView selection
