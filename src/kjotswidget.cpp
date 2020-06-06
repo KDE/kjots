@@ -97,6 +97,7 @@
 #include "KJotsSettings.h"
 #include "kjotsbrowser.h"
 #include "noteshared/notelockattribute.h"
+#include "noteshared/notepinattribute.h"
 #include "noteshared/standardnoteactionmanager.h"
 
 #include <memory>
@@ -127,6 +128,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     scope.fetchFullPayload(true);   // Need to have full item when adding it to the internal data structure
     scope.fetchAttribute< EntityDisplayAttribute >();
     scope.fetchAttribute< NoteShared::NoteLockAttribute >();
+    scope.fetchAttribute< NoteShared::NotePinAttribute >();
 
     auto *monitor = new ChangeRecorder(this);
     monitor->fetchCollection(true);

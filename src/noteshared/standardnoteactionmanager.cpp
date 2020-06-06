@@ -37,6 +37,7 @@
 
 #include "notecreatorandselector.h"
 #include "notelockattribute.h"
+#include "notepinattribute.h"
 
 using namespace Akonadi;
 
@@ -305,12 +306,36 @@ public:
                 }
             }
 
+            action = mActions.value(StandardNoteActionManager::PinUnpinNote);
+            if (action) {
+                const int countUnpinned = std::count_if(items.cbegin(), items.cend(), [](const Item &item){
+                        return item.isValid() && !item.hasAttribute<NoteShared::NotePinAttribute>();
+                    });
+                action->setEnabled(items.size() > 0);
+                if (countUnpinned > 0) {
+                    action->setData(true);
+                    action->setText(i18ncp("@action", "Pin Note", "Pin Notes", countUnpinned));
+                    action->setIcon(QIcon::fromTheme(QStringLiteral("window-pin")));
+                    action->setWhatsThis(i18n("Pin selected notes"));
+                } else if (items.size() > 0) {
+                    action->setData(false);
+                    action->setText(i18ncp("@action", "Unpin Note", "Unpin Notes", items.size()));
+                    action->setIcon(QIcon::fromTheme(QStringLiteral("window-unpin")));
+                    action->setWhatsThis(i18n("Unpin selected notes"));
+                }
+            }
+
             action = mGenericManager->action(StandardActionManager::DeleteItems);
             if (action) {
                 action->setEnabled(countUnlocked == items.size());
             }
         } else {
             QAction *action = mActions.value(StandardNoteActionManager::LockUnlockNote);
+            if (action) {
+                action->setEnabled(false);
+            }
+
+            action = mActions.value(StandardNoteActionManager::PinUnpinNote);
             if (action) {
                 action->setEnabled(false);
             }
@@ -410,6 +435,24 @@ public:
                     collection.removeAttribute<NoteShared::NoteLockAttribute>();
                 }
                 new CollectionModifyJob(collection, mParent);
+            }
+        }
+    }
+
+    void slotPinUnpinNote() {
+        if (!mItemSelectionModel || mInterceptedActions.contains(PinUnpinNote)) {
+            return;
+        }
+        const bool pin = mActions[StandardNoteActionManager::PinUnpinNote]->data().toBool();
+        const Item::List items = mParent->selectedItems();
+        for (auto item : items) {
+            if (item.isValid()) {
+                if (pin) {
+                    item.addAttribute(new NoteShared::NotePinAttribute);
+                } else {
+                    item.removeAttribute<NoteShared::NotePinAttribute>();
+                }
+                new ItemModifyJob(item, mParent);
             }
         }
     }
@@ -565,6 +608,13 @@ QAction *StandardNoteActionManager::createAction(Type type)
         d->mActions.insert(LockUnlockNoteBook, action);
         d->mActionCollection->addAction(QStringLiteral("akonadi_notebook_lock_unlock"), action);
         connect(action, &QAction::triggered, this, [this](){ d->slotLockUnlockNoteBook(); });
+        break;
+    case PinUnpinNote:
+        action = new QAction(d->mParentWidget);
+        d->mActions.insert(PinUnpinNote, action);
+        d->mActionCollection->addAction(QStringLiteral("akonadi_note_pin_unpin"), action);
+        connect(action, &QAction::triggered, this, [this](){ d->slotPinUnpinNote(); });
+        break;
     case ChangeNoteColor:
         action = new QAction(d->mParentWidget);
         action->setIcon(QIcon::fromTheme(QStringLiteral("format-fill-color")));
@@ -606,6 +656,7 @@ void StandardNoteActionManager::createAllActions()
     (void)createAction(CreateNote);
     (void)createAction(LockUnlockNote);
     (void)createAction(LockUnlockNoteBook);
+    (void)createAction(PinUnpinNote);
     (void)createAction(ChangeNoteColor);
     (void)createAction(ChangeNoteBookColor);
 

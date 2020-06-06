@@ -41,6 +41,7 @@
 #include <grantlee/plaintextmarkupbuilder.h>
 
 #include "noteshared/notelockattribute.h"
+#include "noteshared/notepinattribute.h"
 
 Q_DECLARE_METATYPE(QTextDocument *)
 Q_DECLARE_METATYPE(KPIMTextEdit::ImageList)
@@ -252,6 +253,9 @@ QVariant KJotsModel::data(const QModelIndex &index, int role) const
         const Item item = index.data(ItemRole).value<Item>();
         if (item.isValid() && item.hasAttribute<NoteShared::NoteLockAttribute>()) {
             return QIcon::fromTheme(QStringLiteral("emblem-locked"));
+        }
+        if (item.isValid() && item.hasAttribute<NoteShared::NotePinAttribute>()) {
+            return QIcon::fromTheme(QStringLiteral("pin"));
         }
         const Collection col = index.data(CollectionRole).value<Collection>();
         if (col.isValid() && col.hasAttribute<NoteShared::NoteLockAttribute>()) {

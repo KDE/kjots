@@ -87,6 +87,7 @@
   <Separator/>
   <Action name="save_to"/>
   <Separator/>
+  <Action name="akonadi_note_pin_unpin"/>
   <Action name="akonadi_note_lock_unlock"/>
 </Menu>
 

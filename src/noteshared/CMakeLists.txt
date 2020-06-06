@@ -1,6 +1,7 @@
 set(noteshared_SRCS
     notecreatorandselector.cpp
     notelockattribute.cpp
+    notepinattribute.cpp
     noteeditorutils.cpp
     standardnoteactionmanager.cpp
 )

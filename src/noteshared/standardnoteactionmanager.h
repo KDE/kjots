@@ -52,6 +52,7 @@ public:
         CreateNote = StandardActionManager::LastType + 1, ///< Creates a new note
         LockUnlockNote,                                   ///< Locks or unlocks a note
         LockUnlockNoteBook,                               ///< Locks or unlocks a note book
+        PinUnpinNote,                                     ///< Pins or unpins a note
         ChangeNoteColor,                                  ///< Changes a color of a note
         ChangeNoteBookColor                               ///< Changes a color of a note book
     };
