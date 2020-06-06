@@ -74,6 +74,7 @@ class RichTextEditorWidget;
 class KJotsEdit;
 class KJotsModel;
 class KJotsTreeView;
+class NoteSortProxyModel;
 
 class KJotsWidget : public QWidget
 {
@@ -158,6 +159,7 @@ private:
     KJotsModel *m_kjotsModel = nullptr;
     Akonadi::EntityMimeTypeFilterModel *m_collectionModel = nullptr;
     Akonadi::EntityMimeTypeFilterModel *m_itemModel = nullptr;
+    NoteSortProxyModel *m_itemSortModel = nullptr;
     KSelectionProxyModel *m_collectionSelectionProxyModel = nullptr;
     Akonadi::EntityOrderProxyModel *m_orderProxy = nullptr;
 

@@ -99,6 +99,7 @@
 #include "noteshared/notelockattribute.h"
 #include "noteshared/notepinattribute.h"
 #include "noteshared/standardnoteactionmanager.h"
+#include "notesortproxymodel.h"
 
 #include <memory>
 
@@ -164,7 +165,10 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     m_itemModel->setHeaderGroup(EntityTreeModel::ItemListHeaders);
     m_itemModel->setSortRole(Qt::EditRole);
 
-    m_itemView->setModel(m_itemModel);
+    m_itemSortModel = new NoteSortProxyModel(this);
+    m_itemSortModel->setSourceModel(m_itemModel);
+
+    m_itemView->setModel(m_itemSortModel);
 
     m_actionManager->setCollectionSelectionModel(m_collectionView->selectionModel());
     m_actionManager->setItemSelectionModel(m_itemView->selectionModel());
