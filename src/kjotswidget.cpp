@@ -48,6 +48,7 @@
 
 // Akonadi
 #include <Akonadi/Notes/NoteUtils>
+#include <AkonadiCore/AttributeFactory>
 #include <AkonadiCore/CollectionCreateJob>
 #include <AkonadiCore/CollectionDeleteJob>
 #include <AkonadiCore/ChangeRecorder>
@@ -112,6 +113,9 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 {
     ControlGui::widgetNeedsAkonadi(this);
 
+    Akonadi::AttributeFactory::registerAttribute<NoteShared::NoteLockAttribute>();
+    Akonadi::AttributeFactory::registerAttribute<NoteShared::NotePinAttribute>();
+
     // Grantlee
     m_loader = QSharedPointer<FileSystemTemplateLoader>(new FileSystemTemplateLoader());
     m_loader->setTemplateDirs(QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
@@ -127,9 +131,9 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     // Models
     ItemFetchScope scope;
     scope.fetchFullPayload(true);   // Need to have full item when adding it to the internal data structure
-    scope.fetchAttribute< EntityDisplayAttribute >();
-    scope.fetchAttribute< NoteShared::NoteLockAttribute >();
-    scope.fetchAttribute< NoteShared::NotePinAttribute >();
+    scope.fetchAttribute<EntityDisplayAttribute>();
+    scope.fetchAttribute<NoteShared::NoteLockAttribute>();
+    scope.fetchAttribute<NoteShared::NotePinAttribute>();
 
     auto *monitor = new ChangeRecorder(this);
     monitor->fetchCollection(true);
