@@ -296,12 +296,12 @@ public:
                 if (countUnlocked > 0) {
                     action->setData(true);
                     action->setText(i18ncp("@action", "Lock Note", "Lock Notes", countUnlocked));
-                    action->setIcon(QIcon::fromTheme(QStringLiteral("emblem-locked")));
+                    action->setIcon(QIcon::fromTheme(QStringLiteral("object-locked")));
                     action->setWhatsThis(i18n("Lock selected notes"));
                 } else if (items.size() > 0) {
                     action->setData(false);
                     action->setText(i18ncp("@action", "Unlock Note", "Unlock Notes", items.size()));
-                    action->setIcon(QIcon::fromTheme(QStringLiteral("emblem-locked")));
+                    action->setIcon(QIcon::fromTheme(QStringLiteral("object-unlocked")));
                     action->setWhatsThis(i18n("Unlock selected notes"));
                 }
             }
