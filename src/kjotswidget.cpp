@@ -167,10 +167,10 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     m_itemModel->setSourceModel(m_collectionSelectionProxyModel);
     m_itemModel->addMimeTypeExclusionFilter(Collection::mimeType());
     m_itemModel->setHeaderGroup(EntityTreeModel::ItemListHeaders);
-    m_itemModel->setSortRole(Qt::EditRole);
 
     m_itemSortModel = new NoteSortProxyModel(this);
     m_itemSortModel->setSourceModel(m_itemModel);
+    m_itemSortModel->setSortRole(Qt::EditRole);
 
     m_itemView->setModel(m_itemSortModel);
 
