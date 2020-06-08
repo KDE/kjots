@@ -45,5 +45,5 @@ void NotePinAttribute::deserialize(const QByteArray &/*data*/)
 
 QByteArray NotePinAttribute::serialized() const
 {
-    return {};
+    return QByteArrayLiteral("-");
 }
