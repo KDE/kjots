@@ -25,6 +25,7 @@
   <name xml:lang="pt-BR">KJots</name>
   <name xml:lang="ru">KJots</name>
   <name xml:lang="sk">KJots</name>
+  <name xml:lang="sl">KJots</name>
   <name xml:lang="sv">Kjots</name>
   <name xml:lang="tr">KJots</name>
   <name xml:lang="uk">KJots</name>
@@ -52,6 +53,7 @@
   <summary xml:lang="pt">Utilitário de apontamento de notas</summary>
   <summary xml:lang="pt-BR">Utilitário de tomada de notas</summary>
   <summary xml:lang="sk">Nástroj na tvorbu poznámok</summary>
+  <summary xml:lang="sl">Orodje za shranjevanje beležk</summary>
   <summary xml:lang="sv">Anteckningsverktyg</summary>
   <summary xml:lang="tr">Not alma programı</summary>
   <summary xml:lang="uk">Програма для роботи з нотатками</summary>
@@ -79,6 +81,7 @@
     <p xml:lang="pt">O KJots organiza todas as suas notas em livros separados.</p>
     <p xml:lang="pt-BR">O KJots organiza todas as suas notas em livros separados.</p>
     <p xml:lang="sk">KJots organizuje všetky vaše poznámky do samostatných kníh.</p>
+    <p xml:lang="sl">KJots vse vaše zapiske organizira v ločene knjige.</p>
     <p xml:lang="sv">KJots organiserar alla anteckningar i separata böcker.</p>
     <p xml:lang="tr">KJots, notlarınızı kitaplara ayırarak düzenler.</p>
     <p xml:lang="uk">KJots упорядковує усі ваші нотатки за окремими записниками.</p>
@@ -107,6 +110,7 @@
     <p xml:lang="pt-BR">Funcionalidades:</p>
     <p xml:lang="ru">Возможности:</p>
     <p xml:lang="sk">Funkcie:</p>
+    <p xml:lang="sl">Lastnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
@@ -134,6 +138,7 @@
       <li xml:lang="pt">Tratamento de múltiplos livros</li>
       <li xml:lang="pt-BR">Manipulação de múltiplos livros</li>
       <li xml:lang="sk">Spracovanie viacerých kníh</li>
+      <li xml:lang="sl">Obdelano je bilo več knjig</li>
       <li xml:lang="sv">Flera böcker hanteras</li>
       <li xml:lang="tr">Çoklu kitap işleme</li>
       <li xml:lang="uk">можливість роботи з декількома записниками одночасно;</li>
@@ -159,6 +164,7 @@
       <li xml:lang="pt">Cada livro tem várias páginas com nome</li>
       <li xml:lang="pt-BR">Cada livro possui várias páginas com nome</li>
       <li xml:lang="sk">Každá kniha má veľa pomenovaných strán</li>
+      <li xml:lang="sl">Vsaka knjiga ima več poimenovanih strani</li>
       <li xml:lang="sv">Varje bok har många namngivna sidor</li>
       <li xml:lang="tr">Her bir kitap çok sayıda sayfası vardır</li>
       <li xml:lang="uk">можливість використання довільної кількості іменованих сторінок;</li>
@@ -184,6 +190,7 @@
       <li xml:lang="pt">Os livros e páginas podem ser reorganizadas por arrastamento</li>
       <li xml:lang="pt-BR">Os livros e páginas podem ser reorganizados com arrastar e soltar</li>
       <li xml:lang="sk">Knihy a strany sa dajú usporiadať pomocou drag and drop</li>
+      <li xml:lang="sl">Knjige in strani lahko preurejamo z vlečenjem in spuščanjem</li>
       <li xml:lang="sv">Böcker och sidor kan arrangeras med drag och släpp.</li>
       <li xml:lang="tr">Kitaplar ve sayfalar, sürükle-bırak ile yeniden düzenlenebilir</li>
       <li xml:lang="uk">можливість перевпорядковування записників і сторінок перетягуванням зі скиданням;</li>
@@ -209,6 +216,7 @@
       <li xml:lang="pt">Estão disponíveis atalhos de teclado para diversas funções</li>
       <li xml:lang="pt-BR">Estão disponíveis atalhos de teclado para diversas funções</li>
       <li xml:lang="sk">Pre mnoho funkcií sú dostupné klávesové skratky</li>
+      <li xml:lang="sl">Za več funkcij obstajajo tipkovne bližnjice</li>
       <li xml:lang="sv">Snabbtangenter är tillgängliga för många funktioner</li>
       <li xml:lang="tr">Birçok işlev için, klavye kısayolları bulunmaktadır</li>
       <li xml:lang="uk">доступ до багатьох функціональних можливостей програми за допомогою натискання комбінацій клавіш;</li>
@@ -234,6 +242,7 @@
       <li xml:lang="pt">A gravação automática significa que as suas notas estão seguras contra perdas</li>
       <li xml:lang="pt-BR">A gravação automática mantém suas notas seguras contra perda de dados</li>
       <li xml:lang="sk">Automatické ukladanie znamená, že vaše poznámky sú zabezpečené proti strate</li>
+      <li xml:lang="sl">Samodejno shranjevanje pomeni, da so vaši zapiski varni pred izgubo</li>
       <li xml:lang="sv">Anteckningarna är säkrade från förlust genom att spara automatiskt</li>
       <li xml:lang="tr">Otomatik kaydetme, notlarınızın silinmeden güvende olduğu anlamına gelir</li>
       <li xml:lang="uk">автоматичне збереження даних, що забезпечує надійне зберігання ваших даних без втрат.</li>
