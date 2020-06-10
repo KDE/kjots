@@ -94,7 +94,6 @@ public Q_SLOTS:
     void DecimalList(void);
 
     void savePage();
-    void insertDate();
     void copySelectionIntoTitle();
 
 Q_SIGNALS:

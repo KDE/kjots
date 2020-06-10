@@ -49,7 +49,6 @@
 
 #include "kjotslinkdialog.h"
 #include "kjotsmodel.h"
-#include "noteshared/noteeditorutils.h"
 #include "noteshared/notelockattribute.h"
 
 Q_DECLARE_METATYPE(QTextCursor)
@@ -141,7 +140,9 @@ void KJotsEdit::createActions(KActionCollection *ac)
 
     d->action_insert_date = new QAction(QIcon::fromTheme(QStringLiteral("view-calendar-time-spent")),
                                         i18nc("@action", "Insert Date"), this);
-    connect(d->action_insert_date, &QAction::triggered, this, &KJotsEdit::insertDate);
+    connect(d->action_insert_date, &QAction::triggered, this, [this](){
+            insertPlainText(QLocale().toString(QDateTime::currentDateTime(), QLocale::ShortFormat));
+        });
     d->richTextActionList.append(d->action_insert_date);
     if (ac) {
         ac->addAction(QStringLiteral("insert_date"), d->action_insert_date);
@@ -217,11 +218,6 @@ bool KJotsEdit::modified()
 bool KJotsEdit::locked()
 {
     return d->index.data(EntityTreeModel::ItemRole).value<Item>().hasAttribute<NoteShared::NoteLockAttribute>();
-}
-
-void KJotsEdit::insertDate()
-{
-    NoteShared::NoteEditorUtils::insertDate(this);
 }
 
 bool KJotsEdit::setModelIndex(const QModelIndex &index)
