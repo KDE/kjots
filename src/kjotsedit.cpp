@@ -77,7 +77,7 @@ public:
     QAction *action_undo = nullptr;
     QAction *action_redo = nullptr;
 
-    QVector<QAction *> richTextActionList;
+    QVector<QAction *> editorActionList;
 };
 
 KJotsEdit::KJotsEdit(QWidget *parent, KActionCollection *actionCollection)
@@ -107,7 +107,7 @@ void KJotsEdit::createActions(KActionCollection *ac)
     connect(d->action_copy_into_title, &QAction::triggered, this, &KJotsEdit::copySelectionIntoTitle);
     connect(this, &KJotsEdit::copyAvailable, d->action_copy_into_title, &QAction::setEnabled);
     d->action_copy_into_title->setEnabled(false);
-    d->richTextActionList.append(d->action_copy_into_title);
+    d->editorActionList.append(d->action_copy_into_title);
     if (ac) {
         ac->addAction(QStringLiteral("copy_into_title"), d->action_copy_into_title);
     }
@@ -115,7 +115,7 @@ void KJotsEdit::createActions(KActionCollection *ac)
     d->action_manage_link = new QAction(QIcon::fromTheme(QStringLiteral("insert-link")),
                                         i18nc("@action creates and manages hyperlinks", "Link"), this);
     connect(d->action_manage_link, &QAction::triggered, this, &KJotsEdit::onLinkify);
-    d->richTextActionList.append(d->action_manage_link);
+    d->editorActionList.append(d->action_manage_link);
     if (ac) {
         ac->addAction(QStringLiteral("manage_note_link"), d->action_manage_link);
     }
@@ -124,7 +124,7 @@ void KJotsEdit::createActions(KActionCollection *ac)
                                         i18nc("@action", "Auto Bullet List"), this);
     d->action_auto_bullet->setCheckable(true);
     connect(d->action_auto_bullet, &QAction::triggered, this, &KJotsEdit::onAutoBullet);
-    d->richTextActionList.append(d->action_auto_bullet);
+    d->editorActionList.append(d->action_auto_bullet);
     if (ac) {
         ac->addAction(QStringLiteral("auto_bullet"), d->action_auto_bullet);
     }
@@ -133,7 +133,7 @@ void KJotsEdit::createActions(KActionCollection *ac)
                                          i18nc("@action", "Auto Decimal List"), this);
     d->action_auto_decimal->setCheckable(true);
     connect(d->action_auto_decimal, &QAction::triggered, this, &KJotsEdit::onAutoDecimal);
-    d->richTextActionList.append(d->action_auto_decimal);
+    d->editorActionList.append(d->action_auto_decimal);
     if (ac) {
         ac->addAction(QStringLiteral("auto_decimal"), d->action_auto_decimal);
     }
@@ -143,29 +143,28 @@ void KJotsEdit::createActions(KActionCollection *ac)
     connect(d->action_insert_date, &QAction::triggered, this, [this](){
             insertPlainText(QLocale().toString(QDateTime::currentDateTime(), QLocale::ShortFormat));
         });
-    d->richTextActionList.append(d->action_insert_date);
+    d->editorActionList.append(d->action_insert_date);
     if (ac) {
         ac->addAction(QStringLiteral("insert_date"), d->action_insert_date);
         ac->setDefaultShortcut(d->action_insert_date, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I));
     }
 
-    if (ac) {
-        d->action_save = KStandardAction::save(this, &KJotsEdit::savePage, ac);
+    d->action_save = KStandardAction::save(this, &KJotsEdit::savePage, ac);
+    d->editorActionList.append(d->action_save);
 
-        d->action_cut = KStandardAction::cut(this, &KJotsEdit::cut, ac);
-        connect(this, &KJotsEdit::copyAvailable, d->action_cut, &QAction::setEnabled);
-        d->action_cut->setEnabled(false);
-        d->richTextActionList.append(d->action_cut);
+    d->action_cut = KStandardAction::cut(this, &KJotsEdit::cut, ac);
+    connect(this, &KJotsEdit::copyAvailable, d->action_cut, &QAction::setEnabled);
+    d->action_cut->setEnabled(false);
+    d->editorActionList.append(d->action_cut);
 
-        d->action_paste = KStandardAction::paste(this, &KJotsEdit::paste, ac);
-        d->richTextActionList.append(d->action_paste);
+    d->action_paste = KStandardAction::paste(this, &KJotsEdit::paste, ac);
+    d->editorActionList.append(d->action_paste);
 
-        d->action_undo = KStandardAction::undo(this, &KJotsEdit::undo, ac);
-        d->richTextActionList.append(d->action_undo);
+    d->action_undo = KStandardAction::undo(this, &KJotsEdit::undo, ac);
+    d->editorActionList.append(d->action_undo);
 
-        d->action_redo = KStandardAction::redo(this, &KJotsEdit::redo, ac);
-        d->richTextActionList.append(d->action_redo);
-    }
+    d->action_redo = KStandardAction::redo(this, &KJotsEdit::redo, ac);
+    d->editorActionList.append(d->action_redo);
 }
 
 void KJotsEdit::setEnableActions(bool enable)
@@ -173,7 +172,7 @@ void KJotsEdit::setEnableActions(bool enable)
     // FIXME: RichTextComposer::setEnableActions(enable) messes with indent actions
     // due to bug in KPIMTextEdit (should be fixed in 20.08?)
     composerActions()->setActionsEnabled(enable);
-    for (QAction *action : qAsConst(d->richTextActionList)) {
+    for (QAction *action : qAsConst(d->editorActionList)) {
         action->setEnabled(enable);
     }
 }
