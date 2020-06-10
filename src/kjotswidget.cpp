@@ -350,8 +350,6 @@ void KJotsWidget::setupActions()
     // Standard actions
     KStandardAction::preferences(this, &KJotsWidget::configure, actionCollection);
 
-    KStandardAction::save( m_editor, &KJotsEdit::savePage, actionCollection);
-
     action = KStandardAction::next(this, [this](){
             m_itemView->selectionModel()->select(previousNextEntity(m_itemView, +1), QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
         }, actionCollection);
@@ -389,10 +387,6 @@ void KJotsWidget::setupActions()
     // Default Shift+Delete is ambiguous and used both for cut and delete
     actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_Delete));
 
-    action = KStandardAction::cut(m_editor, &KJotsEdit::cut, actionCollection);
-    connect(m_editor, &KJotsEdit::copyAvailable, action, &QAction::setEnabled);
-    action->setEnabled(false);
-
     action = KStandardAction::copy(this, [this](){
             activeEditor()->copy();
         }, actionCollection);
@@ -400,11 +394,9 @@ void KJotsWidget::setupActions()
     connect(m_browserWidget->browser(), &KJotsBrowser::copyAvailable, action, &QAction::setEnabled);
     action->setEnabled(false);
 
-    KStandardAction::paste(m_editor, &KJotsEdit::paste, actionCollection);
-    KStandardAction::undo(m_editor, &KJotsEdit::undo, actionCollection);
-    KStandardAction::redo(m_editor, &KJotsEdit::redo, actionCollection);
-    KStandardAction::selectAll(m_editor, &KJotsEdit::selectAll, actionCollection);
-
+    action = KStandardAction::selectAll(this, [this](){
+            activeEditor()->selectAll();
+        }, actionCollection);
     KStandardAction::find(this, [this](){
             if (m_editorWidget->isVisible()) {
                 m_editorWidget->slotFind();
@@ -419,11 +411,10 @@ void KJotsWidget::setupActions()
                 m_browserWidget->slotFindNext();
             }
         }, actionCollection);
-    KStandardAction::replace(this, [this](){
-            if (m_editorWidget->isVisible()) {
-                m_editorWidget->slotReplace();
-            }
-        }, actionCollection);
+    action = KStandardAction::replace(m_editorWidget, &KPIMTextEdit::RichTextEditorWidget::slotReplace, actionCollection);
+    connect(m_stackedWidget, &QStackedWidget::currentChanged, this, [this, action](int index){
+            action->setEnabled(m_stackedWidget->widget(index) == m_editorWidget);
+        });
 
     KStandardAction::print(this, &KJotsWidget::printSelection, actionCollection);
     KStandardAction::printPreview(this, &KJotsWidget::printPreviewSelection, actionCollection);
@@ -511,7 +502,6 @@ void KJotsWidget::setupActions()
 void KJotsWidget::delayedInitialization()
 {
     // anySelectionActions are available when at least something is selected (i.e. editor/browser are not empty
-    // editorActions are only available when there is a single selection, i.e. when the editor is visible
 
     KActionCollection *actionCollection = m_xmlGuiClient->actionCollection();
 
@@ -519,12 +509,6 @@ void KJotsWidget::delayedInitialization()
     anySelectionActions = { actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))),
                             actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Print))),
                             actionCollection->action(QStringLiteral("save_to")) };
-
-    // Actions that are used only when a note is selected.
-    editorActions = { actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Cut))),
-                      actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Paste))),
-                      actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Replace))),
-                      actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Save))) };
 
     updateMenu();
 
@@ -548,10 +532,7 @@ void KJotsWidget::updateMenu()
     const int selectionSize = itemsSelected + collectionsSelected;
 
     // Actions available only when editor is shown
-    m_editor->setEnableActions(itemsSelected == 1);
-    for (QAction *action : qAsConst(editorActions)) {
-        action->setEnabled(itemsSelected == 1);
-    }
+    m_editor->setEnableActions(itemsSelected == 1 && !m_editor->locked());
 
     // Rename is available only when single something is selected
     m_xmlGuiClient->actionCollection()

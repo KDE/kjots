@@ -56,6 +56,10 @@ public:
      * Returns the current modified state of the document
      */
     bool modified();
+    /**
+     * Returns whether currently opened document is locked
+     */
+    bool locked();
 
     /**
      * Prepares document for saving.

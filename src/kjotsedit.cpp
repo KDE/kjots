@@ -71,6 +71,13 @@ public:
     QAction *action_auto_bullet = nullptr;
     QAction *action_auto_decimal = nullptr;
     QAction *action_insert_date = nullptr;
+    // KStandardActions
+    QAction *action_save = nullptr;
+    QAction *action_cut = nullptr;
+    QAction *action_paste = nullptr;
+    QAction *action_undo = nullptr;
+    QAction *action_redo = nullptr;
+
     QVector<QAction *> richTextActionList;
 };
 
@@ -140,6 +147,24 @@ void KJotsEdit::createActions(KActionCollection *ac)
         ac->addAction(QStringLiteral("insert_date"), d->action_insert_date);
         ac->setDefaultShortcut(d->action_insert_date, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I));
     }
+
+    if (ac) {
+        d->action_save = KStandardAction::save(this, &KJotsEdit::savePage, ac);
+
+        d->action_cut = KStandardAction::cut(this, &KJotsEdit::cut, ac);
+        connect(this, &KJotsEdit::copyAvailable, d->action_cut, &QAction::setEnabled);
+        d->action_cut->setEnabled(false);
+        d->richTextActionList.append(d->action_cut);
+
+        d->action_paste = KStandardAction::paste(this, &KJotsEdit::paste, ac);
+        d->richTextActionList.append(d->action_paste);
+
+        d->action_undo = KStandardAction::undo(this, &KJotsEdit::undo, ac);
+        d->richTextActionList.append(d->action_undo);
+
+        d->action_redo = KStandardAction::redo(this, &KJotsEdit::redo, ac);
+        d->richTextActionList.append(d->action_redo);
+    }
 }
 
 void KJotsEdit::setEnableActions(bool enable)
@@ -187,6 +212,11 @@ void KJotsEdit::contextMenuEvent(QContextMenuEvent *event)
 bool KJotsEdit::modified()
 {
     return document()->isModified();
+}
+
+bool KJotsEdit::locked()
+{
+    return d->index.data(EntityTreeModel::ItemRole).value<Item>().hasAttribute<NoteShared::NoteLockAttribute>();
 }
 
 void KJotsEdit::insertDate()

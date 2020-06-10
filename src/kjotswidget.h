@@ -142,7 +142,7 @@ private:
     // XMLGui && Actions
     KXMLGUIClient  *m_xmlGuiClient = nullptr;
     Akonadi::StandardNoteActionManager *m_actionManager = nullptr;
-    QSet<QAction *> anySelectionActions, editorActions;
+    QSet<QAction *> anySelectionActions;
     QActionGroup *m_viewModeGroup = nullptr;
 
     // UI
