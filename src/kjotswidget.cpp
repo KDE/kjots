@@ -79,8 +79,8 @@
 #include <KActionMenu>
 #include <KRandom>
 #include <KSharedConfig>
-#include <KRun>
 #include <KConfigDialog>
+#include <KIO/OpenUrlJob>
 
 #include <KPIMTextEdit/RichTextComposerActions>
 #include <KPIMTextEdit/RichTextEditorWidget>
@@ -772,6 +772,7 @@ void KJotsWidget::openLink(const QUrl &url)
             m_itemView->selectionModel()->select(idx, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
         }
     } else {
-        new KRun(url, this);
+        auto *job = new KIO::OpenUrlJob(url, this);
+        job->start();
     }
 }
