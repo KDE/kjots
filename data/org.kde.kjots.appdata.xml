@@ -29,7 +29,6 @@
   <name xml:lang="sv">Kjots</name>
   <name xml:lang="tr">KJots</name>
   <name xml:lang="uk">KJots</name>
-  <name xml:lang="x-test">xxKJotsxx</name>
   <name xml:lang="zh-CN">KJots</name>
   <name xml:lang="zh-TW">KJots</name>
   <summary>Note-taking utility</summary>
@@ -57,7 +56,6 @@
   <summary xml:lang="sv">Anteckningsverktyg</summary>
   <summary xml:lang="tr">Not alma programı</summary>
   <summary xml:lang="uk">Програма для роботи з нотатками</summary>
-  <summary xml:lang="x-test">xxNote-taking utilityxx</summary>
   <summary xml:lang="zh-TW">筆記工具</summary>
   <description>
     <p>
@@ -85,7 +83,6 @@
     <p xml:lang="sv">KJots organiserar alla anteckningar i separata böcker.</p>
     <p xml:lang="tr">KJots, notlarınızı kitaplara ayırarak düzenler.</p>
     <p xml:lang="uk">KJots упорядковує усі ваші нотатки за окремими записниками.</p>
-    <p xml:lang="x-test">xxKJots organises all of your notes into separate books.xx</p>
     <p xml:lang="zh-TW">KJots 組織您所有的筆記到單獨的書中。</p>
     <p>Features:</p>
     <p xml:lang="ca">Característiques:</p>
@@ -114,7 +111,6 @@
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
-    <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">功能：</p>
     <p xml:lang="zh-TW">功能：</p>
     <ul>
@@ -142,7 +138,6 @@
       <li xml:lang="sv">Flera böcker hanteras</li>
       <li xml:lang="tr">Çoklu kitap işleme</li>
       <li xml:lang="uk">можливість роботи з декількома записниками одночасно;</li>
-      <li xml:lang="x-test">xxMultiple books handledxx</li>
       <li xml:lang="zh-TW">處理多書本</li>
       <li>Each book has many named pages</li>
       <li xml:lang="ca">Cada llibre conté moltes pàgines amb nom</li>
@@ -168,7 +163,6 @@
       <li xml:lang="sv">Varje bok har många namngivna sidor</li>
       <li xml:lang="tr">Her bir kitap çok sayıda sayfası vardır</li>
       <li xml:lang="uk">можливість використання довільної кількості іменованих сторінок;</li>
-      <li xml:lang="x-test">xxEach book has many named pagesxx</li>
       <li xml:lang="zh-TW">每本書都有許多已命名的頁面</li>
       <li>Books and pages can be rearranged by drag-and-drop</li>
       <li xml:lang="ca">Els llibres i les pàgines es poden tornar a ordenar fent un arrossega i deixa</li>
@@ -194,7 +188,6 @@
       <li xml:lang="sv">Böcker och sidor kan arrangeras med drag och släpp.</li>
       <li xml:lang="tr">Kitaplar ve sayfalar, sürükle-bırak ile yeniden düzenlenebilir</li>
       <li xml:lang="uk">можливість перевпорядковування записників і сторінок перетягуванням зі скиданням;</li>
-      <li xml:lang="x-test">xxBooks and pages can be rearranged by drag-and-dropxx</li>
       <li xml:lang="zh-TW">書本與頁面可以透過拖放來重新排列</li>
       <li>Keyboard shortcuts are available for many functions</li>
       <li xml:lang="ca">Hi ha disponibles dreceres de teclat per a moltes funcions</li>
@@ -220,7 +213,6 @@
       <li xml:lang="sv">Snabbtangenter är tillgängliga för många funktioner</li>
       <li xml:lang="tr">Birçok işlev için, klavye kısayolları bulunmaktadır</li>
       <li xml:lang="uk">доступ до багатьох функціональних можливостей програми за допомогою натискання комбінацій клавіш;</li>
-      <li xml:lang="x-test">xxKeyboard shortcuts are available for many functionsxx</li>
       <li xml:lang="zh-TW">鍵盤捷徑提供了許多功能</li>
       <li>Automatic saving means your notes are safe from loss</li>
       <li xml:lang="ca">El desament automàtic significa que les vostres notes estaran fora de perill d'una pèrdua</li>
@@ -246,7 +238,6 @@
       <li xml:lang="sv">Anteckningarna är säkrade från förlust genom att spara automatiskt</li>
       <li xml:lang="tr">Otomatik kaydetme, notlarınızın silinmeden güvende olduğu anlamına gelir</li>
       <li xml:lang="uk">автоматичне збереження даних, що забезпечує надійне зберігання ваших даних без втрат.</li>
-      <li xml:lang="x-test">xxAutomatic saving means your notes are safe from lossxx</li>
       <li xml:lang="zh-TW">自動儲存代表您的筆記安全不遺失</li>
     </ul>
   </description>
