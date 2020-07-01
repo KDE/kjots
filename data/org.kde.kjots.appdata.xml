@@ -42,6 +42,7 @@
   <summary xml:lang="en-GB">Note-taking utility</summary>
   <summary xml:lang="es">Utilidad para tomar notas</summary>
   <summary xml:lang="et">Märkmete tegemise rakendus</summary>
+  <summary xml:lang="fi">Muistiinpanotyökalu</summary>
   <summary xml:lang="fr">Utilitaire de prise de notes</summary>
   <summary xml:lang="gl">Ferramenta para tomar notas</summary>
   <summary xml:lang="ia">Utilitate de prender nota de KDE</summary>
@@ -71,6 +72,7 @@
     <p xml:lang="en-GB">KJots organises all of your notes into separate books.</p>
     <p xml:lang="es">KJots organiza todas sus notas en libros separados.</p>
     <p xml:lang="et">KJots paigutab kõik sinu märkmed eraldi raamatutesse.</p>
+    <p xml:lang="fi">KJots järjestää muistiinpanosi erillisiksi kirjoiksi.</p>
     <p xml:lang="fr">KJots organise toutes vos notes au sein de carnets séparés.</p>
     <p xml:lang="gl">KJots organiza todas as súas notas en cadernos separados.</p>
     <p xml:lang="id">KJots mengatur semua catatanmu ke dalam buku yang terpisah</p>
