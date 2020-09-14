@@ -29,6 +29,7 @@ set(kjots_common_SRCS
   kjotsbrowser.cpp
   kjotslinkdialog.cpp
   notesortproxymodel.cpp
+  uistatesaver.cpp
   ${kjots_config_SRCS}
 )
 ki18n_wrap_ui(kjots_common_SRCS linkdialog.ui)

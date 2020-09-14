@@ -85,12 +85,12 @@
 #include <KPIMTextEdit/RichTextComposerActions>
 #include <KPIMTextEdit/RichTextEditorWidget>
 
-#include <Libkdepim/UiStateSaver>
 
 // KMime
 #include <KMime/Message>
 
 // KJots
+#include "uistatesaver.h"
 #include "kjotsbookmarks.h"
 #include "kjotsmodel.h"
 #include "kjotsedit.h"
@@ -306,10 +306,10 @@ void KJotsWidget::saveUIStates() const
 {
     const QString groupName = QStringLiteral("UiState_MainWidget_%1").arg(KJotsSettings::viewMode());
     KConfigGroup group(KSharedConfig::openConfig(), groupName);
-    KPIM::UiStateSaver::saveState(m_splitter1, group);
-    KPIM::UiStateSaver::saveState(m_splitter2, group);
-    KPIM::UiStateSaver::saveState(m_collectionView, group);
-    KPIM::UiStateSaver::saveState(m_itemView, group);
+    KJots::UiStateSaver::saveState(m_splitter1, group);
+    KJots::UiStateSaver::saveState(m_splitter2, group);
+    KJots::UiStateSaver::saveState(m_collectionView, group);
+    KJots::UiStateSaver::saveState(m_itemView, group);
     group.sync();
 }
 
@@ -317,10 +317,10 @@ void KJotsWidget::restoreUIStates()
 {
     const QString groupName = QStringLiteral("UiState_MainWidget_%1").arg(KJotsSettings::viewMode());
     KConfigGroup group(KSharedConfig::openConfig(), groupName);
-    KPIM::UiStateSaver::restoreState(m_splitter1, group);
-    KPIM::UiStateSaver::restoreState(m_splitter2, group);
-    KPIM::UiStateSaver::restoreState(m_collectionView, group);
-    KPIM::UiStateSaver::restoreState(m_itemView, group);
+    KJots::UiStateSaver::restoreState(m_splitter1, group);
+    KJots::UiStateSaver::restoreState(m_splitter2, group);
+    KJots::UiStateSaver::restoreState(m_collectionView, group);
+    KJots::UiStateSaver::restoreState(m_itemView, group);
     group.sync();
 }
 
