@@ -75,6 +75,7 @@
     <p xml:lang="fi">KJots järjestää muistiinpanosi erillisiksi kirjoiksi.</p>
     <p xml:lang="fr">KJots organise toutes vos notes au sein de carnets séparés.</p>
     <p xml:lang="gl">KJots organiza todas as súas notas en cadernos separados.</p>
+    <p xml:lang="ia">KJots organisa omne tu notas in separate quadernos.</p>
     <p xml:lang="id">KJots mengatur semua catatanmu ke dalam buku yang terpisah</p>
     <p xml:lang="it">KJots organizza tutte le tue note in libri separati.</p>
     <p xml:lang="ko">KJots는 노트를 여러 권으로 분류합니다.</p>
@@ -132,6 +133,7 @@
       <li xml:lang="fi">Hallitsee useampia muistikirjoja</li>
       <li xml:lang="fr">Prise en charge de plusieurs carnets</li>
       <li xml:lang="gl">Xestiona varios cadernos.</li>
+      <li xml:lang="ia">Maneate multiple quadernos</li>
       <li xml:lang="id">Menangani multi buku</li>
       <li xml:lang="it">Più libri gestiti</li>
       <li xml:lang="ko">다중 책 처리</li>
@@ -158,6 +160,7 @@
       <li xml:lang="fi">Kussakin kirjassa on useampia nimettyjä sivuja</li>
       <li xml:lang="fr">Chaque carnet peut comporter de nombreuses pages nommées</li>
       <li xml:lang="gl">Cada caderno ten varias páxinas con nome de seu.</li>
+      <li xml:lang="ia">Cata quaderno ha multe paginas denominate</li>
       <li xml:lang="id">Setiap buku memiliki banyak halaman yang dinamai</li>
       <li xml:lang="it">Ogni libro ha molte pagine con nome</li>
       <li xml:lang="ko">각각 책에 이름이 있는 쪽 지원</li>
@@ -184,6 +187,7 @@
       <li xml:lang="fi">Kirjoja ja sivuja voi järjestää uudelleen vetämällä ja pudottamalla</li>
       <li xml:lang="fr">Les carnets et les pages peuvent être réorganisés avec des opérations de type glisser-déposer</li>
       <li xml:lang="gl">Pode arrastrar e soltar para organizar os cadernos e páxinas.</li>
+      <li xml:lang="ia">Quadernos e paginas pote esser reordinate per Traher e Poner</li>
       <li xml:lang="id">Buku dan halaman bisa ditata ulang dengan cara seret-dan-taruh</li>
       <li xml:lang="it">Libri e pagine possono essere riorganizzati con il trascinamento e rilascio</li>
       <li xml:lang="ko">드래그 앤 드롭으로 책과 쪽 재정렬</li>
@@ -210,6 +214,7 @@
       <li xml:lang="fi">Moniin toimintoihin on pikanäppäimet</li>
       <li xml:lang="fr">Des raccourcis claviers sont disponibles pour de nombreuses fonctions</li>
       <li xml:lang="gl">Moitas funcionalidades contan con atallos de teclado.</li>
+      <li xml:lang="ia">Vias breve de claviero es disponibile per multe functiones</li>
       <li xml:lang="id">Pintasan keyboard telah tersedia untuk banyak fungsi</li>
       <li xml:lang="it">Scorciatoie da tastiera sono disponibili per molte funzioni</li>
       <li xml:lang="ko">다양한 기능에 대한 키보드 단축키</li>
@@ -236,6 +241,7 @@
       <li xml:lang="fi">Automaattitallennuksen ansiosta muistiinpanosi on turvassa</li>
       <li xml:lang="fr">L'enregistrement automatique protège vos notes contre les pertes accidentelles</li>
       <li xml:lang="gl">Os datos gárdanse automaticamente para evitar a perda de datos.</li>
+      <li xml:lang="ia">Salveguarda automatic significa que tu notas es salve ab perdita</li>
       <li xml:lang="id">Sarana penyimpanan otomatis catatanmu sehingga aman dari kehilangan</li>
       <li xml:lang="it">Salvataggio automatico significa che le tue note sono al sicuro da perdite</li>
       <li xml:lang="ko">자동 저장</li>
