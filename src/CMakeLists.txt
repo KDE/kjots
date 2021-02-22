@@ -49,7 +49,6 @@ target_link_libraries(kjots_common
   KF5::PimTextEdit
   KF5::XmlGui
   KF5::KIOWidgets
-  KF5::Libkdepim
   Grantlee5::Templates
   Grantlee5::TextDocument
 )

@@ -3,6 +3,3 @@ File=kjots.kcfg
 ClassName=KJotsSettings
 Singleton=true
 Mutators=true
-# Inherits=KConfigSkeleton
-# IncludeFiles=libkdepim/kpimprefs.h
-# MemberVariables=public
