@@ -13,7 +13,7 @@ set(kontact_kjots_PART_SRCS
 )
 
 add_library(kontact_kjotsplugin MODULE ${kontact_kjots_PART_SRCS})
-target_link_libraries(kontact_kjotsplugin KF5::KontactInterface)
+target_link_libraries(kontact_kjotsplugin KF5::I18n KF5::KontactInterface)
 kcoreaddons_desktop_to_json(kontact_kjotsplugin kjotsplugin.desktop)
 
 install(TARGETS kontact_kjotsplugin DESTINATION ${KDE_INSTALL_PLUGINDIR}/kontact5)
