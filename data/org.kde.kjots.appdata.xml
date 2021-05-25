@@ -50,7 +50,7 @@
   <summary xml:lang="ia">Utilitate de prender nota de KDE</summary>
   <summary xml:lang="id">Utilitas pengambilan catatan</summary>
   <summary xml:lang="it">Strumento per prendere appunti</summary>
-  <summary xml:lang="ko">노트 유틸리티</summary>
+  <summary xml:lang="ko">메모 유틸리티</summary>
   <summary xml:lang="nl">Hulpprogramma voor het maken van notities</summary>
   <summary xml:lang="pl">Narzędzie do notatek</summary>
   <summary xml:lang="pt">Utilitário de apontamento de notas</summary>
@@ -81,7 +81,7 @@
     <p xml:lang="ia">KJots organisa omne tu notas in separate quadernos.</p>
     <p xml:lang="id">KJots mengatur semua catatanmu ke dalam buku yang terpisah</p>
     <p xml:lang="it">KJots organizza tutte le tue note in libri separati.</p>
-    <p xml:lang="ko">KJots는 노트를 여러 권으로 분류합니다.</p>
+    <p xml:lang="ko">KJots는 메모를 여러 공책으로 분류합니다.</p>
     <p xml:lang="nl">KJots organiseert al uw notities in gescheiden boeken.</p>
     <p xml:lang="pl">KJots porządkuje twoje notatki w osobnych notesach.</p>
     <p xml:lang="pt">O KJots organiza todas as suas notas em livros separados.</p>
@@ -141,7 +141,7 @@
       <li xml:lang="ia">Maneate multiple quadernos</li>
       <li xml:lang="id">Menangani multi buku</li>
       <li xml:lang="it">Più libri gestiti</li>
-      <li xml:lang="ko">다중 책 처리</li>
+      <li xml:lang="ko">다중 공책 처리</li>
       <li xml:lang="nl">Meerdere boeken worden behandeld</li>
       <li xml:lang="pl">Obsługa wielu notesów</li>
       <li xml:lang="pt">Tratamento de múltiplos livros</li>
@@ -169,7 +169,7 @@
       <li xml:lang="ia">Cata quaderno ha multe paginas denominate</li>
       <li xml:lang="id">Setiap buku memiliki banyak halaman yang dinamai</li>
       <li xml:lang="it">Ogni libro ha molte pagine con nome</li>
-      <li xml:lang="ko">각각 책에 이름이 있는 쪽 지원</li>
+      <li xml:lang="ko">각각 공책에 이름이 있는 쪽 지원</li>
       <li xml:lang="nl">Elk boek heeft veel genoemde pagina's</li>
       <li xml:lang="pl">Każdy notes ma wiele stron z nazwami</li>
       <li xml:lang="pt">Cada livro tem várias páginas com nome</li>
@@ -197,7 +197,7 @@
       <li xml:lang="ia">Quadernos e paginas pote esser reordinate per Traher e Poner</li>
       <li xml:lang="id">Buku dan halaman bisa ditata ulang dengan cara seret-dan-taruh</li>
       <li xml:lang="it">Libri e pagine possono essere riorganizzati con il trascinamento e rilascio</li>
-      <li xml:lang="ko">드래그 앤 드롭으로 책과 쪽 재정렬</li>
+      <li xml:lang="ko">드래그 앤 드롭으로 공책과 쪽 재정렬</li>
       <li xml:lang="nl">Boeken en pagina's kunnen opnieuw gerangschikt worden met slepen-en-loslaten</li>
       <li xml:lang="pl">Notesy i strony można dowolnie ustawiać poprzez przeciąganie i upuszczanie</li>
       <li xml:lang="pt">Os livros e páginas podem ser reorganizadas por arrastamento</li>
