@@ -16,6 +16,7 @@ target_link_libraries(noteshared
     Qt5::Core
     Qt5::Widgets
     KF5::I18n
+    KF5::AkonadiWidgets
     KF5::AkonadiCore
     KF5::AkonadiNotes
     KF5::XmlGui
