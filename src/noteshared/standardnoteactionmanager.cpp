@@ -13,10 +13,18 @@
 #include <QColorDialog>
 #include <QItemSelectionModel>
 
+#include <akonadi_version.h>
+#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 18, 41)
+#include <Akonadi/EntityDisplayAttribute>
+#include <Akonadi/EntityTreeModel>
+#include <Akonadi/CollectionModifyJob>
+#include <Akonadi/ItemModifyJob>
+#else
 #include <AkonadiCore/EntityDisplayAttribute>
 #include <AkonadiCore/EntityTreeModel>
 #include <AkonadiCore/CollectionModifyJob>
 #include <AkonadiCore/ItemModifyJob>
+#endif
 #include <Akonadi/Notes/NoteUtils>
 
 #include <KXmlGui/KActionCollection>

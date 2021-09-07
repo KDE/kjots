@@ -13,8 +13,14 @@
 #include <QTextDocument>
 #include <QIcon>
 
+#include <akonadi_version.h>
+#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 18, 41)
+#include <Akonadi/ChangeRecorder>
+#include <Akonadi/EntityDisplayAttribute>
+#else
 #include <AkonadiCore/ChangeRecorder>
 #include <AkonadiCore/EntityDisplayAttribute>
+#endif
 #include <Akonadi/Notes/NoteUtils>
 
 #include <KMime/Message>
