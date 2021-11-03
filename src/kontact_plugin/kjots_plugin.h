@@ -24,8 +24,8 @@ public:
     {
     }
 
-    int activate(const QStringList &args, const QString &workingDir) Q_DECL_OVERRIDE;
-    void loadCommandLineOptions(QCommandLineParser *parser) Q_DECL_OVERRIDE;
+    int activate(const QStringList &args, const QString &workingDir) override;
+    void loadCommandLineOptions(QCommandLineParser *parser) override;
 
 };
 
@@ -36,20 +36,20 @@ class KJotsPlugin : public KontactInterface::Plugin
 public:
     KJotsPlugin(KontactInterface::Core *core, const QVariantList &);
 
-    int weight() const Q_DECL_OVERRIDE
+    int weight() const override
     {
         return 475;
     }
 
-    bool isRunningStandalone() const Q_DECL_OVERRIDE;
+    bool isRunningStandalone() const override;
 
-    QStringList invisibleToolbarActions() const Q_DECL_OVERRIDE;
+    QStringList invisibleToolbarActions() const override;
 
 protected:
 #if KONTACTINTERFACE_VERSION >= QT_VERSION_CHECK(5, 14, 42)
     KParts::Part *createPart() override;
 #else
-    KParts::ReadOnlyPart *createPart() Q_DECL_OVERRIDE;
+    KParts::ReadOnlyPart *createPart() override;
 #endif
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 };
