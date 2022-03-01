@@ -21,7 +21,7 @@
 #include <AkonadiCore/ChangeRecorder>
 #include <AkonadiCore/EntityDisplayAttribute>
 #endif
-#include <Akonadi/Notes/NoteUtils>
+#include <Akonadi/NoteUtils>
 
 #include <KMime/Message>
 #include <KPIMTextEdit/TextUtils>

@@ -25,7 +25,7 @@
 #include <AkonadiCore/CollectionModifyJob>
 #include <AkonadiCore/ItemModifyJob>
 #endif
-#include <Akonadi/Notes/NoteUtils>
+#include <Akonadi/NoteUtils>
 
 #include <KXmlGui/KActionCollection>
 #include <KLocalizedString>

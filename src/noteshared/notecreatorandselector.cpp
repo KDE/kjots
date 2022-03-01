@@ -24,7 +24,7 @@
 #include <AkonadiCore/EntityTreeModel>
 #include <AkonadiCore/ItemCreateJob>
 #endif
-#include <Akonadi/Notes/NoteUtils>
+#include <Akonadi/NoteUtils>
 
 #include "noteshared_debug.h"
 
