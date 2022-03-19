@@ -15,8 +15,12 @@
 #include "kjotsmodel.h"
 
 #include <KPIMTextEdit/RichTextEditFindBar>
-#include <KPIMTextEdit/TextToSpeechWidget>
 #include <KPIMTextEdit/SlideContainer>
+
+#include <kpimtextedit/kpimtextedit-texttospeech.h>
+#if KPIMTEXTEDIT_TEXT_TO_SPEECH
+#include <KPIMTextEdit/TextToSpeechWidget>
+#endif
 
 #include <QHelpEvent>
 #include <QToolTip>
@@ -37,14 +41,18 @@ public:
         : mBrowser(std::move(browser))
         , mSliderContainer(widget)
         , mFindBar(mBrowser.get(), &mSliderContainer)
+#if KPIMTEXTEDIT_TEXT_TO_SPEECH
         , mTextToSpeechWidget(widget)
+#endif
     {
     }
 
     std::unique_ptr<KJotsBrowser> mBrowser;
     KPIMTextEdit::SlideContainer mSliderContainer;
     KPIMTextEdit::RichTextEditFindBar mFindBar;
+#if KPIMTEXTEDIT_TEXT_TO_SPEECH
     KPIMTextEdit::TextToSpeechWidget mTextToSpeechWidget;
+#endif
 };
 
 KJotsBrowserWidget::KJotsBrowserWidget(std::unique_ptr<KJotsBrowser> browser, QWidget *parent)
@@ -56,11 +64,15 @@ KJotsBrowserWidget::KJotsBrowserWidget(std::unique_ptr<KJotsBrowser> browser, QW
     d->mFindBar.setHideWhenClose(false);
 
     connect(&d->mFindBar, &KPIMTextEdit::RichTextEditFindBar::hideFindBar, this, &KJotsBrowserWidget::slotHideFindBar);
+#if KPIMTEXTEDIT_TEXT_TO_SPEECH
     connect(d->mBrowser.get(), &KJotsBrowser::say, &d->mTextToSpeechWidget, &KPIMTextEdit::TextToSpeechWidget::say);
+#endif
 
     QVBoxLayout *lay = new QVBoxLayout(this);
     lay->setContentsMargins(0, 0, 0, 0);
+#if KPIMTEXTEDIT_TEXT_TO_SPEECH
     lay->addWidget(&d->mTextToSpeechWidget);
+#endif
     lay->addWidget(d->mBrowser.get());
     lay->addWidget(&d->mSliderContainer);
 }
@@ -129,6 +141,7 @@ void KJotsBrowser::contextMenuEvent(QContextMenuEvent *event)
     popup->addSeparator();
     popup->addAction(m_actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))));
     popup->addSeparator();
+#if KPIMTEXTEDIT_TEXT_TO_SPEECH
     if (!document()->isEmpty() && KPIMTextEdit::TextToSpeech::self()->isReady()) {
         QAction *speakAction = popup->addAction(i18nc("@info:action", "Speak Text"));
         speakAction->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")));
@@ -137,6 +150,7 @@ void KJotsBrowser::contextMenuEvent(QContextMenuEvent *event)
                 Q_EMIT say(text);
             });
     }
+#endif
     popup->exec(event->globalPos());
     delete popup;
 }
