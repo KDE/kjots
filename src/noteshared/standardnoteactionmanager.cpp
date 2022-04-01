@@ -25,7 +25,11 @@
 #include <AkonadiCore/CollectionModifyJob>
 #include <AkonadiCore/ItemModifyJob>
 #endif
+#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 19, 41)
 #include <Akonadi/NoteUtils>
+#else
+#include <Akonadi/Notes/NoteUtils>
+#endif
 
 #include <KXmlGui/KActionCollection>
 #include <KLocalizedString>
