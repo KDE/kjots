@@ -89,7 +89,7 @@
     <p xml:lang="sk">KJots organizuje všetky vaše poznámky do samostatných kníh.</p>
     <p xml:lang="sl">KJots vse vaše zapiske organizira v ločene knjige.</p>
     <p xml:lang="sv">KJots organiserar alla anteckningar i separata böcker.</p>
-    <p xml:lang="tr">KJots, notlarınızı kitaplara ayırarak düzenler.</p>
+    <p xml:lang="tr">KJots, notlarınızı defterlere ayırarak düzenler.</p>
     <p xml:lang="uk">KJots упорядковує усі ваші нотатки за окремими записниками.</p>
     <p xml:lang="x-test">xxKJots organises all of your notes into separate books.xx</p>
     <p xml:lang="zh-TW">KJots 組織您所有的筆記到單獨的書中。</p>
@@ -149,7 +149,7 @@
       <li xml:lang="sk">Spracovanie viacerých kníh</li>
       <li xml:lang="sl">Obdelano je bilo več knjig</li>
       <li xml:lang="sv">Flera böcker hanteras</li>
-      <li xml:lang="tr">Çoklu kitap işleme</li>
+      <li xml:lang="tr">Çoklu defter işleme</li>
       <li xml:lang="uk">можливість роботи з декількома записниками одночасно;</li>
       <li xml:lang="x-test">xxMultiple books handledxx</li>
       <li xml:lang="zh-TW">處理多書本</li>
@@ -177,7 +177,7 @@
       <li xml:lang="sk">Každá kniha má veľa pomenovaných strán</li>
       <li xml:lang="sl">Vsaka knjiga ima več poimenovanih strani</li>
       <li xml:lang="sv">Varje bok har många namngivna sidor</li>
-      <li xml:lang="tr">Her bir kitap çok sayıda sayfası vardır</li>
+      <li xml:lang="tr">Her bir defterin çok sayıda sayfası vardır</li>
       <li xml:lang="uk">можливість використання довільної кількості іменованих сторінок;</li>
       <li xml:lang="x-test">xxEach book has many named pagesxx</li>
       <li xml:lang="zh-TW">每本書都有許多已命名的頁面</li>
@@ -205,7 +205,7 @@
       <li xml:lang="sk">Knihy a strany sa dajú usporiadať pomocou drag and drop</li>
       <li xml:lang="sl">Knjige in strani lahko preurejamo z vlečenjem in spuščanjem</li>
       <li xml:lang="sv">Böcker och sidor kan arrangeras med drag och släpp.</li>
-      <li xml:lang="tr">Kitaplar ve sayfalar, sürükle-bırak ile yeniden düzenlenebilir</li>
+      <li xml:lang="tr">Defterler ve sayfalar, sürükle-bırak ile yeniden düzenlenebilir</li>
       <li xml:lang="uk">можливість перевпорядковування записників і сторінок перетягуванням зі скиданням;</li>
       <li xml:lang="x-test">xxBooks and pages can be rearranged by drag-and-dropxx</li>
       <li xml:lang="zh-TW">書本與頁面可以透過拖放來重新排列</li>
@@ -233,7 +233,7 @@
       <li xml:lang="sk">Pre mnoho funkcií sú dostupné klávesové skratky</li>
       <li xml:lang="sl">Za več funkcij obstajajo tipkovne bližnjice</li>
       <li xml:lang="sv">Snabbtangenter är tillgängliga för många funktioner</li>
-      <li xml:lang="tr">Birçok işlev için, klavye kısayolları bulunmaktadır</li>
+      <li xml:lang="tr">Birçok işlev için klavye kısayolları bulunmaktadır</li>
       <li xml:lang="uk">доступ до багатьох функціональних можливостей програми за допомогою натискання комбінацій клавіш;</li>
       <li xml:lang="x-test">xxKeyboard shortcuts are available for many functionsxx</li>
       <li xml:lang="zh-TW">鍵盤捷徑提供了許多功能</li>
