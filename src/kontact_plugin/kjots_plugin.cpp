@@ -40,8 +40,13 @@
 
 EXPORT_KONTACT_PLUGIN_WITH_JSON(KJotsPlugin, "kjotsplugin.json")
 
+#if KONTACTINTERFACE_VERSION >= QT_VERSION_CHECK(5, 20, 41)
+KJotsPlugin::KJotsPlugin(KontactInterface::Core *core, const KPluginMetaData &md, const QVariantList &/*args*/)
+    : KontactInterface::Plugin(core, core, md, "kjots")
+#else
 KJotsPlugin::KJotsPlugin(KontactInterface::Core *core, const QVariantList &/*args*/)
     : KontactInterface::Plugin(core, core, "kjots")
+#endif
 {
     setComponentName(QStringLiteral("kjots"), i18n("KJots"));
 

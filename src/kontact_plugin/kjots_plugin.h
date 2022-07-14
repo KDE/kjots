@@ -34,7 +34,11 @@ class KJotsPlugin : public KontactInterface::Plugin
     Q_OBJECT
 
 public:
+#if KONTACTINTERFACE_VERSION >= QT_VERSION_CHECK(5, 20, 41)
+    KJotsPlugin(KontactInterface::Core *core, const KPluginMetaData &md, const QVariantList &);
+#else
     KJotsPlugin(KontactInterface::Core *core, const QVariantList &);
+#endif
 
     int weight() const override
     {
