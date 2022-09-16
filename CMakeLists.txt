@@ -59,13 +59,13 @@ add_subdirectory(icons)
 ##################### Install ######################
 
 install(DIRECTORY themes
-        DESTINATION ${DATA_INSTALL_DIR}/kjots
+        DESTINATION ${KDE_INSTALL_DATADIR}/kjots
         PATTERN *.svn EXCLUDE
 )
 
 install(FILES data/org.kde.kjots.appdata.xml
-	DESTINATION ${CMAKE_INSTALL_METAINFODIR}
+	DESTINATION ${KDE_INSTALL_METAINFODIR}
 )
 install(FILES data/org.kde.kjots.desktop
-        DESTINATION ${XDG_APPS_INSTALL_DIR}
+        DESTINATION ${KDE_INSTALL_APPDIR}
 )

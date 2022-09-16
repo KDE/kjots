@@ -81,13 +81,13 @@ target_link_libraries(kjots
   KF5::KontactInterface
 )
 
-install(TARGETS kjots ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kjots ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES kjots.kcfg
-        DESTINATION ${KCFG_INSTALL_DIR}
+        DESTINATION ${KDE_INSTALL_KCFGDIR}
 )
 install(FILES kjotsui.rc
-        DESTINATION ${KXMLGUI_INSTALL_DIR}/kjots
+        DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kjots
 )
 
 ############## next target ##############
@@ -104,10 +104,10 @@ target_link_libraries(kjotspart
 )
 
 install(FILES ${CMAKE_SOURCE_DIR}/data/kjotspart.desktop
-        DESTINATION ${SERVICES_INSTALL_DIR}
+        DESTINATION ${KDE_INSTALL_KSERVICES5DIR}
 )
 install(TARGETS kjotspart
-        DESTINATION ${PLUGIN_INSTALL_DIR}
+        DESTINATION ${KDE_INSTALL_PLUGINDIR}
 )
 
 ###########################################################################
@@ -125,9 +125,9 @@ target_link_libraries(kcm_kjots
 )
 
 install(TARGETS kcm_kjots
-        DESTINATION ${PLUGIN_INSTALL_DIR}
+        DESTINATION ${KDE_INSTALL_PLUGINDIR}
 )
 install(FILES ${CMAKE_SOURCE_DIR}/data/kjots_config_misc.desktop
-        DESTINATION ${SERVICES_INSTALL_DIR}
+        DESTINATION ${KDE_INSTALL_KSERVICES5DIR}
 )
 
