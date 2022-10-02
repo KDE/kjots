@@ -1,0 +1,1085 @@
+# translation of kjots.po to Danish
+# Danish translation of kjots
+# Copyright (C)
+# Erik Kjær Pedersen <erik@binghamton.edu>, 1998, 2002, 2003, 2004, 2005.
+# Erik K. Pedersen <erik@binghamton.edu>, 2005.
+# Martin Schlander <mschlander@opensuse.org>, 2008, 2009, 2010, 2011, 2012, 2014, 2016, 2020.
+# Jan Madsen <jan.madsen.pt@gmail.com>, 2008.
+# scootergrisen, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: kjots\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-16 00:48+0000\n"
+"PO-Revision-Date: 2020-07-22 14:02+0200\n"
+"Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
+"Language-Team: Danish <kde-i18n-doc@kde.org>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Erik Kjær Pedersen,Martin Schlander,Jan Madsen"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "erik@binghamton.edu,mschlander@opensuse.org,jan.madsen.pt@gmail.com"
+
+#: src/aboutdata.cpp:16 src/kjotspart.cpp:34
+#: src/kontact_plugin/kjots_plugin.cpp:51
+#, kde-format
+msgid "KJots"
+msgstr "KJots"
+
+#: src/aboutdata.cpp:18
+#, kde-format
+msgid "KDE note taking utility"
+msgstr "KDE-notatværktøj"
+
+#: src/aboutdata.cpp:20
+#, kde-format
+msgid "Copyright © 1997–2020 KJots authors"
+msgstr "Ophavsret © 1997–2020 KJots-udviklerne"
+
+#: src/aboutdata.cpp:22
+#, kde-format
+msgid "Igor Poboiko"
+msgstr "Igor Poboiko"
+
+#: src/aboutdata.cpp:22
+#, kde-format
+msgid "Maintainer"
+msgstr "Vedligeholder"
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Daniel Vrátil"
+msgstr "Daniel Vrátil"
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Port to KDE Frameworks 5"
+msgstr "Portering til KDE Frameworks 5"
+
+#: src/aboutdata.cpp:24
+#, kde-format
+msgid "Stephen Kelly"
+msgstr "Stephen Kelly"
+
+#: src/aboutdata.cpp:25
+#, kde-format
+msgid "Pradeepto K. Bhattacharya"
+msgstr "Pradeepto K. Bhattacharya"
+
+#: src/aboutdata.cpp:26
+#, kde-format
+msgid "Jaison Lee"
+msgstr "Jaison Lee"
+
+#: src/aboutdata.cpp:27
+#, kde-format
+msgid "Aaron J. Seigo"
+msgstr "Aaron J. Seigo"
+
+#: src/aboutdata.cpp:28
+#, kde-format
+msgid "Stanislav Kljuhhin"
+msgstr "Stanislav Kljuhhin"
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Christoph Neerfeld"
+msgstr "Christoph Neerfeld"
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Original author"
+msgstr "Oprindelig forfatter"
+
+#: src/aboutdata.cpp:30
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:19 src/confpagemisc.ui:35
+#, kde-format
+msgid ""
+"This is the number of minutes KJots will wait before automatically saving "
+"changes."
+msgstr ""
+"Dette er det antal minutter KJots vil vente før den automatisk gemmer "
+"ændringer."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: src/confpagemisc.ui:22
+#, kde-format
+msgid "S&ave every:"
+msgstr "Gem &hver:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:38
+#, kde-format
+msgid "1 minute"
+msgstr "1 minut"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:41
+#, kde-format
+msgid " minutes"
+msgstr " minutter"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:54
+#, kde-format
+msgid ""
+"When \"Save changes periodically\" is checked, KJots will automatically save "
+"changes made to books at the interval defined below."
+msgstr ""
+"Når \"Gem ændringer periodisk\" er markeret, vil KJots automatisk gemme "
+"ændringer lavet på bøger med intervallet defineret nedenfor."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:57
+#, kde-format
+msgid "&Save changes periodically"
+msgstr "&Gem ændringer periodisk"
+
+#. i18n: ectx: label, entry (AutoSave), group (kjots)
+#: src/kjots.kcfg:9
+#, kde-format
+msgid "Whether books should be saved automatically."
+msgstr "Om bøger skal gemmes automatisk."
+
+#. i18n: ectx: label, entry (AutoSaveInterval), group (kjots)
+#: src/kjots.kcfg:13
+#, kde-format
+msgid "The interval in minutes at which books should be saved automatically."
+msgstr "Intervallet i minutter efter hvilket bøger skal gemmes automatisk."
+
+#: src/kjotsbrowser.cpp:133
+#, kde-format
+msgctxt "@info:action"
+msgid "Speak Text"
+msgstr "Oplæs tekst"
+
+#: src/kjotsbrowser.cpp:177
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Click to follow the hyperlink: %1"
+msgstr "Klik for at følge hyperlink: %1"
+
+#: src/kjotsbrowser.cpp:181
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Click to open note: %1"
+msgstr "Klik for at åbne note: %1"
+
+#: src/kjotsbrowser.cpp:183
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Click to open book: %1"
+msgstr "Klik for at åbne bog: %1"
+
+#: src/kjotsedit.cpp:99
+#, kde-format
+msgctxt "@action"
+msgid "Copy &Into Page Title"
+msgstr "Kopiér &ind i sidetitel"
+
+#: src/kjotsedit.cpp:109
+#, kde-format
+msgctxt "@action creates and manages hyperlinks"
+msgid "Link"
+msgstr "Link"
+
+#: src/kjotsedit.cpp:117
+#, kde-format
+msgctxt "@action"
+msgid "Auto Bullet List"
+msgstr "Autopunkttegn"
+
+#: src/kjotsedit.cpp:126
+#, kde-format
+msgctxt "@action"
+msgid "Auto Decimal List"
+msgstr "Automatisk decimalliste"
+
+#: src/kjotsedit.cpp:135
+#, kde-format
+msgctxt "@action"
+msgid "Insert Date"
+msgstr "Indsæt dato"
+
+#: src/kjotsedit.cpp:468
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Ctrl+click to open note: %1"
+msgstr "Ctrl+klik for at åbne note: %1"
+
+#: src/kjotsedit.cpp:470
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Ctrl+click to open book: %1"
+msgstr "Ctrl+klik for at åbne bog: %1"
+
+#: src/kjotsedit.cpp:473
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Ctrl+click to follow the hyperlink: %1"
+msgstr "Ctrl+klik for at følge hyperlink: %1"
+
+#: src/kjotslinkdialog.cpp:32
+#, kde-format
+msgid "Enter link URL, or another note or note book..."
+msgstr "Angiv link-URL, eller en anden note eller notesbog..."
+
+#: src/kjotsmodel.cpp:305
+#, kde-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Navn"
+
+#: src/kjotsmodel.cpp:309
+#, kde-format
+msgctxt "@title:column title of a note"
+msgid "Title"
+msgstr "Titel"
+
+#: src/kjotsmodel.cpp:311
+#, kde-format
+msgctxt "@title:column creation date and time of a note"
+msgid "Created"
+msgstr "Oprettet"
+
+#: src/kjotsmodel.cpp:313
+#, kde-format
+msgctxt "@title:column last modification date and time of a note"
+msgid "Modified"
+msgstr "Ændret"
+
+#: src/kjotsmodel.cpp:315
+#, kde-format
+msgctxt "@title:column size of a note"
+msgid "Size"
+msgstr "Størrelse"
+
+#: src/kjotspart.cpp:47
+#, kde-format
+msgid "&Configure KJots..."
+msgstr "&Indstil KJots..."
+
+#. i18n: ectx: Menu (format)
+#: src/kjotsui.rc:21
+#, kde-format
+msgid "F&ormat"
+msgstr "F&ormatér"
+
+#. i18n: ectx: Menu (view)
+#: src/kjotsui.rc:45
+#, kde-format
+msgid "&View"
+msgstr "&Vis"
+
+#. i18n: ectx: Menu (go)
+#: src/kjotsui.rc:51
+#, kde-format
+msgid "&Go"
+msgstr "&Gå"
+
+#. i18n: ectx: Menu (tools)
+#: src/kjotsui.rc:60
+#, kde-format
+msgid "&Tools"
+msgstr "Værk&tøjer"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kjotsui.rc:110
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Hovedværktøjslinje"
+
+#. i18n: ectx: ToolBar (textToolBar)
+#: src/kjotsui.rc:126
+#, kde-format
+msgid "Text Toolbar"
+msgstr "Tekstværktøjslinje"
+
+#. i18n: ectx: ToolBar (formatToolBar)
+#: src/kjotsui.rc:141
+#, kde-format
+msgid "Format Toolbar"
+msgstr "Formateringsværktøjslinje"
+
+#. i18n: ectx: ToolBar (toolsToolBar)
+#: src/kjotsui.rc:156
+#, kde-format
+msgid "Tools Toolbar"
+msgstr "Værktøjer-værktøjslinje"
+
+#: src/kjotswidget.cpp:433
+#, kde-format
+msgid "&Bookmarks"
+msgstr "&Bogmærker"
+
+#: src/kjotswidget.cpp:451
+#, kde-format
+msgid "Export"
+msgstr "Eksportér"
+
+#: src/kjotswidget.cpp:455
+#, kde-format
+msgid "To Text File..."
+msgstr "Til tekstfil..."
+
+#: src/kjotswidget.cpp:463
+#, kde-format
+msgid "To HTML File..."
+msgstr "Til HTML-fil..."
+
+#: src/kjotswidget.cpp:472
+#, kde-format
+msgid "Next Book"
+msgstr "Næste bog"
+
+#: src/kjotswidget.cpp:483
+#, kde-format
+msgid "Previous Book"
+msgstr "Forrige bog"
+
+#: src/kjotswidget.cpp:496
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Two Columns"
+msgstr "To kolonner"
+
+#: src/kjotswidget.cpp:501
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Three Columns"
+msgstr "Tre kolonner"
+
+#: src/kjotswidget.cpp:563
+#, kde-format
+msgctxt "@title:window config dialog page"
+msgid "Misc"
+msgstr "Diverse"
+
+#: src/kjotswidget.cpp:598
+#, kde-format
+msgctxt "Header for 'Table of contents' section of rendered output"
+msgid "Table of contents"
+msgstr "Indholdsfortegnelse"
+
+#: src/kjotswidget.cpp:623
+#, kde-format
+msgid "<qt>Could not open \"%1\" for writing</qt>"
+msgstr "<qt>Kunne ikke åbne \"%1\" til skrivning</qt>"
+
+#: src/kjotswidget.cpp:719
+#, kde-format
+msgctxt "@title:window"
+msgid "Multiple selection"
+msgstr "Flere markeringer"
+
+#: src/kjotswidget.cpp:737
+#, kde-format
+msgid ""
+"Unable to save the note.\n"
+"You can save your note to a local file using the \"File - Export\" menu,\n"
+"otherwise you will lose your changes!\n"
+"Do you want to close anyways?"
+msgstr ""
+"Kan ikke gemme noten.\n"
+"Du kan gemme din note til en lokal fil med menupunktet \"Fil - Eksportér\",\n"
+"ellers vil du miste dine ændringer!\n"
+"Vil du lukke alligevel?"
+
+#: src/kjotswidget.cpp:741
+#, kde-format
+msgid "Close Document"
+msgstr "Luk dokument"
+
+#: src/kjotswidget.cpp:746
+#, kde-format
+msgid ""
+"Error message:\n"
+"%1"
+msgstr ""
+"Fejlmeddelelse:\n"
+"%1"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, LinkDialog)
+#: src/linkdialog.ui:14
+#, kde-format
+msgid "Manage Link"
+msgstr "Håndtér link"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel)
+#: src/linkdialog.ui:29
+#, kde-format
+msgid "Link &Text:"
+msgstr "Link&tekst:"
+
+#. i18n: ectx: property (text), widget (QLabel, linkUrlLabel)
+#: src/linkdialog.ui:46
+#, kde-format
+msgid "Link URL:"
+msgstr "Link-URL:"
+
+#: src/noteshared/notecreatorandselector.cpp:86
+#, kde-format
+msgctxt "The default name for new pages."
+msgid "New Page"
+msgstr "Ny side"
+
+#: src/noteshared/standardnoteactionmanager.cpp:108
+#, kde-format
+msgid "New Note Book..."
+msgstr "Ny notesbog..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:113
+#, kde-format
+msgid "Add a new note book to the currently selected bookshelf."
+msgstr "Føj en ny notesbog til den aktuelt valgte bogreol."
+
+#: src/noteshared/standardnoteactionmanager.cpp:116
+#, kde-format
+msgctxt "@title:window"
+msgid "New Note Book"
+msgstr "Ny notesbog"
+
+#: src/noteshared/standardnoteactionmanager.cpp:120
+#, kde-format
+msgid "Could not create note book: %1"
+msgstr "Kunne ikke oprette notesbog: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:124
+#, kde-format
+msgid "Note book creation failed"
+msgstr "Oprettelse af notesbog mislykkedes"
+
+#: src/noteshared/standardnoteactionmanager.cpp:130
+#, kde-format
+msgid "Copy Note Book"
+msgid_plural "Copy %1 Note Books"
+msgstr[0] "Kopiér notesbog"
+msgstr[1] "Kopiér %1 notesbøger"
+
+#: src/noteshared/standardnoteactionmanager.cpp:133
+#, kde-format
+msgid "Copy the selected note books to the clipboard."
+msgstr "Kopiér de valgte notesbøger til udklipsholderen."
+
+#: src/noteshared/standardnoteactionmanager.cpp:137
+#, kde-format
+msgid "Delete Note Book"
+msgid_plural "Delete %1 Note Books"
+msgstr[0] "Slet notesbog"
+msgstr[1] "Slet %1 notesbøger"
+
+#: src/noteshared/standardnoteactionmanager.cpp:140
+#, kde-format
+msgid "Delete the selected note books from the bookshelf."
+msgstr "Slet de valgte notesbøger fra bogreolen."
+
+#: src/noteshared/standardnoteactionmanager.cpp:144
+#, kde-format
+msgid "Do you really want to delete this note book and all its contents?"
+msgid_plural ""
+"Do you really want to delete %1 note books and all their contents?"
+msgstr[0] "Vil du virkelig slette denne notesbog og alt dens indhold?"
+msgstr[1] "Vil du virkelig slette disse %1 notesbøger og alt deres indhold?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:148
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete note book?"
+msgid_plural "Delete note books?"
+msgstr[0] "Slet notesbog?"
+msgstr[1] "Slet notesbøger?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:152
+#, kde-format
+msgid "Could not delete note book: %1"
+msgstr "Kunne ikke slette notesbog: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:156
+#, kde-format
+msgid "Note book deletion failed"
+msgstr "Sletning af notesbog mislykkedes"
+
+#: src/noteshared/standardnoteactionmanager.cpp:160
+#, kde-format
+msgid "Update Note Book"
+msgid_plural "Update %1 Note Books"
+msgstr[0] "Opdatér notesbog"
+msgstr[1] "Opdatér %1 notesbøger"
+
+#: src/noteshared/standardnoteactionmanager.cpp:163
+#, kde-format
+msgid "Update the content of the selected note books."
+msgstr "Opdatér indholdet af de valgte notesbøger."
+
+#: src/noteshared/standardnoteactionmanager.cpp:167
+#, kde-format
+msgid "Cut Note Book"
+msgid_plural "Cut %1 Note Books"
+msgstr[0] "Klip notesbog"
+msgstr[1] "Klip %1 notesbøger"
+
+#: src/noteshared/standardnoteactionmanager.cpp:170
+#, kde-format
+msgid "Cut the selected note books from the bookshelf."
+msgstr "Klip de valgte notesbøger fra bogreolen."
+
+#: src/noteshared/standardnoteactionmanager.cpp:174
+#, kde-format
+msgid "Note Book Properties..."
+msgstr "Egenskaber for notesbog..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:176
+#, kde-format
+msgid "Open a dialog to edit the properties of the selected note book."
+msgstr "Åbn en dialog for at redigere egenskaberne for den valgte notesbog."
+
+#: src/noteshared/standardnoteactionmanager.cpp:179
+#, kde-format
+msgctxt "@title:window"
+msgid "Properties of Note Book %1"
+msgstr "Egenskaber for notesbogen %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:184
+#, kde-format
+msgid "Copy Note"
+msgid_plural "Copy %1 Notes"
+msgstr[0] "Kopiér note"
+msgstr[1] "Kopiér %1 noter"
+
+#: src/noteshared/standardnoteactionmanager.cpp:186
+#, kde-format
+msgid "Copy the selected notes to the clipboard."
+msgstr "Kopiér de markerede noter til udklipsholderen."
+
+#: src/noteshared/standardnoteactionmanager.cpp:190
+#, kde-format
+msgid "Delete Note"
+msgid_plural "Delete %1 Notes"
+msgstr[0] "Slet  note"
+msgstr[1] "Slet %1 noter"
+
+#: src/noteshared/standardnoteactionmanager.cpp:192
+#, kde-format
+msgid "Delete the selected notes from the note book."
+msgstr "Slet de valgte noter fra notesbogen."
+
+#: src/noteshared/standardnoteactionmanager.cpp:195
+#, kde-format
+msgid "Do you really want to delete the selected note?"
+msgid_plural "Do you really want to delete %1 notes?"
+msgstr[0] "Vil du virkelig slette den valgte note?"
+msgstr[1] "Vil du virkelig slette %1 noter?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:200
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete Note?"
+msgid_plural "Delete Notes?"
+msgstr[0] "Slet note?"
+msgstr[1] "Slet noter?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:204
+#, kde-format
+msgid "Could not delete note: %1"
+msgstr "Kunne ikke slette note: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:208
+#, kde-format
+msgid "Note deletion failed"
+msgstr "Sletning af note mislykkedes"
+
+#: src/noteshared/standardnoteactionmanager.cpp:212
+#, kde-format
+msgid "Cut Note"
+msgid_plural "Cut %1 Notes"
+msgstr[0] "Klip note"
+msgstr[1] "Klip %1 noter"
+
+#: src/noteshared/standardnoteactionmanager.cpp:214
+#, kde-format
+msgid "Cut the selected notes from the note book."
+msgstr "Klip de valgte noter fra notebogen."
+
+#: src/noteshared/standardnoteactionmanager.cpp:218
+#, kde-format
+msgid "Add &Bookshelf..."
+msgstr "Tilføj &bogreol..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:220
+#, kde-format
+msgid ""
+"Add a new bookshelf<p>You will be presented with a dialog where you can "
+"select the type of the bookshelf that shall be added.</p>"
+msgstr ""
+"Tilføj ny bogreol<p>Du vil blive få vist en dialog hvor du kan vælge typen "
+"af bogreol der skal tilføjes.</p>"
+
+#: src/noteshared/standardnoteactionmanager.cpp:225
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Bookshelf"
+msgstr "Tilføj bogreol"
+
+#: src/noteshared/standardnoteactionmanager.cpp:229
+#, kde-format
+msgid "Could not create bookshelf: %1"
+msgstr "Kunne ikke oprette bogreol: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:233
+#, kde-format
+msgid "Bookshelf creation failed"
+msgstr "Oprettelse af bogreol mislykkedes"
+
+#: src/noteshared/standardnoteactionmanager.cpp:238
+#, kde-format
+msgid "&Delete Bookshelf"
+msgid_plural "&Delete %1 Bookshelfs"
+msgstr[0] "S&let bogreol"
+msgstr[1] "S&let %1 bogreoler"
+
+#: src/noteshared/standardnoteactionmanager.cpp:241
+#, kde-format
+msgid ""
+"Delete the selected bookshelfs<p>The currently selected bookshelfs will be "
+"deleted, along with all the notes they contain.</p>"
+msgstr ""
+"Slet de valgte bogreoler<p>De aktuelt valgte bogreoler vil blive slettet "
+"sammen med alle de noter de indeholder.</p>"
+
+#: src/noteshared/standardnoteactionmanager.cpp:246
+#, kde-format
+msgid "Do you really want to delete this bookshelf?"
+msgid_plural "Do you really want to delete %1 bookshelfs?"
+msgstr[0] "Vil du virkelig slette denne bogreol?"
+msgstr[1] "Vil du virkelig slette %1 bogreoler?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:251
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete Bookshelf?"
+msgid_plural "Delete Bookshelfs?"
+msgstr[0] "Slet bogreol?"
+msgstr[1] "Slet bogreoler?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:257
+#, kde-format
+msgid "Bookshelf Properties..."
+msgstr "Egenskaber for bogreol..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:259
+#, kde-format
+msgid "Open a dialog to edit properties of the selected bookshelf."
+msgstr "Åbn en dialog for at redigere egenskaberne for den valgte bogreol."
+
+#: src/noteshared/standardnoteactionmanager.cpp:263
+#, kde-format
+msgid "Update Bookshelf"
+msgid_plural "Update %1 Bookshelfs"
+msgstr[0] "Opdatér bogreol"
+msgstr[1] "Opdatér %1 bogreoler"
+
+#: src/noteshared/standardnoteactionmanager.cpp:267
+#, kde-format
+msgid "Updates the content of all note books of the selected bookshelfs."
+msgstr "Opdaterer indholdet af alle notesbøger for de valgte bogreoler."
+
+#: src/noteshared/standardnoteactionmanager.cpp:273
+#, kde-format
+msgid "Could not paste note: %1"
+msgstr "Kunne ikke indsætte note: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:277
+#, kde-format
+msgid "Paste failed"
+msgstr "Indsættelse mislykkedes"
+
+#: src/noteshared/standardnoteactionmanager.cpp:297
+#, kde-format
+msgctxt "@action"
+msgid "Lock Note"
+msgid_plural "Lock Notes"
+msgstr[0] "Lås note"
+msgstr[1] "Lås noter"
+
+#: src/noteshared/standardnoteactionmanager.cpp:299
+#, kde-format
+msgid "Lock selected notes"
+msgstr "Lås valgte noter"
+
+#: src/noteshared/standardnoteactionmanager.cpp:302
+#, kde-format
+msgctxt "@action"
+msgid "Unlock Note"
+msgid_plural "Unlock Notes"
+msgstr[0] "Lås note op"
+msgstr[1] "Lås noter op"
+
+#: src/noteshared/standardnoteactionmanager.cpp:304
+#, kde-format
+msgid "Unlock selected notes"
+msgstr "Lås valgte noter op"
+
+#: src/noteshared/standardnoteactionmanager.cpp:317
+#, kde-format
+msgctxt "@action"
+msgid "Pin Note"
+msgid_plural "Pin Notes"
+msgstr[0] "Fastgør note"
+msgstr[1] "Fastgør noter"
+
+#: src/noteshared/standardnoteactionmanager.cpp:319
+#, kde-format
+msgid "Pin selected notes"
+msgstr "Fastgør valgte noter"
+
+#: src/noteshared/standardnoteactionmanager.cpp:322
+#, kde-format
+msgctxt "@action"
+msgid "Unpin Note"
+msgid_plural "Unpin Notes"
+msgstr[0] "Frigør note"
+msgstr[1] "Frigør noter"
+
+#: src/noteshared/standardnoteactionmanager.cpp:324
+#, kde-format
+msgid "Unpin selected notes"
+msgstr "Frigør valgte noter"
+
+#: src/noteshared/standardnoteactionmanager.cpp:365
+#, kde-format
+msgctxt "@action"
+msgid "Lock Note Book"
+msgid_plural "Lock Note Books"
+msgstr[0] "Lås notesbog"
+msgstr[1] "Lås notesbøger"
+
+#: src/noteshared/standardnoteactionmanager.cpp:367
+#, kde-format
+msgid "Lock selected note books"
+msgstr "Lås valgte notesbøger"
+
+#: src/noteshared/standardnoteactionmanager.cpp:370
+#, kde-format
+msgctxt "@action"
+msgid "Unlock Note Book"
+msgid_plural "Unlock Note Books"
+msgstr[0] "Lås notesbog op"
+msgstr[1] "Lås notesbøger op"
+
+#: src/noteshared/standardnoteactionmanager.cpp:372
+#, kde-format
+msgid "Unlock selected note books"
+msgstr "Lås valgte notesbøger op"
+
+#: src/noteshared/standardnoteactionmanager.cpp:605
+#, kde-format
+msgid "&New Note"
+msgstr "&Ny note"
+
+#: src/noteshared/standardnoteactionmanager.cpp:606
+#, kde-format
+msgid "Add a new note to a selected note book"
+msgstr "Føj en ny note til en valgt notesbog"
+
+#: src/noteshared/standardnoteactionmanager.cpp:635
+#, kde-format
+msgid "Change Note Color..."
+msgstr "Skift notefarve..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:636
+#, kde-format
+msgid "Changes the color of a selected notes"
+msgstr "Ændrer farven på en valgt note"
+
+#: src/noteshared/standardnoteactionmanager.cpp:644
+#, kde-format
+msgid "Change Note Book Color..."
+msgstr "Skift farve på notesbog..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:645
+#, kde-format
+msgid "Changes the color of a selected note books"
+msgstr "Skifter farven på en valgt notesbog"
+
+#~ msgid "How the main window is divided."
+#~ msgstr "Hvordan hovedvinduet er opdelt."
+
+#~ msgid "Sort children alphabetically"
+#~ msgstr "Sortér underelementer alfabetisk"
+
+#~ msgid "Sort children by creation date"
+#~ msgstr "Sortér underelementer efter oprettelsesdato"
+
+#~ msgid "&Settings"
+#~ msgstr "&Indstillinger"
+
+#~ msgid "Replace"
+#~ msgstr "Erstat"
+
+#~ msgid "&All"
+#~ msgstr "&Alle"
+
+#~ msgid "&Skip"
+#~ msgstr "&Spring over"
+
+#~ msgid "Replace '%1' with '%2'?"
+#~ msgstr "Erstat '%1' med '%2'?"
+
+#~ msgid "Insert Image"
+#~ msgstr "Indsæt billede"
+
+#~ msgid "Insert Checkmark"
+#~ msgstr "Indsæt rettetegn"
+
+#~ msgctxt ""
+#~ "@action Paste the text in the clipboard without rich text formatting."
+#~ msgid "Paste Plain Text"
+#~ msgstr "Indsæt klartekst"
+
+#~ msgid "Search all pages"
+#~ msgstr "Søg på alle sider"
+
+#~ msgid "<qt>No matches found.</qt>"
+#~ msgstr "<qt>Ingen match fundet.</qt>"
+
+#~ msgid "<qt>Replaced 1 occurrence.</qt>"
+#~ msgid_plural "<qt>Replaced %1 occurrences.</qt>"
+#~ msgstr[0] "<qt>Erstattede 1 forekomst.</qt>"
+#~ msgstr[1] "<qt>Erstattede %1 forekomster.</qt>"
+
+#~ msgid "<qt>Replaced %2 of 1 occurrence.</qt>"
+#~ msgid_plural "<qt>Replaced %2 of %1 occurrences.</qt>"
+#~ msgstr[0] "<qt>Erstattede %2 ud af 1 forekomst.</qt>"
+#~ msgstr[1] "<qt>Erstattede %2 ud af %1 forekomster.</qt>"
+
+#~ msgid ""
+#~ "<qt>End of search area reached. Do you want to wrap around and continue?</"
+#~ "qt>"
+#~ msgstr ""
+#~ "<qt>Afslutning af søgeområde nået. Vil du ombryde og fortsætte?</qt>"
+
+#~ msgctxt "The default name for new books."
+#~ msgid "New Book"
+#~ msgstr "Ny bog"
+
+#~ msgid "Path to maildir"
+#~ msgstr "Sti til maildir"
+
+#~ msgid ""
+#~ "Path points to a folder containing Maildirs instead of to a maildir "
+#~ "itself."
+#~ msgstr ""
+#~ "Stien peger på en mappe der indeholder Maildirs i stedet for direkte på "
+#~ "et maildir."
+
+#~ msgid "Do not change the actual backend data."
+#~ msgstr "Ændr ikke de faktiske motor-data."
+
+#~ msgid "Select image file"
+#~ msgstr "Vælg billedfil"
+
+#~ msgid "The book or page that is currently active."
+#~ msgstr "Bogen eller siden der for øjeblikket er aktiv."
+
+#~ msgid "The font used to display the contents of books."
+#~ msgstr "Skrifttypen der bruges til at vise indholdet af bøger."
+
+#~ msgid "Whether UTF-8 encoding should be forced for saving and loading."
+#~ msgstr ""
+#~ "Om tegnsættet UTF-8 skal tvinges til at bruges for at gemme og indlæse."
+
+#~ msgid "The last ID that was used for a book or page."
+#~ msgstr "Den seneste identifikation som blev brugt for en bog eller side."
+
+#~ msgid "The IDs of the books in the bookshelf."
+#~ msgstr "ID for bøgerne i bogreolen."
+
+#~ msgid "Ask for a name when creating a new page?"
+#~ msgstr "Bed om et navn når en ny side oprettes?"
+
+#~ msgid "To Book File..."
+#~ msgstr "Til Book-fil..."
+
+#~ msgid "Settings"
+#~ msgstr "Indstillinger"
+
+#~ msgid "Change Theme"
+#~ msgstr "Skift tema"
+
+#~ msgid "<qt>Error opening internal file.</qt>"
+#~ msgstr "<qt>Fejl under åbning af intern fil.</qt>"
+
+#~ msgid "&Delete Page"
+#~ msgstr "&Slet side"
+
+#~ msgid "Delete Selected"
+#~ msgstr "Slet valgte"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Kopiér linkadresse"
+
+#~ msgid ""
+#~ "This page is locked. You can only delete it when you first unlock it."
+#~ msgstr ""
+#~ "Denne side er låst. Du kan kun slette den hvis du først låser den op."
+
+#~ msgid "Item is locked"
+#~ msgstr "Elementet er låst"
+
+#~ msgctxt "remove the page, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the page <strong>%1</strong>?</qt>"
+#~ msgstr "<qt>Vil du virkelig slette siden <strong>%1</strong>?</qt>"
+
+#~ msgid ""
+#~ "This book is locked. You can only delete it when you first unlock it."
+#~ msgstr ""
+#~ "Denne bog er låst. Du kan kun slette den hvis du først låser den op."
+
+#~ msgctxt "remove the book, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the book <strong>%1</strong>?</qt>"
+#~ msgstr "<qt>Vil du virkelig slette bogen <strong>%1</strong>?</qt>"
+
+#~ msgid "Rename..."
+#~ msgstr "Omdøb..."
+
+#~ msgid "Rename Page"
+#~ msgstr "Omdøb side"
+
+#~ msgid "Page title:"
+#~ msgstr "Sidetitel:"
+
+#~ msgid "Rename Book"
+#~ msgstr "Omdøb bog"
+
+#~ msgid "Book name:"
+#~ msgstr "Bognavn:"
+
+#~ msgid "Next Page"
+#~ msgstr "Næste side"
+
+#~ msgid "Previous Page"
+#~ msgstr "Forrige side"
+
+#~ msgid "Manual Save"
+#~ msgstr "Gem manuelt"
+
+#~ msgid "Send To Printer"
+#~ msgstr "Send til printer"
+
+#~ msgctxt "Name for the top level book created to hold the imported data."
+#~ msgid "KNowIt Import"
+#~ msgstr "KnowIt-import"
+
+#~ msgid "Miscellaneous"
+#~ msgstr "Diverse"
+
+#~ msgid ""
+#~ "All pages must be inside a book. Would you like to create a new book to "
+#~ "put the page in, or would you prefer to not move the page at all?"
+#~ msgstr ""
+#~ "Alle sider skal være indeni en bog. Vil du gerne lave en ny bog at putte "
+#~ "siden i, eller ville du foretrække ikke at flytte siden overhovedet?"
+
+#~ msgid "Do Not Move Page"
+#~ msgstr "Flyt ikke siden"
+
+#~ msgid "Import..."
+#~ msgstr "Importér..."
+
+#~ msgid "<qt>Are you sure you want to delete these entries?</qt>"
+#~ msgstr "<qt>Vil du virkelig slette disse indgange?</qt>"
+
+#~ msgid "Multiple Selections"
+#~ msgstr "Flere markeringer"
+
+#~ msgid "KJots Books"
+#~ msgstr "KJots-bøger"
+
+#~ msgid "HTML Files"
+#~ msgstr "HTML-filer"
+
+#~ msgid "<qt>Error opening temporary file.</qt>"
+#~ msgstr "<qt>Fejl under åbning af midlertidig fil.</qt>"
+
+#~ msgid "KnowIt files"
+#~ msgstr "KnowIt-filer"
+
+#~ msgid ""
+#~ "A duplicate ID was found in the book %1. This can happen if you "
+#~ "manipulate the data files by hand, and will prevent KJots from working "
+#~ "correctly. KJots can attempt to fix this, or you can fix it yourself. In "
+#~ "either case, bookmarks and links between pages may be broken."
+#~ msgstr ""
+#~ "Et duplikeret ID blev fundet i bogen %1. Dette kan ske hvis ud ændrer "
+#~ "datafilerne i hånden, og det vil forhindre KJots i at virke korrekt. "
+#~ "KJots kan forsøge at rette dette, eller du kan rette det selv. I alle "
+#~ "tilfælde kan bogmærker og link mellem sider være ødelagt."
+
+#~ msgid "A duplicate ID was found"
+#~ msgstr "Et duplikeret ID blev fundet"
+
+#~ msgid "Exit and fix by hand"
+#~ msgstr "Afslut og ret manuelt"
+
+#~ msgid "Fix it automatically"
+#~ msgstr "Ret det automatisk"
+
+#~ msgid ""
+#~ "<qt>KJots is having problems saving your data. This might be a "
+#~ "permissions problem, or you may be out of disk space.</qt>"
+#~ msgstr ""
+#~ "<qt>KJots har problemer med at gemme dine data. Dette kan være et problem "
+#~ "med rettigheder, eller du er måske løbet tør for diskplads.</qt>"
+
+#~ msgid "Table of Contents"
+#~ msgstr "Indholdsfortegnelse"
+
+#~ msgid "Page %1"
+#~ msgstr "Side %1"
+
+#~ msgid "New Page"
+#~ msgstr "Ny side"
+
+#~ msgid "Page name:"
+#~ msgstr "Sidetitel"
+
+#~ msgid "Ask for new &page names"
+#~ msgstr "Bed om nye &sidetitler"
+
+#~ msgid ""
+#~ "Determines if new pages are given an automatic name, or a prompt is "
+#~ "displayed."
+#~ msgstr ""
+#~ "Bestemmer om nye sider automatisk gives et navn eller om en prompt vises."
+
+#~ msgid "(c) 1997-2008, KJots developers"
+#~ msgstr "(c) 1997-2008, KJots-udviklerne"
+
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the <strong>%1</strong> page?</qt>"
+#~ msgstr ""
+#~ "<qt>Er du sikker på at du ønsker at slette <strong>%1</strong>-siden?</qt>"
+
+#~ msgid "Autosave"
+#~ msgstr "Autogemning"

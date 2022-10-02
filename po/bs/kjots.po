@@ -1,0 +1,1056 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kjots\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-16 00:48+0000\n"
+"PO-Revision-Date: 2014-01-31 19:04+0100\n"
+"Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
+"Language-Team: Bosnian <bhld@lists.linux.org.ba>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Launchpad (build 16807)\n"
+"X-Launchpad-Export-Date: 2013-10-19 05:19+0000\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Samir Ribić,Vedran Ljubovic"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "samir.ribic@etf.unsa.ba,vljubovic@smartnet.ba"
+
+#: src/aboutdata.cpp:16 src/kjotspart.cpp:34
+#: src/kontact_plugin/kjots_plugin.cpp:51
+#, kde-format
+msgid "KJots"
+msgstr "KJots"
+
+#: src/aboutdata.cpp:18
+#, kde-format
+msgid "KDE note taking utility"
+msgstr "KDE alat za bilješke"
+
+#: src/aboutdata.cpp:20
+#, fuzzy, kde-format
+#| msgid "Copyright © 1997–2010 KJots authors"
+msgid "Copyright © 1997–2020 KJots authors"
+msgstr "Autorska prava © 1997–2010 KJots autori"
+
+#: src/aboutdata.cpp:22
+#, kde-format
+msgid "Igor Poboiko"
+msgstr ""
+
+#: src/aboutdata.cpp:22
+#, fuzzy, kde-format
+#| msgid "Current maintainer"
+msgid "Maintainer"
+msgstr "Trenutno održava"
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Daniel Vrátil"
+msgstr ""
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Port to KDE Frameworks 5"
+msgstr ""
+
+#: src/aboutdata.cpp:24
+#, kde-format
+msgid "Stephen Kelly"
+msgstr "Stephen Kelly"
+
+#: src/aboutdata.cpp:25
+#, kde-format
+msgid "Pradeepto K. Bhattacharya"
+msgstr "Pradeepto K. Bhattacharya"
+
+#: src/aboutdata.cpp:26
+#, kde-format
+msgid "Jaison Lee"
+msgstr "Jaison Lee"
+
+#: src/aboutdata.cpp:27
+#, kde-format
+msgid "Aaron J. Seigo"
+msgstr "Aaron J. Seigo"
+
+#: src/aboutdata.cpp:28
+#, kde-format
+msgid "Stanislav Kljuhhin"
+msgstr "Stanislav Kljuhhin"
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Christoph Neerfeld"
+msgstr "Christoph Neerfeld"
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Original author"
+msgstr "Originalni autor"
+
+#: src/aboutdata.cpp:30
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:19 src/confpagemisc.ui:35
+#, kde-format
+msgid ""
+"This is the number of minutes KJots will wait before automatically saving "
+"changes."
+msgstr ""
+"Ovo je broj minuta koliko će KJots čekati prije nego što automatski snimi "
+"izmjene."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: src/confpagemisc.ui:22
+#, kde-format
+msgid "S&ave every:"
+msgstr "S&nimi svakih:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:38
+#, kde-format
+msgid "1 minute"
+msgstr "1 minuta"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:41
+#, kde-format
+msgid " minutes"
+msgstr " minuta"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:54
+#, kde-format
+msgid ""
+"When \"Save changes periodically\" is checked, KJots will automatically save "
+"changes made to books at the interval defined below."
+msgstr ""
+"Kada je \"Snimi promjene periodično\" uključeno, KJots će automatski snimiti "
+"promjene nad knjigama u intervalu koji je ranije definisan."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:57
+#, kde-format
+msgid "&Save changes periodically"
+msgstr "&Snimaj izmjene periodično"
+
+#. i18n: ectx: label, entry (AutoSave), group (kjots)
+#: src/kjots.kcfg:9
+#, kde-format
+msgid "Whether books should be saved automatically."
+msgstr "Da li knjige treba snimati automatski."
+
+#. i18n: ectx: label, entry (AutoSaveInterval), group (kjots)
+#: src/kjots.kcfg:13
+#, kde-format
+msgid "The interval in minutes at which books should be saved automatically."
+msgstr "Interval u minutama u kojem će knjige biti automatski snimanje."
+
+#: src/kjotsbrowser.cpp:133
+#, fuzzy, kde-format
+#| msgid "Link Text:"
+msgctxt "@info:action"
+msgid "Speak Text"
+msgstr "Tekst veze:"
+
+#: src/kjotsbrowser.cpp:177
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Click to follow the hyperlink: %1"
+msgstr ""
+
+#: src/kjotsbrowser.cpp:181
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Click to open note: %1"
+msgstr ""
+
+#: src/kjotsbrowser.cpp:183
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Click to open book: %1"
+msgstr ""
+
+#: src/kjotsedit.cpp:99
+#, fuzzy, kde-format
+#| msgid "Copy &into Page Title"
+msgctxt "@action"
+msgid "Copy &Into Page Title"
+msgstr "Kopiraj &u naslov stranice"
+
+#: src/kjotsedit.cpp:109
+#, fuzzy, kde-format
+#| msgid "Link"
+msgctxt "@action creates and manages hyperlinks"
+msgid "Link"
+msgstr "Veza"
+
+#: src/kjotsedit.cpp:117
+#, fuzzy, kde-format
+#| msgid "Auto Bullets"
+msgctxt "@action"
+msgid "Auto Bullet List"
+msgstr "Automatske tačke"
+
+#: src/kjotsedit.cpp:126
+#, fuzzy, kde-format
+#| msgid "Auto Decimal List"
+msgctxt "@action"
+msgid "Auto Decimal List"
+msgstr "Auto decimalni popis"
+
+#: src/kjotsedit.cpp:135
+#, fuzzy, kde-format
+#| msgid "Insert Date"
+msgctxt "@action"
+msgid "Insert Date"
+msgstr "Ubaci datum"
+
+#: src/kjotsedit.cpp:468
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Ctrl+click to open note: %1"
+msgstr ""
+
+#: src/kjotsedit.cpp:470
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Ctrl+click to open book: %1"
+msgstr ""
+
+#: src/kjotsedit.cpp:473
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Ctrl+click to follow the hyperlink: %1"
+msgstr ""
+
+#: src/kjotslinkdialog.cpp:32
+#, kde-format
+msgid "Enter link URL, or another note or note book..."
+msgstr ""
+
+#: src/kjotsmodel.cpp:305
+#, kde-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr ""
+
+#: src/kjotsmodel.cpp:309
+#, kde-format
+msgctxt "@title:column title of a note"
+msgid "Title"
+msgstr ""
+
+#: src/kjotsmodel.cpp:311
+#, kde-format
+msgctxt "@title:column creation date and time of a note"
+msgid "Created"
+msgstr ""
+
+#: src/kjotsmodel.cpp:313
+#, kde-format
+msgctxt "@title:column last modification date and time of a note"
+msgid "Modified"
+msgstr ""
+
+#: src/kjotsmodel.cpp:315
+#, kde-format
+msgctxt "@title:column size of a note"
+msgid "Size"
+msgstr ""
+
+#: src/kjotspart.cpp:47
+#, kde-format
+msgid "&Configure KJots..."
+msgstr "&Configure KJots..."
+
+#. i18n: ectx: Menu (format)
+#: src/kjotsui.rc:21
+#, kde-format
+msgid "F&ormat"
+msgstr "F&ormat"
+
+#. i18n: ectx: Menu (view)
+#: src/kjotsui.rc:45
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (go)
+#: src/kjotsui.rc:51
+#, kde-format
+msgid "&Go"
+msgstr "&Kreni"
+
+#. i18n: ectx: Menu (tools)
+#: src/kjotsui.rc:60
+#, kde-format
+msgid "&Tools"
+msgstr "&Alati"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kjotsui.rc:110
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Glavna alatna traka"
+
+#. i18n: ectx: ToolBar (textToolBar)
+#: src/kjotsui.rc:126
+#, kde-format
+msgid "Text Toolbar"
+msgstr "Tekstualna alatna traka"
+
+#. i18n: ectx: ToolBar (formatToolBar)
+#: src/kjotsui.rc:141
+#, kde-format
+msgid "Format Toolbar"
+msgstr "Traka s alatima za formatiranje"
+
+#. i18n: ectx: ToolBar (toolsToolBar)
+#: src/kjotsui.rc:156
+#, fuzzy, kde-format
+#| msgid "Text Toolbar"
+msgid "Tools Toolbar"
+msgstr "Tekstualna alatna traka"
+
+#: src/kjotswidget.cpp:433
+#, kde-format
+msgid "&Bookmarks"
+msgstr "&Zabilješke"
+
+#: src/kjotswidget.cpp:451
+#, kde-format
+msgid "Export"
+msgstr "Izvezi"
+
+#: src/kjotswidget.cpp:455
+#, kde-format
+msgid "To Text File..."
+msgstr "U tekstualnu datoteku..."
+
+#: src/kjotswidget.cpp:463
+#, kde-format
+msgid "To HTML File..."
+msgstr "U HTML datoteku..."
+
+#: src/kjotswidget.cpp:472
+#, kde-format
+msgid "Next Book"
+msgstr "Sljedeća knjiga"
+
+#: src/kjotswidget.cpp:483
+#, kde-format
+msgid "Previous Book"
+msgstr "Prethodna knjiga"
+
+#: src/kjotswidget.cpp:496
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Two Columns"
+msgstr ""
+
+#: src/kjotswidget.cpp:501
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Three Columns"
+msgstr ""
+
+#: src/kjotswidget.cpp:563
+#, kde-format
+msgctxt "@title:window config dialog page"
+msgid "Misc"
+msgstr ""
+
+#: src/kjotswidget.cpp:598
+#, kde-format
+msgctxt "Header for 'Table of contents' section of rendered output"
+msgid "Table of contents"
+msgstr "Sadržaj"
+
+#: src/kjotswidget.cpp:623
+#, kde-format
+msgid "<qt>Could not open \"%1\" for writing</qt>"
+msgstr ""
+
+#: src/kjotswidget.cpp:719
+#, fuzzy, kde-format
+#| msgid "Multiple selections"
+msgctxt "@title:window"
+msgid "Multiple selection"
+msgstr "Višestruki odabir"
+
+#: src/kjotswidget.cpp:737
+#, kde-format
+msgid ""
+"Unable to save the note.\n"
+"You can save your note to a local file using the \"File - Export\" menu,\n"
+"otherwise you will lose your changes!\n"
+"Do you want to close anyways?"
+msgstr ""
+
+#: src/kjotswidget.cpp:741
+#, kde-format
+msgid "Close Document"
+msgstr ""
+
+#: src/kjotswidget.cpp:746
+#, kde-format
+msgid ""
+"Error message:\n"
+"%1"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, LinkDialog)
+#: src/linkdialog.ui:14
+#, kde-format
+msgid "Manage Link"
+msgstr "Upravljanje vezom"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel)
+#: src/linkdialog.ui:29
+#, fuzzy, kde-format
+#| msgid "Link Text:"
+msgid "Link &Text:"
+msgstr "Tekst veze:"
+
+#. i18n: ectx: property (text), widget (QLabel, linkUrlLabel)
+#: src/linkdialog.ui:46
+#, kde-format
+msgid "Link URL:"
+msgstr "URL veze:"
+
+#: src/noteshared/notecreatorandselector.cpp:86
+#, kde-format
+msgctxt "The default name for new pages."
+msgid "New Page"
+msgstr "Nova stranica"
+
+#: src/noteshared/standardnoteactionmanager.cpp:108
+#, fuzzy, kde-format
+#| msgid "New &Book..."
+msgid "New Note Book..."
+msgstr "Nova &knjiga"
+
+#: src/noteshared/standardnoteactionmanager.cpp:113
+#, kde-format
+msgid "Add a new note book to the currently selected bookshelf."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:116
+#, fuzzy, kde-format
+#| msgctxt "The default name for new books."
+#| msgid "New Book"
+msgctxt "@title:window"
+msgid "New Note Book"
+msgstr "Nova knjiga"
+
+#: src/noteshared/standardnoteactionmanager.cpp:120
+#, kde-format
+msgid "Could not create note book: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:124
+#, fuzzy, kde-format
+#| msgid "Sort children by creation date"
+msgid "Note book creation failed"
+msgstr "Sortiraj podelemente po datumu kreiranja"
+
+#: src/noteshared/standardnoteactionmanager.cpp:130
+#, fuzzy, kde-format
+#| msgctxt "The default name for new books."
+#| msgid "New Book"
+msgid "Copy Note Book"
+msgid_plural "Copy %1 Note Books"
+msgstr[0] "Nova knjiga"
+msgstr[1] "Nova knjiga"
+msgstr[2] "Nova knjiga"
+
+#: src/noteshared/standardnoteactionmanager.cpp:133
+#, kde-format
+msgid "Copy the selected note books to the clipboard."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:137
+#, fuzzy, kde-format
+#| msgid "Delete Boo&k"
+msgid "Delete Note Book"
+msgid_plural "Delete %1 Note Books"
+msgstr[0] "Obriši knji&gu"
+msgstr[1] "Obriši knji&gu"
+msgstr[2] "Obriši knji&gu"
+
+#: src/noteshared/standardnoteactionmanager.cpp:140
+#, fuzzy, kde-format
+#| msgid "The IDs of the books in the bookshelf."
+msgid "Delete the selected note books from the bookshelf."
+msgstr "Identifikatori knjiga u polici."
+
+#: src/noteshared/standardnoteactionmanager.cpp:144
+#, fuzzy, kde-format
+#| msgid "Do you really want to delete all selected books and pages?"
+msgid "Do you really want to delete this note book and all its contents?"
+msgid_plural ""
+"Do you really want to delete %1 note books and all their contents?"
+msgstr[0] "Da li zaista želite obrisati sve odabrane knjige i strane?"
+msgstr[1] "Da li zaista želite obrisati sve odabrane knjige i strane?"
+msgstr[2] "Da li zaista želite obrisati sve odabrane knjige i strane?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:148
+#, fuzzy, kde-format
+#| msgid "Delete Boo&k"
+msgctxt "@title:window"
+msgid "Delete note book?"
+msgid_plural "Delete note books?"
+msgstr[0] "Obriši knji&gu"
+msgstr[1] "Obriši knji&gu"
+msgstr[2] "Obriši knji&gu"
+
+#: src/noteshared/standardnoteactionmanager.cpp:152
+#, kde-format
+msgid "Could not delete note book: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:156
+#, kde-format
+msgid "Note book deletion failed"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:160
+#, kde-format
+msgid "Update Note Book"
+msgid_plural "Update %1 Note Books"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:163
+#, kde-format
+msgid "Update the content of the selected note books."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:167
+#, fuzzy, kde-format
+#| msgctxt "The default name for new books."
+#| msgid "New Book"
+msgid "Cut Note Book"
+msgid_plural "Cut %1 Note Books"
+msgstr[0] "Nova knjiga"
+msgstr[1] "Nova knjiga"
+msgstr[2] "Nova knjiga"
+
+#: src/noteshared/standardnoteactionmanager.cpp:170
+#, fuzzy, kde-format
+#| msgid "The IDs of the books in the bookshelf."
+msgid "Cut the selected note books from the bookshelf."
+msgstr "Identifikatori knjiga u polici."
+
+#: src/noteshared/standardnoteactionmanager.cpp:174
+#, fuzzy, kde-format
+#| msgid "To Book File..."
+msgid "Note Book Properties..."
+msgstr "U datoteku knjiga..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:176
+#, kde-format
+msgid "Open a dialog to edit the properties of the selected note book."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:179
+#, kde-format
+msgctxt "@title:window"
+msgid "Properties of Note Book %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:184
+#, kde-format
+msgid "Copy Note"
+msgid_plural "Copy %1 Notes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:186
+#, kde-format
+msgid "Copy the selected notes to the clipboard."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:190
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgid "Delete Note"
+msgid_plural "Delete %1 Notes"
+msgstr[0] "Obriši"
+msgstr[1] "Obriši"
+msgstr[2] "Obriši"
+
+#: src/noteshared/standardnoteactionmanager.cpp:192
+#, kde-format
+msgid "Delete the selected notes from the note book."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:195
+#, fuzzy, kde-format
+#| msgid "Do you really want to delete all selected books and pages?"
+msgid "Do you really want to delete the selected note?"
+msgid_plural "Do you really want to delete %1 notes?"
+msgstr[0] "Da li zaista želite obrisati sve odabrane knjige i strane?"
+msgstr[1] "Da li zaista želite obrisati sve odabrane knjige i strane?"
+msgstr[2] "Da li zaista želite obrisati sve odabrane knjige i strane?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:200
+#, fuzzy, kde-format
+#| msgid "Delete?"
+msgctxt "@title:window"
+msgid "Delete Note?"
+msgid_plural "Delete Notes?"
+msgstr[0] "Obrisati?"
+msgstr[1] "Obrisati?"
+msgstr[2] "Obrisati?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:204
+#, kde-format
+msgid "Could not delete note: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:208
+#, kde-format
+msgid "Note deletion failed"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:212
+#, kde-format
+msgid "Cut Note"
+msgid_plural "Cut %1 Notes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:214
+#, kde-format
+msgid "Cut the selected notes from the note book."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:218
+#, fuzzy, kde-format
+#| msgid "New &Book..."
+msgid "Add &Bookshelf..."
+msgstr "Nova &knjiga"
+
+#: src/noteshared/standardnoteactionmanager.cpp:220
+#, kde-format
+msgid ""
+"Add a new bookshelf<p>You will be presented with a dialog where you can "
+"select the type of the bookshelf that shall be added.</p>"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:225
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Bookshelf"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:229
+#, kde-format
+msgid "Could not create bookshelf: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:233
+#, kde-format
+msgid "Bookshelf creation failed"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:238
+#, fuzzy, kde-format
+#| msgid "Delete Boo&k"
+msgid "&Delete Bookshelf"
+msgid_plural "&Delete %1 Bookshelfs"
+msgstr[0] "Obriši knji&gu"
+msgstr[1] "Obriši knji&gu"
+msgstr[2] "Obriši knji&gu"
+
+#: src/noteshared/standardnoteactionmanager.cpp:241
+#, kde-format
+msgid ""
+"Delete the selected bookshelfs<p>The currently selected bookshelfs will be "
+"deleted, along with all the notes they contain.</p>"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:246
+#, fuzzy, kde-format
+#| msgid "Do you really want to delete all selected books and pages?"
+msgid "Do you really want to delete this bookshelf?"
+msgid_plural "Do you really want to delete %1 bookshelfs?"
+msgstr[0] "Da li zaista želite obrisati sve odabrane knjige i strane?"
+msgstr[1] "Da li zaista želite obrisati sve odabrane knjige i strane?"
+msgstr[2] "Da li zaista želite obrisati sve odabrane knjige i strane?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:251
+#, fuzzy, kde-format
+#| msgid "Delete Boo&k"
+msgctxt "@title:window"
+msgid "Delete Bookshelf?"
+msgid_plural "Delete Bookshelfs?"
+msgstr[0] "Obriši knji&gu"
+msgstr[1] "Obriši knji&gu"
+msgstr[2] "Obriši knji&gu"
+
+#: src/noteshared/standardnoteactionmanager.cpp:257
+#, kde-format
+msgid "Bookshelf Properties..."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:259
+#, kde-format
+msgid "Open a dialog to edit properties of the selected bookshelf."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:263
+#, kde-format
+msgid "Update Bookshelf"
+msgid_plural "Update %1 Bookshelfs"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:267
+#, fuzzy, kde-format
+#| msgid "The IDs of the books in the bookshelf."
+msgid "Updates the content of all note books of the selected bookshelfs."
+msgstr "Identifikatori knjiga u polici."
+
+#: src/noteshared/standardnoteactionmanager.cpp:273
+#, kde-format
+msgid "Could not paste note: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:277
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action Paste the text in the clipboard without rich text formatting."
+#| msgid "Paste Plain Text"
+msgid "Paste failed"
+msgstr "Umetni čisti tekst"
+
+#: src/noteshared/standardnoteactionmanager.cpp:297
+#, fuzzy, kde-format
+#| msgctxt "Default name for resource holding notes"
+#| msgid "Local Notes"
+msgctxt "@action"
+msgid "Lock Note"
+msgid_plural "Lock Notes"
+msgstr[0] "Lokalne napomene"
+msgstr[1] "Lokalne napomene"
+msgstr[2] "Lokalne napomene"
+
+#: src/noteshared/standardnoteactionmanager.cpp:299
+#, fuzzy, kde-format
+#| msgid "Lock Selected"
+msgid "Lock selected notes"
+msgstr "Zaključaj izabrano"
+
+#: src/noteshared/standardnoteactionmanager.cpp:302
+#, fuzzy, kde-format
+#| msgid "Unlock Selected"
+msgctxt "@action"
+msgid "Unlock Note"
+msgid_plural "Unlock Notes"
+msgstr[0] "Otključaj izabrano"
+msgstr[1] "Otključaj izabrano"
+msgstr[2] "Otključaj izabrano"
+
+#: src/noteshared/standardnoteactionmanager.cpp:304
+#, fuzzy, kde-format
+#| msgid "Unlock Selected"
+msgid "Unlock selected notes"
+msgstr "Otključaj izabrano"
+
+#: src/noteshared/standardnoteactionmanager.cpp:317
+#, fuzzy, kde-format
+#| msgid "Unlock Selected"
+msgctxt "@action"
+msgid "Pin Note"
+msgid_plural "Pin Notes"
+msgstr[0] "Otključaj izabrano"
+msgstr[1] "Otključaj izabrano"
+msgstr[2] "Otključaj izabrano"
+
+#: src/noteshared/standardnoteactionmanager.cpp:319
+#, fuzzy, kde-format
+#| msgid "Unlock Selected"
+msgid "Pin selected notes"
+msgstr "Otključaj izabrano"
+
+#: src/noteshared/standardnoteactionmanager.cpp:322
+#, fuzzy, kde-format
+#| msgid "Unlock Selected"
+msgctxt "@action"
+msgid "Unpin Note"
+msgid_plural "Unpin Notes"
+msgstr[0] "Otključaj izabrano"
+msgstr[1] "Otključaj izabrano"
+msgstr[2] "Otključaj izabrano"
+
+#: src/noteshared/standardnoteactionmanager.cpp:324
+#, fuzzy, kde-format
+#| msgid "Unlock Selected"
+msgid "Unpin selected notes"
+msgstr "Otključaj izabrano"
+
+#: src/noteshared/standardnoteactionmanager.cpp:365
+#, fuzzy, kde-format
+#| msgctxt "The default name for new books."
+#| msgid "New Book"
+msgctxt "@action"
+msgid "Lock Note Book"
+msgid_plural "Lock Note Books"
+msgstr[0] "Nova knjiga"
+msgstr[1] "Nova knjiga"
+msgstr[2] "Nova knjiga"
+
+#: src/noteshared/standardnoteactionmanager.cpp:367
+#, fuzzy, kde-format
+#| msgid "Delete Boo&k"
+msgid "Lock selected note books"
+msgstr "Obriši knji&gu"
+
+#: src/noteshared/standardnoteactionmanager.cpp:370
+#, fuzzy, kde-format
+#| msgctxt "The default name for new books."
+#| msgid "New Book"
+msgctxt "@action"
+msgid "Unlock Note Book"
+msgid_plural "Unlock Note Books"
+msgstr[0] "Nova knjiga"
+msgstr[1] "Nova knjiga"
+msgstr[2] "Nova knjiga"
+
+#: src/noteshared/standardnoteactionmanager.cpp:372
+#, fuzzy, kde-format
+#| msgid "Delete Boo&k"
+msgid "Unlock selected note books"
+msgstr "Obriši knji&gu"
+
+#: src/noteshared/standardnoteactionmanager.cpp:605
+#, fuzzy, kde-format
+#| msgid "&New Page"
+msgid "&New Note"
+msgstr "&Nova stranica"
+
+#: src/noteshared/standardnoteactionmanager.cpp:606
+#, kde-format
+msgid "Add a new note to a selected note book"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:635
+#, fuzzy, kde-format
+#| msgid "Change Color..."
+msgid "Change Note Color..."
+msgstr "Izmijeni boju..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:636
+#, kde-format
+msgid "Changes the color of a selected notes"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:644
+#, fuzzy, kde-format
+#| msgid "Change Color..."
+msgid "Change Note Book Color..."
+msgstr "Izmijeni boju..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:645
+#, kde-format
+msgid "Changes the color of a selected note books"
+msgstr ""
+
+#~ msgid "How the main window is divided."
+#~ msgstr "Kako je podijeljen glavni prozor."
+
+#~ msgid "Sort children alphabetically"
+#~ msgstr "Sortiraj podelemente abecedno"
+
+#~ msgid "Sort children by creation date"
+#~ msgstr "Sortiraj podelemente po datumu kreiranja"
+
+#~ msgid "&Settings"
+#~ msgstr "&Podešavanje"
+
+#~ msgid "Replace"
+#~ msgstr "Zamijeni"
+
+#~ msgid "&All"
+#~ msgstr "&Sve"
+
+#~ msgid "&Skip"
+#~ msgstr "&Preskoči"
+
+#~ msgid "Replace '%1' with '%2'?"
+#~ msgstr "Zamijeni '%1' sa '%2'?"
+
+#, fuzzy
+#~| msgid "Insert Date"
+#~ msgid "Insert Image"
+#~ msgstr "Ubaci datum"
+
+#~ msgid "Insert Checkmark"
+#~ msgstr "Ubaci provjeru"
+
+#~ msgctxt ""
+#~ "@action Paste the text in the clipboard without rich text formatting."
+#~ msgid "Paste Plain Text"
+#~ msgstr "Umetni čisti tekst"
+
+#~ msgid "Search all pages"
+#~ msgstr "Pretraži sve stranice"
+
+#~ msgid "<qt>No matches found.</qt>"
+#~ msgstr "<qt>Nema slaganja.</qt>"
+
+#~ msgid "<qt>Replaced 1 occurrence.</qt>"
+#~ msgid_plural "<qt>Replaced %1 occurrences.</qt>"
+#~ msgstr[0] "<qt>Zamijenjena %1 pojava.</qt>"
+#~ msgstr[1] "<qt>Zamijenjene %1 pojave.</qt>"
+#~ msgstr[2] "<qt>Zamijenjeno %1 pojava.</qt>"
+
+#~ msgid "<qt>Replaced %2 of 1 occurrence.</qt>"
+#~ msgid_plural "<qt>Replaced %2 of %1 occurrences.</qt>"
+#~ msgstr[0] "<qt>Zamijenjena %2 od %1 pojave.</qt>"
+#~ msgstr[1] "<qt>Zamijenjena %2 od %1 pojave.</qt>"
+#~ msgstr[2] "<qt>Zamijenjena %2 od %1 pojava.</qt>"
+
+#~ msgid ""
+#~ "<qt>End of search area reached. Do you want to wrap around and continue?</"
+#~ "qt>"
+#~ msgstr ""
+#~ "<qt>Kraj za pretraživanje područja postignut. Želite li zaokrenuti i "
+#~ "nastaviti?</qt>"
+
+#~ msgctxt "The default name for new books."
+#~ msgid "New Book"
+#~ msgstr "Nova knjiga"
+
+#~ msgid "Path to maildir"
+#~ msgstr "Meildir putanja"
+
+#~ msgid ""
+#~ "Path points to a folder containing Maildirs instead of to a maildir "
+#~ "itself."
+#~ msgstr ""
+#~ "Putanja ukazuje na direktorijum koji sadrži Meildirs umjesto na sami "
+#~ "maildir."
+
+#~ msgid "Do not change the actual backend data."
+#~ msgstr "Ne mijenjaj aktuelne pozadinske podatke."
+
+#~ msgid "The book or page that is currently active."
+#~ msgstr "Knjiga ili strana koja je trenutno aktivna."
+
+#~ msgid "The font used to display the contents of books."
+#~ msgstr "Font koji je korišten za prikaz sadržaja knjige."
+
+#~ msgid "Whether UTF-8 encoding should be forced for saving and loading."
+#~ msgstr "Da li UTF-8 kodiranje treba forsirati pri snimanju i učitavanju."
+
+#~ msgid "The last ID that was used for a book or page."
+#~ msgstr "Posljednja ID. koja je korišćena za knjigu ili stranu."
+
+#~ msgid "The IDs of the books in the bookshelf."
+#~ msgstr "Identifikatori knjiga u polici."
+
+#~ msgid "Ask for a name when creating a new page?"
+#~ msgstr "Pitajte za imena prilikom stvaranja nove stranice?"
+
+#~ msgid "To Book File..."
+#~ msgstr "U datoteku knjiga..."
+
+#~ msgid "Settings"
+#~ msgstr "Postavke"
+
+#~ msgid "Change Theme"
+#~ msgstr "Promijeni temu"
+
+#~ msgid "<qt>Error opening internal file.</qt>"
+#~ msgstr "<qt>Pogreška pri otvaranju interne datoteke.</qt>"
+
+#~ msgid "&Delete Page"
+#~ msgstr "&Obriši stranicu"
+
+#~ msgid "Delete Selected"
+#~ msgstr "Ukloni odabrano"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Kopiraj adresu veze"
+
+#~ msgid ""
+#~ "This page is locked. You can only delete it when you first unlock it."
+#~ msgstr "Strana je zaključana. Možete je obrisati prvo kada je otključate."
+
+#~ msgid "Item is locked"
+#~ msgstr "Stavka je zaključana"
+
+#~ msgctxt "remove the page, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the page <strong>%1</strong>?</qt>"
+#~ msgstr ""
+#~ "<qt>Da li ste sigurni da želite obrisati stranicu <strong>%1</strong>?</"
+#~ "qt>"
+
+#~ msgid ""
+#~ "This book is locked. You can only delete it when you first unlock it."
+#~ msgstr "Knjiga je zaključana. Možete je obrisati kada je prvo otključate,"
+
+#~ msgctxt "remove the book, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the book <strong>%1</strong>?</qt>"
+#~ msgstr ""
+#~ "<qt>Da li ste sigurni da želite obrisati knjigu<strong>%1</strong>?</qt>"
+
+#~ msgid "Rename..."
+#~ msgstr "Preimenuj..."
+
+#~ msgid "Rename Page"
+#~ msgstr "Preimenuj stranicu"
+
+#~ msgid "Page title:"
+#~ msgstr "Naslov stranice:"
+
+#~ msgid "Rename Book"
+#~ msgstr "Promijeni naslov knjige"
+
+#~ msgid "Book name:"
+#~ msgstr "Ime knjige:"
+
+#~ msgid "Next Page"
+#~ msgstr "Sljedeća strana"
+
+#~ msgid "Previous Page"
+#~ msgstr "Prethodna strana"
+
+#~ msgid "Manual Save"
+#~ msgstr "Ručno snimanje"
+
+#~ msgid "Send To Printer"
+#~ msgstr "Pošalji na printer"
+
+#~ msgctxt "Name for the top level book created to hold the imported data."
+#~ msgid "KNowIt Import"
+#~ msgstr "KNowIt uvoz"
+
+#~ msgid "Main Toobar"
+#~ msgstr "Glavna alatna traka"

@@ -1,0 +1,1126 @@
+# translation of kjots.po to Finnish
+# translation of kjots.po to
+# KDE Finnish translation sprint participants:
+# Author: Artnay
+# Teemu Rytilahti <teemu.rytilahti@d5k.net>, 2003.
+# Tapio Kautto <eleknader@phnet.fi>, 2004.
+# Ilpo Kantonen <ilpo@iki.fi>, 2005, 2006.
+# Mikko Piippo <piippo@cc.helsinki.fi>, 2007.
+# Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2008.
+# Tommi Nieminen <translator@legisign.org>, 2010, 2020.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2011, 2013, 2014, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: kjots\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-16 00:48+0000\n"
+"PO-Revision-Date: 2020-06-29 15:44+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2012-12-01 22:24:57+0000\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kim Enkovaara, Mikko Piippo"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kim.enkovaara@iki.fi, mikko.piippo@helsinki.fi"
+
+# pmap: =/gen=KJotsin/
+# pmap: =/elat=KJotsista/
+#: src/aboutdata.cpp:16 src/kjotspart.cpp:34
+#: src/kontact_plugin/kjots_plugin.cpp:51
+#, kde-format
+msgid "KJots"
+msgstr "KJots"
+
+#: src/aboutdata.cpp:18
+#, kde-format
+msgid "KDE note taking utility"
+msgstr "KDE muistiinpano-ohjelma"
+
+#: src/aboutdata.cpp:20
+#, kde-format
+msgid "Copyright © 1997–2020 KJots authors"
+msgstr "Tekijänoikeudet © 1997–2020 KJotsin tekijät"
+
+#: src/aboutdata.cpp:22
+#, kde-format
+msgid "Igor Poboiko"
+msgstr "Igor Poboiko"
+
+#: src/aboutdata.cpp:22
+#, kde-format
+msgid "Maintainer"
+msgstr "Ylläpitäjä"
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Daniel Vrátil"
+msgstr "Daniel Vrátil"
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Port to KDE Frameworks 5"
+msgstr "Sovitus KDE Frameworks 5:een"
+
+#: src/aboutdata.cpp:24
+#, kde-format
+msgid "Stephen Kelly"
+msgstr "Stephen Kelly"
+
+#: src/aboutdata.cpp:25
+#, kde-format
+msgid "Pradeepto K. Bhattacharya"
+msgstr "Pradeepto K. Bhattacharya"
+
+#: src/aboutdata.cpp:26
+#, kde-format
+msgid "Jaison Lee"
+msgstr "Jaison Lee"
+
+#: src/aboutdata.cpp:27
+#, kde-format
+msgid "Aaron J. Seigo"
+msgstr "Aaron J. Seigo"
+
+#: src/aboutdata.cpp:28
+#, kde-format
+msgid "Stanislav Kljuhhin"
+msgstr "Stanislav Kljuhhin"
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Christoph Neerfeld"
+msgstr "Christoph Neerfeld"
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Original author"
+msgstr "Alkuperäinen tekijä"
+
+#: src/aboutdata.cpp:30
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:19 src/confpagemisc.ui:35
+#, kde-format
+msgid ""
+"This is the number of minutes KJots will wait before automatically saving "
+"changes."
+msgstr ""
+"Tämä on minuuttien määrä, jonka KJots odottaa ennen muutosten "
+"automaattitallennusta."
+
+# &-merkin käyttö tässä on ohjelmassa oleva virhe.
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: src/confpagemisc.ui:22
+#, kde-format
+msgid "S&ave every:"
+msgstr "Tallenna joka:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:38
+#, kde-format
+msgid "1 minute"
+msgstr "minuutti"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:41
+#, kde-format
+msgid " minutes"
+msgstr ". minuutti"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:54
+#, kde-format
+msgid ""
+"When \"Save changes periodically\" is checked, KJots will automatically save "
+"changes made to books at the interval defined below."
+msgstr ""
+"Kun \"Tallenna muutokset määräajoin\" on valittuna, KJots tallentaa "
+"kirjoihin tehdyt muutokset automaattisesti määräajoin."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:57
+#, kde-format
+msgid "&Save changes periodically"
+msgstr "&Tallenna muutokset määräajoin"
+
+#. i18n: ectx: label, entry (AutoSave), group (kjots)
+#: src/kjots.kcfg:9
+#, kde-format
+msgid "Whether books should be saved automatically."
+msgstr "Tallennetaanko kirjat automaattisesti vai ei."
+
+#. i18n: ectx: label, entry (AutoSaveInterval), group (kjots)
+#: src/kjots.kcfg:13
+#, kde-format
+msgid "The interval in minutes at which books should be saved automatically."
+msgstr "Kirjojen automaattisen tallennuksen aikaväli minuutteina."
+
+#: src/kjotsbrowser.cpp:133
+#, kde-format
+msgctxt "@info:action"
+msgid "Speak Text"
+msgstr "Puhu teksti"
+
+#: src/kjotsbrowser.cpp:177
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Click to follow the hyperlink: %1"
+msgstr "Seuraa hyperlinkkiä napsauttamalla: %1"
+
+#: src/kjotsbrowser.cpp:181
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Click to open note: %1"
+msgstr "Avaa muistiinpano napsauttamalla: %1"
+
+#: src/kjotsbrowser.cpp:183
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Click to open book: %1"
+msgstr "Avaa kirja napsauttamalla: %1"
+
+#: src/kjotsedit.cpp:99
+#, kde-format
+msgctxt "@action"
+msgid "Copy &Into Page Title"
+msgstr "K&opioi sivun otsikkoon"
+
+#: src/kjotsedit.cpp:109
+#, kde-format
+msgctxt "@action creates and manages hyperlinks"
+msgid "Link"
+msgstr "Linkki"
+
+#: src/kjotsedit.cpp:117
+#, kde-format
+msgctxt "@action"
+msgid "Auto Bullet List"
+msgstr "Automaattinen luetelma"
+
+#: src/kjotsedit.cpp:126
+#, kde-format
+msgctxt "@action"
+msgid "Auto Decimal List"
+msgstr "Automaattinen numeroitu luettelo"
+
+#: src/kjotsedit.cpp:135
+#, kde-format
+msgctxt "@action"
+msgid "Insert Date"
+msgstr "Lisää päiväys"
+
+#: src/kjotsedit.cpp:468
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Ctrl+click to open note: %1"
+msgstr "Avaa muistiinpano Ctrl+napsauttamalla: %1"
+
+#: src/kjotsedit.cpp:470
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Ctrl+click to open book: %1"
+msgstr "Avaa kirja Ctrl+napsauttamalla: %1"
+
+#: src/kjotsedit.cpp:473
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Ctrl+click to follow the hyperlink: %1"
+msgstr "Avaa hyperlinkki Ctrl+napsauttamalla: %1"
+
+#: src/kjotslinkdialog.cpp:32
+#, kde-format
+msgid "Enter link URL, or another note or note book..."
+msgstr "Anna linkin verkko-osoite, toinen muistiinpano tai muistikirja…"
+
+#: src/kjotsmodel.cpp:305
+#, kde-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Nimi"
+
+#: src/kjotsmodel.cpp:309
+#, kde-format
+msgctxt "@title:column title of a note"
+msgid "Title"
+msgstr "Otsikko"
+
+#: src/kjotsmodel.cpp:311
+#, kde-format
+msgctxt "@title:column creation date and time of a note"
+msgid "Created"
+msgstr "Luotu"
+
+#: src/kjotsmodel.cpp:313
+#, kde-format
+msgctxt "@title:column last modification date and time of a note"
+msgid "Modified"
+msgstr "Muutettu"
+
+#: src/kjotsmodel.cpp:315
+#, kde-format
+msgctxt "@title:column size of a note"
+msgid "Size"
+msgstr "Koko"
+
+#: src/kjotspart.cpp:47
+#, kde-format
+msgid "&Configure KJots..."
+msgstr "K&jotsin asetukset…"
+
+#. i18n: ectx: Menu (format)
+#: src/kjotsui.rc:21
+#, kde-format
+msgid "F&ormat"
+msgstr "M&uotoile"
+
+#. i18n: ectx: Menu (view)
+#: src/kjotsui.rc:45
+#, kde-format
+msgid "&View"
+msgstr "&Näkymä"
+
+#. i18n: ectx: Menu (go)
+#: src/kjotsui.rc:51
+#, kde-format
+msgid "&Go"
+msgstr "&Siirry"
+
+#. i18n: ectx: Menu (tools)
+#: src/kjotsui.rc:60
+#, kde-format
+msgid "&Tools"
+msgstr "&Työkalut"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kjotsui.rc:110
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Päätyökalurivi"
+
+#. i18n: ectx: ToolBar (textToolBar)
+#: src/kjotsui.rc:126
+#, kde-format
+msgid "Text Toolbar"
+msgstr "Tekstityökalurivi"
+
+#. i18n: ectx: ToolBar (formatToolBar)
+#: src/kjotsui.rc:141
+#, kde-format
+msgid "Format Toolbar"
+msgstr "Muotoilutyökalurivi"
+
+#. i18n: ectx: ToolBar (toolsToolBar)
+#: src/kjotsui.rc:156
+#, kde-format
+msgid "Tools Toolbar"
+msgstr "Työkalujen työkalurivi"
+
+#: src/kjotswidget.cpp:433
+#, kde-format
+msgid "&Bookmarks"
+msgstr "&Kirjanmerkit"
+
+#: src/kjotswidget.cpp:451
+#, kde-format
+msgid "Export"
+msgstr "Vie"
+
+#: src/kjotswidget.cpp:455
+#, kde-format
+msgid "To Text File..."
+msgstr "Tekstitiedostoksi…"
+
+#: src/kjotswidget.cpp:463
+#, kde-format
+msgid "To HTML File..."
+msgstr "HTML-tiedostoksi…"
+
+#: src/kjotswidget.cpp:472
+#, kde-format
+msgid "Next Book"
+msgstr "Seuraava kirja"
+
+#: src/kjotswidget.cpp:483
+#, kde-format
+msgid "Previous Book"
+msgstr "Edellinen kirja"
+
+#: src/kjotswidget.cpp:496
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Two Columns"
+msgstr "Kaksi saraketta"
+
+#: src/kjotswidget.cpp:501
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Three Columns"
+msgstr "Kolme saraketta"
+
+#: src/kjotswidget.cpp:563
+#, kde-format
+msgctxt "@title:window config dialog page"
+msgid "Misc"
+msgstr "Sekalaiset"
+
+#: src/kjotswidget.cpp:598
+#, kde-format
+msgctxt "Header for 'Table of contents' section of rendered output"
+msgid "Table of contents"
+msgstr "Sisällysluettelo"
+
+#: src/kjotswidget.cpp:623
+#, kde-format
+msgid "<qt>Could not open \"%1\" for writing</qt>"
+msgstr "<qt>Tiedostoa ”%1” ei voitu avata kirjoitettavaksi</qt>"
+
+#: src/kjotswidget.cpp:719
+#, kde-format
+msgctxt "@title:window"
+msgid "Multiple selection"
+msgstr "Monivalinta"
+
+#: src/kjotswidget.cpp:737
+#, kde-format
+msgid ""
+"Unable to save the note.\n"
+"You can save your note to a local file using the \"File - Export\" menu,\n"
+"otherwise you will lose your changes!\n"
+"Do you want to close anyways?"
+msgstr ""
+"Muistiinpanoa ei voida tallentaa.\n"
+"Voit tallentaa muistiinpanosi paikalliseksi tiedostoksi valitsemalla\n"
+"valikosta Tiedosto → Vie. Muutoin muutokset menetetään.\n"
+"Haluatko silti sulkea?"
+
+#: src/kjotswidget.cpp:741
+#, kde-format
+msgid "Close Document"
+msgstr "Sulje tiedosto"
+
+#: src/kjotswidget.cpp:746
+#, kde-format
+msgid ""
+"Error message:\n"
+"%1"
+msgstr ""
+"Virheilmoitus:\n"
+"%1"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, LinkDialog)
+#: src/linkdialog.ui:14
+#, kde-format
+msgid "Manage Link"
+msgstr "Muokkaa linkkiä"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel)
+#: src/linkdialog.ui:29
+#, kde-format
+msgid "Link &Text:"
+msgstr "Linkin t&eksti:"
+
+#. i18n: ectx: property (text), widget (QLabel, linkUrlLabel)
+#: src/linkdialog.ui:46
+#, kde-format
+msgid "Link URL:"
+msgstr "Linkin osoite:"
+
+#: src/noteshared/notecreatorandselector.cpp:86
+#, kde-format
+msgctxt "The default name for new pages."
+msgid "New Page"
+msgstr "Uusi sivu"
+
+#: src/noteshared/standardnoteactionmanager.cpp:108
+#, kde-format
+msgid "New Note Book..."
+msgstr "Uusi muistikirja…"
+
+#: src/noteshared/standardnoteactionmanager.cpp:113
+#, kde-format
+msgid "Add a new note book to the currently selected bookshelf."
+msgstr "Lisää valittuun kirjahyllyyn uusi muistikirja."
+
+#: src/noteshared/standardnoteactionmanager.cpp:116
+#, kde-format
+msgctxt "@title:window"
+msgid "New Note Book"
+msgstr "Uusi muistikirja"
+
+#: src/noteshared/standardnoteactionmanager.cpp:120
+#, kde-format
+msgid "Could not create note book: %1"
+msgstr "Muistikirjaa ei voitu luoda: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:124
+#, kde-format
+msgid "Note book creation failed"
+msgstr "Muistikirjan luominen epäonnistui"
+
+#: src/noteshared/standardnoteactionmanager.cpp:130
+#, kde-format
+msgid "Copy Note Book"
+msgid_plural "Copy %1 Note Books"
+msgstr[0] "Kopioi muistikirja"
+msgstr[1] "Kopioi %1 muistikirjaa"
+
+#: src/noteshared/standardnoteactionmanager.cpp:133
+#, kde-format
+msgid "Copy the selected note books to the clipboard."
+msgstr "Kopioi valitut muistikirjat leikepöydälle."
+
+#: src/noteshared/standardnoteactionmanager.cpp:137
+#, kde-format
+msgid "Delete Note Book"
+msgid_plural "Delete %1 Note Books"
+msgstr[0] "Poista muistikirja"
+msgstr[1] "Poista %1 muistikirjaa"
+
+#: src/noteshared/standardnoteactionmanager.cpp:140
+#, kde-format
+msgid "Delete the selected note books from the bookshelf."
+msgstr "Poista valitut muistikirjat kirjahyllystä."
+
+#: src/noteshared/standardnoteactionmanager.cpp:144
+#, kde-format
+msgid "Do you really want to delete this note book and all its contents?"
+msgid_plural ""
+"Do you really want to delete %1 note books and all their contents?"
+msgstr[0] "Haluatko varmasti poistaa tämän muistikirjan sisältöineen?"
+msgstr[1] "Haluatko varmasti poistaa nämä %1 muistikirjaa sisältöineen?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:148
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete note book?"
+msgid_plural "Delete note books?"
+msgstr[0] "Poistetaanko muistikirja?"
+msgstr[1] "Poistetaanko muistikirjat?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:152
+#, kde-format
+msgid "Could not delete note book: %1"
+msgstr "Ei voitu poistaa muistikirjaa: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:156
+#, kde-format
+msgid "Note book deletion failed"
+msgstr "Muistikirjan poistaminen epäonnistui"
+
+#: src/noteshared/standardnoteactionmanager.cpp:160
+#, kde-format
+msgid "Update Note Book"
+msgid_plural "Update %1 Note Books"
+msgstr[0] "Päivitä muistikirja"
+msgstr[1] "Päivitä %1 muistikirjaa"
+
+#: src/noteshared/standardnoteactionmanager.cpp:163
+#, kde-format
+msgid "Update the content of the selected note books."
+msgstr "Päivitä valittujen muistikirjojen sisältö."
+
+#: src/noteshared/standardnoteactionmanager.cpp:167
+#, kde-format
+msgid "Cut Note Book"
+msgid_plural "Cut %1 Note Books"
+msgstr[0] "Leikkaa muistikirja"
+msgstr[1] "Leikkaa %1 muistikirjaa"
+
+#: src/noteshared/standardnoteactionmanager.cpp:170
+#, kde-format
+msgid "Cut the selected note books from the bookshelf."
+msgstr "Leikkaa valitut muistikirjat kirjahyllystä."
+
+#: src/noteshared/standardnoteactionmanager.cpp:174
+#, kde-format
+msgid "Note Book Properties..."
+msgstr "Muistikirjan ominaisuudet…"
+
+#: src/noteshared/standardnoteactionmanager.cpp:176
+#, kde-format
+msgid "Open a dialog to edit the properties of the selected note book."
+msgstr "Avaa ikkunan, jossa voi muokata valitun muistikirjan ominaisuuksia."
+
+#: src/noteshared/standardnoteactionmanager.cpp:179
+#, kde-format
+msgctxt "@title:window"
+msgid "Properties of Note Book %1"
+msgstr "Muistikirjan %1 ominaisuudet"
+
+#: src/noteshared/standardnoteactionmanager.cpp:184
+#, kde-format
+msgid "Copy Note"
+msgid_plural "Copy %1 Notes"
+msgstr[0] "Kopioi muistiinpano"
+msgstr[1] "Kopioi %1 muistiinpanoa"
+
+#: src/noteshared/standardnoteactionmanager.cpp:186
+#, kde-format
+msgid "Copy the selected notes to the clipboard."
+msgstr "Kopioi valitut muistiinpanot leikepöydälle."
+
+#: src/noteshared/standardnoteactionmanager.cpp:190
+#, kde-format
+msgid "Delete Note"
+msgid_plural "Delete %1 Notes"
+msgstr[0] "Poista muistiinpano"
+msgstr[1] "Poista %1 muistiinpanoa"
+
+#: src/noteshared/standardnoteactionmanager.cpp:192
+#, kde-format
+msgid "Delete the selected notes from the note book."
+msgstr "Poistaa valitut muistiinpanot muistikirjasta."
+
+#: src/noteshared/standardnoteactionmanager.cpp:195
+#, kde-format
+msgid "Do you really want to delete the selected note?"
+msgid_plural "Do you really want to delete %1 notes?"
+msgstr[0] "Haluatko varmasti poistaa valitun muistiinpanon?"
+msgstr[1] "Haluatko varmasti poistaa valitut %1 muistiinpanoa?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:200
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete Note?"
+msgid_plural "Delete Notes?"
+msgstr[0] "Poistetaanko muistiinpano?"
+msgstr[1] "Poista?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:204
+#, kde-format
+msgid "Could not delete note: %1"
+msgstr "Muistiinpanoa ei voitu poistaa: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:208
+#, kde-format
+msgid "Note deletion failed"
+msgstr "Muistiinpano poistaminen epäonnistui"
+
+#: src/noteshared/standardnoteactionmanager.cpp:212
+#, kde-format
+msgid "Cut Note"
+msgid_plural "Cut %1 Notes"
+msgstr[0] "Leikkaa muistiinpano"
+msgstr[1] "Leikkaa %1 muistiinpanoa"
+
+#: src/noteshared/standardnoteactionmanager.cpp:214
+#, kde-format
+msgid "Cut the selected notes from the note book."
+msgstr "Leikkaa valitut muistiinpanot muistikirjasta."
+
+#: src/noteshared/standardnoteactionmanager.cpp:218
+#, kde-format
+msgid "Add &Bookshelf..."
+msgstr "Lisää kirja&hylly…"
+
+#: src/noteshared/standardnoteactionmanager.cpp:220
+#, kde-format
+msgid ""
+"Add a new bookshelf<p>You will be presented with a dialog where you can "
+"select the type of the bookshelf that shall be added.</p>"
+msgstr ""
+"Lisää uusi kirjahyllyn<p>Avaa ikkunan, josta voit valita lisättävän "
+"kirjahyllyn tyypin.</p>"
+
+#: src/noteshared/standardnoteactionmanager.cpp:225
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Bookshelf"
+msgstr "Lisää kirjahylly"
+
+#: src/noteshared/standardnoteactionmanager.cpp:229
+#, kde-format
+msgid "Could not create bookshelf: %1"
+msgstr "Kirjahyllyä ei voitu luoda: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:233
+#, kde-format
+msgid "Bookshelf creation failed"
+msgstr "Kirjahyllyn luominen epäonnistui"
+
+#: src/noteshared/standardnoteactionmanager.cpp:238
+#, kde-format
+msgid "&Delete Bookshelf"
+msgid_plural "&Delete %1 Bookshelfs"
+msgstr[0] "P&oista kirjahylly"
+msgstr[1] "P&oista %1 kirjahyllyä"
+
+#: src/noteshared/standardnoteactionmanager.cpp:241
+#, kde-format
+msgid ""
+"Delete the selected bookshelfs<p>The currently selected bookshelfs will be "
+"deleted, along with all the notes they contain.</p>"
+msgstr ""
+"Poista valitut kirjahyllyt<p>Valitut kirjahyllyt poistetaan niiden "
+"sisältämine muistiinpanoineen.</p>"
+
+#: src/noteshared/standardnoteactionmanager.cpp:246
+#, kde-format
+msgid "Do you really want to delete this bookshelf?"
+msgid_plural "Do you really want to delete %1 bookshelfs?"
+msgstr[0] "Haluatko varmasti poistaa tämän kirjahyllyn?"
+msgstr[1] "Haluatko varmasti poistaa nämä %1 kirjahyllyä?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:251
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete Bookshelf?"
+msgid_plural "Delete Bookshelfs?"
+msgstr[0] "Poistetaanko kirjahylly?"
+msgstr[1] "Poistetaanko kirjahyllyt?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:257
+#, kde-format
+msgid "Bookshelf Properties..."
+msgstr "Kirjahyllyn ominaisuudet…"
+
+#: src/noteshared/standardnoteactionmanager.cpp:259
+#, kde-format
+msgid "Open a dialog to edit properties of the selected bookshelf."
+msgstr "Avaa ikkunan, jossa voi muokata valitun kirjahyllyn ominaisuuksia."
+
+#: src/noteshared/standardnoteactionmanager.cpp:263
+#, kde-format
+msgid "Update Bookshelf"
+msgid_plural "Update %1 Bookshelfs"
+msgstr[0] "Päivitä kirjahylly"
+msgstr[1] "Päivitä %1 kirjahyllyä"
+
+#: src/noteshared/standardnoteactionmanager.cpp:267
+#, kde-format
+msgid "Updates the content of all note books of the selected bookshelfs."
+msgstr "Päivittää valittujen kirjahyllyjen kaikki muistikirjat sisältöineen."
+
+#: src/noteshared/standardnoteactionmanager.cpp:273
+#, kde-format
+msgid "Could not paste note: %1"
+msgstr "Muistiinpanoa ei voitu liittää: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:277
+#, kde-format
+msgid "Paste failed"
+msgstr "Liittäminen epäonnistui"
+
+#: src/noteshared/standardnoteactionmanager.cpp:297
+#, kde-format
+msgctxt "@action"
+msgid "Lock Note"
+msgid_plural "Lock Notes"
+msgstr[0] "Lukitse muistiinpano"
+msgstr[1] "Lukitse muistiinpanot"
+
+#: src/noteshared/standardnoteactionmanager.cpp:299
+#, kde-format
+msgid "Lock selected notes"
+msgstr "Lukitse valitut muistiinpanot"
+
+#: src/noteshared/standardnoteactionmanager.cpp:302
+#, kde-format
+msgctxt "@action"
+msgid "Unlock Note"
+msgid_plural "Unlock Notes"
+msgstr[0] "Avaa muistiinpanon lukitus"
+msgstr[1] "Avaa muistiinpanojen lukitus"
+
+#: src/noteshared/standardnoteactionmanager.cpp:304
+#, kde-format
+msgid "Unlock selected notes"
+msgstr "Avaa valittujen muistiinpanojen lukitus"
+
+#: src/noteshared/standardnoteactionmanager.cpp:317
+#, kde-format
+msgctxt "@action"
+msgid "Pin Note"
+msgid_plural "Pin Notes"
+msgstr[0] "Kiinnitä muistiipano"
+msgstr[1] "Kiinnitä muistiinpanot"
+
+#: src/noteshared/standardnoteactionmanager.cpp:319
+#, kde-format
+msgid "Pin selected notes"
+msgstr "Kiinnitä valitut muistiinpanot"
+
+#: src/noteshared/standardnoteactionmanager.cpp:322
+#, kde-format
+msgctxt "@action"
+msgid "Unpin Note"
+msgid_plural "Unpin Notes"
+msgstr[0] "Irrota muistiinpano kiinnityksestä"
+msgstr[1] "Irrota muistiinpanot kiinnityksestä"
+
+#: src/noteshared/standardnoteactionmanager.cpp:324
+#, kde-format
+msgid "Unpin selected notes"
+msgstr "Irrota valitut muistiipanot kiinnityksestä"
+
+#: src/noteshared/standardnoteactionmanager.cpp:365
+#, kde-format
+msgctxt "@action"
+msgid "Lock Note Book"
+msgid_plural "Lock Note Books"
+msgstr[0] "Lukitse muistikirja"
+msgstr[1] "Lukitse muistikirjat"
+
+#: src/noteshared/standardnoteactionmanager.cpp:367
+#, kde-format
+msgid "Lock selected note books"
+msgstr "Lukitse valitut muistikirjat"
+
+#: src/noteshared/standardnoteactionmanager.cpp:370
+#, kde-format
+msgctxt "@action"
+msgid "Unlock Note Book"
+msgid_plural "Unlock Note Books"
+msgstr[0] "Avaa muistikirjan lukitus"
+msgstr[1] "Avaa muistikirjojen lukitus"
+
+#: src/noteshared/standardnoteactionmanager.cpp:372
+#, kde-format
+msgid "Unlock selected note books"
+msgstr "Avaa valittujen muistikirjojen lukitus"
+
+#: src/noteshared/standardnoteactionmanager.cpp:605
+#, kde-format
+msgid "&New Note"
+msgstr "&Uusi muistiinpano"
+
+#: src/noteshared/standardnoteactionmanager.cpp:606
+#, kde-format
+msgid "Add a new note to a selected note book"
+msgstr "Lisää valittuun muistikirjaan uusi muistiinpano"
+
+#: src/noteshared/standardnoteactionmanager.cpp:635
+#, kde-format
+msgid "Change Note Color..."
+msgstr "Muuta muistiinpanon väriä…"
+
+#: src/noteshared/standardnoteactionmanager.cpp:636
+#, kde-format
+msgid "Changes the color of a selected notes"
+msgstr "Muuttaa valittujen muistiinpanojen väriä"
+
+#: src/noteshared/standardnoteactionmanager.cpp:644
+#, kde-format
+msgid "Change Note Book Color..."
+msgstr "Muuta muistikirjan väriä…"
+
+#: src/noteshared/standardnoteactionmanager.cpp:645
+#, kde-format
+msgid "Changes the color of a selected note books"
+msgstr "Muuttaa valittujen muistikirjojen väriä"
+
+#~ msgid "How the main window is divided."
+#~ msgstr "Kuinka pääikkuna jaetaan."
+
+#~ msgid "Sort children alphabetically"
+#~ msgstr "Järjestä lapset aakkosjärjestykseen"
+
+#~ msgid "Sort children by creation date"
+#~ msgstr "Järjestä lapset luomispäivän mukaan"
+
+#~ msgid "&Settings"
+#~ msgstr "&Asetukset"
+
+#~ msgid "Replace"
+#~ msgstr "Korvaa"
+
+#~ msgid "&All"
+#~ msgstr "&Kaikki"
+
+#~ msgid "&Skip"
+#~ msgstr "&Ohita"
+
+#~ msgid "Replace '%1' with '%2'?"
+#~ msgstr "Korvataanko ”%1” jonolla ”%2”?"
+
+#, fuzzy
+#~| msgid "Insert Date"
+#~ msgid "Insert Image"
+#~ msgstr "Lisää päivämäärä"
+
+#~ msgid "Insert Checkmark"
+#~ msgstr "Lisää tarkastusmerkki"
+
+#~ msgctxt ""
+#~ "@action Paste the text in the clipboard without rich text formatting."
+#~ msgid "Paste Plain Text"
+#~ msgstr "Liitä muotoilemattomana tekstinä"
+
+#~ msgid "Search all pages"
+#~ msgstr "Etsi kaikilta sivuilta"
+
+#~ msgid "<qt>No matches found.</qt>"
+#~ msgstr "<qt>Ei osumia.</qt>"
+
+#~ msgid "<qt>Replaced 1 occurrence.</qt>"
+#~ msgid_plural "<qt>Replaced %1 occurrences.</qt>"
+#~ msgstr[0] "<qt>Korvattiin 1 esiintymä.</qt>"
+#~ msgstr[1] "<qt>Korvattiin %1 esiintymää.</qt>"
+
+#~ msgid "<qt>Replaced %2 of 1 occurrence.</qt>"
+#~ msgid_plural "<qt>Replaced %2 of %1 occurrences.</qt>"
+#~ msgstr[0] "<qt>Korvattiin %2 1 esiintymästä.</qt>"
+#~ msgstr[1] "<qt>Korvattiin %2 %1 esiintymästä.</qt>"
+
+#~ msgid ""
+#~ "<qt>End of search area reached. Do you want to wrap around and continue?</"
+#~ "qt>"
+#~ msgstr "<qt>Hakualueen loppu saavutettiin. Jatketaanko hakua alusta?</qt>"
+
+#~ msgctxt "The default name for new books."
+#~ msgid "New Book"
+#~ msgstr "Uusi kirja"
+
+#~ msgid "Path to maildir"
+#~ msgstr "Polku maildir-kansioon"
+
+#~ msgid ""
+#~ "Path points to a folder containing Maildirs instead of to a maildir "
+#~ "itself."
+#~ msgstr ""
+#~ "Polku osoittaa maildir-kansioita sisältävään kansioon eikä maildir-"
+#~ "kansioon itseensä."
+
+#~ msgid "Do not change the actual backend data."
+#~ msgstr "Älä muuta tietoja varsinaisessa taustaosassa."
+
+#~ msgid "The book or page that is currently active."
+#~ msgstr "Nykyinen avattu kirja tai sivu."
+
+#~ msgid "The font used to display the contents of books."
+#~ msgstr "Fontti, jota käytetään kirjan sisällön näyttämiseksi."
+
+#~ msgid "Whether UTF-8 encoding should be forced for saving and loading."
+#~ msgstr "Käytetäänkö tallennuksessa ja lataamisessa UTF-8 merkistökoodausta."
+
+#~ msgid "The last ID that was used for a book or page."
+#~ msgstr "Viimeinen kirjaan tai sivuun käytetty ID."
+
+#~ msgid "The IDs of the books in the bookshelf."
+#~ msgstr "Kirjahyllyn kirjojen ID-tunnukset."
+
+#~ msgid "Ask for a name when creating a new page?"
+#~ msgstr "Kysytäänkö nimi luotaessa uutta sivua?"
+
+#~ msgid "To Book File..."
+#~ msgstr "Kirjatiedostoksi…"
+
+#~ msgid "Settings"
+#~ msgstr "Asetukset"
+
+#~ msgid "Change Theme"
+#~ msgstr "Teeman vaihto"
+
+#~ msgid "<qt>Error opening internal file.</qt>"
+#~ msgstr "<qt>Sisäisen tiedoston avausvirhe.</qt>"
+
+#~ msgid "&Delete Page"
+#~ msgstr "&Poista sivu"
+
+#~ msgid "Delete Selected"
+#~ msgstr "Poista valitut"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Kopioi linkin osoite"
+
+#~ msgid ""
+#~ "This page is locked. You can only delete it when you first unlock it."
+#~ msgstr "Sivu on lukittu. Voit poistaa sen vasta kun olet ensin avannut sen."
+
+# Käytetään sekä kirjaan että sivuun viitattaessa
+#~ msgid "Item is locked"
+#~ msgstr "Kohde on lukittu"
+
+#~ msgctxt "remove the page, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the page <strong>%1</strong>?</qt>"
+#~ msgstr "<qt>Haluatko varmasti poistaa sivun <strong>%1</strong>?</qt>"
+
+#~ msgid ""
+#~ "This book is locked. You can only delete it when you first unlock it."
+#~ msgstr ""
+#~ "Kirja on lukittu. Voit poistaa sen vasta kun olet ensin avannut sen."
+
+#~ msgctxt "remove the book, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the book <strong>%1</strong>?</qt>"
+#~ msgstr "<qt>Haluatko varmasti poistaa kirjan <strong>%1</strong>?</qt>"
+
+#~ msgid "Rename..."
+#~ msgstr "Muuta nimeä…"
+
+#~ msgid "Rename Page"
+#~ msgstr "Muuta sivun nimeä"
+
+#~ msgid "Page title:"
+#~ msgstr "Sivun otsikko:"
+
+#~ msgid "Rename Book"
+#~ msgstr "Muuta kirjan nimeä"
+
+#~ msgid "Book name:"
+#~ msgstr "Kirjan nimi:"
+
+#~ msgid "Next Page"
+#~ msgstr "Seuraava sivu"
+
+#~ msgid "Previous Page"
+#~ msgstr "Edellinen sivu"
+
+#~ msgid "Manual Save"
+#~ msgstr "Tallenna käsin"
+
+#~ msgid "Send To Printer"
+#~ msgstr "Lähetä tulostimelle"
+
+#~ msgctxt "Name for the top level book created to hold the imported data."
+#~ msgid "KNowIt Import"
+#~ msgstr "KnowIt-tuonti"
+
+#~ msgid "Miscellaneous"
+#~ msgstr "Sekalaista"
+
+#~ msgid ""
+#~ "All pages must be inside a book. Would you like to create a new book to "
+#~ "put the page in, or would you prefer to not move the page at all?"
+#~ msgstr ""
+#~ "Kaikkien sivujen pitää olla kirjan sisällä. Haluatko luoda uuden kirjan, "
+#~ "jonne tämä sivu sijoitetaan, vai haluatko jättää sivun siirtämisen "
+#~ "kokonaan?"
+
+#~ msgid "Do Not Move Page"
+#~ msgstr "Älä siirrä sivua"
+
+#~ msgid "Import..."
+#~ msgstr "Tuo..."
+
+#~ msgid "<qt>Are you sure you want to delete these entries?</qt>"
+#~ msgstr "<qt>Haluatko varmasti poistaa nämä?</qt>"
+
+#~ msgid "Multiple Selections"
+#~ msgstr "Useita valintoja"
+
+#~ msgid "KJots Books"
+#~ msgstr "KJots-kirjat"
+
+#~ msgid "HTML Files"
+#~ msgstr "HTML-tiedostot"
+
+#~ msgid "<qt>Error opening temporary file.</qt>"
+#~ msgstr "<qt>Väliaikaisen tiedoston avausvirhe.</qt>"
+
+#~ msgid "KnowIt files"
+#~ msgstr "KnowIt-tiedostot"
+
+#~ msgid ""
+#~ "A duplicate ID was found in the book %1. This can happen if you "
+#~ "manipulate the data files by hand, and will prevent KJots from working "
+#~ "correctly. KJots can attempt to fix this, or you can fix it yourself. In "
+#~ "either case, bookmarks and links between pages may be broken."
+#~ msgstr ""
+#~ "Kirjassa %1 löytyi kaksi kertaa käytetty ID. Tämä voi aiheutua "
+#~ "tiedostojen muokkaamisesta käsin, ja se estää ohjelmaa KJots toimimasta "
+#~ "oikein. KJots voi yrittää korjata ongelman, tai voit korjata sen itse. "
+#~ "Kummassakin tapauksessa kirjanmerkit ja linkit sivujen välillä voivat "
+#~ "rikkoutua."
+
+#~ msgid "A duplicate ID was found"
+#~ msgstr "Löytyi kaksi kertaa käytetty ID"
+
+#~ msgid "Exit and fix by hand"
+#~ msgstr "Lopeta ja korjaa käsin"
+
+#~ msgid "Fix it automatically"
+#~ msgstr "Korjaa automaattisesti"
+
+#~ msgid ""
+#~ "<qt>KJots is having problems saving your data. This might be a "
+#~ "permissions problem, or you may be out of disk space.</qt>"
+#~ msgstr ""
+#~ "<qt>KJots ei kykene tallentamaan tietojasi. Tämä voi johtua väärin "
+#~ "asetetuista tiedostojen oikeuksista, tai levytilasi voi olla loppunut.</"
+#~ "qt>"
+
+#~ msgid "Table of Contents"
+#~ msgstr "Sisällysluettelo"
+
+#~ msgid "Page %1"
+#~ msgstr "Sivu %1"
+
+#~ msgid "New Page"
+#~ msgstr "Uusi sivu"
+
+#~ msgid "Page name:"
+#~ msgstr "Sivun nimi:"
+
+#~ msgid "Ask for new &page names"
+#~ msgstr "K&ysy nimet uusille sivuille"
+
+#~ msgid ""
+#~ "Determines if new pages are given an automatic name, or a prompt is "
+#~ "displayed."
+#~ msgstr ""
+#~ "Määrää, annetaanko sivuille automaattisesti nimi, vai kysytäänkö nimeä."
+
+#~ msgid "(c) 1997-2008, KJots developers"
+#~ msgstr "(c) 1997–2008, KJotsin kehittäjät"
+
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the <strong>%1</strong> page?</qt>"
+#~ msgstr "<qt>Haluatko varmasti poistaa sivun <strong>%1</strong>?</qt> "
+
+#~ msgid "Autosave"
+#~ msgstr "Automaattinen tallennus"
+
+#, fuzzy
+#~| msgid "KJots"
+#~ msgid "KJotsPart"
+#~ msgstr "KJots"
+
+#~ msgid "Italics"
+#~ msgstr "Kursiivi"
+
+#~ msgid "Bold"
+#~ msgstr "Lihavoitu"
+
+#~ msgid "Underline"
+#~ msgstr "Alleviivattu"
+
+#~ msgid "Strike Out"
+#~ msgstr "Yliviivattu"
+
+#~ msgid "Font Color"
+#~ msgstr "Kirjasimen väri"
+
+#~ msgid "Highlight"
+#~ msgstr "Korostus"
+
+#~ msgid "Font Family"
+#~ msgstr "Kirjasinperhe"
+
+#~ msgid "Insert Rule Line"
+#~ msgstr "Lisää viivain"
+
+#~ msgid "(c) 1997-2002, Christoph Neerfeld"
+#~ msgstr "(c) 1997-2002, Christoph Neerfeld"
+
+#~ msgid "Text Toobar"
+#~ msgstr "Tekstityökalurivi"

@@ -1,0 +1,1111 @@
+# translation of kjots.po to Greek
+# Copyright (C) 2002, 2003, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
+#
+# Stergios Dramis <sdramis@egnatia.ee.auth.gr>, 2002-2003.
+# Spiros Georgaras <sng@hellug.gr>, 2005, 2006, 2007, 2008.
+# Toussis Manolis <manolis@koppermind.homelinux.org>, 2007, 2008, 2009.
+# Σπύρος Γεωργαράς <sngeorgaras@otenet.gr>, 2008.
+# Spiros Georgaras <sngeorgaras@otenet.gr>, 2008.
+# Giorgos Katsikatsos <giorgos.katsikatsos@gmail.com>, 2010.
+# Dimitrios Glentadakis <dglent@gmail.com>, 2012.
+# Petros Vidalis <pvidalis@gmail.com>, 2016.
+# Stelios <sstavra@gmail.com>, 2017, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kjots\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-16 00:48+0000\n"
+"PO-Revision-Date: 2021-06-29 09:36+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Τούσης Μανώλης, Πέτρος Βιδάλης"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "manolis@koppermind.homelinux.org, pvidalis@gmail.com"
+
+#: src/aboutdata.cpp:16 src/kjotspart.cpp:34
+#: src/kontact_plugin/kjots_plugin.cpp:51
+#, kde-format
+msgid "KJots"
+msgstr "KJots"
+
+#: src/aboutdata.cpp:18
+#, kde-format
+msgid "KDE note taking utility"
+msgstr "Εργαλείο λήψης σημειωμάτων του KDE"
+
+#: src/aboutdata.cpp:20
+#, kde-format
+msgid "Copyright © 1997–2020 KJots authors"
+msgstr "Copyright © 1997–2020 οι συγγραφείς του KJots"
+
+#: src/aboutdata.cpp:22
+#, kde-format
+msgid "Igor Poboiko"
+msgstr "Igor Poboiko"
+
+#: src/aboutdata.cpp:22
+#, kde-format
+msgid "Maintainer"
+msgstr "Συντηρητής"
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Daniel Vrátil"
+msgstr "Daniel Vrátil"
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Port to KDE Frameworks 5"
+msgstr "Μεταφορά στο KDE Frameworks 5"
+
+#: src/aboutdata.cpp:24
+#, kde-format
+msgid "Stephen Kelly"
+msgstr "Stephen Kelly"
+
+#: src/aboutdata.cpp:25
+#, kde-format
+msgid "Pradeepto K. Bhattacharya"
+msgstr "Pradeepto K. Bhattacharya"
+
+#: src/aboutdata.cpp:26
+#, kde-format
+msgid "Jaison Lee"
+msgstr "Jaison Lee"
+
+#: src/aboutdata.cpp:27
+#, kde-format
+msgid "Aaron J. Seigo"
+msgstr "Aaron J. Seigo"
+
+#: src/aboutdata.cpp:28
+#, kde-format
+msgid "Stanislav Kljuhhin"
+msgstr "Stanislav Kljuhhin"
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Christoph Neerfeld"
+msgstr "Christoph Neerfeld"
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Original author"
+msgstr "Αρχικός συγγραφέας"
+
+#: src/aboutdata.cpp:30
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:19 src/confpagemisc.ui:35
+#, kde-format
+msgid ""
+"This is the number of minutes KJots will wait before automatically saving "
+"changes."
+msgstr ""
+"Αυτός είναι ο αριθμός των λεπτών που θα περιμένει το KJots πριν αποθηκεύσει "
+"αυτόματα τις αλλαγές."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: src/confpagemisc.ui:22
+#, kde-format
+msgid "S&ave every:"
+msgstr "Αποθήκευση &κάθε:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:38
+#, kde-format
+msgid "1 minute"
+msgstr "1 λεπτό"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:41
+#, kde-format
+msgid " minutes"
+msgstr " λεπτά"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:54
+#, kde-format
+msgid ""
+"When \"Save changes periodically\" is checked, KJots will automatically save "
+"changes made to books at the interval defined below."
+msgstr ""
+"Όταν η επιλογή \"Περιοδική αποθήκευση αλλαγών\" είναι ενεργοποιημένη, το "
+"KJots θα αποθηκεύει αυτόματα τις αλλαγές που γίνονται στα βιβλία μετά το "
+"χρονικό διάστημα που ορίζεται παρακάτω."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:57
+#, kde-format
+msgid "&Save changes periodically"
+msgstr "Περιοδική αποθήκευ&ση αλλαγών"
+
+#. i18n: ectx: label, entry (AutoSave), group (kjots)
+#: src/kjots.kcfg:9
+#, kde-format
+msgid "Whether books should be saved automatically."
+msgstr "Αν τα βιβλία θα αποθηκεύονται αυτόματα."
+
+#. i18n: ectx: label, entry (AutoSaveInterval), group (kjots)
+#: src/kjots.kcfg:13
+#, kde-format
+msgid "The interval in minutes at which books should be saved automatically."
+msgstr ""
+"Το μεσοδιάστημα σε λεπτά κατά το οποίο τα σημειωματάρια θα πρέπει να "
+"αποθηκεύονται αυτόματα."
+
+#: src/kjotsbrowser.cpp:133
+#, kde-format
+msgctxt "@info:action"
+msgid "Speak Text"
+msgstr "Ομιλών κείμενο"
+
+#: src/kjotsbrowser.cpp:177
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Click to follow the hyperlink: %1"
+msgstr "Με κλικ ακολουθείτε τον σύνδεσμο: %1"
+
+#: src/kjotsbrowser.cpp:181
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Click to open note: %1"
+msgstr "Με κλικ ανοίγετε σημείωμα: %1"
+
+#: src/kjotsbrowser.cpp:183
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Click to open book: %1"
+msgstr "Με κλικ ανοίγετε σημειωματάριο: %1"
+
+#: src/kjotsedit.cpp:99
+#, kde-format
+msgctxt "@action"
+msgid "Copy &Into Page Title"
+msgstr "Αντ&ιγραφή στον τίτλο σελίδας"
+
+#: src/kjotsedit.cpp:109
+#, kde-format
+msgctxt "@action creates and manages hyperlinks"
+msgid "Link"
+msgstr "Σύνδεσμος"
+
+#: src/kjotsedit.cpp:117
+#, kde-format
+msgctxt "@action"
+msgid "Auto Bullet List"
+msgstr "Λίστα με αυτόματες κουκκίδες"
+
+#: src/kjotsedit.cpp:126
+#, kde-format
+msgctxt "@action"
+msgid "Auto Decimal List"
+msgstr "Λίστα αυτόματου δεκαδικού"
+
+#: src/kjotsedit.cpp:135
+#, kde-format
+msgctxt "@action"
+msgid "Insert Date"
+msgstr "Εισαγωγή ημερομηνίας"
+
+#: src/kjotsedit.cpp:468
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Ctrl+click to open note: %1"
+msgstr "Ctrl+click για άνοιγμα σημειώματος: %1"
+
+#: src/kjotsedit.cpp:470
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Ctrl+click to open book: %1"
+msgstr "Ctrl+click για άνοιγμα σημειωματάριου: %1"
+
+#: src/kjotsedit.cpp:473
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Ctrl+click to follow the hyperlink: %1"
+msgstr "Ctrl+click για να ακολουθήσετε το σύνδεσμο: %1"
+
+#: src/kjotslinkdialog.cpp:32
+#, kde-format
+msgid "Enter link URL, or another note or note book..."
+msgstr "Εισαγάγετε το URL του συνδέσμου ή άλλο σημείωμα ή σημειωματάριο..."
+
+#: src/kjotsmodel.cpp:305
+#, kde-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Όνομα"
+
+#: src/kjotsmodel.cpp:309
+#, kde-format
+msgctxt "@title:column title of a note"
+msgid "Title"
+msgstr "Τίτλος"
+
+#: src/kjotsmodel.cpp:311
+#, kde-format
+msgctxt "@title:column creation date and time of a note"
+msgid "Created"
+msgstr "Δημιουργήθηκε"
+
+#: src/kjotsmodel.cpp:313
+#, kde-format
+msgctxt "@title:column last modification date and time of a note"
+msgid "Modified"
+msgstr "Τροποποιήθηκε"
+
+#: src/kjotsmodel.cpp:315
+#, kde-format
+msgctxt "@title:column size of a note"
+msgid "Size"
+msgstr "Μέγεθος"
+
+#: src/kjotspart.cpp:47
+#, kde-format
+msgid "&Configure KJots..."
+msgstr "&Διαμόρφωση KJots..."
+
+#. i18n: ectx: Menu (format)
+#: src/kjotsui.rc:21
+#, kde-format
+msgid "F&ormat"
+msgstr "Μορ&φή"
+
+#. i18n: ectx: Menu (view)
+#: src/kjotsui.rc:45
+#, kde-format
+msgid "&View"
+msgstr "&Προβολή"
+
+#. i18n: ectx: Menu (go)
+#: src/kjotsui.rc:51
+#, kde-format
+msgid "&Go"
+msgstr "&Μετάβαση"
+
+#. i18n: ectx: Menu (tools)
+#: src/kjotsui.rc:60
+#, kde-format
+msgid "&Tools"
+msgstr "Ερ&γαλεία"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kjotsui.rc:110
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Κύρια γραμμή εργαλείων"
+
+#. i18n: ectx: ToolBar (textToolBar)
+#: src/kjotsui.rc:126
+#, kde-format
+msgid "Text Toolbar"
+msgstr "Γραμμή εργαλείων κειμένου"
+
+#. i18n: ectx: ToolBar (formatToolBar)
+#: src/kjotsui.rc:141
+#, kde-format
+msgid "Format Toolbar"
+msgstr "Γραμμή εργαλείων μορφής"
+
+#. i18n: ectx: ToolBar (toolsToolBar)
+#: src/kjotsui.rc:156
+#, kde-format
+msgid "Tools Toolbar"
+msgstr "Γραμμή εργαλείων"
+
+#: src/kjotswidget.cpp:433
+#, kde-format
+msgid "&Bookmarks"
+msgstr "&Σελιδοδείκτες"
+
+#: src/kjotswidget.cpp:451
+#, kde-format
+msgid "Export"
+msgstr "Εξαγωγή"
+
+#: src/kjotswidget.cpp:455
+#, kde-format
+msgid "To Text File..."
+msgstr "Σε αρχείο κειμένου..."
+
+#: src/kjotswidget.cpp:463
+#, kde-format
+msgid "To HTML File..."
+msgstr "Σε αρχείο HTML..."
+
+#: src/kjotswidget.cpp:472
+#, kde-format
+msgid "Next Book"
+msgstr "Επόμενο βιβλίο"
+
+#: src/kjotswidget.cpp:483
+#, kde-format
+msgid "Previous Book"
+msgstr "Προηγούμενο βιβλίο"
+
+#: src/kjotswidget.cpp:496
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Two Columns"
+msgstr "Δύο στήλες"
+
+#: src/kjotswidget.cpp:501
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Three Columns"
+msgstr "Τρεις στήλες"
+
+#: src/kjotswidget.cpp:563
+#, kde-format
+msgctxt "@title:window config dialog page"
+msgid "Misc"
+msgstr "Διάφορα"
+
+#: src/kjotswidget.cpp:598
+#, kde-format
+msgctxt "Header for 'Table of contents' section of rendered output"
+msgid "Table of contents"
+msgstr "Πίνακας περιεχομένων"
+
+#: src/kjotswidget.cpp:623
+#, kde-format
+msgid "<qt>Could not open \"%1\" for writing</qt>"
+msgstr "<qt>Αδυναμία ανοίγματος του «%1» για εγγραφή</qt>"
+
+#: src/kjotswidget.cpp:719
+#, kde-format
+msgctxt "@title:window"
+msgid "Multiple selection"
+msgstr "Πολλαπλές επιλογές"
+
+#: src/kjotswidget.cpp:737
+#, kde-format
+msgid ""
+"Unable to save the note.\n"
+"You can save your note to a local file using the \"File - Export\" menu,\n"
+"otherwise you will lose your changes!\n"
+"Do you want to close anyways?"
+msgstr ""
+"Αδυναμία αποθήκευσης του σημειώματος.\n"
+"Αποθηκεύστε το σημείωμά σας σε τοπικό αρχείο από το μενού «Αρχείο - "
+"Εξαγωγή»,\n"
+"διαφορετικά θα χάσετε τις αλλαγές!\n"
+"Θέλετε οπωσδήποτε να το κλείσετε;"
+
+#: src/kjotswidget.cpp:741
+#, kde-format
+msgid "Close Document"
+msgstr "Κλείσιμο εγγράφου"
+
+#: src/kjotswidget.cpp:746
+#, kde-format
+msgid ""
+"Error message:\n"
+"%1"
+msgstr ""
+"Μήνυμα σφάλματος:\n"
+"%1"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, LinkDialog)
+#: src/linkdialog.ui:14
+#, kde-format
+msgid "Manage Link"
+msgstr "Διαχείριση συνδέσμου"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel)
+#: src/linkdialog.ui:29
+#, kde-format
+msgid "Link &Text:"
+msgstr "Κείμενο &συνδέσμου:"
+
+#. i18n: ectx: property (text), widget (QLabel, linkUrlLabel)
+#: src/linkdialog.ui:46
+#, kde-format
+msgid "Link URL:"
+msgstr "URL συνδέσμου:"
+
+#: src/noteshared/notecreatorandselector.cpp:86
+#, kde-format
+msgctxt "The default name for new pages."
+msgid "New Page"
+msgstr "Νέα σελίδα"
+
+#: src/noteshared/standardnoteactionmanager.cpp:108
+#, kde-format
+msgid "New Note Book..."
+msgstr "Νέο &σημειωματάριο..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:113
+#, kde-format
+msgid "Add a new note book to the currently selected bookshelf."
+msgstr "Προσθήκη ενός νέου σημειωματάριου στο τρέχον επιλεγμένο ράφι."
+
+#: src/noteshared/standardnoteactionmanager.cpp:116
+#, kde-format
+msgctxt "@title:window"
+msgid "New Note Book"
+msgstr "Νέο σημειωματάριο"
+
+#: src/noteshared/standardnoteactionmanager.cpp:120
+#, kde-format
+msgid "Could not create note book: %1"
+msgstr "Αδυναμία δημιουργίας σημειωματάριου: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:124
+#, kde-format
+msgid "Note book creation failed"
+msgstr "Αποτυχία δημιουργίας σημειωματάριου"
+
+#: src/noteshared/standardnoteactionmanager.cpp:130
+#, kde-format
+msgid "Copy Note Book"
+msgid_plural "Copy %1 Note Books"
+msgstr[0] "Αντιγραφή σημειωματάριου"
+msgstr[1] "Αντιγραφή %1 σημειωματαρίων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:133
+#, kde-format
+msgid "Copy the selected note books to the clipboard."
+msgstr "Αντιγραφή των επιλεγμένων σημειωματαρίων στο πρόχειρο."
+
+#: src/noteshared/standardnoteactionmanager.cpp:137
+#, kde-format
+msgid "Delete Note Book"
+msgid_plural "Delete %1 Note Books"
+msgstr[0] "Διαγραφή σημειωματάριου"
+msgstr[1] "Διαγραφή %1 σημειωματαρίων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:140
+#, kde-format
+msgid "Delete the selected note books from the bookshelf."
+msgstr "Διαγραφή των επιλεγμένων σημειωματαρίων από το ράφι."
+
+#: src/noteshared/standardnoteactionmanager.cpp:144
+#, kde-format
+msgid "Do you really want to delete this note book and all its contents?"
+msgid_plural ""
+"Do you really want to delete %1 note books and all their contents?"
+msgstr[0] ""
+"Θέλετε πράγματι να διαγράψετε αυτό το σημειωματάριο και τα περιεχόμενά του;"
+msgstr[1] ""
+"Θέλετε πράγματι να διαγράψετε %1 σημειωματάρια και τα περιεχόμενά τους;"
+
+#: src/noteshared/standardnoteactionmanager.cpp:148
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete note book?"
+msgid_plural "Delete note books?"
+msgstr[0] "Διαγραφή σημειωματάριου;"
+msgstr[1] "Διαγραφή σημειωματαρίων;"
+
+#: src/noteshared/standardnoteactionmanager.cpp:152
+#, kde-format
+msgid "Could not delete note book: %1"
+msgstr "Αδυναμία διαγραφής σημειωματαρίου: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:156
+#, kde-format
+msgid "Note book deletion failed"
+msgstr "Αποτυχία διαγραφής σημειωματαρίου"
+
+#: src/noteshared/standardnoteactionmanager.cpp:160
+#, kde-format
+msgid "Update Note Book"
+msgid_plural "Update %1 Note Books"
+msgstr[0] "Ενημέρωση σημειωματαρίου"
+msgstr[1] "Ενημέρωση %1 σημειωματαρίων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:163
+#, kde-format
+msgid "Update the content of the selected note books."
+msgstr "Ενημέρωση του περιεχομένου των επιλεγμένων σημειωματαρίων."
+
+#: src/noteshared/standardnoteactionmanager.cpp:167
+#, kde-format
+msgid "Cut Note Book"
+msgid_plural "Cut %1 Note Books"
+msgstr[0] "Περικοπή σημειωματαρίου"
+msgstr[1] "Περικοπή %1 σημειωματαρίων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:170
+#, kde-format
+msgid "Cut the selected note books from the bookshelf."
+msgstr "Περικοπή των επιλεγμένων σημειωματαρίων από το ράφι.."
+
+#: src/noteshared/standardnoteactionmanager.cpp:174
+#, kde-format
+msgid "Note Book Properties..."
+msgstr "Ιδιότητες σημειωματαρίου..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:176
+#, kde-format
+msgid "Open a dialog to edit the properties of the selected note book."
+msgstr ""
+"Άνοιγμα διαλόγου για επεξεργασία των ιδιοτήτων του επιλεγμένου "
+"σημειωματαρίου."
+
+#: src/noteshared/standardnoteactionmanager.cpp:179
+#, kde-format
+msgctxt "@title:window"
+msgid "Properties of Note Book %1"
+msgstr "Ιδιότητες του σημειωματαρίου %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:184
+#, kde-format
+msgid "Copy Note"
+msgid_plural "Copy %1 Notes"
+msgstr[0] "Αντιγραφή σημειώματος"
+msgstr[1] "Αντιγραφή %1 σημειωμάτων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:186
+#, kde-format
+msgid "Copy the selected notes to the clipboard."
+msgstr "Αντιγραφή των επιλεγμένων σημειωμάτων στο πρόχειρο."
+
+#: src/noteshared/standardnoteactionmanager.cpp:190
+#, kde-format
+msgid "Delete Note"
+msgid_plural "Delete %1 Notes"
+msgstr[0] "Διαγραφή σημειώματος"
+msgstr[1] "Διαγραφή %1 σημειωμάτων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:192
+#, kde-format
+msgid "Delete the selected notes from the note book."
+msgstr "Διαγραφή των επιλεγμένων σημειωμάτων από το σημειωματάριο."
+
+#: src/noteshared/standardnoteactionmanager.cpp:195
+#, kde-format
+msgid "Do you really want to delete the selected note?"
+msgid_plural "Do you really want to delete %1 notes?"
+msgstr[0] "Θέλετε πράγματι να διαγράψετε το επιλεγμένο σημείωμα;"
+msgstr[1] "Θέλετε πράγματι να διαγράψετε %1 σημειώματα;"
+
+#: src/noteshared/standardnoteactionmanager.cpp:200
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete Note?"
+msgid_plural "Delete Notes?"
+msgstr[0] "Διαγραφή σημειώματος;"
+msgstr[1] "Διαγραφή σημειωμάτων;"
+
+#: src/noteshared/standardnoteactionmanager.cpp:204
+#, kde-format
+msgid "Could not delete note: %1"
+msgstr "Αδυναμία διαγραφής σημειώματος: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:208
+#, kde-format
+msgid "Note deletion failed"
+msgstr "Αποτυχία διαγραφής σημειώματος"
+
+#: src/noteshared/standardnoteactionmanager.cpp:212
+#, kde-format
+msgid "Cut Note"
+msgid_plural "Cut %1 Notes"
+msgstr[0] "Περικοπή σημειώματος"
+msgstr[1] "Περικοπή %1 σημειωμάτων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:214
+#, kde-format
+msgid "Cut the selected notes from the note book."
+msgstr "Περικοπή των επιλεγμένων σημειωμάτων από το σημειωματάριο."
+
+#: src/noteshared/standardnoteactionmanager.cpp:218
+#, kde-format
+msgid "Add &Bookshelf..."
+msgstr "Προσθήκη &ραφιού..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:220
+#, kde-format
+msgid ""
+"Add a new bookshelf<p>You will be presented with a dialog where you can "
+"select the type of the bookshelf that shall be added.</p>"
+msgstr ""
+"Προσθήκη ενός νέου ραφιού<p>Θα εμφανιστεί ένας διάλογος όπου επιλέγετε τον "
+"τύπο του ραφιού που θα προστεθεί.</p>"
+
+#: src/noteshared/standardnoteactionmanager.cpp:225
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Bookshelf"
+msgstr "Προσθήκη ραφιού"
+
+#: src/noteshared/standardnoteactionmanager.cpp:229
+#, kde-format
+msgid "Could not create bookshelf: %1"
+msgstr "Αδυναμία δημιουργίας ραφιού: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:233
+#, kde-format
+msgid "Bookshelf creation failed"
+msgstr "Αποτυχία δημιουργίας ραφιού"
+
+#: src/noteshared/standardnoteactionmanager.cpp:238
+#, kde-format
+msgid "&Delete Bookshelf"
+msgid_plural "&Delete %1 Bookshelfs"
+msgstr[0] "&Διαγραφή ραφιού"
+msgstr[1] "&Διαγραφή %1 ραφιών"
+
+#: src/noteshared/standardnoteactionmanager.cpp:241
+#, kde-format
+msgid ""
+"Delete the selected bookshelfs<p>The currently selected bookshelfs will be "
+"deleted, along with all the notes they contain.</p>"
+msgstr ""
+"Διαγραφή των επιλεγμένων ραφιών<p>Τα τρέχοντα επιλεγμένα ράφια θα "
+"διαγραφούν, μαζί με όλα τα σημειώματα που περιέχουν.</p>"
+
+#: src/noteshared/standardnoteactionmanager.cpp:246
+#, kde-format
+msgid "Do you really want to delete this bookshelf?"
+msgid_plural "Do you really want to delete %1 bookshelfs?"
+msgstr[0] "Θέλετε πράγματι να διαγράψετε αυτό το ράφι;"
+msgstr[1] "Θέλετε πράγματι να διαγράψετε %1 ράφια;"
+
+#: src/noteshared/standardnoteactionmanager.cpp:251
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete Bookshelf?"
+msgid_plural "Delete Bookshelfs?"
+msgstr[0] "Διαγραφή ραφιού;"
+msgstr[1] "Διαγραφή ραφιών;"
+
+#: src/noteshared/standardnoteactionmanager.cpp:257
+#, kde-format
+msgid "Bookshelf Properties..."
+msgstr "Ιδιότητες ραφιού..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:259
+#, kde-format
+msgid "Open a dialog to edit properties of the selected bookshelf."
+msgstr "Άνοιγμα διαλόγου για επεξεργασία των ιδιοτήτων του επιλεγμένου ραφιού."
+
+#: src/noteshared/standardnoteactionmanager.cpp:263
+#, kde-format
+msgid "Update Bookshelf"
+msgid_plural "Update %1 Bookshelfs"
+msgstr[0] "Ενημέρωση ραφιού"
+msgstr[1] "Ενημέρωση %1 ραφιών"
+
+#: src/noteshared/standardnoteactionmanager.cpp:267
+#, kde-format
+msgid "Updates the content of all note books of the selected bookshelfs."
+msgstr ""
+"Ενημερώνει το περιεχόμενο όλων των σημειωματαρίων στα επιλεγμένα ράφια."
+
+#: src/noteshared/standardnoteactionmanager.cpp:273
+#, kde-format
+msgid "Could not paste note: %1"
+msgstr "Αδυναμία επικόλλησης σημειώματος: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:277
+#, kde-format
+msgid "Paste failed"
+msgstr "Αποτυχία επικόλλησης"
+
+#: src/noteshared/standardnoteactionmanager.cpp:297
+#, kde-format
+msgctxt "@action"
+msgid "Lock Note"
+msgid_plural "Lock Notes"
+msgstr[0] "Κλείδωμα σημειώματος"
+msgstr[1] "Κλείδωμα σημειωμάτων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:299
+#, kde-format
+msgid "Lock selected notes"
+msgstr "Κλείδωμα επιλεγμένων σημειωμάτων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:302
+#, kde-format
+msgctxt "@action"
+msgid "Unlock Note"
+msgid_plural "Unlock Notes"
+msgstr[0] "Ξεκλείδωμα σημειώματος"
+msgstr[1] "Ξεκλείδωμα σημειωμάτων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:304
+#, kde-format
+msgid "Unlock selected notes"
+msgstr "Ξεκλείδωμα επιλεγμένων σημειωμάτων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:317
+#, kde-format
+msgctxt "@action"
+msgid "Pin Note"
+msgid_plural "Pin Notes"
+msgstr[0] "Καρφίτσωμα σημειώματος"
+msgstr[1] "Καρφίτσωμα σημειωμάτων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:319
+#, kde-format
+msgid "Pin selected notes"
+msgstr "Καρφίτσωμα επιλεγμένων σημειωμάτων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:322
+#, kde-format
+msgctxt "@action"
+msgid "Unpin Note"
+msgid_plural "Unpin Notes"
+msgstr[0] "Ξεκαρφίτσωμα σημειώματος"
+msgstr[1] "Ξεκαρφίτσωμα σημειωμάτων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:324
+#, kde-format
+msgid "Unpin selected notes"
+msgstr "Ξεκαρφίτσωμα επιλεγμένων σημειωμάτων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:365
+#, kde-format
+msgctxt "@action"
+msgid "Lock Note Book"
+msgid_plural "Lock Note Books"
+msgstr[0] "Κλείδωμα σημειωματαρίου"
+msgstr[1] "Κλείδωμα σημειωματαρίων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:367
+#, kde-format
+msgid "Lock selected note books"
+msgstr "Κλείδωμα επιλεγμένων σημειωματαρίων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:370
+#, kde-format
+msgctxt "@action"
+msgid "Unlock Note Book"
+msgid_plural "Unlock Note Books"
+msgstr[0] "Ξεκλείδωμα σημειωματαρίου"
+msgstr[1] "Ξεκλείδωμα σημειωματαρίων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:372
+#, kde-format
+msgid "Unlock selected note books"
+msgstr "Ξεκλείδωμα επιλεγμένων σημειωματαρίων"
+
+#: src/noteshared/standardnoteactionmanager.cpp:605
+#, kde-format
+msgid "&New Note"
+msgstr "&Νέο σημείωμα"
+
+#: src/noteshared/standardnoteactionmanager.cpp:606
+#, kde-format
+msgid "Add a new note to a selected note book"
+msgstr "Προσθήκη νεου σημειώματος σε ένα επιλεγμένο σημειωματάριο"
+
+#: src/noteshared/standardnoteactionmanager.cpp:635
+#, kde-format
+msgid "Change Note Color..."
+msgstr "Αλλαγή χρώματος σημειώματος..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:636
+#, kde-format
+msgid "Changes the color of a selected notes"
+msgstr "Αλλάζει το χρώμα του επιλεγμένου σημειώματος"
+
+#: src/noteshared/standardnoteactionmanager.cpp:644
+#, kde-format
+msgid "Change Note Book Color..."
+msgstr "Αλλαγή χρώματος σημειωματαρίου..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:645
+#, kde-format
+msgid "Changes the color of a selected note books"
+msgstr "Αλλάζει το χρώμα του επιλεγμένου σημειωματαρίου"
+
+#~ msgid "How the main window is divided."
+#~ msgstr "Πως διαιρείται το κύριο παράθυρο."
+
+#~ msgid "Sort children alphabetically"
+#~ msgstr "Αλφαβητική ταξινόμηση απογόνων"
+
+#~ msgid "Sort children by creation date"
+#~ msgstr "Ταξινόμηση απογόνων κατά ημερομηνία δημιουργίας"
+
+#~ msgid "&Settings"
+#~ msgstr "Ρυθμί&σεις"
+
+#~ msgid "Replace"
+#~ msgstr "Αντικατάσταση"
+
+#~ msgid "&All"
+#~ msgstr "Ό&λα"
+
+#~ msgid "&Skip"
+#~ msgstr "&Παράλειψη"
+
+#~ msgid "Replace '%1' with '%2'?"
+#~ msgstr "Αντικατάσταση του '%1' με το '%2';"
+
+#~ msgid "Insert Image"
+#~ msgstr "Εισαγωγή εικόνας"
+
+#~ msgid "Insert Checkmark"
+#~ msgstr "Εισαγωγή σήμανσης ελέγχου"
+
+#~ msgctxt ""
+#~ "@action Paste the text in the clipboard without rich text formatting."
+#~ msgid "Paste Plain Text"
+#~ msgstr "Επικόλληση απλού κειμένου"
+
+#~ msgid "Search all pages"
+#~ msgstr "Αναζήτηση σε όλες τις σελίδες"
+
+#~ msgid "<qt>No matches found.</qt>"
+#~ msgstr "<qt>Δεν βρέθηκαν ταιριάσματα.</qt>"
+
+#~ msgid "<qt>Replaced 1 occurrence.</qt>"
+#~ msgid_plural "<qt>Replaced %1 occurrences.</qt>"
+#~ msgstr[0] "<qt>Αντικαταστάθηκε 1 εμφάνιση.</qt>"
+#~ msgstr[1] "<qt>Αντικαταστάθηκαν %1 εμφανίσεις.</qt>"
+
+#~ msgid "<qt>Replaced %2 of 1 occurrence.</qt>"
+#~ msgid_plural "<qt>Replaced %2 of %1 occurrences.</qt>"
+#~ msgstr[0] "<qt>Αντικαταστάθηκαν %2 από 1 εμφάνιση.</qt>"
+#~ msgstr[1] "<qt>Αντικαταστάθηκαν %2 από %1 εμφανίσεις.</qt>"
+
+#~ msgid ""
+#~ "<qt>End of search area reached. Do you want to wrap around and continue?</"
+#~ "qt>"
+#~ msgstr ""
+#~ "<qt>Φτάσατε το τέλος της περιοχής αναζήτησης. Επιθυμείτε αναδίπλωση και "
+#~ "συνέχεια;</qt>"
+
+#~ msgctxt "The default name for new books."
+#~ msgid "New Book"
+#~ msgstr "Νέο βιβλίο"
+
+#~ msgid "Path to maildir"
+#~ msgstr "Διαδρομή στον κατάλογο αλληλογραφίας"
+
+#~ msgid ""
+#~ "Path points to a folder containing Maildirs instead of to a maildir "
+#~ "itself."
+#~ msgstr ""
+#~ "Η διαδρομή δείχνει σε έναν φάκελο που περιέχει καταλόγους αλληλογραφίας "
+#~ "αντί για τον ίδιο τον κατάλογο αλληλογραφίας."
+
+#~ msgid "Do not change the actual backend data."
+#~ msgstr "Να μην αλλάξουν τα πραγματικά δεδομένα του συστήματος υποστήριξης."
+
+#~ msgid "Select image file"
+#~ msgstr "ΕΠιλογή αρχείου εικόνας"
+
+#~ msgid "The book or page that is currently active."
+#~ msgstr "Το βιβλίο ή η σελίδα που είναι ενεργό τώρα."
+
+#~ msgid "The font used to display the contents of books."
+#~ msgstr ""
+#~ "Η γραμματοσειρά που χρησιμοποιείται για την προβολή των περιεχομένων των "
+#~ "βιβλίων."
+
+#~ msgid "Whether UTF-8 encoding should be forced for saving and loading."
+#~ msgstr ""
+#~ "Αν θα πρέπει να χρησιμοποιηθεί αναγκαστικά η κωδικοποίηση UTF-8 για την "
+#~ "αποθήκευση και φόρτωση."
+
+#~ msgid "The last ID that was used for a book or page."
+#~ msgstr "Το τελευταίο ID που χρησιμοποιήθηκε για ένα βιβλίο ή σελίδα."
+
+#~ msgid "The IDs of the books in the bookshelf."
+#~ msgstr "Τα ID των βιβλίων στη βιβλιοθήκη."
+
+#~ msgid "Ask for a name when creating a new page?"
+#~ msgstr ""
+#~ "Να γίνεται ερώτηση για την ονομασία κατά τη δημιουργία μιας νέας σελίδας;"
+
+#~ msgid "To Book File..."
+#~ msgstr "Σε αρχείο βιβλίου..."
+
+#~ msgid "Settings"
+#~ msgstr "Ρυθμίσεις"
+
+#~ msgid "Change Theme"
+#~ msgstr "Αλλαγή θέματος"
+
+#~ msgid "<qt>Error opening internal file.</qt>"
+#~ msgstr "<qt>Σφάλμα ανοίγματος εσωτερικού αρχείου.</qt>"
+
+#~ msgid "&Delete Page"
+#~ msgstr "&Διαγραφή σελίδας"
+
+#~ msgid "Delete Selected"
+#~ msgstr "Διαγραφή επιλεγμένων"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Αντιγραφή διεύθυνσης συνδέσμου"
+
+#~ msgid ""
+#~ "This page is locked. You can only delete it when you first unlock it."
+#~ msgstr ""
+#~ "Η σελίδα αυτή είναι κλειδωμένη. Μπορείτε μόνο να τη διαγράψετε όταν πρώτα "
+#~ "την ξεκλειδώσετε."
+
+#~ msgid "Item is locked"
+#~ msgstr "Το αντικείμενο είναι κλειδωμένο"
+
+#~ msgctxt "remove the page, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the page <strong>%1</strong>?</qt>"
+#~ msgstr ""
+#~ "<qt>Σίγουρα θέλετε να διαγράψετε τη σελίδα <strong>%1</strong>;</qt>"
+
+#~ msgid ""
+#~ "This book is locked. You can only delete it when you first unlock it."
+#~ msgstr ""
+#~ "Το βιβλίο αυτό είναι κλειδωμένο. Μπορείτε μόνο να το διαγράψετε όταν "
+#~ "πρώτα το ξεκλειδώσετε."
+
+#~ msgctxt "remove the book, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the book <strong>%1</strong>?</qt>"
+#~ msgstr ""
+#~ "<qt>Σίγουρα θέλετε να διαγράψετε το βιβλίο <strong>%1</strong>;</qt>"
+
+#~ msgid "Rename..."
+#~ msgstr "Μετονομασία..."
+
+#~ msgid "Rename Page"
+#~ msgstr "Μετονομασία σελίδας"
+
+#~ msgid "Page title:"
+#~ msgstr "Τίτλος σελίδας:"
+
+#~ msgid "Rename Book"
+#~ msgstr "Μετονομασία βιβλίου"
+
+#~ msgid "Book name:"
+#~ msgstr "Όνομα βιβλίου:"
+
+#~ msgid "Next Page"
+#~ msgstr "Επόμενη σελίδα"
+
+#~ msgid "Previous Page"
+#~ msgstr "Προηγούμενη σελίδα"
+
+#~ msgid "Manual Save"
+#~ msgstr "Χειροκίνητη αποθήκευση"
+
+#~ msgid "Send To Printer"
+#~ msgstr "Αποστολή στον εκτυπωτή"
+
+#~ msgctxt "Name for the top level book created to hold the imported data."
+#~ msgid "KNowIt Import"
+#~ msgstr "Εισαγωγή KNowIt"
+
+#~ msgid "Miscellaneous"
+#~ msgstr "Διάφορα"
+
+#~ msgid ""
+#~ "All pages must be inside a book. Would you like to create a new book to "
+#~ "put the page in, or would you prefer to not move the page at all?"
+#~ msgstr ""
+#~ "Όλες οι σελίδες πρέπει να είναι μέσα σε ένα βιβλίο. Θέλετε να "
+#~ "δημιουργήσετε ένα νέο βιβλίο για να τοποθετήσετε τη σελίδα σε αυτό ή θα "
+#~ "προτιμούσατε να μη μετακινήσετε τη σελίδα καθόλου;"
+
+#~ msgid "Do Not Move Page"
+#~ msgstr "Να μη μετακινηθεί η σελίδα"
+
+#~ msgid "Import..."
+#~ msgstr "Εισαγωγή..."
+
+#~ msgid "<qt>Are you sure you want to delete these entries?</qt>"
+#~ msgstr "<qt>Σίγουρα θέλετε να διαγράψετε αυτές τις καταχωρήσεις;</qt>"
+
+#~ msgid "Multiple Selections"
+#~ msgstr "Πολλαπλές επιλογές"
+
+#~ msgid "KJots Books"
+#~ msgstr "Βιβλία του KJots"
+
+#~ msgid "HTML Files"
+#~ msgstr "Αρχεία HTML"
+
+#~ msgid "<qt>Error opening temporary file.</qt>"
+#~ msgstr "<qt>Σφάλμα ανοίγματος προσωρινού αρχείου.</qt>"
+
+#~ msgid "KnowIt files"
+#~ msgstr "Αρχεία KnowIt"
+
+#~ msgid ""
+#~ "A duplicate ID was found in the book %1. This can happen if you "
+#~ "manipulate the data files by hand, and will prevent KJots from working "
+#~ "correctly. KJots can attempt to fix this, or you can fix it yourself. In "
+#~ "either case, bookmarks and links between pages may be broken."
+#~ msgstr ""
+#~ "Βρέθηκε ένα διπλό ID στο βιβλίο %1. Αυτό μπορεί να συμβεί με το "
+#~ "χειροκίνητο χειρισμό των αρχείων δεδομένων και μπορεί να αποτρέψει τη "
+#~ "σωστή λειτουργία του KJots. Το KJots μπορεί να προσπαθήσει την "
+#~ "επιδιόρθωση, ή μπορείτε να το διορθώσετε εσείς. Σε κάθε περίπτωση οι "
+#~ "σελιδοδείκτες και οι δεσμοί μεταξύ των σελίδων μπορεί να καταστραφούν."
+
+#~ msgid "A duplicate ID was found"
+#~ msgstr "Βρέθηκε ένα διπλό ID"
+
+#~ msgid "Exit and fix by hand"
+#~ msgstr "Έξοδος και χειροκίνητη διόρθωση"
+
+#~ msgid "Fix it automatically"
+#~ msgstr "Αυτόματη επιδιόρθωση"
+
+#~ msgid ""
+#~ "<qt>KJots is having problems saving your data. This might be a "
+#~ "permissions problem, or you may be out of disk space.</qt>"
+#~ msgstr ""
+#~ "<qt>Το KJots αντιμετωπίζει προβλήματα κατά την αποθήκευση των δεδομένων "
+#~ "σας. Μπορεί να πρόκειται για κάποιο πρόβλημα αδειών, ή μπορεί να μην "
+#~ "υπάρχει ελεύθερος χώρος.</qt>"
+
+#~ msgid "Table of Contents"
+#~ msgstr "Πίνακας περιεχομένων"
+
+#~ msgid "Page %1"
+#~ msgstr "Σελίδα %1"
+
+#~ msgid "New Page"
+#~ msgstr "Νέα σελίδα"
+
+#~ msgid "Page name:"
+#~ msgstr "Όνομα σελίδας:"
+
+#~ msgid "Ask for new &page names"
+#~ msgstr "Ερώτηση ονομάτων &νέας σελίδας."
+
+#~ msgid ""
+#~ "Determines if new pages are given an automatic name, or a prompt is "
+#~ "displayed."
+#~ msgstr ""
+#~ "Καθορίζει αν οι νέες σελίδες θα ονομάζονται αυτόματα, ή θα εμφανίζεται "
+#~ "μια προτροπή ονομασίας."
+
+#~ msgid "(c) 1997-2008, KJots developers"
+#~ msgstr "(c) 1997-2008, οι προγραμματιστές του KJots"
+
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the <strong>%1</strong> page?</qt>"
+#~ msgstr ""
+#~ "<qt>Σίγουρα θέλετε να διαγράψετε τη σελίδα <strong>%1</strong>;</qt>"
+
+#~ msgid "Autosave"
+#~ msgstr "Αυτόματη αποθήκευση"

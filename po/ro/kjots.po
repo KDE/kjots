@@ -1,0 +1,1134 @@
+# translation of kjots.po to Romanian
+# Copyright (C) 2004 Free Software Foundation, Inc.
+# Claudiu Costin <claudiuc@kde.org>, 2004.
+# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2012, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kjots\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-16 00:48+0000\n"
+"PO-Revision-Date: 2014-08-06 15:00+0300\n"
+"Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sergiu Bivol"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sergiu@cip.md"
+
+#: src/aboutdata.cpp:16 src/kjotspart.cpp:34
+#: src/kontact_plugin/kjots_plugin.cpp:51
+#, kde-format
+msgid "KJots"
+msgstr "KJots"
+
+#: src/aboutdata.cpp:18
+#, kde-format
+msgid "KDE note taking utility"
+msgstr "Utilitar KDE pentru notițe"
+
+#: src/aboutdata.cpp:20
+#, fuzzy, kde-format
+#| msgid "Copyright © 1997–2010 KJots authors"
+msgid "Copyright © 1997–2020 KJots authors"
+msgstr "Drept de autor © 1997–2010 Autorii KJots"
+
+#: src/aboutdata.cpp:22
+#, kde-format
+msgid "Igor Poboiko"
+msgstr ""
+
+#: src/aboutdata.cpp:22
+#, fuzzy, kde-format
+#| msgid "Current maintainer"
+msgid "Maintainer"
+msgstr "Responsabil actual"
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Daniel Vrátil"
+msgstr ""
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Port to KDE Frameworks 5"
+msgstr ""
+
+#: src/aboutdata.cpp:24
+#, kde-format
+msgid "Stephen Kelly"
+msgstr "Stephen Kelly"
+
+#: src/aboutdata.cpp:25
+#, kde-format
+msgid "Pradeepto K. Bhattacharya"
+msgstr "Pradeepto K. Bhattacharya"
+
+#: src/aboutdata.cpp:26
+#, kde-format
+msgid "Jaison Lee"
+msgstr "Jaison Lee"
+
+#: src/aboutdata.cpp:27
+#, kde-format
+msgid "Aaron J. Seigo"
+msgstr "Aaron J. Seigo"
+
+#: src/aboutdata.cpp:28
+#, kde-format
+msgid "Stanislav Kljuhhin"
+msgstr "Stanislav Kljuhhin"
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Christoph Neerfeld"
+msgstr "Christoph Neerfeld"
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Original author"
+msgstr "Autor original"
+
+#: src/aboutdata.cpp:30
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:19 src/confpagemisc.ui:35
+#, kde-format
+msgid ""
+"This is the number of minutes KJots will wait before automatically saving "
+"changes."
+msgstr ""
+"Acesta este numărul de minute pe care îl va aștepta KJots înainte de a salva "
+"automat modificările."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: src/confpagemisc.ui:22
+#, kde-format
+msgid "S&ave every:"
+msgstr "S&alvează la fiecare:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:38
+#, kde-format
+msgid "1 minute"
+msgstr "1 minut"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:41
+#, kde-format
+msgid " minutes"
+msgstr " minute"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:54
+#, kde-format
+msgid ""
+"When \"Save changes periodically\" is checked, KJots will automatically save "
+"changes made to books at the interval defined below."
+msgstr ""
+"Dacă opțiunea „Salvează periodic modificările” este bifată, KJots va salva "
+"automat modificările făcute în cărți la intervalul de timp definit mai jos."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:57
+#, kde-format
+msgid "&Save changes periodically"
+msgstr "&Salvează periodic modificările"
+
+#. i18n: ectx: label, entry (AutoSave), group (kjots)
+#: src/kjots.kcfg:9
+#, kde-format
+msgid "Whether books should be saved automatically."
+msgstr "Precizează dacă ar trebui salvate cărțile automat"
+
+#. i18n: ectx: label, entry (AutoSaveInterval), group (kjots)
+#: src/kjots.kcfg:13
+#, kde-format
+msgid "The interval in minutes at which books should be saved automatically."
+msgstr "Intervalul în minute după care cărțile sunt salvate automat."
+
+#: src/kjotsbrowser.cpp:133
+#, fuzzy, kde-format
+#| msgid "Link Text:"
+msgctxt "@info:action"
+msgid "Speak Text"
+msgstr "Text legătură:"
+
+#: src/kjotsbrowser.cpp:177
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Click to follow the hyperlink: %1"
+msgstr ""
+
+#: src/kjotsbrowser.cpp:181
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Click to open note: %1"
+msgstr ""
+
+#: src/kjotsbrowser.cpp:183
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Click to open book: %1"
+msgstr ""
+
+#: src/kjotsedit.cpp:99
+#, fuzzy, kde-format
+#| msgid "Copy &into Page Title"
+msgctxt "@action"
+msgid "Copy &Into Page Title"
+msgstr "Copiază în t&itlul paginii"
+
+#: src/kjotsedit.cpp:109
+#, fuzzy, kde-format
+#| msgid "Link"
+msgctxt "@action creates and manages hyperlinks"
+msgid "Link"
+msgstr "Legătură"
+
+#: src/kjotsedit.cpp:117
+#, fuzzy, kde-format
+#| msgid "Auto Bullets"
+msgctxt "@action"
+msgid "Auto Bullet List"
+msgstr "Buline automate"
+
+#: src/kjotsedit.cpp:126
+#, fuzzy, kde-format
+#| msgid "Auto Decimal List"
+msgctxt "@action"
+msgid "Auto Decimal List"
+msgstr "Listă zecimală automată"
+
+#: src/kjotsedit.cpp:135
+#, fuzzy, kde-format
+#| msgid "Insert Date"
+msgctxt "@action"
+msgid "Insert Date"
+msgstr "Inserează data"
+
+#: src/kjotsedit.cpp:468
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Ctrl+click to open note: %1"
+msgstr ""
+
+#: src/kjotsedit.cpp:470
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Ctrl+click to open book: %1"
+msgstr ""
+
+#: src/kjotsedit.cpp:473
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Ctrl+click to follow the hyperlink: %1"
+msgstr ""
+
+#: src/kjotslinkdialog.cpp:32
+#, kde-format
+msgid "Enter link URL, or another note or note book..."
+msgstr ""
+
+#: src/kjotsmodel.cpp:305
+#, kde-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr ""
+
+#: src/kjotsmodel.cpp:309
+#, kde-format
+msgctxt "@title:column title of a note"
+msgid "Title"
+msgstr ""
+
+#: src/kjotsmodel.cpp:311
+#, kde-format
+msgctxt "@title:column creation date and time of a note"
+msgid "Created"
+msgstr ""
+
+#: src/kjotsmodel.cpp:313
+#, kde-format
+msgctxt "@title:column last modification date and time of a note"
+msgid "Modified"
+msgstr ""
+
+#: src/kjotsmodel.cpp:315
+#, kde-format
+msgctxt "@title:column size of a note"
+msgid "Size"
+msgstr ""
+
+#: src/kjotspart.cpp:47
+#, kde-format
+msgid "&Configure KJots..."
+msgstr "&Configurează KJots..."
+
+#. i18n: ectx: Menu (format)
+#: src/kjotsui.rc:21
+#, kde-format
+msgid "F&ormat"
+msgstr "F&ormatare"
+
+#. i18n: ectx: Menu (view)
+#: src/kjotsui.rc:45
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (go)
+#: src/kjotsui.rc:51
+#, kde-format
+msgid "&Go"
+msgstr "&Du-te"
+
+#. i18n: ectx: Menu (tools)
+#: src/kjotsui.rc:60
+#, kde-format
+msgid "&Tools"
+msgstr "&Unelte"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kjotsui.rc:110
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Bara de unelte principală"
+
+#. i18n: ectx: ToolBar (textToolBar)
+#: src/kjotsui.rc:126
+#, kde-format
+msgid "Text Toolbar"
+msgstr "Bara de text"
+
+#. i18n: ectx: ToolBar (formatToolBar)
+#: src/kjotsui.rc:141
+#, kde-format
+msgid "Format Toolbar"
+msgstr "Bara de formatare"
+
+#. i18n: ectx: ToolBar (toolsToolBar)
+#: src/kjotsui.rc:156
+#, fuzzy, kde-format
+#| msgid "Text Toolbar"
+msgid "Tools Toolbar"
+msgstr "Bara de text"
+
+#: src/kjotswidget.cpp:433
+#, kde-format
+msgid "&Bookmarks"
+msgstr "&Semne de carte"
+
+#: src/kjotswidget.cpp:451
+#, kde-format
+msgid "Export"
+msgstr "Exportă"
+
+#: src/kjotswidget.cpp:455
+#, kde-format
+msgid "To Text File..."
+msgstr "În fișier textual..."
+
+#: src/kjotswidget.cpp:463
+#, kde-format
+msgid "To HTML File..."
+msgstr "În fișier HTML..."
+
+#: src/kjotswidget.cpp:472
+#, kde-format
+msgid "Next Book"
+msgstr "Cartea următoare"
+
+#: src/kjotswidget.cpp:483
+#, kde-format
+msgid "Previous Book"
+msgstr "Cartea precedentă"
+
+#: src/kjotswidget.cpp:496
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Two Columns"
+msgstr ""
+
+#: src/kjotswidget.cpp:501
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Three Columns"
+msgstr ""
+
+#: src/kjotswidget.cpp:563
+#, kde-format
+msgctxt "@title:window config dialog page"
+msgid "Misc"
+msgstr ""
+
+#: src/kjotswidget.cpp:598
+#, kde-format
+msgctxt "Header for 'Table of contents' section of rendered output"
+msgid "Table of contents"
+msgstr "Cuprins"
+
+#: src/kjotswidget.cpp:623
+#, kde-format
+msgid "<qt>Could not open \"%1\" for writing</qt>"
+msgstr ""
+
+#: src/kjotswidget.cpp:719
+#, fuzzy, kde-format
+#| msgid "Multiple selections"
+msgctxt "@title:window"
+msgid "Multiple selection"
+msgstr "Selecții multiple"
+
+#: src/kjotswidget.cpp:737
+#, kde-format
+msgid ""
+"Unable to save the note.\n"
+"You can save your note to a local file using the \"File - Export\" menu,\n"
+"otherwise you will lose your changes!\n"
+"Do you want to close anyways?"
+msgstr ""
+
+#: src/kjotswidget.cpp:741
+#, kde-format
+msgid "Close Document"
+msgstr ""
+
+#: src/kjotswidget.cpp:746
+#, kde-format
+msgid ""
+"Error message:\n"
+"%1"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, LinkDialog)
+#: src/linkdialog.ui:14
+#, kde-format
+msgid "Manage Link"
+msgstr "Gestionează legătura"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel)
+#: src/linkdialog.ui:29
+#, fuzzy, kde-format
+#| msgid "Link Text:"
+msgid "Link &Text:"
+msgstr "Text legătură:"
+
+#. i18n: ectx: property (text), widget (QLabel, linkUrlLabel)
+#: src/linkdialog.ui:46
+#, kde-format
+msgid "Link URL:"
+msgstr "URL legătură:"
+
+#: src/noteshared/notecreatorandselector.cpp:86
+#, kde-format
+msgctxt "The default name for new pages."
+msgid "New Page"
+msgstr "Pagină nouă"
+
+#: src/noteshared/standardnoteactionmanager.cpp:108
+#, fuzzy, kde-format
+#| msgid "New &Book..."
+msgid "New Note Book..."
+msgstr "Carte &nouă..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:113
+#, kde-format
+msgid "Add a new note book to the currently selected bookshelf."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:116
+#, fuzzy, kde-format
+#| msgid "New Book"
+msgctxt "@title:window"
+msgid "New Note Book"
+msgstr "Carte nouă"
+
+#: src/noteshared/standardnoteactionmanager.cpp:120
+#, kde-format
+msgid "Could not create note book: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:124
+#, fuzzy, kde-format
+#| msgid "Sort children by creation date"
+msgid "Note book creation failed"
+msgstr "Sortează copiii după data creării"
+
+#: src/noteshared/standardnoteactionmanager.cpp:130
+#, fuzzy, kde-format
+#| msgid "New Book"
+msgid "Copy Note Book"
+msgid_plural "Copy %1 Note Books"
+msgstr[0] "Carte nouă"
+msgstr[1] "Carte nouă"
+msgstr[2] "Carte nouă"
+
+#: src/noteshared/standardnoteactionmanager.cpp:133
+#, kde-format
+msgid "Copy the selected note books to the clipboard."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:137
+#, fuzzy, kde-format
+#| msgid "Delete Boo&k"
+msgid "Delete Note Book"
+msgid_plural "Delete %1 Note Books"
+msgstr[0] "Șterge &cartea"
+msgstr[1] "Șterge &cartea"
+msgstr[2] "Șterge &cartea"
+
+#: src/noteshared/standardnoteactionmanager.cpp:140
+#, fuzzy, kde-format
+#| msgid "The IDs of the books in the bookshelf."
+msgid "Delete the selected note books from the bookshelf."
+msgstr "Identificatorii cărților de pe raft."
+
+#: src/noteshared/standardnoteactionmanager.cpp:144
+#, fuzzy, kde-format
+#| msgid "Do you really want to delete all selected books and pages?"
+msgid "Do you really want to delete this note book and all its contents?"
+msgid_plural ""
+"Do you really want to delete %1 note books and all their contents?"
+msgstr[0] "Sigur doriți să ștergeți toate cărțile și paginile alese?"
+msgstr[1] "Sigur doriți să ștergeți toate cărțile și paginile alese?"
+msgstr[2] "Sigur doriți să ștergeți toate cărțile și paginile alese?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:148
+#, fuzzy, kde-format
+#| msgid "Delete Boo&k"
+msgctxt "@title:window"
+msgid "Delete note book?"
+msgid_plural "Delete note books?"
+msgstr[0] "Șterge &cartea"
+msgstr[1] "Șterge &cartea"
+msgstr[2] "Șterge &cartea"
+
+#: src/noteshared/standardnoteactionmanager.cpp:152
+#, kde-format
+msgid "Could not delete note book: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:156
+#, kde-format
+msgid "Note book deletion failed"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:160
+#, fuzzy, kde-format
+#| msgid "Create New Book"
+msgid "Update Note Book"
+msgid_plural "Update %1 Note Books"
+msgstr[0] "Creează carte nouă"
+msgstr[1] "Creează carte nouă"
+msgstr[2] "Creează carte nouă"
+
+#: src/noteshared/standardnoteactionmanager.cpp:163
+#, kde-format
+msgid "Update the content of the selected note books."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:167
+#, fuzzy, kde-format
+#| msgid "Create New Book"
+msgid "Cut Note Book"
+msgid_plural "Cut %1 Note Books"
+msgstr[0] "Creează carte nouă"
+msgstr[1] "Creează carte nouă"
+msgstr[2] "Creează carte nouă"
+
+#: src/noteshared/standardnoteactionmanager.cpp:170
+#, fuzzy, kde-format
+#| msgid "The IDs of the books in the bookshelf."
+msgid "Cut the selected note books from the bookshelf."
+msgstr "Identificatorii cărților de pe raft."
+
+#: src/noteshared/standardnoteactionmanager.cpp:174
+#, fuzzy, kde-format
+#| msgid "To Book File..."
+msgid "Note Book Properties..."
+msgstr "În fișier de carte..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:176
+#, kde-format
+msgid "Open a dialog to edit the properties of the selected note book."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:179
+#, kde-format
+msgctxt "@title:window"
+msgid "Properties of Note Book %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:184
+#, kde-format
+msgid "Copy Note"
+msgid_plural "Copy %1 Notes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:186
+#, kde-format
+msgid "Copy the selected notes to the clipboard."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:190
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgid "Delete Note"
+msgid_plural "Delete %1 Notes"
+msgstr[0] "Șterge"
+msgstr[1] "Șterge"
+msgstr[2] "Șterge"
+
+#: src/noteshared/standardnoteactionmanager.cpp:192
+#, kde-format
+msgid "Delete the selected notes from the note book."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:195
+#, fuzzy, kde-format
+#| msgid "Do you really want to delete all selected books and pages?"
+msgid "Do you really want to delete the selected note?"
+msgid_plural "Do you really want to delete %1 notes?"
+msgstr[0] "Sigur doriți să ștergeți toate cărțile și paginile alese?"
+msgstr[1] "Sigur doriți să ștergeți toate cărțile și paginile alese?"
+msgstr[2] "Sigur doriți să ștergeți toate cărțile și paginile alese?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:200
+#, fuzzy, kde-format
+#| msgid "Delete?"
+msgctxt "@title:window"
+msgid "Delete Note?"
+msgid_plural "Delete Notes?"
+msgstr[0] "Ștergeți?"
+msgstr[1] "Ștergeți?"
+msgstr[2] "Ștergeți?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:204
+#, kde-format
+msgid "Could not delete note: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:208
+#, kde-format
+msgid "Note deletion failed"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:212
+#, kde-format
+msgid "Cut Note"
+msgid_plural "Cut %1 Notes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:214
+#, kde-format
+msgid "Cut the selected notes from the note book."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:218
+#, fuzzy, kde-format
+#| msgid "Bookshelf"
+msgid "Add &Bookshelf..."
+msgstr "Raft de cărți"
+
+#: src/noteshared/standardnoteactionmanager.cpp:220
+#, kde-format
+msgid ""
+"Add a new bookshelf<p>You will be presented with a dialog where you can "
+"select the type of the bookshelf that shall be added.</p>"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:225
+#, fuzzy, kde-format
+#| msgid "Bookshelf"
+msgctxt "@title:window"
+msgid "Add Bookshelf"
+msgstr "Raft de cărți"
+
+#: src/noteshared/standardnoteactionmanager.cpp:229
+#, kde-format
+msgid "Could not create bookshelf: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:233
+#, kde-format
+msgid "Bookshelf creation failed"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:238
+#, fuzzy, kde-format
+#| msgid "Delete Boo&k"
+msgid "&Delete Bookshelf"
+msgid_plural "&Delete %1 Bookshelfs"
+msgstr[0] "Șterge &cartea"
+msgstr[1] "Șterge &cartea"
+msgstr[2] "Șterge &cartea"
+
+#: src/noteshared/standardnoteactionmanager.cpp:241
+#, kde-format
+msgid ""
+"Delete the selected bookshelfs<p>The currently selected bookshelfs will be "
+"deleted, along with all the notes they contain.</p>"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:246
+#, fuzzy, kde-format
+#| msgid "Do you really want to delete all selected books and pages?"
+msgid "Do you really want to delete this bookshelf?"
+msgid_plural "Do you really want to delete %1 bookshelfs?"
+msgstr[0] "Sigur doriți să ștergeți toate cărțile și paginile alese?"
+msgstr[1] "Sigur doriți să ștergeți toate cărțile și paginile alese?"
+msgstr[2] "Sigur doriți să ștergeți toate cărțile și paginile alese?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:251
+#, fuzzy, kde-format
+#| msgid "Delete Boo&k"
+msgctxt "@title:window"
+msgid "Delete Bookshelf?"
+msgid_plural "Delete Bookshelfs?"
+msgstr[0] "Șterge &cartea"
+msgstr[1] "Șterge &cartea"
+msgstr[2] "Șterge &cartea"
+
+#: src/noteshared/standardnoteactionmanager.cpp:257
+#, kde-format
+msgid "Bookshelf Properties..."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:259
+#, kde-format
+msgid "Open a dialog to edit properties of the selected bookshelf."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:263
+#, fuzzy, kde-format
+#| msgid "Bookshelf"
+msgid "Update Bookshelf"
+msgid_plural "Update %1 Bookshelfs"
+msgstr[0] "Raft de cărți"
+msgstr[1] "Raft de cărți"
+msgstr[2] "Raft de cărți"
+
+#: src/noteshared/standardnoteactionmanager.cpp:267
+#, fuzzy, kde-format
+#| msgid "The IDs of the books in the bookshelf."
+msgid "Updates the content of all note books of the selected bookshelfs."
+msgstr "Identificatorii cărților de pe raft."
+
+#: src/noteshared/standardnoteactionmanager.cpp:273
+#, kde-format
+msgid "Could not paste note: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:277
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action Paste the text in the clipboard without rich text formatting."
+#| msgid "Paste Plain Text"
+msgid "Paste failed"
+msgstr "Lipește text simplu"
+
+#: src/noteshared/standardnoteactionmanager.cpp:297
+#, fuzzy, kde-format
+#| msgid "Lock Selected"
+msgctxt "@action"
+msgid "Lock Note"
+msgid_plural "Lock Notes"
+msgstr[0] "Blochează selecția"
+msgstr[1] "Blochează selecția"
+msgstr[2] "Blochează selecția"
+
+#: src/noteshared/standardnoteactionmanager.cpp:299
+#, fuzzy, kde-format
+#| msgid "Lock Selected"
+msgid "Lock selected notes"
+msgstr "Blochează selecția"
+
+#: src/noteshared/standardnoteactionmanager.cpp:302
+#, fuzzy, kde-format
+#| msgid "Unlock Selected"
+msgctxt "@action"
+msgid "Unlock Note"
+msgid_plural "Unlock Notes"
+msgstr[0] "Deblochează selecția"
+msgstr[1] "Deblochează selecția"
+msgstr[2] "Deblochează selecția"
+
+#: src/noteshared/standardnoteactionmanager.cpp:304
+#, fuzzy, kde-format
+#| msgid "Unlock Selected"
+msgid "Unlock selected notes"
+msgstr "Deblochează selecția"
+
+#: src/noteshared/standardnoteactionmanager.cpp:317
+#, fuzzy, kde-format
+#| msgid "Unlock Selected"
+msgctxt "@action"
+msgid "Pin Note"
+msgid_plural "Pin Notes"
+msgstr[0] "Deblochează selecția"
+msgstr[1] "Deblochează selecția"
+msgstr[2] "Deblochează selecția"
+
+#: src/noteshared/standardnoteactionmanager.cpp:319
+#, fuzzy, kde-format
+#| msgid "Unlock Selected"
+msgid "Pin selected notes"
+msgstr "Deblochează selecția"
+
+#: src/noteshared/standardnoteactionmanager.cpp:322
+#, fuzzy, kde-format
+#| msgid "Unlock Selected"
+msgctxt "@action"
+msgid "Unpin Note"
+msgid_plural "Unpin Notes"
+msgstr[0] "Deblochează selecția"
+msgstr[1] "Deblochează selecția"
+msgstr[2] "Deblochează selecția"
+
+#: src/noteshared/standardnoteactionmanager.cpp:324
+#, fuzzy, kde-format
+#| msgid "Unlock Selected"
+msgid "Unpin selected notes"
+msgstr "Deblochează selecția"
+
+#: src/noteshared/standardnoteactionmanager.cpp:365
+#, fuzzy, kde-format
+#| msgid "New Book"
+msgctxt "@action"
+msgid "Lock Note Book"
+msgid_plural "Lock Note Books"
+msgstr[0] "Carte nouă"
+msgstr[1] "Carte nouă"
+msgstr[2] "Carte nouă"
+
+#: src/noteshared/standardnoteactionmanager.cpp:367
+#, fuzzy, kde-format
+#| msgid "Delete Boo&k"
+msgid "Lock selected note books"
+msgstr "Șterge &cartea"
+
+#: src/noteshared/standardnoteactionmanager.cpp:370
+#, fuzzy, kde-format
+#| msgid "New Book"
+msgctxt "@action"
+msgid "Unlock Note Book"
+msgid_plural "Unlock Note Books"
+msgstr[0] "Carte nouă"
+msgstr[1] "Carte nouă"
+msgstr[2] "Carte nouă"
+
+#: src/noteshared/standardnoteactionmanager.cpp:372
+#, fuzzy, kde-format
+#| msgid "Delete Boo&k"
+msgid "Unlock selected note books"
+msgstr "Șterge &cartea"
+
+#: src/noteshared/standardnoteactionmanager.cpp:605
+#, fuzzy, kde-format
+#| msgid "&New Page"
+msgid "&New Note"
+msgstr "Pagină &nouă"
+
+#: src/noteshared/standardnoteactionmanager.cpp:606
+#, kde-format
+msgid "Add a new note to a selected note book"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:635
+#, fuzzy, kde-format
+#| msgid "Change Color..."
+msgid "Change Note Color..."
+msgstr "Modificare culoare..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:636
+#, kde-format
+msgid "Changes the color of a selected notes"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:644
+#, fuzzy, kde-format
+#| msgid "Change Color..."
+msgid "Change Note Book Color..."
+msgstr "Modificare culoare..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:645
+#, kde-format
+msgid "Changes the color of a selected note books"
+msgstr ""
+
+#~ msgid "How the main window is divided."
+#~ msgstr "Cum este împărțită fereastra principală."
+
+#~ msgid "Sort children alphabetically"
+#~ msgstr "Sortează copiii alfabetic"
+
+#~ msgid "Sort children by creation date"
+#~ msgstr "Sortează copiii după data creării"
+
+#~ msgid "&Settings"
+#~ msgstr "&Configurări"
+
+#~ msgid "Replace"
+#~ msgstr "Înlocuiește"
+
+#~ msgid "&All"
+#~ msgstr "To&ate"
+
+#~ msgid "&Skip"
+#~ msgstr "&Sari"
+
+#~ msgid "Replace '%1' with '%2'?"
+#~ msgstr "Înlocuiți „%1” cu „%2”?"
+
+#, fuzzy
+#~| msgid "Insert Date"
+#~ msgid "Insert Image"
+#~ msgstr "Inserează data"
+
+#~ msgid "Insert Checkmark"
+#~ msgstr "Inserează bifă"
+
+#~ msgctxt ""
+#~ "@action Paste the text in the clipboard without rich text formatting."
+#~ msgid "Paste Plain Text"
+#~ msgstr "Lipește text simplu"
+
+#~ msgid "Search all pages"
+#~ msgstr "Caută toate paginile"
+
+#~ msgid "<qt>No matches found.</qt>"
+#~ msgstr "<qt>Nicio potrivire găsită.</qt>"
+
+#~ msgid "<qt>Replaced 1 occurrence.</qt>"
+#~ msgid_plural "<qt>Replaced %1 occurrences.</qt>"
+#~ msgstr[0] "<qt>Înlocuit 1 apariție.</qt>"
+#~ msgstr[1] "<qt>Înlocuit %1 apariții.</qt>"
+#~ msgstr[2] "<qt>Înlocuit %1 de apariții.</qt>"
+
+#~ msgid "<qt>Replaced %2 of 1 occurrence.</qt>"
+#~ msgid_plural "<qt>Replaced %2 of %1 occurrences.</qt>"
+#~ msgstr[0] "<qt>Înlocuit %2 din 1 apariții.</qt>"
+#~ msgstr[1] "<qt>Înlocuit %2 din %1 apariții.</qt>"
+#~ msgstr[2] "<qt>Înlocuit %2 din %1 de apariții.</qt>"
+
+#~ msgid ""
+#~ "<qt>End of search area reached. Do you want to wrap around and continue?</"
+#~ "qt>"
+#~ msgstr ""
+#~ "<qt>A fost atins sfârșitul zonei de căutare. Doriți să continuați de la "
+#~ "început?</qt>"
+
+#~ msgctxt "The default name for new books."
+#~ msgid "New Book"
+#~ msgstr "Carte nouă"
+
+#~ msgid "The book or page that is currently active."
+#~ msgstr "Cartea sau pagina activă acum."
+
+#~ msgid "The font used to display the contents of books."
+#~ msgstr "Fontul utilizat la afișarea conținutului cărții."
+
+#~ msgid "Whether UTF-8 encoding should be forced for saving and loading."
+#~ msgstr "Dacă să fie forțată codarea UTF-8 pentru salvare și încărcare."
+
+#~ msgid "The last ID that was used for a book or page."
+#~ msgstr "Ultimul identificator folosit pentru o carte sau o pagină."
+
+#~ msgid "The IDs of the books in the bookshelf."
+#~ msgstr "Identificatorii cărților de pe raft."
+
+#~ msgid "Ask for a name when creating a new page?"
+#~ msgstr "Să se ceară o denumire la crearea unei pagini noi?"
+
+#~ msgid "To Book File..."
+#~ msgstr "În fișier de carte..."
+
+#~ msgid "Settings"
+#~ msgstr "Configurări"
+
+#~ msgid "Change Theme"
+#~ msgstr "Schimbă tema"
+
+#~ msgid "<qt>Error opening internal file.</qt>"
+#~ msgstr "<qt>Eroare la deschiderea fișierului intern.</qt>"
+
+#~ msgid "&Delete Page"
+#~ msgstr "Ș&terge pagina"
+
+#~ msgid "Delete Selected"
+#~ msgstr "Șterge pe cel ales"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Copiază adresa legăturii"
+
+#~ msgid ""
+#~ "This page is locked. You can only delete it when you first unlock it."
+#~ msgstr ""
+#~ "Aceasă pagină e blocată. O veți putea șterge numai după ce o deblocați."
+
+#~ msgid "Item is locked"
+#~ msgstr "Elementul este blocat"
+
+#~ msgctxt "remove the page, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the page <strong>%1</strong>?</qt>"
+#~ msgstr "<qt>Sigur doriți să ștergeți pagina <strong>%1</strong>?</qt>"
+
+#~ msgid ""
+#~ "This book is locked. You can only delete it when you first unlock it."
+#~ msgstr ""
+#~ "Aceasă carte e blocată. O veți putea șterge numai după ce o deblocați."
+
+#~ msgctxt "remove the book, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the book <strong>%1</strong>?</qt>"
+#~ msgstr "<qt>Sigur doriți să ștergeți cartea <strong>%1</strong>?</qt>"
+
+#~ msgid "Rename..."
+#~ msgstr "Redenumire..."
+
+#~ msgid "Rename Page"
+#~ msgstr "Redenumește pagina"
+
+#~ msgid "Page title:"
+#~ msgstr "Titlu pagină:"
+
+#~ msgid "Rename Book"
+#~ msgstr "Redenumește cartea"
+
+#~ msgid "Book name:"
+#~ msgstr "Denumire carte:"
+
+#~ msgid "Next Page"
+#~ msgstr "Pagina următoare"
+
+#~ msgid "Previous Page"
+#~ msgstr "Pagina precedentă"
+
+#~ msgid "Manual Save"
+#~ msgstr "Salvare manuală"
+
+#~ msgid "Send To Printer"
+#~ msgstr "Trimite la imprimantă"
+
+#~ msgctxt "Name for the top level book created to hold the imported data."
+#~ msgid "KNowIt Import"
+#~ msgstr "Import KnowIt"
+
+#~ msgid "Miscellaneous"
+#~ msgstr "Diverse"
+
+#~ msgid ""
+#~ "All pages must be inside a book. Would you like to create a new book to "
+#~ "put the page in, or would you prefer to not move the page at all?"
+#~ msgstr ""
+#~ "Toate paginiile trebuie să fie în interiorul unei cărți. Doriți să creez "
+#~ "o carte nouă și să pun pagina în ea sau preferați să nu mut deloc pagina?"
+
+#~ msgid "Do Not Move Page"
+#~ msgstr "Nu muta pagina"
+
+#~ msgid "Import..."
+#~ msgstr "Import..."
+
+#~ msgid "<qt>Are you sure you want to delete these entries?</qt>"
+#~ msgstr "<qt>Sigur ștergeți aceste înregistrări?</qt>"
+
+#~ msgid "Multiple Selections"
+#~ msgstr "Selecții multiple"
+
+#~ msgid "KJots Books"
+#~ msgstr "Cărți KJots"
+
+#~ msgid "HTML Files"
+#~ msgstr "Fișiere HTML"
+
+#~ msgid "<qt>Error opening temporary file.</qt>"
+#~ msgstr "<qt>Eroare la deschiderea fișierului temporar.</qt>"
+
+#~ msgid "KnowIt files"
+#~ msgstr "Fișiere KnowIt"
+
+#~ msgid "Fix it automatically"
+#~ msgstr "Repară automat"
+
+#~ msgid "Table of Contents"
+#~ msgstr "Cuprins"
+
+#~ msgid "Page %1"
+#~ msgstr "Pagina %1"
+
+#~ msgid "New Page"
+#~ msgstr "Pagină nouă"
+
+#~ msgid "Page name:"
+#~ msgstr "Denumire pagină:"
+
+#~ msgid "(c) 1997-2008, KJots developers"
+#~ msgstr "(c) 1997-2008, Dezvoltatorii KJots"
+
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the <strong>%1</strong> page?</qt>"
+#~ msgstr "<qt>Sigur ștergeți pagina <strong>%1</strong>?</qt>"
+
+#~ msgid "Autosave"
+#~ msgstr "Salvare automată"
+
+#, fuzzy
+#~| msgid "KJots"
+#~ msgid "KJotsPart"
+#~ msgstr "KJots"
+
+#, fuzzy
+#~ msgid "Text Toobar"
+#~ msgstr "Carte nouă"
+
+#, fuzzy
+#~ msgid ""
+#~ "<qt>The file <strong>%1</strong> already exists. Do you wish to overwrite "
+#~ "it?</qt>"
+#~ msgstr "Fișierul <strong>%1</strong> există deja. Doriți să îl suprascriu?"
+
+#~ msgid "File Exists"
+#~ msgstr "Fișierul există"
+
+#~ msgid "Pages"
+#~ msgstr "Pagini"
+
+#~ msgid "Open URL"
+#~ msgstr "Deschide URL"
+
+#~ msgid "Saving %1"
+#~ msgstr "Salvez %1"
+
+#~ msgid "Saving the contents of %1 to %2"
+#~ msgstr "Salvez conținutul %1 din %2"
+
+#~ msgid "Print: %1"
+#~ msgstr "Tipărește: %1"
+
+#~ msgid "Untitled Book"
+#~ msgstr "Carte fără nume"

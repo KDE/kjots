@@ -1,0 +1,1143 @@
+# Translation of kjots.po to Ukrainian
+# Copyright (C) 2000-2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Andriy Rysin <rysin@kde.org>, 2000, 2002.
+# Ivan Petrouchtchak <iip@telus.net>, 2004.
+# Ivan Petrouchtchak <ivanpetrouchtchak@yahoo.com>, 2005, 2007.
+# Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>, 2008.
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2015, 2016, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: kjots\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-16 00:48+0000\n"
+"PO-Revision-Date: 2020-06-07 09:03+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.07.70\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Andriy Rysin,Іван Петрущак"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "rysin@kde.org,ivanpetrouchtchak@yahoo.com"
+
+#: src/aboutdata.cpp:16 src/kjotspart.cpp:34
+#: src/kontact_plugin/kjots_plugin.cpp:51
+#, kde-format
+msgid "KJots"
+msgstr "KJots"
+
+#: src/aboutdata.cpp:18
+#, kde-format
+msgid "KDE note taking utility"
+msgstr "Утиліта KDE для запису нотаток"
+
+#: src/aboutdata.cpp:20
+#, kde-format
+msgid "Copyright © 1997–2020 KJots authors"
+msgstr "© Автори KJots, 1997–2020"
+
+#: src/aboutdata.cpp:22
+#, kde-format
+msgid "Igor Poboiko"
+msgstr "Igor Poboiko"
+
+#: src/aboutdata.cpp:22
+#, kde-format
+msgid "Maintainer"
+msgstr "Супровідник"
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Daniel Vrátil"
+msgstr "Daniel Vrátil"
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Port to KDE Frameworks 5"
+msgstr "Портування на KDE Frameworks 5"
+
+#: src/aboutdata.cpp:24
+#, kde-format
+msgid "Stephen Kelly"
+msgstr "Stephen Kelly"
+
+#: src/aboutdata.cpp:25
+#, kde-format
+msgid "Pradeepto K. Bhattacharya"
+msgstr "Pradeepto K. Bhattacharya"
+
+#: src/aboutdata.cpp:26
+#, kde-format
+msgid "Jaison Lee"
+msgstr "Jaison Lee"
+
+#: src/aboutdata.cpp:27
+#, kde-format
+msgid "Aaron J. Seigo"
+msgstr "Aaron J. Seigo"
+
+#: src/aboutdata.cpp:28
+#, kde-format
+msgid "Stanislav Kljuhhin"
+msgstr "Stanislav Kljuhhin"
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Christoph Neerfeld"
+msgstr "Christoph Neerfeld"
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Original author"
+msgstr "Перший автор"
+
+#: src/aboutdata.cpp:30
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:19 src/confpagemisc.ui:35
+#, kde-format
+msgid ""
+"This is the number of minutes KJots will wait before automatically saving "
+"changes."
+msgstr "Це стільки хвилин KJots зачекає перш ніж автоматично зберегти зміни."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: src/confpagemisc.ui:22
+#, kde-format
+msgid "S&ave every:"
+msgstr "Зберегти ко&жні:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:38
+#, kde-format
+msgid "1 minute"
+msgstr "1 хвилина"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:41
+#, kde-format
+msgid " minutes"
+msgstr " хвилин"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:54
+#, kde-format
+msgid ""
+"When \"Save changes periodically\" is checked, KJots will automatically save "
+"changes made to books at the interval defined below."
+msgstr ""
+"Якщо позначено пункт «Періодично зберігати зміни», програма автоматично "
+"зберігатиме зміни в книгах через інтервали вказані нижче."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:57
+#, kde-format
+msgid "&Save changes periodically"
+msgstr "Періодично &зберігати зміни"
+
+#. i18n: ectx: label, entry (AutoSave), group (kjots)
+#: src/kjots.kcfg:9
+#, kde-format
+msgid "Whether books should be saved automatically."
+msgstr "Чи книги повинні бути збережені автоматично."
+
+#. i18n: ectx: label, entry (AutoSaveInterval), group (kjots)
+#: src/kjots.kcfg:13
+#, kde-format
+msgid "The interval in minutes at which books should be saved automatically."
+msgstr "Інтервал у хвилинах, через який книги мають зберігатись автоматично."
+
+#: src/kjotsbrowser.cpp:133
+#, kde-format
+msgctxt "@info:action"
+msgid "Speak Text"
+msgstr "Виголосити текст"
+
+#: src/kjotsbrowser.cpp:177
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Click to follow the hyperlink: %1"
+msgstr "Клацніть, щоб перейти за гіперпосиланням %1"
+
+#: src/kjotsbrowser.cpp:181
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Click to open note: %1"
+msgstr "Клацніть, щоб відкрити нотатку %1"
+
+#: src/kjotsbrowser.cpp:183
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Click to open book: %1"
+msgstr "Клацніть, щоб відкрити книгу %1"
+
+#: src/kjotsedit.cpp:99
+#, kde-format
+msgctxt "@action"
+msgid "Copy &Into Page Title"
+msgstr "Скопіювати &в заголовок сторінки"
+
+#: src/kjotsedit.cpp:109
+#, kde-format
+msgctxt "@action creates and manages hyperlinks"
+msgid "Link"
+msgstr "Посилання"
+
+#: src/kjotsedit.cpp:117
+#, kde-format
+msgctxt "@action"
+msgid "Auto Bullet List"
+msgstr "Автоматичний список із пунктами"
+
+#: src/kjotsedit.cpp:126
+#, kde-format
+msgctxt "@action"
+msgid "Auto Decimal List"
+msgstr "Автоматичний десятковий перелік"
+
+#: src/kjotsedit.cpp:135
+#, kde-format
+msgctxt "@action"
+msgid "Insert Date"
+msgstr "Вставити дату"
+
+#: src/kjotsedit.cpp:468
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Ctrl+click to open note: %1"
+msgstr "Ctrl+клацання, щоб відкрити нотатку %1"
+
+#: src/kjotsedit.cpp:470
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Ctrl+click to open book: %1"
+msgstr "Ctrl+клацання, щоб відкрити книгу %1"
+
+#: src/kjotsedit.cpp:473
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Ctrl+click to follow the hyperlink: %1"
+msgstr "Ctrl+клацання, щоб перейти за гіперпосиланням %1"
+
+#: src/kjotslinkdialog.cpp:32
+#, kde-format
+msgid "Enter link URL, or another note or note book..."
+msgstr "Введіть адресу посилання, іншу нотатку або нотатник…"
+
+#: src/kjotsmodel.cpp:305
+#, kde-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Назва"
+
+#: src/kjotsmodel.cpp:309
+#, kde-format
+msgctxt "@title:column title of a note"
+msgid "Title"
+msgstr "Заголовок"
+
+#: src/kjotsmodel.cpp:311
+#, kde-format
+msgctxt "@title:column creation date and time of a note"
+msgid "Created"
+msgstr "Створено"
+
+#: src/kjotsmodel.cpp:313
+#, kde-format
+msgctxt "@title:column last modification date and time of a note"
+msgid "Modified"
+msgstr "Змінено"
+
+#: src/kjotsmodel.cpp:315
+#, kde-format
+msgctxt "@title:column size of a note"
+msgid "Size"
+msgstr "Розмір"
+
+#: src/kjotspart.cpp:47
+#, kde-format
+msgid "&Configure KJots..."
+msgstr "&Налаштувати KJots…"
+
+#. i18n: ectx: Menu (format)
+#: src/kjotsui.rc:21
+#, kde-format
+msgid "F&ormat"
+msgstr "Ф&ормат"
+
+#. i18n: ectx: Menu (view)
+#: src/kjotsui.rc:45
+#, kde-format
+msgid "&View"
+msgstr "П&ерегляд"
+
+#. i18n: ectx: Menu (go)
+#: src/kjotsui.rc:51
+#, kde-format
+msgid "&Go"
+msgstr "&Перехід"
+
+#. i18n: ectx: Menu (tools)
+#: src/kjotsui.rc:60
+#, kde-format
+msgid "&Tools"
+msgstr "&Інструменти"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kjotsui.rc:110
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Головна панель інструментів"
+
+#. i18n: ectx: ToolBar (textToolBar)
+#: src/kjotsui.rc:126
+#, kde-format
+msgid "Text Toolbar"
+msgstr "Пенал тексту"
+
+#. i18n: ectx: ToolBar (formatToolBar)
+#: src/kjotsui.rc:141
+#, kde-format
+msgid "Format Toolbar"
+msgstr "Пенал форматування"
+
+#. i18n: ectx: ToolBar (toolsToolBar)
+#: src/kjotsui.rc:156
+#, kde-format
+msgid "Tools Toolbar"
+msgstr "Панель інструментів"
+
+#: src/kjotswidget.cpp:433
+#, kde-format
+msgid "&Bookmarks"
+msgstr "&Закладки"
+
+#: src/kjotswidget.cpp:451
+#, kde-format
+msgid "Export"
+msgstr "Експортувати"
+
+#: src/kjotswidget.cpp:455
+#, kde-format
+msgid "To Text File..."
+msgstr "До текстового файла..."
+
+#: src/kjotswidget.cpp:463
+#, kde-format
+msgid "To HTML File..."
+msgstr "До файла HTML..."
+
+#: src/kjotswidget.cpp:472
+#, kde-format
+msgid "Next Book"
+msgstr "Наступна книга"
+
+#: src/kjotswidget.cpp:483
+#, kde-format
+msgid "Previous Book"
+msgstr "Попередня книга"
+
+#: src/kjotswidget.cpp:496
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Two Columns"
+msgstr "У два стовпчики"
+
+#: src/kjotswidget.cpp:501
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Three Columns"
+msgstr "У три стовпчики"
+
+#: src/kjotswidget.cpp:563
+#, kde-format
+msgctxt "@title:window config dialog page"
+msgid "Misc"
+msgstr "Інше"
+
+#: src/kjotswidget.cpp:598
+#, kde-format
+msgctxt "Header for 'Table of contents' section of rendered output"
+msgid "Table of contents"
+msgstr "Зміст"
+
+#: src/kjotswidget.cpp:623
+#, kde-format
+msgid "<qt>Could not open \"%1\" for writing</qt>"
+msgstr "<qt>Не вдалося відкрити «%1» для записування</qt>"
+
+#: src/kjotswidget.cpp:719
+#, kde-format
+msgctxt "@title:window"
+msgid "Multiple selection"
+msgstr "Позначено декілька записів"
+
+#: src/kjotswidget.cpp:737
+#, kde-format
+msgid ""
+"Unable to save the note.\n"
+"You can save your note to a local file using the \"File - Export\" menu,\n"
+"otherwise you will lose your changes!\n"
+"Do you want to close anyways?"
+msgstr ""
+"Не вдалося зберегти нотатку.\n"
+"Ви можете зберегти нотатку до локального файла за допомогою пункту меню "
+"«Файл → Експортувати».\n"
+"Якщо ви цього не зробите, зміни буде втрачено!\n"
+"Хочете закрити вікно попри це?"
+
+#: src/kjotswidget.cpp:741
+#, kde-format
+msgid "Close Document"
+msgstr "Закрити документ"
+
+#: src/kjotswidget.cpp:746
+#, kde-format
+msgid ""
+"Error message:\n"
+"%1"
+msgstr ""
+"Повідомлення про помилку:\n"
+"%1"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, LinkDialog)
+#: src/linkdialog.ui:14
+#, kde-format
+msgid "Manage Link"
+msgstr "Керування посиланням"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel)
+#: src/linkdialog.ui:29
+#, kde-format
+msgid "Link &Text:"
+msgstr "&Текст посилання:"
+
+#. i18n: ectx: property (text), widget (QLabel, linkUrlLabel)
+#: src/linkdialog.ui:46
+#, kde-format
+msgid "Link URL:"
+msgstr "Адреса URL посилання:"
+
+#: src/noteshared/notecreatorandselector.cpp:86
+#, kde-format
+msgctxt "The default name for new pages."
+msgid "New Page"
+msgstr "Нова сторінка"
+
+#: src/noteshared/standardnoteactionmanager.cpp:108
+#, kde-format
+msgid "New Note Book..."
+msgstr "Створити нотатник…"
+
+#: src/noteshared/standardnoteactionmanager.cpp:113
+#, kde-format
+msgid "Add a new note book to the currently selected bookshelf."
+msgstr "Додати новий нотатник на поточну позначену книжкову полицю."
+
+#: src/noteshared/standardnoteactionmanager.cpp:116
+#, kde-format
+msgctxt "@title:window"
+msgid "New Note Book"
+msgstr "Новий нотатник"
+
+#: src/noteshared/standardnoteactionmanager.cpp:120
+#, kde-format
+msgid "Could not create note book: %1"
+msgstr "Не вдалося створити нотатник: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:124
+#, kde-format
+msgid "Note book creation failed"
+msgstr "Не вдалося створити нотатник"
+
+#: src/noteshared/standardnoteactionmanager.cpp:130
+#, kde-format
+msgid "Copy Note Book"
+msgid_plural "Copy %1 Note Books"
+msgstr[0] "Копіювати %1 нотатник"
+msgstr[1] "Копіювати %1 нотатники"
+msgstr[2] "Копіювати %1 нотатників"
+msgstr[3] "Копіювати нотатник"
+
+#: src/noteshared/standardnoteactionmanager.cpp:133
+#, kde-format
+msgid "Copy the selected note books to the clipboard."
+msgstr "Копіювати позначені нотатники до буфера обміну даними."
+
+#: src/noteshared/standardnoteactionmanager.cpp:137
+#, kde-format
+msgid "Delete Note Book"
+msgid_plural "Delete %1 Note Books"
+msgstr[0] "Вилучити %1 нотатник"
+msgstr[1] "Вилучити %1 нотатники"
+msgstr[2] "Вилучити %1 нотатників"
+msgstr[3] "Вилучити нотатник"
+
+#: src/noteshared/standardnoteactionmanager.cpp:140
+#, kde-format
+msgid "Delete the selected note books from the bookshelf."
+msgstr "Вилучити позначені нотатники з книжкової полиці."
+
+#: src/noteshared/standardnoteactionmanager.cpp:144
+#, kde-format
+msgid "Do you really want to delete this note book and all its contents?"
+msgid_plural ""
+"Do you really want to delete %1 note books and all their contents?"
+msgstr[0] "Ви справді хочете вилучити %1 нотатник і увесь їхній вміст?"
+msgstr[1] "Ви справді хочете вилучити %1 нотатники і увесь їхній вміст?"
+msgstr[2] "Ви справді хочете вилучити %1 нотатників і увесь їхній вміст?"
+msgstr[3] "Ви справді хочете вилучити нотатник і увесь його вміст?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:148
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete note book?"
+msgid_plural "Delete note books?"
+msgstr[0] "Вилучити ці нотатники?"
+msgstr[1] "Вилучити ці нотатники?"
+msgstr[2] "Вилучити ці нотатники?"
+msgstr[3] "Вилучити цей нотатник?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:152
+#, kde-format
+msgid "Could not delete note book: %1"
+msgstr "Не вдалося вилучити нотатник: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:156
+#, kde-format
+msgid "Note book deletion failed"
+msgstr "Не вдалося вилучити нотатник"
+
+#: src/noteshared/standardnoteactionmanager.cpp:160
+#, kde-format
+msgid "Update Note Book"
+msgid_plural "Update %1 Note Books"
+msgstr[0] "Оновити %1 нотатник"
+msgstr[1] "Оновити %1 нотатники"
+msgstr[2] "Оновити %1 нотатників"
+msgstr[3] "Оновити нотатник"
+
+#: src/noteshared/standardnoteactionmanager.cpp:163
+#, kde-format
+msgid "Update the content of the selected note books."
+msgstr "Оновити вміст позначених нотатників."
+
+#: src/noteshared/standardnoteactionmanager.cpp:167
+#, kde-format
+msgid "Cut Note Book"
+msgid_plural "Cut %1 Note Books"
+msgstr[0] "Вирізати %1 нотатник"
+msgstr[1] "Вирізати %1 нотатники"
+msgstr[2] "Вирізати %1 нотатників"
+msgstr[3] "Вирізати нотатник"
+
+#: src/noteshared/standardnoteactionmanager.cpp:170
+#, kde-format
+msgid "Cut the selected note books from the bookshelf."
+msgstr "Вирізати позначені нотатники з книжкової полиці."
+
+#: src/noteshared/standardnoteactionmanager.cpp:174
+#, kde-format
+msgid "Note Book Properties..."
+msgstr "Властивості нотатника…"
+
+#: src/noteshared/standardnoteactionmanager.cpp:176
+#, kde-format
+msgid "Open a dialog to edit the properties of the selected note book."
+msgstr "Відкрити діалогове вікно для зміни властивостей позначеного нотатника."
+
+#: src/noteshared/standardnoteactionmanager.cpp:179
+#, kde-format
+msgctxt "@title:window"
+msgid "Properties of Note Book %1"
+msgstr "Властивості нотатника %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:184
+#, kde-format
+msgid "Copy Note"
+msgid_plural "Copy %1 Notes"
+msgstr[0] "Копіювати %1 нотатку"
+msgstr[1] "Копіювати %1 нотатки"
+msgstr[2] "Копіювати %1 нотаток"
+msgstr[3] "Копіювати нотатку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:186
+#, kde-format
+msgid "Copy the selected notes to the clipboard."
+msgstr "Копіювати позначені нотатки до буфера обміну даними."
+
+#: src/noteshared/standardnoteactionmanager.cpp:190
+#, kde-format
+msgid "Delete Note"
+msgid_plural "Delete %1 Notes"
+msgstr[0] "Вилучити %1 нотатку"
+msgstr[1] "Вилучити %1 нотатки"
+msgstr[2] "Вилучити %1 нотаток"
+msgstr[3] "Вилучити нотатку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:192
+#, kde-format
+msgid "Delete the selected notes from the note book."
+msgstr "Вилучити позначені нотатки з нотатника."
+
+#: src/noteshared/standardnoteactionmanager.cpp:195
+#, kde-format
+msgid "Do you really want to delete the selected note?"
+msgid_plural "Do you really want to delete %1 notes?"
+msgstr[0] "Ви справді бажаєте вилучити %1 нотатку?"
+msgstr[1] "Ви справді бажаєте вилучити %1 нотатки?"
+msgstr[2] "Ви справді бажаєте вилучити %1 нотаток?"
+msgstr[3] "Ви справді бажаєте вилучити позначену нотатку?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:200
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete Note?"
+msgid_plural "Delete Notes?"
+msgstr[0] "Вилучити нотатки?"
+msgstr[1] "Вилучити нотатки?"
+msgstr[2] "Вилучити нотатки?"
+msgstr[3] "Вилучити нотатку?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:204
+#, kde-format
+msgid "Could not delete note: %1"
+msgstr "Не вдалося вилучити нотатку: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:208
+#, kde-format
+msgid "Note deletion failed"
+msgstr "Не вдалося вилучити нотатку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:212
+#, kde-format
+msgid "Cut Note"
+msgid_plural "Cut %1 Notes"
+msgstr[0] "Вирізати %1 нотатку"
+msgstr[1] "Вирізати %1 нотатки"
+msgstr[2] "Вирізати %1 нотаток"
+msgstr[3] "Вирізати нотатку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:214
+#, kde-format
+msgid "Cut the selected notes from the note book."
+msgstr "Вирізати позначені нотатки з нотатника."
+
+#: src/noteshared/standardnoteactionmanager.cpp:218
+#, kde-format
+msgid "Add &Bookshelf..."
+msgstr "Додати &книжкову полицю…"
+
+#: src/noteshared/standardnoteactionmanager.cpp:220
+#, kde-format
+msgid ""
+"Add a new bookshelf<p>You will be presented with a dialog where you can "
+"select the type of the bookshelf that shall be added.</p>"
+msgstr ""
+"Додати нову книжкову полицю<p>Програма відкриє діалогове вікно, за допомогою "
+"якого ви зможете визначити тип нової книжкової полиці.</p>"
+
+#: src/noteshared/standardnoteactionmanager.cpp:225
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Bookshelf"
+msgstr "Додавання книжкової полиці"
+
+#: src/noteshared/standardnoteactionmanager.cpp:229
+#, kde-format
+msgid "Could not create bookshelf: %1"
+msgstr "Не вдалося створити книжкову полицю: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:233
+#, kde-format
+msgid "Bookshelf creation failed"
+msgstr "Не вдалося створити книжкову полицю"
+
+#: src/noteshared/standardnoteactionmanager.cpp:238
+#, kde-format
+msgid "&Delete Bookshelf"
+msgid_plural "&Delete %1 Bookshelfs"
+msgstr[0] "Ви&лучити %1 книжкову полицю"
+msgstr[1] "Ви&лучити %1 книжкові полиці"
+msgstr[2] "Ви&лучити %1 книжкових полиць"
+msgstr[3] "Ви&лучити книжкову полицю"
+
+#: src/noteshared/standardnoteactionmanager.cpp:241
+#, kde-format
+msgid ""
+"Delete the selected bookshelfs<p>The currently selected bookshelfs will be "
+"deleted, along with all the notes they contain.</p>"
+msgstr ""
+"Вилучити позначені книжкові полиці<p>Буде вилучено поточні позначені "
+"книжкові полиці та усі нотатки, що на них містяться.</p>"
+
+#: src/noteshared/standardnoteactionmanager.cpp:246
+#, kde-format
+msgid "Do you really want to delete this bookshelf?"
+msgid_plural "Do you really want to delete %1 bookshelfs?"
+msgstr[0] "Ви справді хочете вилучити %1 книжкову полицю?"
+msgstr[1] "Ви справді хочете вилучити %1 книжкові полиці?"
+msgstr[2] "Ви справді хочете вилучити %1 книжкових полиць?"
+msgstr[3] "Ви справді хочете вилучити цю книжкову полицю?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:251
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete Bookshelf?"
+msgid_plural "Delete Bookshelfs?"
+msgstr[0] "Вилучити полиці?"
+msgstr[1] "Вилучити полиці?"
+msgstr[2] "Вилучити полиці?"
+msgstr[3] "Вилучити полицю?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:257
+#, kde-format
+msgid "Bookshelf Properties..."
+msgstr "Властивості книжкової полиці…"
+
+#: src/noteshared/standardnoteactionmanager.cpp:259
+#, kde-format
+msgid "Open a dialog to edit properties of the selected bookshelf."
+msgstr ""
+"Відкрити діалогове вікно для зміни властивостей позначеної книжкової полиці."
+
+#: src/noteshared/standardnoteactionmanager.cpp:263
+#, kde-format
+msgid "Update Bookshelf"
+msgid_plural "Update %1 Bookshelfs"
+msgstr[0] "Оновити %1 полицю"
+msgstr[1] "Оновити %1 полиці"
+msgstr[2] "Оновити %1 полиць"
+msgstr[3] "Оновити полицю"
+
+#: src/noteshared/standardnoteactionmanager.cpp:267
+#, kde-format
+msgid "Updates the content of all note books of the selected bookshelfs."
+msgstr "Оновлює вміст усіх нотатників на позначених полицях."
+
+#: src/noteshared/standardnoteactionmanager.cpp:273
+#, kde-format
+msgid "Could not paste note: %1"
+msgstr "Не вдалося вставити нотатку: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:277
+#, kde-format
+msgid "Paste failed"
+msgstr "Спроба вставлення зазнала невдачі"
+
+#: src/noteshared/standardnoteactionmanager.cpp:297
+#, kde-format
+msgctxt "@action"
+msgid "Lock Note"
+msgid_plural "Lock Notes"
+msgstr[0] "Заблокувати нотатки"
+msgstr[1] "Заблокувати нотатки"
+msgstr[2] "Заблокувати нотатки"
+msgstr[3] "Заблокувати нотатку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:299
+#, kde-format
+msgid "Lock selected notes"
+msgstr "Заблокувати позначені нотатки"
+
+#: src/noteshared/standardnoteactionmanager.cpp:302
+#, kde-format
+msgctxt "@action"
+msgid "Unlock Note"
+msgid_plural "Unlock Notes"
+msgstr[0] "Розблокувати нотатки"
+msgstr[1] "Розблокувати нотатки"
+msgstr[2] "Розблокувати нотатки"
+msgstr[3] "Розблокувати нотатку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:304
+#, kde-format
+msgid "Unlock selected notes"
+msgstr "Розблокувати позначені нотатки"
+
+#: src/noteshared/standardnoteactionmanager.cpp:317
+#, kde-format
+msgctxt "@action"
+msgid "Pin Note"
+msgid_plural "Pin Notes"
+msgstr[0] "Пришпилити нотатки"
+msgstr[1] "Пришпилити нотатки"
+msgstr[2] "Пришпилити нотатки"
+msgstr[3] "Пришпилити нотатку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:319
+#, kde-format
+msgid "Pin selected notes"
+msgstr "Пришпилити позначені нотатки"
+
+#: src/noteshared/standardnoteactionmanager.cpp:322
+#, kde-format
+msgctxt "@action"
+msgid "Unpin Note"
+msgid_plural "Unpin Notes"
+msgstr[0] "Відшпилити нотатки"
+msgstr[1] "Відшпилити нотатки"
+msgstr[2] "Відшпилити нотатки"
+msgstr[3] "Відшпилити нотатку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:324
+#, kde-format
+msgid "Unpin selected notes"
+msgstr "Відшпилити позначені нотатки"
+
+#: src/noteshared/standardnoteactionmanager.cpp:365
+#, kde-format
+msgctxt "@action"
+msgid "Lock Note Book"
+msgid_plural "Lock Note Books"
+msgstr[0] "Заблокувати нотатники"
+msgstr[1] "Заблокувати нотатники"
+msgstr[2] "Заблокувати нотатники"
+msgstr[3] "Заблокувати нотатник"
+
+#: src/noteshared/standardnoteactionmanager.cpp:367
+#, kde-format
+msgid "Lock selected note books"
+msgstr "Заблокувати позначені нотатники"
+
+#: src/noteshared/standardnoteactionmanager.cpp:370
+#, kde-format
+msgctxt "@action"
+msgid "Unlock Note Book"
+msgid_plural "Unlock Note Books"
+msgstr[0] "Розблокувати нотатники"
+msgstr[1] "Розблокувати нотатники"
+msgstr[2] "Розблокувати нотатники"
+msgstr[3] "Розблокувати нотатник"
+
+#: src/noteshared/standardnoteactionmanager.cpp:372
+#, kde-format
+msgid "Unlock selected note books"
+msgstr "Розблокувати позначені нотатники"
+
+#: src/noteshared/standardnoteactionmanager.cpp:605
+#, kde-format
+msgid "&New Note"
+msgstr "С&творити нотатку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:606
+#, kde-format
+msgid "Add a new note to a selected note book"
+msgstr "Додати нову нотатку до позначеного нотатника"
+
+#: src/noteshared/standardnoteactionmanager.cpp:635
+#, kde-format
+msgid "Change Note Color..."
+msgstr "Змінити колір нотатки…"
+
+#: src/noteshared/standardnoteactionmanager.cpp:636
+#, kde-format
+msgid "Changes the color of a selected notes"
+msgstr "Змінити колір позначених нотаток"
+
+#: src/noteshared/standardnoteactionmanager.cpp:644
+#, kde-format
+msgid "Change Note Book Color..."
+msgstr "Змінити колір нотатника…"
+
+#: src/noteshared/standardnoteactionmanager.cpp:645
+#, kde-format
+msgid "Changes the color of a selected note books"
+msgstr "Змінює колір позначених нотатників"
+
+#~ msgid "How the main window is divided."
+#~ msgstr "Як головне вікно є поділене."
+
+#~ msgid "Sort children alphabetically"
+#~ msgstr "Впорядкувати дочірні за абеткою"
+
+#~ msgid "Sort children by creation date"
+#~ msgstr "Впорядкувати дочірні за часом створення"
+
+#~ msgid "&Settings"
+#~ msgstr "П&араметри"
+
+#~ msgid "Replace"
+#~ msgstr "Замінити"
+
+#~ msgid "&All"
+#~ msgstr "&Всі"
+
+#~ msgid "&Skip"
+#~ msgstr "Проп&устити"
+
+#~ msgid "Replace '%1' with '%2'?"
+#~ msgstr "Замінити \"%1\" на \"%2\"?"
+
+#~ msgid "Insert Image"
+#~ msgstr "Вставити зображення"
+
+#~ msgid "Insert Checkmark"
+#~ msgstr "Вставити позначку"
+
+#~ msgctxt ""
+#~ "@action Paste the text in the clipboard without rich text formatting."
+#~ msgid "Paste Plain Text"
+#~ msgstr "Вставити як звичайний текст"
+
+#~ msgid "Search all pages"
+#~ msgstr "Пошук у всіх сторінках"
+
+#~ msgid "<qt>No matches found.</qt>"
+#~ msgstr "<qt>Не знайдено збігів.</qt>"
+
+#~ msgid "<qt>Replaced 1 occurrence.</qt>"
+#~ msgid_plural "<qt>Replaced %1 occurrences.</qt>"
+#~ msgstr[0] "<qt>Замінено %1 збіг.</qt>"
+#~ msgstr[1] "<qt>Замінено %1 збіги.</qt>"
+#~ msgstr[2] "<qt>Замінено %1 збігів.</qt>"
+#~ msgstr[3] "<qt>Замінено %1 збіг.</qt>"
+
+#~ msgid "<qt>Replaced %2 of 1 occurrence.</qt>"
+#~ msgid_plural "<qt>Replaced %2 of %1 occurrences.</qt>"
+#~ msgstr[0] "<qt>Замінено %2 з %1 збігу.</qt>"
+#~ msgstr[1] "<qt>Замінено %2 з %1 збігів.</qt>"
+#~ msgstr[2] "<qt>Замінено %2 з %1 збігів.</qt>"
+#~ msgstr[3] "<qt>Замінено %2 з %1 збігу.</qt>"
+
+#~ msgid ""
+#~ "<qt>End of search area reached. Do you want to wrap around and continue?</"
+#~ "qt>"
+#~ msgstr "<qt>Кінець ділянки пошуку. Хочете продовжити спочатку?</qt>"
+
+#~ msgctxt "The default name for new books."
+#~ msgid "New Book"
+#~ msgstr "Нова книга"
+
+#~ msgid "Path to maildir"
+#~ msgstr "Шлях до каталогу з поштою"
+
+#~ msgid ""
+#~ "Path points to a folder containing Maildirs instead of to a maildir "
+#~ "itself."
+#~ msgstr ""
+#~ "Вказано шлях до теки, що містить декілька Maildir, а не сам maildir."
+
+#~ msgid "Do not change the actual backend data."
+#~ msgstr "Не змінювати справжні дані сервера."
+
+#~ msgid "Select image file"
+#~ msgstr "Вибір файл зображення"
+
+#~ msgid "The book or page that is currently active."
+#~ msgstr "Книга або сторінка, що в даний час активна."
+
+#~ msgid "The font used to display the contents of books."
+#~ msgstr "Шрифт, який використовується для показу вмісту книг."
+
+#~ msgid "Whether UTF-8 encoding should be forced for saving and loading."
+#~ msgstr "Чи примушувати кодування UTF-8 для збереження і завантаження."
+
+#~ msgid "The last ID that was used for a book or page."
+#~ msgstr "Останній ІД, який було використано для книги або сторінки."
+
+#~ msgid "The IDs of the books in the bookshelf."
+#~ msgstr "Ідентифікатори книжок в книжковій полиці."
+
+#~ msgid "Ask for a name when creating a new page?"
+#~ msgstr "Запитувати про назву при створенні нової сторінки?"
+
+#~ msgid "To Book File..."
+#~ msgstr "До файла книги..."
+
+#~ msgid "Settings"
+#~ msgstr "Параметри"
+
+#~ msgid "Change Theme"
+#~ msgstr "Зміна теми"
+
+#~ msgid "<qt>Error opening internal file.</qt>"
+#~ msgstr "<qt>Помилка відкривання внутрішнього файла.</qt>"
+
+#~ msgid "&Delete Page"
+#~ msgstr "&Вилучити сторінку"
+
+#~ msgid "Delete Selected"
+#~ msgstr "Вилучити вибрані"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Скопіювати адресу посилання"
+
+#~ msgid ""
+#~ "This page is locked. You can only delete it when you first unlock it."
+#~ msgstr ""
+#~ "Цю сторінку заблоковано. Щоб її вилучити, вам слід спочатку розблокувати "
+#~ "сторінку."
+
+#~ msgid "Item is locked"
+#~ msgstr "Запис заблоковано"
+
+#~ msgctxt "remove the page, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the page <strong>%1</strong>?</qt>"
+#~ msgstr ""
+#~ "<qt>Ви впевнені, що хочете вилучити сторінку <strong>%1</strong>?</qt>"
+
+#~ msgid ""
+#~ "This book is locked. You can only delete it when you first unlock it."
+#~ msgstr ""
+#~ "Цю книгу заблоковано. Щоб її вилучити, вам слід спочатку розблокувати "
+#~ "книгу."
+
+#~ msgctxt "remove the book, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the book <strong>%1</strong>?</qt>"
+#~ msgstr "<qt>Ви впевнені, що хочете вилучити книгу <strong>%1</strong>?</qt>"
+
+#~ msgid "Rename..."
+#~ msgstr "Перейменувати..."
+
+#~ msgctxt ""
+#~ "@info:status Link information; %1 is displayed text, %2 is link "
+#~ "destination"
+#~ msgid "%1 -> %2"
+#~ msgstr "%1 → %2"
+
+#~ msgid "Rename Page"
+#~ msgstr "Перейменувати сторінку"
+
+#~ msgid "Page title:"
+#~ msgstr "Титул сторінки:"
+
+#~ msgid "Rename Book"
+#~ msgstr "Перейменувати книгу"
+
+#~ msgid "Book name:"
+#~ msgstr "Назва книги:"
+
+#~ msgid "Next Page"
+#~ msgstr "Наступна сторінка"
+
+#~ msgid "Previous Page"
+#~ msgstr "Попередня сторінка"
+
+#~ msgid "Manual Save"
+#~ msgstr "Зберегти вручну"
+
+#~ msgid "Send To Printer"
+#~ msgstr "Надіслати до принтера"
+
+#~ msgctxt "Name for the top level book created to hold the imported data."
+#~ msgid "KNowIt Import"
+#~ msgstr "Імпортовано з KNowIt"
+
+#~ msgid "Miscellaneous"
+#~ msgstr "Різне"
+
+#~ msgid ""
+#~ "All pages must be inside a book. Would you like to create a new book to "
+#~ "put the page in, or would you prefer to not move the page at all?"
+#~ msgstr ""
+#~ "Всі сторінки мусять бути всередині книги. Ви би хотіли створити нову "
+#~ "книгу для цієї сторінки, чи краще, взагалі, її не пересувати?"
+
+#~ msgid "Do Not Move Page"
+#~ msgstr "Не пересувати сторінку"
+
+#~ msgid "Import..."
+#~ msgstr "Імпортувати..."
+
+#~ msgid "<qt>Are you sure you want to delete these entries?</qt>"
+#~ msgstr "<qt>Ви впевнені, що хочете вилучити ці записи?</qt>"
+
+#~ msgid "Multiple Selections"
+#~ msgstr "Вибір з варіантів"
+
+#~ msgid "KJots Books"
+#~ msgstr "Книги KJots"
+
+#~ msgid "HTML Files"
+#~ msgstr "Файли HTML"
+
+#~ msgid "<qt>Error opening temporary file.</qt>"
+#~ msgstr "<qt>Помилка відкривання тимчасового файла.</qt>"
+
+#~ msgid "KnowIt files"
+#~ msgstr "Файли KnowIt"
+
+#~ msgid ""
+#~ "A duplicate ID was found in the book %1. This can happen if you "
+#~ "manipulate the data files by hand, and will prevent KJots from working "
+#~ "correctly. KJots can attempt to fix this, or you can fix it yourself. In "
+#~ "either case, bookmarks and links between pages may be broken."
+#~ msgstr ""
+#~ "В книзі %1 було знайдено ІД -дублікати. Це може статись, якщо ви вручну "
+#~ "маніпулювали файли з даними, і буде спричиняти проблеми для KJots. KJots "
+#~ "може спробувати виправити це або ви можете виправити самі. Але, "
+#~ "незважаючи на це, закладки і посилання між сторінками, ймовірно, "
+#~ "пошкоджені."
+
+#~ msgid "A duplicate ID was found"
+#~ msgstr "Знайдено дублікат ідентифікатора"
+
+#~ msgid "Exit and fix by hand"
+#~ msgstr "Вийти і виправити вручну"
+
+#~ msgid "Fix it automatically"
+#~ msgstr "Виправити автоматично"
+
+#~ msgid ""
+#~ "<qt>KJots is having problems saving your data. This might be a "
+#~ "permissions problem, or you may be out of disk space.</qt>"
+#~ msgstr ""
+#~ "<qt>KJots зіткнулася з проблемою при збереженні даних. Це може бути "
+#~ "проблема з доступом або не диску нема місця.</qt>"
+
+#~ msgid "Table of Contents"
+#~ msgstr "Зміст"
+
+#~ msgid "Page %1"
+#~ msgstr "Сторінка %1"
+
+#~ msgid "New Page"
+#~ msgstr "Нова сторінка"
+
+#~ msgid "Page name:"
+#~ msgstr "Назва сторінки:"
+
+#, fuzzy
+#~| msgid "Ask for new &Page names."
+#~ msgid "Ask for new &page names"
+#~ msgstr "Запитувати про назви нових &сторінок."
+
+#~ msgid ""
+#~ "Determines if new pages are given an automatic name, or a prompt is "
+#~ "displayed."
+#~ msgstr ""
+#~ "Визначає чи автоматично визначати назву нових сторінок, чи запитувати."
+
+#~ msgid "(c) 1997-2008, KJots developers"
+#~ msgstr "© 1997-2008, Розробники KJots"
+
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the <strong>%1</strong> page?</qt>"
+#~ msgstr ""
+#~ "<qt>Ви впевнені, що хочете витерти цю <strong>%1</strong> сторінку?</qt>"
+
+#~ msgid "Autosave"
+#~ msgstr "Автозбереження"

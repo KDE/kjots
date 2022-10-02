@@ -1,0 +1,1012 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2015, 2016, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-16 00:48+0000\n"
+"PO-Revision-Date: 2021-04-10 08:02+0200\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
+"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 20.12.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Łukasz Wojniłowicz"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lukasz.wojnilowicz@gmail.com"
+
+#: src/aboutdata.cpp:16 src/kjotspart.cpp:34
+#: src/kontact_plugin/kjots_plugin.cpp:51
+#, kde-format
+msgid "KJots"
+msgstr "KJots"
+
+#: src/aboutdata.cpp:18
+#, kde-format
+msgid "KDE note taking utility"
+msgstr "Program do zapisków w KDE"
+
+#: src/aboutdata.cpp:20
+#, kde-format
+msgid "Copyright © 1997–2020 KJots authors"
+msgstr "Copyright © 1997–2020 autorzy KJots"
+
+#: src/aboutdata.cpp:22
+#, kde-format
+msgid "Igor Poboiko"
+msgstr "Igor Poboiko"
+
+#: src/aboutdata.cpp:22
+#, kde-format
+msgid "Maintainer"
+msgstr "Opiekun"
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Daniel Vrátil"
+msgstr "Daniel Vrátil"
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Port to KDE Frameworks 5"
+msgstr "Przystosowanie do Szkieletów KDE 5"
+
+#: src/aboutdata.cpp:24
+#, kde-format
+msgid "Stephen Kelly"
+msgstr "Stephen Kelly"
+
+#: src/aboutdata.cpp:25
+#, kde-format
+msgid "Pradeepto K. Bhattacharya"
+msgstr "Pradeepto K. Bhattacharya"
+
+#: src/aboutdata.cpp:26
+#, kde-format
+msgid "Jaison Lee"
+msgstr "Jaison Lee"
+
+#: src/aboutdata.cpp:27
+#, kde-format
+msgid "Aaron J. Seigo"
+msgstr "Aaron J. Seigo"
+
+#: src/aboutdata.cpp:28
+#, kde-format
+msgid "Stanislav Kljuhhin"
+msgstr "Stanislav Kljuhhin"
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Christoph Neerfeld"
+msgstr "Christoph Neerfeld"
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Original author"
+msgstr "Autor pierwszej wersji"
+
+#: src/aboutdata.cpp:30
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:19 src/confpagemisc.ui:35
+#, kde-format
+msgid ""
+"This is the number of minutes KJots will wait before automatically saving "
+"changes."
+msgstr "Liczba minut, które KJots czeka zanim sam zapisze zmiany."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: src/confpagemisc.ui:22
+#, kde-format
+msgid "S&ave every:"
+msgstr "Z&apisuj co:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:38
+#, kde-format
+msgid "1 minute"
+msgstr "1 minuta"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:41
+#, kde-format
+msgid " minutes"
+msgstr " minuty"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:54
+#, kde-format
+msgid ""
+"When \"Save changes periodically\" is checked, KJots will automatically save "
+"changes made to books at the interval defined below."
+msgstr ""
+"Gdy zaznaczono \"Zapisuj zmiany okresowo\", KJots będzie samodzielnie "
+"zapisywał zmiany dokonywane w zeszytach w danych odstępach czasu."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:57
+#, kde-format
+msgid "&Save changes periodically"
+msgstr "Zapi&suj zmiany okresowo"
+
+#. i18n: ectx: label, entry (AutoSave), group (kjots)
+#: src/kjots.kcfg:9
+#, kde-format
+msgid "Whether books should be saved automatically."
+msgstr "Określa czy zeszyty powinny same się zapisywać."
+
+#. i18n: ectx: label, entry (AutoSaveInterval), group (kjots)
+#: src/kjots.kcfg:13
+#, kde-format
+msgid "The interval in minutes at which books should be saved automatically."
+msgstr "Okres w minutach samo-zapisu zeszytów."
+
+#: src/kjotsbrowser.cpp:133
+#, kde-format
+msgctxt "@info:action"
+msgid "Speak Text"
+msgstr "Wypowiedz tekst"
+
+#: src/kjotsbrowser.cpp:177
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Click to follow the hyperlink: %1"
+msgstr "Kliknij, aby dać się przekierować odnośnikowi: %1"
+
+#: src/kjotsbrowser.cpp:181
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Click to open note: %1"
+msgstr "Kliknij, aby otworzyć zapisek: %1"
+
+#: src/kjotsbrowser.cpp:183
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Click to open book: %1"
+msgstr "Kliknij, aby otworzyć zeszyt: %1"
+
+#: src/kjotsedit.cpp:99
+#, kde-format
+msgctxt "@action"
+msgid "Copy &Into Page Title"
+msgstr "Skop&iuj do tytułu strony"
+
+#: src/kjotsedit.cpp:109
+#, kde-format
+msgctxt "@action creates and manages hyperlinks"
+msgid "Link"
+msgstr "Odnośnik"
+
+#: src/kjotsedit.cpp:117
+#, kde-format
+msgctxt "@action"
+msgid "Auto Bullet List"
+msgstr "Lista wypunktowań"
+
+#: src/kjotsedit.cpp:126
+#, kde-format
+msgctxt "@action"
+msgid "Auto Decimal List"
+msgstr "Lista liczb dziesiętnych"
+
+#: src/kjotsedit.cpp:135
+#, kde-format
+msgctxt "@action"
+msgid "Insert Date"
+msgstr "Wstaw datę"
+
+#: src/kjotsedit.cpp:468
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Ctrl+click to open note: %1"
+msgstr "Ctrl+kliknięcie, aby otworzyć zapisek: %1"
+
+#: src/kjotsedit.cpp:470
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Ctrl+click to open book: %1"
+msgstr "Ctrl+kliknięcie, aby otworzyć zeszyt: %1"
+
+#: src/kjotsedit.cpp:473
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Ctrl+click to follow the hyperlink: %1"
+msgstr "Ctrl+kliknięcie, aby dać się przekierować odnośnikowi: %1"
+
+#: src/kjotslinkdialog.cpp:32
+#, kde-format
+msgid "Enter link URL, or another note or note book..."
+msgstr "Wpisz adres URL odnośnika lub inny zapisek lub zeszyt zapisków..."
+
+#: src/kjotsmodel.cpp:305
+#, kde-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Nazwa"
+
+#: src/kjotsmodel.cpp:309
+#, kde-format
+msgctxt "@title:column title of a note"
+msgid "Title"
+msgstr "Tytuł"
+
+#: src/kjotsmodel.cpp:311
+#, kde-format
+msgctxt "@title:column creation date and time of a note"
+msgid "Created"
+msgstr "Utworzona"
+
+#: src/kjotsmodel.cpp:313
+#, kde-format
+msgctxt "@title:column last modification date and time of a note"
+msgid "Modified"
+msgstr "Zmieniona"
+
+#: src/kjotsmodel.cpp:315
+#, kde-format
+msgctxt "@title:column size of a note"
+msgid "Size"
+msgstr "Rozmiar"
+
+#: src/kjotspart.cpp:47
+#, kde-format
+msgid "&Configure KJots..."
+msgstr "&Ustawienia Kjots..."
+
+#. i18n: ectx: Menu (format)
+#: src/kjotsui.rc:21
+#, kde-format
+msgid "F&ormat"
+msgstr "F&ormat"
+
+#. i18n: ectx: Menu (view)
+#: src/kjotsui.rc:45
+#, kde-format
+msgid "&View"
+msgstr "&Widok"
+
+#. i18n: ectx: Menu (go)
+#: src/kjotsui.rc:51
+#, kde-format
+msgid "&Go"
+msgstr "&Przejdź"
+
+#. i18n: ectx: Menu (tools)
+#: src/kjotsui.rc:60
+#, kde-format
+msgid "&Tools"
+msgstr "&Narzędzia"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kjotsui.rc:110
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Główny pasek narzędzi"
+
+#. i18n: ectx: ToolBar (textToolBar)
+#: src/kjotsui.rc:126
+#, kde-format
+msgid "Text Toolbar"
+msgstr "Pasek narzędzi tekstowych"
+
+#. i18n: ectx: ToolBar (formatToolBar)
+#: src/kjotsui.rc:141
+#, kde-format
+msgid "Format Toolbar"
+msgstr "Pasek narzędzi formatowania"
+
+#. i18n: ectx: ToolBar (toolsToolBar)
+#: src/kjotsui.rc:156
+#, kde-format
+msgid "Tools Toolbar"
+msgstr "Pasek narzędzi"
+
+#: src/kjotswidget.cpp:433
+#, kde-format
+msgid "&Bookmarks"
+msgstr "&Zakładki"
+
+#: src/kjotswidget.cpp:451
+#, kde-format
+msgid "Export"
+msgstr "Wyeksportuj"
+
+#: src/kjotswidget.cpp:455
+#, kde-format
+msgid "To Text File..."
+msgstr "Do pliku tekstowego..."
+
+#: src/kjotswidget.cpp:463
+#, kde-format
+msgid "To HTML File..."
+msgstr "Do pliku HTML..."
+
+#: src/kjotswidget.cpp:472
+#, kde-format
+msgid "Next Book"
+msgstr "Następny zeszyt"
+
+#: src/kjotswidget.cpp:483
+#, kde-format
+msgid "Previous Book"
+msgstr "Poprzedni zeszyt"
+
+#: src/kjotswidget.cpp:496
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Two Columns"
+msgstr "Dwie kolumny"
+
+#: src/kjotswidget.cpp:501
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Three Columns"
+msgstr "Trzy kolumny"
+
+#: src/kjotswidget.cpp:563
+#, kde-format
+msgctxt "@title:window config dialog page"
+msgid "Misc"
+msgstr "Różne"
+
+#: src/kjotswidget.cpp:598
+#, kde-format
+msgctxt "Header for 'Table of contents' section of rendered output"
+msgid "Table of contents"
+msgstr "Spis treści"
+
+#: src/kjotswidget.cpp:623
+#, kde-format
+msgid "<qt>Could not open \"%1\" for writing</qt>"
+msgstr "<qt>Nie można otworzyć \"%1\" do zapisu</qt>"
+
+#: src/kjotswidget.cpp:719
+#, kde-format
+msgctxt "@title:window"
+msgid "Multiple selection"
+msgstr "Wielokrotne zaznaczanie"
+
+#: src/kjotswidget.cpp:737
+#, kde-format
+msgid ""
+"Unable to save the note.\n"
+"You can save your note to a local file using the \"File - Export\" menu,\n"
+"otherwise you will lose your changes!\n"
+"Do you want to close anyways?"
+msgstr ""
+"Nie można zapisać zapiski.\n"
+"Możesz zapisać swój zapisek do pliku lokalnego poprzez menu \"Plik - "
+"Wyeksportuj\",\n"
+"w przeciwnym przypadku utracisz swoje zmiany!\n"
+"Czy chcesz zamknąć mimo to?"
+
+#: src/kjotswidget.cpp:741
+#, kde-format
+msgid "Close Document"
+msgstr "Zamknij dokument"
+
+#: src/kjotswidget.cpp:746
+#, kde-format
+msgid ""
+"Error message:\n"
+"%1"
+msgstr ""
+"Opis błędu:\n"
+"%1"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, LinkDialog)
+#: src/linkdialog.ui:14
+#, kde-format
+msgid "Manage Link"
+msgstr "Zarządzaj odsyłaczami"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel)
+#: src/linkdialog.ui:29
+#, kde-format
+msgid "Link &Text:"
+msgstr "&Tekst odnośnika:"
+
+#. i18n: ectx: property (text), widget (QLabel, linkUrlLabel)
+#: src/linkdialog.ui:46
+#, kde-format
+msgid "Link URL:"
+msgstr "Adres URL odsyłacza:"
+
+#: src/noteshared/notecreatorandselector.cpp:86
+#, kde-format
+msgctxt "The default name for new pages."
+msgid "New Page"
+msgstr "Nowa strona"
+
+#: src/noteshared/standardnoteactionmanager.cpp:108
+#, kde-format
+msgid "New Note Book..."
+msgstr "Nowy zeszyt na zapiski..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:113
+#, kde-format
+msgid "Add a new note book to the currently selected bookshelf."
+msgstr "Dodaj nowy zeszyt zapisków do obecnie wybranej półki zeszytów."
+
+#: src/noteshared/standardnoteactionmanager.cpp:116
+#, kde-format
+msgctxt "@title:window"
+msgid "New Note Book"
+msgstr "Nowy zeszyt na zapiski"
+
+#: src/noteshared/standardnoteactionmanager.cpp:120
+#, kde-format
+msgid "Could not create note book: %1"
+msgstr "Nie można utworzyć zeszytu zapisków: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:124
+#, kde-format
+msgid "Note book creation failed"
+msgstr "Nie udało się utworzyć zeszytu na zapiski"
+
+#: src/noteshared/standardnoteactionmanager.cpp:130
+#, kde-format
+msgid "Copy Note Book"
+msgid_plural "Copy %1 Note Books"
+msgstr[0] "Skopiuj zeszyt"
+msgstr[1] "Skopiuj %1 zeszyty"
+msgstr[2] "Skopiuj %1 zeszytów"
+
+#: src/noteshared/standardnoteactionmanager.cpp:133
+#, kde-format
+msgid "Copy the selected note books to the clipboard."
+msgstr "Skopiuj zaznaczone zeszyty zapisków do schowka."
+
+#: src/noteshared/standardnoteactionmanager.cpp:137
+#, kde-format
+msgid "Delete Note Book"
+msgid_plural "Delete %1 Note Books"
+msgstr[0] "Usuń zeszyt"
+msgstr[1] "Usuń %1 zeszyty"
+msgstr[2] "Usuń %1 zeszytów"
+
+#: src/noteshared/standardnoteactionmanager.cpp:140
+#, kde-format
+msgid "Delete the selected note books from the bookshelf."
+msgstr "Usuń zaznaczone zeszyty z półki zeszytów."
+
+#: src/noteshared/standardnoteactionmanager.cpp:144
+#, kde-format
+msgid "Do you really want to delete this note book and all its contents?"
+msgid_plural ""
+"Do you really want to delete %1 note books and all their contents?"
+msgstr[0] "Czy na pewno usunąć ten zeszyt i jego całą zawartość?"
+msgstr[1] "Czy na pewno usunąć te %1 zeszyty i ich całą zawartość?"
+msgstr[2] "Czy na pewno usunąć te %1 zeszytów i ich całą zawartość?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:148
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete note book?"
+msgid_plural "Delete note books?"
+msgstr[0] "Czy usunąć zeszyt?"
+msgstr[1] "Czy usunąć zeszyty?"
+msgstr[2] "Czy usunąć zeszyty?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:152
+#, kde-format
+msgid "Could not delete note book: %1"
+msgstr "Nie można usunąć zeszytu zapisków: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:156
+#, kde-format
+msgid "Note book deletion failed"
+msgstr "Nie udało się usunięcie zeszytu zapisków"
+
+#: src/noteshared/standardnoteactionmanager.cpp:160
+#, kde-format
+msgid "Update Note Book"
+msgid_plural "Update %1 Note Books"
+msgstr[0] "Uaktualnij zeszyt zapisków"
+msgstr[1] "Uaktualnij %1 zeszyty zapisków"
+msgstr[2] "Uaktualnij %1 zeszytów zapisków"
+
+#: src/noteshared/standardnoteactionmanager.cpp:163
+#, kde-format
+msgid "Update the content of the selected note books."
+msgstr "Uaktualnij zawartość wybranych zeszyty zapisków."
+
+#: src/noteshared/standardnoteactionmanager.cpp:167
+#, kde-format
+msgid "Cut Note Book"
+msgid_plural "Cut %1 Note Books"
+msgstr[0] "Wytnij zeszyt"
+msgstr[1] "Wytnij %1 zeszyty"
+msgstr[2] "Wytnij %1 zeszytów"
+
+#: src/noteshared/standardnoteactionmanager.cpp:170
+#, kde-format
+msgid "Cut the selected note books from the bookshelf."
+msgstr "Wytnij zaznaczone zeszyty z półki zeszytów."
+
+#: src/noteshared/standardnoteactionmanager.cpp:174
+#, kde-format
+msgid "Note Book Properties..."
+msgstr "Właściwości zeszytu na zapiski..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:176
+#, kde-format
+msgid "Open a dialog to edit the properties of the selected note book."
+msgstr ""
+"Otwórz okno dialogowe, aby zmienić właściwości zaznaczonego zeszytu zapisków."
+
+#: src/noteshared/standardnoteactionmanager.cpp:179
+#, kde-format
+msgctxt "@title:window"
+msgid "Properties of Note Book %1"
+msgstr "Właściwości zeszytu zapisków %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:184
+#, kde-format
+msgid "Copy Note"
+msgid_plural "Copy %1 Notes"
+msgstr[0] "Skopiuj zapisek"
+msgstr[1] "Skopiuj %1 zapiski"
+msgstr[2] "Skopiuj %1 zapisków"
+
+#: src/noteshared/standardnoteactionmanager.cpp:186
+#, kde-format
+msgid "Copy the selected notes to the clipboard."
+msgstr "Skopiuj zaznaczone zapiski do schowka."
+
+#: src/noteshared/standardnoteactionmanager.cpp:190
+#, kde-format
+msgid "Delete Note"
+msgid_plural "Delete %1 Notes"
+msgstr[0] "Usuń zapisek"
+msgstr[1] "Usuń %1 zapiski"
+msgstr[2] "Usuń %1 zapisków"
+
+#: src/noteshared/standardnoteactionmanager.cpp:192
+#, kde-format
+msgid "Delete the selected notes from the note book."
+msgstr "Usuń zaznaczone zapiski z zeszytu zapisków."
+
+#: src/noteshared/standardnoteactionmanager.cpp:195
+#, kde-format
+msgid "Do you really want to delete the selected note?"
+msgid_plural "Do you really want to delete %1 notes?"
+msgstr[0] "Czy na pewno usunąć zaznaczony zapisek?"
+msgstr[1] "Czy na pewno usunąć %1 zapiski?"
+msgstr[2] "Czy na pewno usunąć %1 zapisków?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:200
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete Note?"
+msgid_plural "Delete Notes?"
+msgstr[0] "Czy usunąć zapisek?"
+msgstr[1] "Czy usunąć zapiski?"
+msgstr[2] "Czy usunąć zapiski?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:204
+#, kde-format
+msgid "Could not delete note: %1"
+msgstr "Nie można zapiski: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:208
+#, kde-format
+msgid "Note deletion failed"
+msgstr "Nie udało się usunąć zapiski"
+
+#: src/noteshared/standardnoteactionmanager.cpp:212
+#, kde-format
+msgid "Cut Note"
+msgid_plural "Cut %1 Notes"
+msgstr[0] "Wytnij zapisek"
+msgstr[1] "Wytnij %1 zapiski"
+msgstr[2] "Wytnij %1 zapisków"
+
+#: src/noteshared/standardnoteactionmanager.cpp:214
+#, kde-format
+msgid "Cut the selected notes from the note book."
+msgstr "Wytnij zaznaczone zapiski z zeszytu zapisków."
+
+#: src/noteshared/standardnoteactionmanager.cpp:218
+#, kde-format
+msgid "Add &Bookshelf..."
+msgstr "&Dodaj półkę na zapiski..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:220
+#, kde-format
+msgid ""
+"Add a new bookshelf<p>You will be presented with a dialog where you can "
+"select the type of the bookshelf that shall be added.</p>"
+msgstr ""
+"Dodaj nową półkę na zeszyty<p>Ukaże się okno dialogowe, gdzie będzie można "
+"wybrać rodzaj dodawanej półki zeszytów.</p>"
+
+#: src/noteshared/standardnoteactionmanager.cpp:225
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Bookshelf"
+msgstr "Dodaj półkę na zapiski"
+
+#: src/noteshared/standardnoteactionmanager.cpp:229
+#, kde-format
+msgid "Could not create bookshelf: %1"
+msgstr "Nie można utworzyć półki zeszytów: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:233
+#, kde-format
+msgid "Bookshelf creation failed"
+msgstr "Nie udało się utworzyć półki zeszytów"
+
+#: src/noteshared/standardnoteactionmanager.cpp:238
+#, kde-format
+msgid "&Delete Bookshelf"
+msgid_plural "&Delete %1 Bookshelfs"
+msgstr[0] "&Usuń półkę na zeszyty"
+msgstr[1] "&Usuń %1 półki zeszytów"
+msgstr[2] "&Usuń %1 półek na zeszyty"
+
+#: src/noteshared/standardnoteactionmanager.cpp:241
+#, kde-format
+msgid ""
+"Delete the selected bookshelfs<p>The currently selected bookshelfs will be "
+"deleted, along with all the notes they contain.</p>"
+msgstr ""
+"Usuń wybraną półkę na zeszyty<p>Obecnie wybrane półki zeszytów zostaną "
+"usunięte wraz z wszystkimi zapiskami, które zawierają.</p>"
+
+#: src/noteshared/standardnoteactionmanager.cpp:246
+#, kde-format
+msgid "Do you really want to delete this bookshelf?"
+msgid_plural "Do you really want to delete %1 bookshelfs?"
+msgstr[0] "Czy na pewno usunąć tę półkę na zeszyty?"
+msgstr[1] "Czy na pewno usunąć tę %1 półki zeszytów?"
+msgstr[2] "Czy na pewno usunąć tę %1 półek na zeszyty?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:251
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete Bookshelf?"
+msgid_plural "Delete Bookshelfs?"
+msgstr[0] "Czy usunąć półkę na zeszyty?"
+msgstr[1] "Czy usunąć półki zeszytów?"
+msgstr[2] "Czy usunąć półki zeszytów?"
+
+#: src/noteshared/standardnoteactionmanager.cpp:257
+#, kde-format
+msgid "Bookshelf Properties..."
+msgstr "Właściwości półki zeszytów..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:259
+#, kde-format
+msgid "Open a dialog to edit properties of the selected bookshelf."
+msgstr "Otwórz okno do edycji właściwości zaznaczonej półki zeszytów."
+
+#: src/noteshared/standardnoteactionmanager.cpp:263
+#, kde-format
+msgid "Update Bookshelf"
+msgid_plural "Update %1 Bookshelfs"
+msgstr[0] "Uaktualnij półkę na zeszyty"
+msgstr[1] "Uaktualnij %1 półki zeszytów"
+msgstr[2] "Uaktualnij %1 półek na zeszyty"
+
+#: src/noteshared/standardnoteactionmanager.cpp:267
+#, kde-format
+msgid "Updates the content of all note books of the selected bookshelfs."
+msgstr "Uaktualnia zawartość wszystkich zeszytów zaznaczonej półki zeszytów."
+
+#: src/noteshared/standardnoteactionmanager.cpp:273
+#, kde-format
+msgid "Could not paste note: %1"
+msgstr "Nie można wkleić zapiski: %1"
+
+#: src/noteshared/standardnoteactionmanager.cpp:277
+#, kde-format
+msgid "Paste failed"
+msgstr "Nie udało się wkleić"
+
+#: src/noteshared/standardnoteactionmanager.cpp:297
+#, kde-format
+msgctxt "@action"
+msgid "Lock Note"
+msgid_plural "Lock Notes"
+msgstr[0] "Zaklucz zapisek"
+msgstr[1] "Zaklucz zapiski"
+msgstr[2] "Zaklucz zapiski"
+
+#: src/noteshared/standardnoteactionmanager.cpp:299
+#, kde-format
+msgid "Lock selected notes"
+msgstr "Zaklucz zaznaczone zapiski"
+
+#: src/noteshared/standardnoteactionmanager.cpp:302
+#, kde-format
+msgctxt "@action"
+msgid "Unlock Note"
+msgid_plural "Unlock Notes"
+msgstr[0] "Odklucz zapisek"
+msgstr[1] "Odklucz zapiski"
+msgstr[2] "Odklucz zapiski"
+
+#: src/noteshared/standardnoteactionmanager.cpp:304
+#, kde-format
+msgid "Unlock selected notes"
+msgstr "Odklucz zaznaczone zapiski"
+
+#: src/noteshared/standardnoteactionmanager.cpp:317
+#, kde-format
+msgctxt "@action"
+msgid "Pin Note"
+msgid_plural "Pin Notes"
+msgstr[0] "Przypnij zapisek"
+msgstr[1] "Przypnij zapiski"
+msgstr[2] "Przypnij zapiski"
+
+#: src/noteshared/standardnoteactionmanager.cpp:319
+#, kde-format
+msgid "Pin selected notes"
+msgstr "Przypnij zaznaczone zapiski"
+
+#: src/noteshared/standardnoteactionmanager.cpp:322
+#, kde-format
+msgctxt "@action"
+msgid "Unpin Note"
+msgid_plural "Unpin Notes"
+msgstr[0] "Odepnij zapisek"
+msgstr[1] "Odepnij zapiski"
+msgstr[2] "Odepnij zapiski"
+
+#: src/noteshared/standardnoteactionmanager.cpp:324
+#, kde-format
+msgid "Unpin selected notes"
+msgstr "Odepnij zaznaczone zapiski"
+
+#: src/noteshared/standardnoteactionmanager.cpp:365
+#, kde-format
+msgctxt "@action"
+msgid "Lock Note Book"
+msgid_plural "Lock Note Books"
+msgstr[0] "Zaklucz zeszyt"
+msgstr[1] "Zaklucz zeszyty"
+msgstr[2] "Zaklucz zeszyty"
+
+#: src/noteshared/standardnoteactionmanager.cpp:367
+#, kde-format
+msgid "Lock selected note books"
+msgstr "Zaklucz zaznaczone zeszyty na zapiski"
+
+#: src/noteshared/standardnoteactionmanager.cpp:370
+#, kde-format
+msgctxt "@action"
+msgid "Unlock Note Book"
+msgid_plural "Unlock Note Books"
+msgstr[0] "Odklucz zeszyt"
+msgstr[1] "Odklucz zeszyty"
+msgstr[2] "Odklucz zeszyty"
+
+#: src/noteshared/standardnoteactionmanager.cpp:372
+#, kde-format
+msgid "Unlock selected note books"
+msgstr "Odklucz zaznaczone zeszyty na zapiski"
+
+#: src/noteshared/standardnoteactionmanager.cpp:605
+#, kde-format
+msgid "&New Note"
+msgstr "&Nowy zapisek"
+
+#: src/noteshared/standardnoteactionmanager.cpp:606
+#, kde-format
+msgid "Add a new note to a selected note book"
+msgstr "Dodaj nowy zapisek do zaznaczonego zeszytu zapisków"
+
+#: src/noteshared/standardnoteactionmanager.cpp:635
+#, kde-format
+msgid "Change Note Color..."
+msgstr "Zmień barwę zapiski..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:636
+#, kde-format
+msgid "Changes the color of a selected notes"
+msgstr "Zmienia barwę zaznaczonych zapisków"
+
+#: src/noteshared/standardnoteactionmanager.cpp:644
+#, kde-format
+msgid "Change Note Book Color..."
+msgstr "Zmień barwę zeszytu na zapiski..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:645
+#, kde-format
+msgid "Changes the color of a selected note books"
+msgstr "Zmienia barwę zaznaczonych zeszyty zapisków"
+
+#~ msgid "How the main window is divided."
+#~ msgstr "Sposób podziału głównego okna."
+
+#~ msgid "Sort children alphabetically"
+#~ msgstr "Uszereguj elementy podrzędne alfabetycznie"
+
+#~ msgid "Sort children by creation date"
+#~ msgstr "Uszereguj elementy podrzędne wg daty utworzenia"
+
+#~ msgid "&Settings"
+#~ msgstr "U&stawienia"
+
+#~ msgid "Replace"
+#~ msgstr "Zastąp"
+
+#~ msgid "&All"
+#~ msgstr "&Wszystkie"
+
+#~ msgid "&Skip"
+#~ msgstr "&Pomiń"
+
+#~ msgid "Replace '%1' with '%2'?"
+#~ msgstr "Zastąpić '%1' przez '%2'?"
+
+#~ msgid "Insert Image"
+#~ msgstr "Wstaw obraz"
+
+#~ msgid "Insert Checkmark"
+#~ msgstr "Wstaw symbol zaznaczenia"
+
+#~ msgctxt ""
+#~ "@action Paste the text in the clipboard without rich text formatting."
+#~ msgid "Paste Plain Text"
+#~ msgstr "Wklej zwykły tekst"
+
+#~ msgid "Search all pages"
+#~ msgstr "Przeszukaj wszystkie strony"
+
+#~ msgid "<qt>No matches found.</qt>"
+#~ msgstr "<qt>Nie znaleziono elementów pasujących.</qt>"
+
+#~ msgid "<qt>Replaced 1 occurrence.</qt>"
+#~ msgid_plural "<qt>Replaced %1 occurrences.</qt>"
+#~ msgstr[0] "<qt>Zastąp 1 wystąpienie.</qt>"
+#~ msgstr[1] "<qt>Zastąp %1 wystąpienia.</qt>"
+#~ msgstr[2] "<qt>Zastąp %1 wystąpień.</qt>"
+
+#~ msgid "<qt>Replaced %2 of 1 occurrence.</qt>"
+#~ msgid_plural "<qt>Replaced %2 of %1 occurrences.</qt>"
+#~ msgstr[0] "<qt>Zastąpiono %2 z 1 wystąpienia.</qt>"
+#~ msgstr[1] "<qt>Zastąpiono %2 z %1 wystąpień.</qt>"
+#~ msgstr[2] "<qt>Zastąpiono %2 z %1 wystąpień.</qt>"
+
+#~ msgid ""
+#~ "<qt>End of search area reached. Do you want to wrap around and continue?</"
+#~ "qt>"
+#~ msgstr ""
+#~ "<qt>Osiągnięto koniec obszaru wyszukiwania. Czy przejść na początek i "
+#~ "zacząć od nowa?</qt>"
+
+#~ msgctxt "The default name for new books."
+#~ msgid "New Book"
+#~ msgstr "Nowa książka"
+
+#~ msgid "Path to maildir"
+#~ msgstr "Ścieżka skrzynki pocztowej"
+
+#~ msgid ""
+#~ "Path points to a folder containing Maildirs instead of to a maildir "
+#~ "itself."
+#~ msgstr ""
+#~ "Punkty ścieżki do katalogu zawierającego katalogi skrzynki pocztowej "
+#~ "zamiast do samego katalogu skrzynki pocztowej."
+
+#~ msgid "Do not change the actual backend data."
+#~ msgstr "Nie zmieniaj obecnych danych silnika."
+
+#~ msgid "Select image file"
+#~ msgstr "Wybierz plik obrazu"
+
+#~ msgid "The book or page that is currently active."
+#~ msgstr "Książka lub strona obecnie używana."
+
+#~ msgid "The font used to display the contents of books."
+#~ msgstr "Czcionka używana do wyświetlania treści książek."
+
+#~ msgid "Whether UTF-8 encoding should be forced for saving and loading."
+#~ msgstr "Określa czy wymusić UTF-8 przy zapisywaniu i wczytywaniu."
+
+#~ msgid "The last ID that was used for a book or page."
+#~ msgstr "Ostatni identyfikator używany dla książki lub strony."
+
+#~ msgid "The IDs of the books in the bookshelf."
+#~ msgstr "Identyfikatory książek na półce."
+
+#~ msgid "Ask for a name when creating a new page?"
+#~ msgstr "Czy pytać o nazwę przy tworzeniu nowej strony?"
+
+#~ msgid "To Book File..."
+#~ msgstr "Do pliku książki..."
+
+#~ msgid "Settings"
+#~ msgstr "Ustawienia"
+
+#~ msgid "Change Theme"
+#~ msgstr "Zmień wystrój"
+
+#~ msgid "<qt>Error opening internal file.</qt>"
+#~ msgstr "<qt>Błąd otwierania wewnętrznego pliku.</qt>"
+
+#~ msgid "&Delete Page"
+#~ msgstr "&Usuń stronę"
+
+#~ msgid "Delete Selected"
+#~ msgstr "Usuń zaznaczone"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Skopiuj adres odsyłacza"
+
+#~ msgid ""
+#~ "This page is locked. You can only delete it when you first unlock it."
+#~ msgstr ""
+#~ "Ta strona jest zablokowana. Możesz ją usunąć dopiero po jej odblokowaniu."
+
+#~ msgid "Item is locked"
+#~ msgstr "Element jest zablokowany"
+
+#~ msgctxt "remove the page, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the page <strong>%1</strong>?</qt>"
+#~ msgstr "<qt>Czy na pewno chcesz usunąć tę stronę <strong>%1</strong>?</qt>"
+
+#~ msgid ""
+#~ "This book is locked. You can only delete it when you first unlock it."
+#~ msgstr ""
+#~ "Ta książka jest zablokowana. Możesz ją usunąć dopiero po jej odblokowaniu."
+
+#~ msgctxt "remove the book, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the book <strong>%1</strong>?</qt>"
+#~ msgstr "<qt>Czy na pewno chcesz usunąć tę książkę <strong>%1</strong>?</qt>"
+
+#~ msgid "Rename..."
+#~ msgstr "Zmień nazwę..."
+
+#~ msgid "Rename Page"
+#~ msgstr "Zmień nazwę strony"
+
+#~ msgid "Page title:"
+#~ msgstr "Tytuł strony:"
+
+#~ msgid "Rename Book"
+#~ msgstr "Zmień nazwę książki"
+
+#~ msgid "Book name:"
+#~ msgstr "Nazwa książki:"
+
+#~ msgid "Next Page"
+#~ msgstr "Następna strona"
+
+#~ msgid "Previous Page"
+#~ msgstr "Poprzednia strona"
+
+#~ msgid "Manual Save"
+#~ msgstr "Ręczny zapis"
+
+#~ msgid "Send To Printer"
+#~ msgstr "Wyślij na drukarkę"
+
+#~ msgctxt "Name for the top level book created to hold the imported data."
+#~ msgid "KNowIt Import"
+#~ msgstr "Import KNowIt"

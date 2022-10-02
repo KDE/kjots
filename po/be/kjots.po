@@ -1,0 +1,1072 @@
+# translation of kjots.po to Belarusian
+#
+# Siarhei Liantsevich <serzh.by@gmail.com>, 2007.
+# Darafei Praliaskouski <komzpa@licei2.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: kjots\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-16 00:48+0000\n"
+"PO-Revision-Date: 2007-10-28 14:03+0200\n"
+"Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
+"Language-Team: Belarusian <i18n@mova.org>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
+"%100>=11 && n%100<=14 ? 2 : 3);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Сяржук Лянцэвіч"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "serzh.by@gmail.com"
+
+#: src/aboutdata.cpp:16 src/kjotspart.cpp:34
+#: src/kontact_plugin/kjots_plugin.cpp:51
+#, fuzzy, kde-format
+msgid "KJots"
+msgstr "KJots"
+
+#: src/aboutdata.cpp:18
+#, fuzzy, kde-format
+msgid "KDE note taking utility"
+msgstr "Запісная кніжка KDE"
+
+#: src/aboutdata.cpp:20
+#, kde-format
+msgid "Copyright © 1997–2020 KJots authors"
+msgstr ""
+
+#: src/aboutdata.cpp:22
+#, kde-format
+msgid "Igor Poboiko"
+msgstr ""
+
+#: src/aboutdata.cpp:22
+#, fuzzy, kde-format
+msgid "Maintainer"
+msgstr "Адказны за выпуск"
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Daniel Vrátil"
+msgstr ""
+
+#: src/aboutdata.cpp:23
+#, kde-format
+msgid "Port to KDE Frameworks 5"
+msgstr ""
+
+#: src/aboutdata.cpp:24
+#, kde-format
+msgid "Stephen Kelly"
+msgstr ""
+
+#: src/aboutdata.cpp:25
+#, kde-format
+msgid "Pradeepto K. Bhattacharya"
+msgstr ""
+
+#: src/aboutdata.cpp:26
+#, kde-format
+msgid "Jaison Lee"
+msgstr ""
+
+#: src/aboutdata.cpp:27
+#, kde-format
+msgid "Aaron J. Seigo"
+msgstr ""
+
+#: src/aboutdata.cpp:28
+#, kde-format
+msgid "Stanislav Kljuhhin"
+msgstr ""
+
+#: src/aboutdata.cpp:29
+#, kde-format
+msgid "Christoph Neerfeld"
+msgstr ""
+
+#: src/aboutdata.cpp:29
+#, fuzzy, kde-format
+msgid "Original author"
+msgstr "Аўтар ідэі"
+
+#: src/aboutdata.cpp:30
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:19 src/confpagemisc.ui:35
+#, fuzzy, kde-format
+msgid ""
+"This is the number of minutes KJots will wait before automatically saving "
+"changes."
+msgstr "Інтэрвал у хвілінах паміж аўтаматычным захаваннем змен."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: src/confpagemisc.ui:22
+#, kde-format
+msgid "S&ave every:"
+msgstr "Запісваць кожныя:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:38
+#, fuzzy, kde-format
+msgid "1 minute"
+msgstr "1 хвіліна"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_AutoSaveInterval)
+#: src/confpagemisc.ui:41
+#, fuzzy, kde-format
+msgid " minutes"
+msgstr " хвіліны"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:54
+#, fuzzy, kde-format
+msgid ""
+"When \"Save changes periodically\" is checked, KJots will automatically save "
+"changes made to books at the interval defined below."
+msgstr ""
+"Пры ўключэнні опцыі \"аўтазахаванні\", усе зробленыя змены будуць захаваныя "
+"праз інтэрвал, працягласць якога вызначаная ніжэй."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoSave)
+#: src/confpagemisc.ui:57
+#, fuzzy, kde-format
+msgid "&Save changes periodically"
+msgstr "Перыядычна захоўваць змены"
+
+#. i18n: ectx: label, entry (AutoSave), group (kjots)
+#: src/kjots.kcfg:9
+#, fuzzy, kde-format
+msgid "Whether books should be saved automatically."
+msgstr "Аўтазахаванне."
+
+#. i18n: ectx: label, entry (AutoSaveInterval), group (kjots)
+#: src/kjots.kcfg:13
+#, fuzzy, kde-format
+msgid "The interval in minutes at which books should be saved automatically."
+msgstr "Інтэрвал у хвілінах паміж аўтаматычным захаваннем кніг."
+
+#: src/kjotsbrowser.cpp:133
+#, kde-format
+msgctxt "@info:action"
+msgid "Speak Text"
+msgstr ""
+
+#: src/kjotsbrowser.cpp:177
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Click to follow the hyperlink: %1"
+msgstr ""
+
+#: src/kjotsbrowser.cpp:181
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Click to open note: %1"
+msgstr ""
+
+#: src/kjotsbrowser.cpp:183
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Click to open book: %1"
+msgstr ""
+
+#: src/kjotsedit.cpp:99
+#, fuzzy, kde-format
+msgctxt "@action"
+msgid "Copy &Into Page Title"
+msgstr "Уставіць як загаловак старонкі"
+
+#: src/kjotsedit.cpp:109
+#, kde-format
+msgctxt "@action creates and manages hyperlinks"
+msgid "Link"
+msgstr ""
+
+#: src/kjotsedit.cpp:117
+#, kde-format
+msgctxt "@action"
+msgid "Auto Bullet List"
+msgstr ""
+
+#: src/kjotsedit.cpp:126
+#, kde-format
+msgctxt "@action"
+msgid "Auto Decimal List"
+msgstr ""
+
+#: src/kjotsedit.cpp:135
+#, fuzzy, kde-format
+msgctxt "@action"
+msgid "Insert Date"
+msgstr "Уставіць дату"
+
+#: src/kjotsedit.cpp:468
+#, kde-format
+msgctxt ""
+"@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
+msgid "Ctrl+click to open note: %1"
+msgstr ""
+
+#: src/kjotsedit.cpp:470
+#, kde-format
+msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
+msgid "Ctrl+click to open book: %1"
+msgstr ""
+
+#: src/kjotsedit.cpp:473
+#, kde-format
+msgctxt "@info:tooltip %1 is hyperlink address"
+msgid "Ctrl+click to follow the hyperlink: %1"
+msgstr ""
+
+#: src/kjotslinkdialog.cpp:32
+#, kde-format
+msgid "Enter link URL, or another note or note book..."
+msgstr ""
+
+#: src/kjotsmodel.cpp:305
+#, kde-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr ""
+
+#: src/kjotsmodel.cpp:309
+#, kde-format
+msgctxt "@title:column title of a note"
+msgid "Title"
+msgstr ""
+
+#: src/kjotsmodel.cpp:311
+#, kde-format
+msgctxt "@title:column creation date and time of a note"
+msgid "Created"
+msgstr ""
+
+#: src/kjotsmodel.cpp:313
+#, kde-format
+msgctxt "@title:column last modification date and time of a note"
+msgid "Modified"
+msgstr ""
+
+#: src/kjotsmodel.cpp:315
+#, kde-format
+msgctxt "@title:column size of a note"
+msgid "Size"
+msgstr ""
+
+#: src/kjotspart.cpp:47
+#, kde-format
+msgid "&Configure KJots..."
+msgstr ""
+
+#. i18n: ectx: Menu (format)
+#: src/kjotsui.rc:21
+#, kde-format
+msgid "F&ormat"
+msgstr ""
+
+#. i18n: ectx: Menu (view)
+#: src/kjotsui.rc:45
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (go)
+#: src/kjotsui.rc:51
+#, kde-format
+msgid "&Go"
+msgstr ""
+
+#. i18n: ectx: Menu (tools)
+#: src/kjotsui.rc:60
+#, kde-format
+msgid "&Tools"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kjotsui.rc:110
+#, fuzzy, kde-format
+#| msgid "Next Book"
+msgid "Main Toolbar"
+msgstr "Наступная кніга"
+
+#. i18n: ectx: ToolBar (textToolBar)
+#: src/kjotsui.rc:126
+#, fuzzy, kde-format
+#| msgid "Next Book"
+msgid "Text Toolbar"
+msgstr "Наступная кніга"
+
+#. i18n: ectx: ToolBar (formatToolBar)
+#: src/kjotsui.rc:141
+#, fuzzy, kde-format
+#| msgid "Next Book"
+msgid "Format Toolbar"
+msgstr "Наступная кніга"
+
+#. i18n: ectx: ToolBar (toolsToolBar)
+#: src/kjotsui.rc:156
+#, fuzzy, kde-format
+#| msgid "Next Book"
+msgid "Tools Toolbar"
+msgstr "Наступная кніга"
+
+#: src/kjotswidget.cpp:433
+#, fuzzy, kde-format
+msgid "&Bookmarks"
+msgstr "&Закладкі"
+
+#: src/kjotswidget.cpp:451
+#, kde-format
+msgid "Export"
+msgstr "Экспарт"
+
+#: src/kjotswidget.cpp:455
+#, fuzzy, kde-format
+msgid "To Text File..."
+msgstr "Захаваць у тэкставым файле..."
+
+#: src/kjotswidget.cpp:463
+#, fuzzy, kde-format
+msgid "To HTML File..."
+msgstr "Захаваць у HTML..."
+
+#: src/kjotswidget.cpp:472
+#, kde-format
+msgid "Next Book"
+msgstr "Наступная кніга"
+
+#: src/kjotswidget.cpp:483
+#, kde-format
+msgid "Previous Book"
+msgstr "Папярэдняя кніга"
+
+#: src/kjotswidget.cpp:496
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Two Columns"
+msgstr ""
+
+#: src/kjotswidget.cpp:501
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Three Columns"
+msgstr ""
+
+#: src/kjotswidget.cpp:563
+#, kde-format
+msgctxt "@title:window config dialog page"
+msgid "Misc"
+msgstr ""
+
+#: src/kjotswidget.cpp:598
+#, fuzzy, kde-format
+msgctxt "Header for 'Table of contents' section of rendered output"
+msgid "Table of contents"
+msgstr "Змест"
+
+#: src/kjotswidget.cpp:623
+#, kde-format
+msgid "<qt>Could not open \"%1\" for writing</qt>"
+msgstr ""
+
+#: src/kjotswidget.cpp:719
+#, kde-format
+msgctxt "@title:window"
+msgid "Multiple selection"
+msgstr ""
+
+#: src/kjotswidget.cpp:737
+#, kde-format
+msgid ""
+"Unable to save the note.\n"
+"You can save your note to a local file using the \"File - Export\" menu,\n"
+"otherwise you will lose your changes!\n"
+"Do you want to close anyways?"
+msgstr ""
+
+#: src/kjotswidget.cpp:741
+#, kde-format
+msgid "Close Document"
+msgstr ""
+
+#: src/kjotswidget.cpp:746
+#, kde-format
+msgid ""
+"Error message:\n"
+"%1"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, LinkDialog)
+#: src/linkdialog.ui:14
+#, kde-format
+msgid "Manage Link"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel)
+#: src/linkdialog.ui:29
+#, kde-format
+msgid "Link &Text:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, linkUrlLabel)
+#: src/linkdialog.ui:46
+#, kde-format
+msgid "Link URL:"
+msgstr ""
+
+#: src/noteshared/notecreatorandselector.cpp:86
+#, fuzzy, kde-format
+msgctxt "The default name for new pages."
+msgid "New Page"
+msgstr "Новая старонка"
+
+#: src/noteshared/standardnoteactionmanager.cpp:108
+#, fuzzy, kde-format
+#| msgid "New &Book..."
+msgid "New Note Book..."
+msgstr "Новая кніга..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:113
+#, kde-format
+msgid "Add a new note book to the currently selected bookshelf."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:116
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "New Note Book"
+msgstr "Новая кніга"
+
+#: src/noteshared/standardnoteactionmanager.cpp:120
+#, kde-format
+msgid "Could not create note book: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:124
+#, kde-format
+msgid "Note book creation failed"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:130
+#, fuzzy, kde-format
+msgid "Copy Note Book"
+msgid_plural "Copy %1 Note Books"
+msgstr[0] "Новая кніга"
+msgstr[1] "Новая кніга"
+msgstr[2] "Новая кніга"
+
+#: src/noteshared/standardnoteactionmanager.cpp:133
+#, kde-format
+msgid "Copy the selected note books to the clipboard."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:137
+#, fuzzy, kde-format
+msgid "Delete Note Book"
+msgid_plural "Delete %1 Note Books"
+msgstr[0] "Выдаліць кнігу"
+msgstr[1] "Выдаліць кнігу"
+msgstr[2] "Выдаліць кнігу"
+
+#: src/noteshared/standardnoteactionmanager.cpp:140
+#, kde-format
+msgid "Delete the selected note books from the bookshelf."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:144
+#, kde-format
+msgid "Do you really want to delete this note book and all its contents?"
+msgid_plural ""
+"Do you really want to delete %1 note books and all their contents?"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:148
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "Delete note book?"
+msgid_plural "Delete note books?"
+msgstr[0] "Выдаліць кнігу"
+msgstr[1] "Выдаліць кнігу"
+msgstr[2] "Выдаліць кнігу"
+
+#: src/noteshared/standardnoteactionmanager.cpp:152
+#, kde-format
+msgid "Could not delete note book: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:156
+#, kde-format
+msgid "Note book deletion failed"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:160
+#, fuzzy, kde-format
+msgid "Update Note Book"
+msgid_plural "Update %1 Note Books"
+msgstr[0] "Стварыць кнігу"
+msgstr[1] "Стварыць кнігу"
+msgstr[2] "Стварыць кнігу"
+
+#: src/noteshared/standardnoteactionmanager.cpp:163
+#, kde-format
+msgid "Update the content of the selected note books."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:167
+#, fuzzy, kde-format
+msgid "Cut Note Book"
+msgid_plural "Cut %1 Note Books"
+msgstr[0] "Стварыць кнігу"
+msgstr[1] "Стварыць кнігу"
+msgstr[2] "Стварыць кнігу"
+
+#: src/noteshared/standardnoteactionmanager.cpp:170
+#, kde-format
+msgid "Cut the selected note books from the bookshelf."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:174
+#, fuzzy, kde-format
+msgid "Note Book Properties..."
+msgstr "Захаваць у тэкставым файле..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:176
+#, kde-format
+msgid "Open a dialog to edit the properties of the selected note book."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:179
+#, kde-format
+msgctxt "@title:window"
+msgid "Properties of Note Book %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:184
+#, kde-format
+msgid "Copy Note"
+msgid_plural "Copy %1 Notes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:186
+#, kde-format
+msgid "Copy the selected notes to the clipboard."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:190
+#, fuzzy, kde-format
+msgid "Delete Note"
+msgid_plural "Delete %1 Notes"
+msgstr[0] "Выдаліць"
+msgstr[1] "Выдаліць"
+msgstr[2] "Выдаліць"
+
+#: src/noteshared/standardnoteactionmanager.cpp:192
+#, kde-format
+msgid "Delete the selected notes from the note book."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:195
+#, fuzzy, kde-format
+msgid "Do you really want to delete the selected note?"
+msgid_plural "Do you really want to delete %1 notes?"
+msgstr[0] ""
+"<qt>Вы ўпэўненыя, што жадаеце выдаліць старонку <strong>%1</strong>?</qt>"
+msgstr[1] ""
+"<qt>Вы ўпэўненыя, што жадаеце выдаліць старонку <strong>%1</strong>?</qt>"
+msgstr[2] ""
+"<qt>Вы ўпэўненыя, што жадаеце выдаліць старонку <strong>%1</strong>?</qt>"
+
+#: src/noteshared/standardnoteactionmanager.cpp:200
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "Delete Note?"
+msgid_plural "Delete Notes?"
+msgstr[0] "Выдаліць"
+msgstr[1] "Выдаліць"
+msgstr[2] "Выдаліць"
+
+#: src/noteshared/standardnoteactionmanager.cpp:204
+#, kde-format
+msgid "Could not delete note: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:208
+#, kde-format
+msgid "Note deletion failed"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:212
+#, kde-format
+msgid "Cut Note"
+msgid_plural "Cut %1 Notes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:214
+#, kde-format
+msgid "Cut the selected notes from the note book."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:218
+#, fuzzy, kde-format
+#| msgid "New &Book..."
+msgid "Add &Bookshelf..."
+msgstr "Новая кніга..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:220
+#, kde-format
+msgid ""
+"Add a new bookshelf<p>You will be presented with a dialog where you can "
+"select the type of the bookshelf that shall be added.</p>"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:225
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Bookshelf"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:229
+#, kde-format
+msgid "Could not create bookshelf: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:233
+#, kde-format
+msgid "Bookshelf creation failed"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:238
+#, fuzzy, kde-format
+msgid "&Delete Bookshelf"
+msgid_plural "&Delete %1 Bookshelfs"
+msgstr[0] "Выдаліць кнігу"
+msgstr[1] "Выдаліць кнігу"
+msgstr[2] "Выдаліць кнігу"
+
+#: src/noteshared/standardnoteactionmanager.cpp:241
+#, kde-format
+msgid ""
+"Delete the selected bookshelfs<p>The currently selected bookshelfs will be "
+"deleted, along with all the notes they contain.</p>"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:246
+#, fuzzy, kde-format
+msgid "Do you really want to delete this bookshelf?"
+msgid_plural "Do you really want to delete %1 bookshelfs?"
+msgstr[0] ""
+"<qt>Вы ўпэўненыя, што жадаеце выдаліць старонку <strong>%1</strong>?</qt>"
+msgstr[1] ""
+"<qt>Вы ўпэўненыя, што жадаеце выдаліць старонку <strong>%1</strong>?</qt>"
+msgstr[2] ""
+"<qt>Вы ўпэўненыя, што жадаеце выдаліць старонку <strong>%1</strong>?</qt>"
+
+#: src/noteshared/standardnoteactionmanager.cpp:251
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "Delete Bookshelf?"
+msgid_plural "Delete Bookshelfs?"
+msgstr[0] "Выдаліць кнігу"
+msgstr[1] "Выдаліць кнігу"
+msgstr[2] "Выдаліць кнігу"
+
+#: src/noteshared/standardnoteactionmanager.cpp:257
+#, kde-format
+msgid "Bookshelf Properties..."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:259
+#, kde-format
+msgid "Open a dialog to edit properties of the selected bookshelf."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:263
+#, kde-format
+msgid "Update Bookshelf"
+msgid_plural "Update %1 Bookshelfs"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:267
+#, kde-format
+msgid "Updates the content of all note books of the selected bookshelfs."
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:273
+#, kde-format
+msgid "Could not paste note: %1"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:277
+#, kde-format
+msgid "Paste failed"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:297
+#, fuzzy, kde-format
+msgctxt "@action"
+msgid "Lock Note"
+msgid_plural "Lock Notes"
+msgstr[0] "Выдаліць старонку"
+msgstr[1] "Выдаліць старонку"
+msgstr[2] "Выдаліць старонку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:299
+#, fuzzy, kde-format
+msgid "Lock selected notes"
+msgstr "Выдаліць старонку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:302
+#, fuzzy, kde-format
+msgctxt "@action"
+msgid "Unlock Note"
+msgid_plural "Unlock Notes"
+msgstr[0] "Выдаліць старонку"
+msgstr[1] "Выдаліць старонку"
+msgstr[2] "Выдаліць старонку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:304
+#, fuzzy, kde-format
+msgid "Unlock selected notes"
+msgstr "Выдаліць старонку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:317
+#, fuzzy, kde-format
+msgctxt "@action"
+msgid "Pin Note"
+msgid_plural "Pin Notes"
+msgstr[0] "Выдаліць старонку"
+msgstr[1] "Выдаліць старонку"
+msgstr[2] "Выдаліць старонку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:319
+#, fuzzy, kde-format
+msgid "Pin selected notes"
+msgstr "Выдаліць старонку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:322
+#, fuzzy, kde-format
+msgctxt "@action"
+msgid "Unpin Note"
+msgid_plural "Unpin Notes"
+msgstr[0] "Выдаліць старонку"
+msgstr[1] "Выдаліць старонку"
+msgstr[2] "Выдаліць старонку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:324
+#, fuzzy, kde-format
+msgid "Unpin selected notes"
+msgstr "Выдаліць старонку"
+
+#: src/noteshared/standardnoteactionmanager.cpp:365
+#, fuzzy, kde-format
+msgctxt "@action"
+msgid "Lock Note Book"
+msgid_plural "Lock Note Books"
+msgstr[0] "Новая кніга"
+msgstr[1] "Новая кніга"
+msgstr[2] "Новая кніга"
+
+#: src/noteshared/standardnoteactionmanager.cpp:367
+#, fuzzy, kde-format
+msgid "Lock selected note books"
+msgstr "Выдаліць кнігу"
+
+#: src/noteshared/standardnoteactionmanager.cpp:370
+#, fuzzy, kde-format
+msgctxt "@action"
+msgid "Unlock Note Book"
+msgid_plural "Unlock Note Books"
+msgstr[0] "Новая кніга"
+msgstr[1] "Новая кніга"
+msgstr[2] "Новая кніга"
+
+#: src/noteshared/standardnoteactionmanager.cpp:372
+#, fuzzy, kde-format
+msgid "Unlock selected note books"
+msgstr "Выдаліць кнігу"
+
+#: src/noteshared/standardnoteactionmanager.cpp:605
+#, fuzzy, kde-format
+#| msgid "&New Page"
+msgid "&New Note"
+msgstr "Новая старонка"
+
+#: src/noteshared/standardnoteactionmanager.cpp:606
+#, kde-format
+msgid "Add a new note to a selected note book"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:635
+#, fuzzy, kde-format
+msgid "Change Note Color..."
+msgstr "Змяніць колер..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:636
+#, kde-format
+msgid "Changes the color of a selected notes"
+msgstr ""
+
+#: src/noteshared/standardnoteactionmanager.cpp:644
+#, fuzzy, kde-format
+msgid "Change Note Book Color..."
+msgstr "Змяніць колер..."
+
+#: src/noteshared/standardnoteactionmanager.cpp:645
+#, kde-format
+msgid "Changes the color of a selected note books"
+msgstr ""
+
+#, fuzzy
+#~ msgid "How the main window is divided."
+#~ msgstr "Падзел галоўнага акна."
+
+#, fuzzy
+#~ msgid "Replace"
+#~ msgstr "Замяніць"
+
+#, fuzzy
+#~ msgid "&All"
+#~ msgstr "&Усе"
+
+#, fuzzy
+#~ msgid "&Skip"
+#~ msgstr "&Прапусціць"
+
+#, fuzzy
+#~ msgid "Replace '%1' with '%2'?"
+#~ msgstr "Замяніць '%1' на '%2'?"
+
+#, fuzzy
+#~ msgid "Insert Image"
+#~ msgstr "Уставіць дату"
+
+#, fuzzy
+#~ msgctxt "The default name for new books."
+#~ msgid "New Book"
+#~ msgstr "Новая кніга"
+
+#, fuzzy
+#~ msgid "The book or page that is currently active."
+#~ msgstr "Бягучая адчыненая кніга або старонка."
+
+#, fuzzy
+#~ msgid "The font used to display the contents of books."
+#~ msgstr "Шрыфт зместа."
+
+#, fuzzy
+#~ msgid "Whether UTF-8 encoding should be forced for saving and loading."
+#~ msgstr "Захоўваць і адчыняць кнігі ў фармаце Юнікод."
+
+#, fuzzy
+#~ msgid "The last ID that was used for a book or page."
+#~ msgstr "Апошні ідэнтыфікатар, скарыстаны для кнігі або старонкі."
+
+#, fuzzy
+#~ msgid "To Book File..."
+#~ msgstr "Захаваць у тэкставым файле..."
+
+#, fuzzy
+#~ msgid "&Delete Page"
+#~ msgstr "Выдаліць старонку"
+
+#, fuzzy
+#~ msgid "Delete Selected"
+#~ msgstr "Выдаліць старонку"
+
+#, fuzzy
+#~ msgid "Copy Link Address"
+#~ msgstr "Скапіраваць адрас спасылкі"
+
+#, fuzzy
+#~ msgctxt "remove the page, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the page <strong>%1</strong>?</qt>"
+#~ msgstr ""
+#~ "<qt>Вы ўпэўненыя, што жадаеце выдаліць кнігу <strong>%1</strong>?</qt>"
+
+#, fuzzy
+#~ msgctxt "remove the book, by title"
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the book <strong>%1</strong>?</qt>"
+#~ msgstr ""
+#~ "<qt>Вы ўпэўненыя, што жадаеце выдаліць кнігу <strong>%1</strong>?</qt>"
+
+#, fuzzy
+#~ msgid "Rename..."
+#~ msgstr "Перайменаваць..."
+
+#, fuzzy
+#~ msgid "Rename Page"
+#~ msgstr "Пераназваць старонку"
+
+#, fuzzy
+#~ msgid "Page title:"
+#~ msgstr "Загаловак старонкі:"
+
+#, fuzzy
+#~ msgid "Rename Book"
+#~ msgstr "Пераназваць кнігу"
+
+#, fuzzy
+#~ msgid "Book name:"
+#~ msgstr "Назоў кнігі:"
+
+#~ msgid "Next Page"
+#~ msgstr "Наступная старонка"
+
+#~ msgid "Previous Page"
+#~ msgstr "Папярэдняя старонка"
+
+#, fuzzy
+#~ msgid "Manual Save"
+#~ msgstr "Захаванне ўручную"
+
+#, fuzzy
+#~ msgid "Miscellaneous"
+#~ msgstr "Рознае"
+
+#, fuzzy
+#~ msgid ""
+#~ "All pages must be inside a book. Would you like to create a new book to "
+#~ "put the page in, or would you prefer to not move the page at all?"
+#~ msgstr ""
+#~ "Усе старонкі павінны быць размешчаныя ў кнізе. Вы жадаеце стварыць новую "
+#~ "кнігу для ўстаўкі старонак або адменіце перамяшчэнне старонак наогул?"
+
+#, fuzzy
+#~ msgid "Do Not Move Page"
+#~ msgstr "Не перамяшчаць старонку"
+
+#, fuzzy
+#~ msgid "Import..."
+#~ msgstr "Імпартаваць..."
+
+#, fuzzy
+#~ msgid "KJots Books"
+#~ msgstr "Экспарт кнігі"
+
+#, fuzzy
+#~ msgid "HTML Files"
+#~ msgstr "Захаваць у HTML..."
+
+#, fuzzy
+#~ msgid "Table of Contents"
+#~ msgstr "Змест"
+
+#, fuzzy
+#~ msgid "Page %1"
+#~ msgstr "Старонка %1"
+
+#, fuzzy
+#~ msgid "New Page"
+#~ msgstr "Новая старонка"
+
+#, fuzzy
+#~ msgid "Page name:"
+#~ msgstr "Загаловак старонкі:"
+
+#, fuzzy
+#~ msgid ""
+#~ "<qt>Are you sure you want to delete the <strong>%1</strong> page?</qt>"
+#~ msgstr ""
+#~ "<qt>Вы ўпэўненыя, што жадаеце выдаліць старонку <strong>%1</strong>?</qt>"
+
+#, fuzzy
+#~ msgid "Autosave"
+#~ msgstr "Аўтазахаванне"
+
+#, fuzzy
+#~ msgid "KJotsPart"
+#~ msgstr "KJots"
+
+#, fuzzy
+#~ msgid "Bold"
+#~ msgstr "Цёмны"
+
+#, fuzzy
+#~ msgid "Underline"
+#~ msgstr "Падкрэслены"
+
+#, fuzzy
+#~ msgid "Strike Out"
+#~ msgstr "Закрэслены"
+
+#, fuzzy
+#~| msgid "Next Book"
+#~ msgid "Text Toobar"
+#~ msgstr "Наступная кніга"
+
+#, fuzzy
+#~ msgid ""
+#~ "<qt>The file <strong>%1</strong> already exists. Do you wish to overwrite "
+#~ "it?</qt>"
+#~ msgstr "Файл з імем <strong>%1</strong> ужо існуе.Перазапісаць яго?"
+
+#, fuzzy
+#~ msgid "File Exists"
+#~ msgstr "Файл існуе"
+
+#, fuzzy
+#~ msgid "Pages"
+#~ msgstr "Старонак"
+
+#, fuzzy
+#~ msgid "Overwrite"
+#~ msgstr "Перазапісаць"
+
+#, fuzzy
+#~ msgid ""
+#~ "This bookmark is from an older version of KJots and is not fully "
+#~ "supported. It may or may not work. You should delete and recreate this "
+#~ "bookmark."
+#~ msgstr ""
+#~ "Гэтая закладка была зробленая ў ранніх версіях KJots і можа не працаваць. "
+#~ "Рэкамендуемы выдаліць закладку і стварыць яе зноўку."
+
+#, fuzzy
+#~ msgid "Open URL"
+#~ msgstr "Адкрыць спасылку"
+
+#, fuzzy
+#~ msgid "Saving %1"
+#~ msgstr "Захаванне %1"
+
+#, fuzzy
+#~ msgid "Saving the contents of %1 to %2"
+#~ msgstr "Захаванне змесціва %1 у %2"
+
+#, fuzzy
+#~ msgid "Print: %1"
+#~ msgstr "Друк: %1"
+
+#, fuzzy
+#~ msgid "Untitled Book"
+#~ msgstr "Безназоўная кніга"
+
+#, fuzzy
+#~ msgid "Use Unico&de encoding"
+#~ msgstr "Выкарыстаць Юнікод для захоўвання тэксту"
