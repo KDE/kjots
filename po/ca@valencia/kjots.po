@@ -290,7 +290,7 @@ msgstr "F&ormat"
 #: src/kjotsui.rc:45
 #, kde-format
 msgid "&View"
-msgstr "&Visualitza"
+msgstr "Vi&sualitza"
 
 #. i18n: ectx: Menu (go)
 #: src/kjotsui.rc:51
@@ -374,7 +374,7 @@ msgstr "Tres columnes"
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
-msgstr "Miscelànea"
+msgstr "Miscel·lània"
 
 #: src/kjotswidget.cpp:598
 #, kde-format
