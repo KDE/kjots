@@ -19,6 +19,7 @@
   <name xml:lang="ia">KJots</name>
   <name xml:lang="id">KJots</name>
   <name xml:lang="it">KJots</name>
+  <name xml:lang="ka">KJots</name>
   <name xml:lang="ko">KJots</name>
   <name xml:lang="nl">KJots</name>
   <name xml:lang="pl">KJots</name>
@@ -50,6 +51,7 @@
   <summary xml:lang="ia">Utilitate de prender nota de KDE</summary>
   <summary xml:lang="id">Utilitas pengambilan catatan</summary>
   <summary xml:lang="it">Strumento per prendere appunti</summary>
+  <summary xml:lang="ka">KDE -ის შენიშვნების ჩასაწერი პროგრამა</summary>
   <summary xml:lang="ko">메모 유틸리티</summary>
   <summary xml:lang="nl">Hulpprogramma voor het maken van notities</summary>
   <summary xml:lang="pl">Narzędzie do notatek</summary>
@@ -110,6 +112,7 @@
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
+    <p xml:lang="ka">თვისებები:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pl">Możliwości:</p>
