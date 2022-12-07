@@ -56,6 +56,10 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII)
 add_subdirectory(src)
 add_subdirectory(icons)
 
+##################### Translations ##################
+
+ki18n_install(po)
+
 ##################### Install ######################
 
 install(DIRECTORY themes
