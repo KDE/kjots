@@ -15,7 +15,7 @@
 #include "kjotsmodel.h"
 
 #include <KPIMTextEdit/RichTextEditFindBar>
-#include <KPIMTextEdit/TextToSpeechWidget>
+#include <KPIMTextEditTextToSpeech/TextToSpeechWidget>
 #include <KPIMTextEdit/SlideContainer>
 
 #include <QHelpEvent>
@@ -44,7 +44,7 @@ public:
     std::unique_ptr<KJotsBrowser> mBrowser;
     KPIMTextEdit::SlideContainer mSliderContainer;
     KPIMTextEdit::RichTextEditFindBar mFindBar;
-    KPIMTextEdit::TextToSpeechWidget mTextToSpeechWidget;
+    KPIMTextEditTextToSpeech::TextToSpeechWidget mTextToSpeechWidget;
 };
 
 KJotsBrowserWidget::KJotsBrowserWidget(std::unique_ptr<KJotsBrowser> browser, QWidget *parent)
@@ -56,7 +56,7 @@ KJotsBrowserWidget::KJotsBrowserWidget(std::unique_ptr<KJotsBrowser> browser, QW
     d->mFindBar.setHideWhenClose(false);
 
     connect(&d->mFindBar, &KPIMTextEdit::RichTextEditFindBar::hideFindBar, this, &KJotsBrowserWidget::slotHideFindBar);
-    connect(d->mBrowser.get(), &KJotsBrowser::say, &d->mTextToSpeechWidget, &KPIMTextEdit::TextToSpeechWidget::say);
+    connect(d->mBrowser.get(), &KJotsBrowser::say, &d->mTextToSpeechWidget, &KPIMTextEditTextToSpeech::TextToSpeechWidget::say);
 
     QVBoxLayout *lay = new QVBoxLayout(this);
     lay->setContentsMargins(0, 0, 0, 0);
@@ -129,7 +129,7 @@ void KJotsBrowser::contextMenuEvent(QContextMenuEvent *event)
     popup->addSeparator();
     popup->addAction(m_actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))));
     popup->addSeparator();
-    if (!document()->isEmpty() && KPIMTextEdit::TextToSpeech::self()->isReady()) {
+    if (!document()->isEmpty() && KPIMTextEditTextToSpeech::TextToSpeech::self()->isReady()) {
         QAction *speakAction = popup->addAction(i18nc("@info:action", "Speak Text"));
         speakAction->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")));
         connect(speakAction, &QAction::triggered, this, [this](){
