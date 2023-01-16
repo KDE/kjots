@@ -19,11 +19,7 @@
 #include <QPrinter>
 
 #include <akonadi_version.h>
-#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 18, 41)
 #include <Akonadi/Collection>
-#else
-#include <AkonadiCore/Collection>
-#endif
 
 #include <grantlee/templateloader.h>
 

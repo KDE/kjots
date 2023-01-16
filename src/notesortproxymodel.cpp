@@ -9,11 +9,7 @@
 #include "notesortproxymodel.h"
 
 #include <akonadi_version.h>
-#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 18, 41)
 #include <Akonadi/EntityTreeModel>
-#else
-#include <AkonadiCore/EntityTreeModel>
-#endif
 
 #include "noteshared/notepinattribute.h"
 

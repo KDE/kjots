@@ -14,18 +14,9 @@
 #include <QIcon>
 
 #include <akonadi_version.h>
-#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 18, 41)
 #include <Akonadi/ChangeRecorder>
 #include <Akonadi/EntityDisplayAttribute>
-#else
-#include <AkonadiCore/ChangeRecorder>
-#include <AkonadiCore/EntityDisplayAttribute>
-#endif
-#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 19, 41)
 #include <Akonadi/NoteUtils>
-#else
-#include <Akonadi/Notes/NoteUtils>
-#endif
 
 #include <KMime/Message>
 #include <KPIMTextEdit/TextUtils>

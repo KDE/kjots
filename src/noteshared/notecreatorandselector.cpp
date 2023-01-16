@@ -15,20 +15,10 @@
 #include <KMime/Message>
 
 #include <akonadi_version.h>
-#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 18, 41)
 #include <Akonadi/EntityDisplayAttribute>
 #include <Akonadi/EntityTreeModel>
 #include <Akonadi/ItemCreateJob>
-#else
-#include <AkonadiCore/EntityDisplayAttribute>
-#include <AkonadiCore/EntityTreeModel>
-#include <AkonadiCore/ItemCreateJob>
-#endif
-#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 19, 41)
 #include <Akonadi/NoteUtils>
-#else
-#include <Akonadi/Notes/NoteUtils>
-#endif
 
 #include "noteshared_debug.h"
 

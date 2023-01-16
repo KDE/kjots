@@ -35,12 +35,7 @@
 
 // Akonadi
 #include <akonadi_version.h>
-#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 19, 41)
 #include <Akonadi/NoteUtils>
-#else
-#include <Akonadi/Notes/NoteUtils>
-#endif
-#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 18, 41)
 #include <Akonadi/AttributeFactory>
 #include <Akonadi/CollectionCreateJob>
 #include <Akonadi/CollectionDeleteJob>
@@ -56,23 +51,6 @@
 #include <Akonadi/EntityTreeView>
 #include <Akonadi/ETMViewStateSaver>
 #include <Akonadi/ControlGui>
-#else
-#include <AkonadiCore/AttributeFactory>
-#include <AkonadiCore/CollectionCreateJob>
-#include <AkonadiCore/CollectionDeleteJob>
-#include <AkonadiCore/ChangeRecorder>
-#include <AkonadiCore/EntityDisplayAttribute>
-#include <AkonadiCore/EntityMimeTypeFilterModel>
-#include <AkonadiCore/Item>
-#include <AkonadiCore/ItemCreateJob>
-#include <AkonadiCore/ItemModifyJob>
-#include <AkonadiCore/ItemDeleteJob>
-#include <AkonadiCore/ItemFetchScope>
-#include <AkonadiCore/EntityOrderProxyModel>
-#include <AkonadiWidgets/EntityTreeView>
-#include <AkonadiWidgets/ETMViewStateSaver>
-#include <AkonadiWidgets/ControlGui>
-#endif
 // Grantlee
 #include <grantlee/template.h>
 #include <grantlee/engine.h>
