@@ -13,8 +13,8 @@ ecm_qt_declare_logging_category(noteshared_SRCS
 
 add_library(noteshared STATIC ${noteshared_SRCS})
 target_link_libraries(noteshared
-    Qt5::Core
-    Qt5::Widgets
+    Qt::Core
+    Qt::Widgets
     KF5::I18n
     KF5::AkonadiWidgets
     KF5::AkonadiCore

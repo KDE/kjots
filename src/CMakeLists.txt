@@ -37,8 +37,8 @@ ki18n_wrap_ui(kjots_common_SRCS linkdialog.ui)
 add_library(kjots_common STATIC ${kjots_common_SRCS})
 target_link_libraries(kjots_common
   noteshared
-  Qt5::DBus
-  Qt5::PrintSupport
+  Qt::DBus
+  Qt::PrintSupport
   KF5::KCMUtils
   KF5::Bookmarks
   KF5::ConfigWidgets
@@ -49,16 +49,15 @@ target_link_libraries(kjots_common
   KF5::PimTextEdit
   KF5::XmlGui
   KF5::KIOWidgets
-  Grantlee5::Templates
-  Grantlee5::TextDocument
+  ${MAIN_LIB}
 )
 
 #########################################################################
 # D-Bus interface
 #########################################################################
 
-qt5_generate_dbus_interface( kjotswidget.h org.kde.KJotsWidget.xml OPTIONS -m )
-qt5_add_dbus_interfaces(kjots_common_SRCS
+qt_generate_dbus_interface( kjotswidget.h org.kde.KJotsWidget.xml OPTIONS -m )
+qt_add_dbus_interfaces(kjots_common_SRCS
     ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KJotsWidget.xml)
 
 

@@ -27,7 +27,7 @@ set(KONTACTINTERFACE_LIB_VERSION "5.22.0")
 
 #Qt Packages
 set(QT_REQUIRED_VERSION "5.15.0")
-find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED DBus PrintSupport)
+find_package(Qt${QT_MAJOR_VERSION} ${QT_REQUIRED_VERSION} CONFIG REQUIRED DBus PrintSupport)
 
 # KF5 Packages
 find_package(KF5KCMUtils ${KF5_VERSION} CONFIG REQUIRED)
@@ -44,8 +44,14 @@ find_package(KF5Mime ${KMIME_LIB_VERSION} CONFIG REQUIRED)
 find_package(KF5AkonadiNotes ${AKONADINOTES_LIB_VERSION} CONFIG REQUIRED)
 find_package(KF5PimTextEdit ${KPIMTEXTEDIT_LIB_VERSION} CONFIG REQUIRED)
 find_package(KF5KontactInterface ${KONTACTINTERFACE_LIB_VERSION} CONFIG REQUIRED)
-
-find_package(Grantlee5 "5.0" CONFIG REQUIRED)
+set(GRANTLEE_VERSION "5.3")
+if (QT_MAJOR_VERSION STREQUAL "5")
+    find_package(Grantlee5 ${GRANTLEE_VERSION} CONFIG REQUIRED)
+    set(MAIN_LIB Grantlee5::Templates Grantlee5::TextDocument)
+else()
+    find_package(KF6TextTemplate CONFIG REQUIRED)
+    set(MAIN_LIB KF6::TextTemplate KF6::TextDocument)
+endif()
 
 ##################### Definitions #####################
 add_definitions(-DQT_NO_KEYWORDS)
