@@ -23,9 +23,9 @@
 
 int main(int argc, char **argv)
 {
-    AboutData aboutData;
     KontactInterface::PimUniqueApplication app(argc, &argv);
     KLocalizedString::setApplicationDomain("kjots");
+    AboutData aboutData;
     app.setAboutData(aboutData);
 
     QCommandLineParser *cmdArgs = app.cmdArgs();
