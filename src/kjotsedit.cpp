@@ -434,7 +434,7 @@ void KJotsEdit::leaveEvent(QEvent *event)
 
 void KJotsEdit::mousePressEvent(QMouseEvent *event)
 {
-    QUrl url = anchorAt(event->pos());
+    const QUrl url = QUrl(anchorAt(event->pos()));
     if ((event->modifiers() & Qt::ControlModifier) && (event->button() & Qt::LeftButton) && !url.isEmpty()) {
         Q_EMIT linkClicked(url);
     } else {
