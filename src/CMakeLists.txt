@@ -103,7 +103,7 @@ target_link_libraries(kjotspart
 )
 
 install(FILES ${CMAKE_SOURCE_DIR}/data/kjotspart.desktop
-        DESTINATION ${KDE_INSTALL_KSERVICES5DIR}
+        DESTINATION ${KDE_INSTALL_KSERVICESDIR}
 )
 install(TARGETS kjotspart
         DESTINATION ${KDE_INSTALL_PLUGINDIR}
@@ -127,6 +127,6 @@ install(TARGETS kcm_kjots
         DESTINATION ${KDE_INSTALL_PLUGINDIR}
 )
 install(FILES ${CMAKE_SOURCE_DIR}/data/kjots_config_misc.desktop
-        DESTINATION ${KDE_INSTALL_KSERVICES5DIR}
+        DESTINATION ${KDE_INSTALL_KSERVICESDIR}
 )
 
