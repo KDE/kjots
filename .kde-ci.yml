@@ -21,4 +21,13 @@ Dependencies:
     'pim/akonadi-notes': '@latest'
     'pim/kpimtextedit': '@latest'
     'pim/kontactinterface': '@latest'
-    'third-party/grantlee': '@latest'
+    'libraries/ktextaddons': '@stable'
+
+- 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
+  'require':
+    'libraries/ktexttemplate': '@stable'
+
+- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
+  'require':
+    'third-party/grantlee' : '@stable'
+
