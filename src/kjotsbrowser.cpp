@@ -168,7 +168,11 @@ void KJotsBrowser::tooltipEvent(QHelpEvent *event)
                    && url.fragment().startsWith(QLatin1String("page_")))
         {
             bool ok;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             Item::Id id = url.fragment().midRef(5).toInt(&ok);
+#else
+            Item::Id id = QStringView(url.fragment()).mid(5).toInt(&ok);
+#endif
             const QModelIndexList idxs = EntityTreeModel::modelIndexesForItem(m_model, Item(id));
             if (ok && !idxs.isEmpty()) {
                 idx = idxs.first();

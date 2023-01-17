@@ -99,8 +99,11 @@
 #include <memory>
 
 using namespace Akonadi;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 using namespace Grantlee;
-
+#else
+using namespace KTextTemplate;
+#endif
 KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::WindowFlags f)
     : QWidget(parent, f)
     , m_xmlGuiClient(xmlGuiClient)
@@ -211,7 +214,7 @@ void KJotsWidget::setupGui()
 {
     // Main horizontal layout
     auto *layout = new QHBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     // Splitter between (collection view) and (item view + editor)
     m_splitter1 = new QSplitter(this);
@@ -338,7 +341,7 @@ void KJotsWidget::setupActions()
     m_actionManager->createAllActions();
 
     actionCollection->setDefaultShortcut(m_actionManager->action(StandardActionManager::CreateCollection),
-                                         QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_N));
+                                         QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_N));
 
     QAction *action;
     // Standard actions
@@ -347,13 +350,13 @@ void KJotsWidget::setupActions()
     action = KStandardAction::next(this, [this](){
             m_itemView->selectionModel()->select(previousNextEntity(m_itemView, +1), QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
         }, actionCollection);
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_PageDown));
+    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_PageDown));
     connect(this, &KJotsWidget::canGoNextPageChanged, action, &QAction::setEnabled);
 
     action = KStandardAction::prior(this, [this](){
             m_itemView->selectionModel()->select(previousNextEntity(m_itemView, -1), QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
         }, actionCollection);
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_PageUp));
+    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_PageUp));
     connect(this, &KJotsWidget::canGoPreviousPageChanged, action, &QAction::setEnabled);
 
     KStandardAction::renameFile(this, [this](){
@@ -379,7 +382,7 @@ void KJotsWidget::setupActions()
             }
         }, actionCollection);
     // Default Shift+Delete is ambiguous and used both for cut and delete
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_Delete));
+    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_Delete));
 
     action = KStandardAction::copy(this, [this](){
             activeEditor()->copy();
@@ -456,7 +459,7 @@ void KJotsWidget::setupActions()
     action = actionCollection->addAction(QStringLiteral("go_next_book"));
     action->setText(i18n("Next Book"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("go-down")));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_PageDown));
+    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_PageDown));
     connect(action, &QAction::triggered, this, [this](){
             const QModelIndex idx = previousNextEntity(m_collectionView, +1);
             m_collectionView->selectionModel()->select(idx, QItemSelectionModel::SelectCurrent);
@@ -467,7 +470,7 @@ void KJotsWidget::setupActions()
     action = actionCollection->addAction(QStringLiteral("go_prev_book"));
     action->setText(i18n("Previous Book"));
     action->setIcon(QIcon::fromTheme(QStringLiteral("go-up")));
-    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_PageUp));
+    actionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_PageUp));
     connect(action, &QAction::triggered, this, [this](){
             const QModelIndex idx = previousNextEntity(m_collectionView, -1);
             m_collectionView->selectionModel()->select(idx, QItemSelectionModel::SelectCurrent);
@@ -581,11 +584,19 @@ QString KJotsWidget::renderSelectionTo(const QString &theme, const QString &temp
     }
     QHash<QString, QVariant> hash = {{QStringLiteral("entities"), objectList},
                                      {QStringLiteral("i18n_TABLE_OF_CONTENTS"), i18nc("Header for 'Table of contents' section of rendered output", "Table of contents")}};
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Context c(hash);
+#else
+    KTextTemplate::Context c(hash);
+#endif
 
     const QString currentTheme = m_loader->themeName();
     m_loader->setTheme(theme);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Template t = m_templateEngine->loadByName(templ);
+#else
+    KTextTemplate::Template t = m_templateEngine->loadByName(templ);
+#endif
     const QString result = t->render(&c);
     m_loader->setTheme(currentTheme);
     return result;

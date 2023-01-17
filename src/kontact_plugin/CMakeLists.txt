@@ -14,7 +14,7 @@ target_link_libraries(kontact_kjotsplugin KF5::I18n KF5::KontactInterface)
 kcoreaddons_desktop_to_json(kontact_kjotsplugin kjotsplugin.desktop)
 
 install(TARGETS kontact_kjotsplugin DESTINATION ${KDE_INSTALL_PLUGINDIR}/kontact5)
-install(FILES kjotsplugin.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR}/kontact)
+install(FILES kjotsplugin.desktop DESTINATION ${KDE_INSTALL_KSERVICESDIR}/kontact)
 install(FILES kjots.setdlg DESTINATION ${KDE_INSTALL_DATADIR}/kontact/ksettingsdialog)
 
 #qt_add_dbus_interfaces(kontact_akregator_PART_SRCS ${akregator_SOURCE_DIR}/src/org.kde.akregator.part.xml)

@@ -50,7 +50,7 @@ if (QT_MAJOR_VERSION STREQUAL "5")
     set(MAIN_LIB Grantlee5::Templates Grantlee5::TextDocument)
 else()
     find_package(KF6TextTemplate CONFIG REQUIRED)
-    set(MAIN_LIB KF6::TextTemplate KF6::TextDocument)
+    set(MAIN_LIB KF6::TextTemplate)
 endif()
 
 ##################### Definitions #####################

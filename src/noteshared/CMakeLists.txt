@@ -12,6 +12,7 @@ ecm_qt_declare_logging_category(noteshared_SRCS
 )
 
 add_library(noteshared STATIC ${noteshared_SRCS})
+set_property(TARGET noteshared PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(noteshared
     Qt::Core
     Qt::Widgets

@@ -135,7 +135,7 @@ void KJotsEdit::createActions(KActionCollection *ac)
     d->editorActionList.append(d->action_insert_date);
     if (ac) {
         ac->addAction(QStringLiteral("insert_date"), d->action_insert_date);
-        ac->setDefaultShortcut(d->action_insert_date, QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I));
+        ac->setDefaultShortcut(d->action_insert_date, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_I));
     }
 
     d->action_save = KStandardAction::save(this, &KJotsEdit::savePage, ac);

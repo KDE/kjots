@@ -35,6 +35,7 @@ set(kjots_common_SRCS
 ki18n_wrap_ui(kjots_common_SRCS linkdialog.ui)
 
 add_library(kjots_common STATIC ${kjots_common_SRCS})
+set_property(TARGET kjots_common PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(kjots_common
   noteshared
   Qt::DBus
@@ -86,7 +87,7 @@ install(FILES kjots.kcfg
         DESTINATION ${KDE_INSTALL_KCFGDIR}
 )
 install(FILES kjotsui.rc
-        DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kjots
+        DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/kjots
 )
 
 ############## next target ##############
