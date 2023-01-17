@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-16 00:48+0000\n"
+"POT-Creation-Date: 2023-01-17 00:59+0000\n"
 "PO-Revision-Date: 2020-07-22 14:02+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -32,7 +32,7 @@ msgid "Your emails"
 msgstr "erik@binghamton.edu,mschlander@opensuse.org,jan.madsen.pt@gmail.com"
 
 #: src/aboutdata.cpp:16 src/kjotspart.cpp:34
-#: src/kontact_plugin/kjots_plugin.cpp:51
+#: src/kontact_plugin/kjots_plugin.cpp:29
 #, kde-format
 msgid "KJots"
 msgstr "KJots"
@@ -189,50 +189,50 @@ msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
 msgstr "Klik for at åbne bog: %1"
 
-#: src/kjotsedit.cpp:99
+#: src/kjotsedit.cpp:95
 #, kde-format
 msgctxt "@action"
 msgid "Copy &Into Page Title"
 msgstr "Kopiér &ind i sidetitel"
 
-#: src/kjotsedit.cpp:109
+#: src/kjotsedit.cpp:105
 #, kde-format
 msgctxt "@action creates and manages hyperlinks"
 msgid "Link"
 msgstr "Link"
 
-#: src/kjotsedit.cpp:117
+#: src/kjotsedit.cpp:113
 #, kde-format
 msgctxt "@action"
 msgid "Auto Bullet List"
 msgstr "Autopunkttegn"
 
-#: src/kjotsedit.cpp:126
+#: src/kjotsedit.cpp:122
 #, kde-format
 msgctxt "@action"
 msgid "Auto Decimal List"
 msgstr "Automatisk decimalliste"
 
-#: src/kjotsedit.cpp:135
+#: src/kjotsedit.cpp:131
 #, kde-format
 msgctxt "@action"
 msgid "Insert Date"
 msgstr "Indsæt dato"
 
-#: src/kjotsedit.cpp:468
+#: src/kjotsedit.cpp:464
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Ctrl+click to open note: %1"
 msgstr "Ctrl+klik for at åbne note: %1"
 
-#: src/kjotsedit.cpp:470
+#: src/kjotsedit.cpp:466
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Ctrl+click to open book: %1"
 msgstr "Ctrl+klik for at åbne bog: %1"
 
-#: src/kjotsedit.cpp:473
+#: src/kjotsedit.cpp:469
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Ctrl+click to follow the hyperlink: %1"
@@ -243,31 +243,31 @@ msgstr "Ctrl+klik for at følge hyperlink: %1"
 msgid "Enter link URL, or another note or note book..."
 msgstr "Angiv link-URL, eller en anden note eller notesbog..."
 
-#: src/kjotsmodel.cpp:305
+#: src/kjotsmodel.cpp:296
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Navn"
 
-#: src/kjotsmodel.cpp:309
+#: src/kjotsmodel.cpp:300
 #, kde-format
 msgctxt "@title:column title of a note"
 msgid "Title"
 msgstr "Titel"
 
-#: src/kjotsmodel.cpp:311
+#: src/kjotsmodel.cpp:302
 #, kde-format
 msgctxt "@title:column creation date and time of a note"
 msgid "Created"
 msgstr "Oprettet"
 
-#: src/kjotsmodel.cpp:313
+#: src/kjotsmodel.cpp:304
 #, kde-format
 msgctxt "@title:column last modification date and time of a note"
 msgid "Modified"
 msgstr "Ændret"
 
-#: src/kjotsmodel.cpp:315
+#: src/kjotsmodel.cpp:306
 #, kde-format
 msgctxt "@title:column size of a note"
 msgid "Size"
@@ -326,72 +326,72 @@ msgstr "Formateringsværktøjslinje"
 msgid "Tools Toolbar"
 msgstr "Værktøjer-værktøjslinje"
 
-#: src/kjotswidget.cpp:433
+#: src/kjotswidget.cpp:411
 #, kde-format
 msgid "&Bookmarks"
 msgstr "&Bogmærker"
 
-#: src/kjotswidget.cpp:451
+#: src/kjotswidget.cpp:429
 #, kde-format
 msgid "Export"
 msgstr "Eksportér"
 
-#: src/kjotswidget.cpp:455
+#: src/kjotswidget.cpp:433
 #, kde-format
 msgid "To Text File..."
 msgstr "Til tekstfil..."
 
-#: src/kjotswidget.cpp:463
+#: src/kjotswidget.cpp:441
 #, kde-format
 msgid "To HTML File..."
 msgstr "Til HTML-fil..."
 
-#: src/kjotswidget.cpp:472
+#: src/kjotswidget.cpp:450
 #, kde-format
 msgid "Next Book"
 msgstr "Næste bog"
 
-#: src/kjotswidget.cpp:483
+#: src/kjotswidget.cpp:461
 #, kde-format
 msgid "Previous Book"
 msgstr "Forrige bog"
 
-#: src/kjotswidget.cpp:496
+#: src/kjotswidget.cpp:474
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
 msgstr "To kolonner"
 
-#: src/kjotswidget.cpp:501
+#: src/kjotswidget.cpp:479
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "Tre kolonner"
 
-#: src/kjotswidget.cpp:563
+#: src/kjotswidget.cpp:541
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "Diverse"
 
-#: src/kjotswidget.cpp:598
+#: src/kjotswidget.cpp:576
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Indholdsfortegnelse"
 
-#: src/kjotswidget.cpp:623
+#: src/kjotswidget.cpp:601
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>Kunne ikke åbne \"%1\" til skrivning</qt>"
 
-#: src/kjotswidget.cpp:719
+#: src/kjotswidget.cpp:697
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "Flere markeringer"
 
-#: src/kjotswidget.cpp:737
+#: src/kjotswidget.cpp:715
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -404,12 +404,12 @@ msgstr ""
 "ellers vil du miste dine ændringer!\n"
 "Vil du lukke alligevel?"
 
-#: src/kjotswidget.cpp:741
+#: src/kjotswidget.cpp:719
 #, kde-format
 msgid "Close Document"
 msgstr "Luk dokument"
 
-#: src/kjotswidget.cpp:746
+#: src/kjotswidget.cpp:724
 #, kde-format
 msgid ""
 "Error message:\n"
@@ -436,63 +436,63 @@ msgstr "Link&tekst:"
 msgid "Link URL:"
 msgstr "Link-URL:"
 
-#: src/noteshared/notecreatorandselector.cpp:86
+#: src/noteshared/notecreatorandselector.cpp:76
 #, kde-format
 msgctxt "The default name for new pages."
 msgid "New Page"
 msgstr "Ny side"
 
-#: src/noteshared/standardnoteactionmanager.cpp:108
+#: src/noteshared/standardnoteactionmanager.cpp:97
 #, kde-format
 msgid "New Note Book..."
 msgstr "Ny notesbog..."
 
-#: src/noteshared/standardnoteactionmanager.cpp:113
+#: src/noteshared/standardnoteactionmanager.cpp:102
 #, kde-format
 msgid "Add a new note book to the currently selected bookshelf."
 msgstr "Føj en ny notesbog til den aktuelt valgte bogreol."
 
-#: src/noteshared/standardnoteactionmanager.cpp:116
+#: src/noteshared/standardnoteactionmanager.cpp:105
 #, kde-format
 msgctxt "@title:window"
 msgid "New Note Book"
 msgstr "Ny notesbog"
 
-#: src/noteshared/standardnoteactionmanager.cpp:120
+#: src/noteshared/standardnoteactionmanager.cpp:109
 #, kde-format
 msgid "Could not create note book: %1"
 msgstr "Kunne ikke oprette notesbog: %1"
 
-#: src/noteshared/standardnoteactionmanager.cpp:124
+#: src/noteshared/standardnoteactionmanager.cpp:113
 #, kde-format
 msgid "Note book creation failed"
 msgstr "Oprettelse af notesbog mislykkedes"
 
-#: src/noteshared/standardnoteactionmanager.cpp:130
+#: src/noteshared/standardnoteactionmanager.cpp:119
 #, kde-format
 msgid "Copy Note Book"
 msgid_plural "Copy %1 Note Books"
 msgstr[0] "Kopiér notesbog"
 msgstr[1] "Kopiér %1 notesbøger"
 
-#: src/noteshared/standardnoteactionmanager.cpp:133
+#: src/noteshared/standardnoteactionmanager.cpp:122
 #, kde-format
 msgid "Copy the selected note books to the clipboard."
 msgstr "Kopiér de valgte notesbøger til udklipsholderen."
 
-#: src/noteshared/standardnoteactionmanager.cpp:137
+#: src/noteshared/standardnoteactionmanager.cpp:126
 #, kde-format
 msgid "Delete Note Book"
 msgid_plural "Delete %1 Note Books"
 msgstr[0] "Slet notesbog"
 msgstr[1] "Slet %1 notesbøger"
 
-#: src/noteshared/standardnoteactionmanager.cpp:140
+#: src/noteshared/standardnoteactionmanager.cpp:129
 #, kde-format
 msgid "Delete the selected note books from the bookshelf."
 msgstr "Slet de valgte notesbøger fra bogreolen."
 
-#: src/noteshared/standardnoteactionmanager.cpp:144
+#: src/noteshared/standardnoteactionmanager.cpp:133
 #, kde-format
 msgid "Do you really want to delete this note book and all its contents?"
 msgid_plural ""
@@ -500,7 +500,7 @@ msgid_plural ""
 msgstr[0] "Vil du virkelig slette denne notesbog og alt dens indhold?"
 msgstr[1] "Vil du virkelig slette disse %1 notesbøger og alt deres indhold?"
 
-#: src/noteshared/standardnoteactionmanager.cpp:148
+#: src/noteshared/standardnoteactionmanager.cpp:137
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete note book?"
@@ -508,88 +508,88 @@ msgid_plural "Delete note books?"
 msgstr[0] "Slet notesbog?"
 msgstr[1] "Slet notesbøger?"
 
-#: src/noteshared/standardnoteactionmanager.cpp:152
+#: src/noteshared/standardnoteactionmanager.cpp:141
 #, kde-format
 msgid "Could not delete note book: %1"
 msgstr "Kunne ikke slette notesbog: %1"
 
-#: src/noteshared/standardnoteactionmanager.cpp:156
+#: src/noteshared/standardnoteactionmanager.cpp:145
 #, kde-format
 msgid "Note book deletion failed"
 msgstr "Sletning af notesbog mislykkedes"
 
-#: src/noteshared/standardnoteactionmanager.cpp:160
+#: src/noteshared/standardnoteactionmanager.cpp:149
 #, kde-format
 msgid "Update Note Book"
 msgid_plural "Update %1 Note Books"
 msgstr[0] "Opdatér notesbog"
 msgstr[1] "Opdatér %1 notesbøger"
 
-#: src/noteshared/standardnoteactionmanager.cpp:163
+#: src/noteshared/standardnoteactionmanager.cpp:152
 #, kde-format
 msgid "Update the content of the selected note books."
 msgstr "Opdatér indholdet af de valgte notesbøger."
 
-#: src/noteshared/standardnoteactionmanager.cpp:167
+#: src/noteshared/standardnoteactionmanager.cpp:156
 #, kde-format
 msgid "Cut Note Book"
 msgid_plural "Cut %1 Note Books"
 msgstr[0] "Klip notesbog"
 msgstr[1] "Klip %1 notesbøger"
 
-#: src/noteshared/standardnoteactionmanager.cpp:170
+#: src/noteshared/standardnoteactionmanager.cpp:159
 #, kde-format
 msgid "Cut the selected note books from the bookshelf."
 msgstr "Klip de valgte notesbøger fra bogreolen."
 
-#: src/noteshared/standardnoteactionmanager.cpp:174
+#: src/noteshared/standardnoteactionmanager.cpp:163
 #, kde-format
 msgid "Note Book Properties..."
 msgstr "Egenskaber for notesbog..."
 
-#: src/noteshared/standardnoteactionmanager.cpp:176
+#: src/noteshared/standardnoteactionmanager.cpp:165
 #, kde-format
 msgid "Open a dialog to edit the properties of the selected note book."
 msgstr "Åbn en dialog for at redigere egenskaberne for den valgte notesbog."
 
-#: src/noteshared/standardnoteactionmanager.cpp:179
+#: src/noteshared/standardnoteactionmanager.cpp:168
 #, kde-format
 msgctxt "@title:window"
 msgid "Properties of Note Book %1"
 msgstr "Egenskaber for notesbogen %1"
 
-#: src/noteshared/standardnoteactionmanager.cpp:184
+#: src/noteshared/standardnoteactionmanager.cpp:173
 #, kde-format
 msgid "Copy Note"
 msgid_plural "Copy %1 Notes"
 msgstr[0] "Kopiér note"
 msgstr[1] "Kopiér %1 noter"
 
-#: src/noteshared/standardnoteactionmanager.cpp:186
+#: src/noteshared/standardnoteactionmanager.cpp:175
 #, kde-format
 msgid "Copy the selected notes to the clipboard."
 msgstr "Kopiér de markerede noter til udklipsholderen."
 
-#: src/noteshared/standardnoteactionmanager.cpp:190
+#: src/noteshared/standardnoteactionmanager.cpp:179
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete %1 Notes"
 msgstr[0] "Slet  note"
 msgstr[1] "Slet %1 noter"
 
-#: src/noteshared/standardnoteactionmanager.cpp:192
+#: src/noteshared/standardnoteactionmanager.cpp:181
 #, kde-format
 msgid "Delete the selected notes from the note book."
 msgstr "Slet de valgte noter fra notesbogen."
 
-#: src/noteshared/standardnoteactionmanager.cpp:195
+#: src/noteshared/standardnoteactionmanager.cpp:184
 #, kde-format
 msgid "Do you really want to delete the selected note?"
 msgid_plural "Do you really want to delete %1 notes?"
 msgstr[0] "Vil du virkelig slette den valgte note?"
 msgstr[1] "Vil du virkelig slette %1 noter?"
 
-#: src/noteshared/standardnoteactionmanager.cpp:200
+#: src/noteshared/standardnoteactionmanager.cpp:189
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note?"
@@ -597,34 +597,34 @@ msgid_plural "Delete Notes?"
 msgstr[0] "Slet note?"
 msgstr[1] "Slet noter?"
 
-#: src/noteshared/standardnoteactionmanager.cpp:204
+#: src/noteshared/standardnoteactionmanager.cpp:193
 #, kde-format
 msgid "Could not delete note: %1"
 msgstr "Kunne ikke slette note: %1"
 
-#: src/noteshared/standardnoteactionmanager.cpp:208
+#: src/noteshared/standardnoteactionmanager.cpp:197
 #, kde-format
 msgid "Note deletion failed"
 msgstr "Sletning af note mislykkedes"
 
-#: src/noteshared/standardnoteactionmanager.cpp:212
+#: src/noteshared/standardnoteactionmanager.cpp:201
 #, kde-format
 msgid "Cut Note"
 msgid_plural "Cut %1 Notes"
 msgstr[0] "Klip note"
 msgstr[1] "Klip %1 noter"
 
-#: src/noteshared/standardnoteactionmanager.cpp:214
+#: src/noteshared/standardnoteactionmanager.cpp:203
 #, kde-format
 msgid "Cut the selected notes from the note book."
 msgstr "Klip de valgte noter fra notebogen."
 
-#: src/noteshared/standardnoteactionmanager.cpp:218
+#: src/noteshared/standardnoteactionmanager.cpp:207
 #, kde-format
 msgid "Add &Bookshelf..."
 msgstr "Tilføj &bogreol..."
 
-#: src/noteshared/standardnoteactionmanager.cpp:220
+#: src/noteshared/standardnoteactionmanager.cpp:209
 #, kde-format
 msgid ""
 "Add a new bookshelf<p>You will be presented with a dialog where you can "
@@ -633,30 +633,30 @@ msgstr ""
 "Tilføj ny bogreol<p>Du vil blive få vist en dialog hvor du kan vælge typen "
 "af bogreol der skal tilføjes.</p>"
 
-#: src/noteshared/standardnoteactionmanager.cpp:225
+#: src/noteshared/standardnoteactionmanager.cpp:214
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Bookshelf"
 msgstr "Tilføj bogreol"
 
-#: src/noteshared/standardnoteactionmanager.cpp:229
+#: src/noteshared/standardnoteactionmanager.cpp:218
 #, kde-format
 msgid "Could not create bookshelf: %1"
 msgstr "Kunne ikke oprette bogreol: %1"
 
-#: src/noteshared/standardnoteactionmanager.cpp:233
+#: src/noteshared/standardnoteactionmanager.cpp:222
 #, kde-format
 msgid "Bookshelf creation failed"
 msgstr "Oprettelse af bogreol mislykkedes"
 
-#: src/noteshared/standardnoteactionmanager.cpp:238
+#: src/noteshared/standardnoteactionmanager.cpp:227
 #, kde-format
 msgid "&Delete Bookshelf"
 msgid_plural "&Delete %1 Bookshelfs"
 msgstr[0] "S&let bogreol"
 msgstr[1] "S&let %1 bogreoler"
 
-#: src/noteshared/standardnoteactionmanager.cpp:241
+#: src/noteshared/standardnoteactionmanager.cpp:230
 #, kde-format
 msgid ""
 "Delete the selected bookshelfs<p>The currently selected bookshelfs will be "
@@ -665,14 +665,14 @@ msgstr ""
 "Slet de valgte bogreoler<p>De aktuelt valgte bogreoler vil blive slettet "
 "sammen med alle de noter de indeholder.</p>"
 
-#: src/noteshared/standardnoteactionmanager.cpp:246
+#: src/noteshared/standardnoteactionmanager.cpp:235
 #, kde-format
 msgid "Do you really want to delete this bookshelf?"
 msgid_plural "Do you really want to delete %1 bookshelfs?"
 msgstr[0] "Vil du virkelig slette denne bogreol?"
 msgstr[1] "Vil du virkelig slette %1 bogreoler?"
 
-#: src/noteshared/standardnoteactionmanager.cpp:251
+#: src/noteshared/standardnoteactionmanager.cpp:240
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Bookshelf?"
@@ -680,39 +680,39 @@ msgid_plural "Delete Bookshelfs?"
 msgstr[0] "Slet bogreol?"
 msgstr[1] "Slet bogreoler?"
 
-#: src/noteshared/standardnoteactionmanager.cpp:257
+#: src/noteshared/standardnoteactionmanager.cpp:246
 #, kde-format
 msgid "Bookshelf Properties..."
 msgstr "Egenskaber for bogreol..."
 
-#: src/noteshared/standardnoteactionmanager.cpp:259
+#: src/noteshared/standardnoteactionmanager.cpp:248
 #, kde-format
 msgid "Open a dialog to edit properties of the selected bookshelf."
 msgstr "Åbn en dialog for at redigere egenskaberne for den valgte bogreol."
 
-#: src/noteshared/standardnoteactionmanager.cpp:263
+#: src/noteshared/standardnoteactionmanager.cpp:252
 #, kde-format
 msgid "Update Bookshelf"
 msgid_plural "Update %1 Bookshelfs"
 msgstr[0] "Opdatér bogreol"
 msgstr[1] "Opdatér %1 bogreoler"
 
-#: src/noteshared/standardnoteactionmanager.cpp:267
+#: src/noteshared/standardnoteactionmanager.cpp:256
 #, kde-format
 msgid "Updates the content of all note books of the selected bookshelfs."
 msgstr "Opdaterer indholdet af alle notesbøger for de valgte bogreoler."
 
-#: src/noteshared/standardnoteactionmanager.cpp:273
+#: src/noteshared/standardnoteactionmanager.cpp:262
 #, kde-format
 msgid "Could not paste note: %1"
 msgstr "Kunne ikke indsætte note: %1"
 
-#: src/noteshared/standardnoteactionmanager.cpp:277
+#: src/noteshared/standardnoteactionmanager.cpp:266
 #, kde-format
 msgid "Paste failed"
 msgstr "Indsættelse mislykkedes"
 
-#: src/noteshared/standardnoteactionmanager.cpp:297
+#: src/noteshared/standardnoteactionmanager.cpp:286
 #, kde-format
 msgctxt "@action"
 msgid "Lock Note"
@@ -720,12 +720,12 @@ msgid_plural "Lock Notes"
 msgstr[0] "Lås note"
 msgstr[1] "Lås noter"
 
-#: src/noteshared/standardnoteactionmanager.cpp:299
+#: src/noteshared/standardnoteactionmanager.cpp:288
 #, kde-format
 msgid "Lock selected notes"
 msgstr "Lås valgte noter"
 
-#: src/noteshared/standardnoteactionmanager.cpp:302
+#: src/noteshared/standardnoteactionmanager.cpp:291
 #, kde-format
 msgctxt "@action"
 msgid "Unlock Note"
@@ -733,12 +733,12 @@ msgid_plural "Unlock Notes"
 msgstr[0] "Lås note op"
 msgstr[1] "Lås noter op"
 
-#: src/noteshared/standardnoteactionmanager.cpp:304
+#: src/noteshared/standardnoteactionmanager.cpp:293
 #, kde-format
 msgid "Unlock selected notes"
 msgstr "Lås valgte noter op"
 
-#: src/noteshared/standardnoteactionmanager.cpp:317
+#: src/noteshared/standardnoteactionmanager.cpp:306
 #, kde-format
 msgctxt "@action"
 msgid "Pin Note"
@@ -746,12 +746,12 @@ msgid_plural "Pin Notes"
 msgstr[0] "Fastgør note"
 msgstr[1] "Fastgør noter"
 
-#: src/noteshared/standardnoteactionmanager.cpp:319
+#: src/noteshared/standardnoteactionmanager.cpp:308
 #, kde-format
 msgid "Pin selected notes"
 msgstr "Fastgør valgte noter"
 
-#: src/noteshared/standardnoteactionmanager.cpp:322
+#: src/noteshared/standardnoteactionmanager.cpp:311
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Note"
@@ -759,12 +759,12 @@ msgid_plural "Unpin Notes"
 msgstr[0] "Frigør note"
 msgstr[1] "Frigør noter"
 
-#: src/noteshared/standardnoteactionmanager.cpp:324
+#: src/noteshared/standardnoteactionmanager.cpp:313
 #, kde-format
 msgid "Unpin selected notes"
 msgstr "Frigør valgte noter"
 
-#: src/noteshared/standardnoteactionmanager.cpp:365
+#: src/noteshared/standardnoteactionmanager.cpp:354
 #, kde-format
 msgctxt "@action"
 msgid "Lock Note Book"
@@ -772,12 +772,12 @@ msgid_plural "Lock Note Books"
 msgstr[0] "Lås notesbog"
 msgstr[1] "Lås notesbøger"
 
-#: src/noteshared/standardnoteactionmanager.cpp:367
+#: src/noteshared/standardnoteactionmanager.cpp:356
 #, kde-format
 msgid "Lock selected note books"
 msgstr "Lås valgte notesbøger"
 
-#: src/noteshared/standardnoteactionmanager.cpp:370
+#: src/noteshared/standardnoteactionmanager.cpp:359
 #, kde-format
 msgctxt "@action"
 msgid "Unlock Note Book"
@@ -785,37 +785,37 @@ msgid_plural "Unlock Note Books"
 msgstr[0] "Lås notesbog op"
 msgstr[1] "Lås notesbøger op"
 
-#: src/noteshared/standardnoteactionmanager.cpp:372
+#: src/noteshared/standardnoteactionmanager.cpp:361
 #, kde-format
 msgid "Unlock selected note books"
 msgstr "Lås valgte notesbøger op"
 
-#: src/noteshared/standardnoteactionmanager.cpp:605
+#: src/noteshared/standardnoteactionmanager.cpp:594
 #, kde-format
 msgid "&New Note"
 msgstr "&Ny note"
 
-#: src/noteshared/standardnoteactionmanager.cpp:606
+#: src/noteshared/standardnoteactionmanager.cpp:595
 #, kde-format
 msgid "Add a new note to a selected note book"
 msgstr "Føj en ny note til en valgt notesbog"
 
-#: src/noteshared/standardnoteactionmanager.cpp:635
+#: src/noteshared/standardnoteactionmanager.cpp:624
 #, kde-format
 msgid "Change Note Color..."
 msgstr "Skift notefarve..."
 
-#: src/noteshared/standardnoteactionmanager.cpp:636
+#: src/noteshared/standardnoteactionmanager.cpp:625
 #, kde-format
 msgid "Changes the color of a selected notes"
 msgstr "Ændrer farven på en valgt note"
 
-#: src/noteshared/standardnoteactionmanager.cpp:644
+#: src/noteshared/standardnoteactionmanager.cpp:633
 #, kde-format
 msgid "Change Note Book Color..."
 msgstr "Skift farve på notesbog..."
 
-#: src/noteshared/standardnoteactionmanager.cpp:645
+#: src/noteshared/standardnoteactionmanager.cpp:634
 #, kde-format
 msgid "Changes the color of a selected note books"
 msgstr "Skifter farven på en valgt notesbog"

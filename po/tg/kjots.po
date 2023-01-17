@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-16 00:48+0000\n"
+"POT-Creation-Date: 2023-01-17 00:59+0000\n"
 "PO-Revision-Date: 2019-09-15 21:27+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik <kde-i18n-doc@kde.org>\n"
@@ -33,7 +33,7 @@ msgid "Your emails"
 msgstr "H_Abrorova@rambler.ru"
 
 #: src/aboutdata.cpp:16 src/kjotspart.cpp:34
-#: src/kontact_plugin/kjots_plugin.cpp:51
+#: src/kontact_plugin/kjots_plugin.cpp:29
 #, kde-format
 msgid "KJots"
 msgstr "KJots"
@@ -197,52 +197,52 @@ msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
 msgstr ""
 
-#: src/kjotsedit.cpp:99
+#: src/kjotsedit.cpp:95
 #, fuzzy, kde-format
 #| msgid "Copy &into Page Title"
 msgctxt "@action"
 msgid "Copy &Into Page Title"
 msgstr "Нусхабардорӣ &ба Сарлавҳаи Саҳифа"
 
-#: src/kjotsedit.cpp:109
+#: src/kjotsedit.cpp:105
 #, kde-format
 msgctxt "@action creates and manages hyperlinks"
 msgid "Link"
 msgstr ""
 
-#: src/kjotsedit.cpp:117
+#: src/kjotsedit.cpp:113
 #, kde-format
 msgctxt "@action"
 msgid "Auto Bullet List"
 msgstr ""
 
-#: src/kjotsedit.cpp:126
+#: src/kjotsedit.cpp:122
 #, kde-format
 msgctxt "@action"
 msgid "Auto Decimal List"
 msgstr ""
 
-#: src/kjotsedit.cpp:135
+#: src/kjotsedit.cpp:131
 #, fuzzy, kde-format
 #| msgid "Insert Date"
 msgctxt "@action"
 msgid "Insert Date"
 msgstr "Ҷойгиркунии Сана"
 
-#: src/kjotsedit.cpp:468
+#: src/kjotsedit.cpp:464
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Ctrl+click to open note: %1"
 msgstr ""
 
-#: src/kjotsedit.cpp:470
+#: src/kjotsedit.cpp:466
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Ctrl+click to open book: %1"
 msgstr ""
 
-#: src/kjotsedit.cpp:473
+#: src/kjotsedit.cpp:469
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Ctrl+click to follow the hyperlink: %1"
@@ -253,31 +253,31 @@ msgstr ""
 msgid "Enter link URL, or another note or note book..."
 msgstr ""
 
-#: src/kjotsmodel.cpp:305
+#: src/kjotsmodel.cpp:296
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr ""
 
-#: src/kjotsmodel.cpp:309
+#: src/kjotsmodel.cpp:300
 #, kde-format
 msgctxt "@title:column title of a note"
 msgid "Title"
 msgstr ""
 
-#: src/kjotsmodel.cpp:311
+#: src/kjotsmodel.cpp:302
 #, kde-format
 msgctxt "@title:column creation date and time of a note"
 msgid "Created"
 msgstr ""
 
-#: src/kjotsmodel.cpp:313
+#: src/kjotsmodel.cpp:304
 #, kde-format
 msgctxt "@title:column last modification date and time of a note"
 msgid "Modified"
 msgstr ""
 
-#: src/kjotsmodel.cpp:315
+#: src/kjotsmodel.cpp:306
 #, kde-format
 msgctxt "@title:column size of a note"
 msgid "Size"
@@ -336,73 +336,73 @@ msgstr "Китоби Нав"
 msgid "Tools Toolbar"
 msgstr "Китоби Нав"
 
-#: src/kjotswidget.cpp:433
+#: src/kjotswidget.cpp:411
 #, kde-format
 msgid "&Bookmarks"
 msgstr "&Хатчӯбҳо"
 
-#: src/kjotswidget.cpp:451
+#: src/kjotswidget.cpp:429
 #, kde-format
 msgid "Export"
 msgstr ""
 
-#: src/kjotswidget.cpp:455
+#: src/kjotswidget.cpp:433
 #, kde-format
 msgid "To Text File..."
 msgstr ""
 
-#: src/kjotswidget.cpp:463
+#: src/kjotswidget.cpp:441
 #, kde-format
 msgid "To HTML File..."
 msgstr ""
 
-#: src/kjotswidget.cpp:472
+#: src/kjotswidget.cpp:450
 #, fuzzy, kde-format
 msgid "Next Book"
 msgstr "Китоби Нав"
 
-#: src/kjotswidget.cpp:483
+#: src/kjotswidget.cpp:461
 #, kde-format
 msgid "Previous Book"
 msgstr ""
 
-#: src/kjotswidget.cpp:496
+#: src/kjotswidget.cpp:474
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
 msgstr ""
 
-#: src/kjotswidget.cpp:501
+#: src/kjotswidget.cpp:479
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr ""
 
-#: src/kjotswidget.cpp:563
+#: src/kjotswidget.cpp:541
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr ""
 
-#: src/kjotswidget.cpp:598
+#: src/kjotswidget.cpp:576
 #, fuzzy, kde-format
 #| msgid "Table of Contents"
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Ҷадвали Таркиб"
 
-#: src/kjotswidget.cpp:623
+#: src/kjotswidget.cpp:601
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr ""
 
-#: src/kjotswidget.cpp:719
+#: src/kjotswidget.cpp:697
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr ""
 
-#: src/kjotswidget.cpp:737
+#: src/kjotswidget.cpp:715
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -411,12 +411,12 @@ msgid ""
 "Do you want to close anyways?"
 msgstr ""
 
-#: src/kjotswidget.cpp:741
+#: src/kjotswidget.cpp:719
 #, kde-format
 msgid "Close Document"
 msgstr ""
 
-#: src/kjotswidget.cpp:746
+#: src/kjotswidget.cpp:724
 #, kde-format
 msgid ""
 "Error message:\n"
@@ -441,41 +441,41 @@ msgstr ""
 msgid "Link URL:"
 msgstr ""
 
-#: src/noteshared/notecreatorandselector.cpp:86
+#: src/noteshared/notecreatorandselector.cpp:76
 #, fuzzy, kde-format
 msgctxt "The default name for new pages."
 msgid "New Page"
 msgstr "Саҳифаи &Нав"
 
-#: src/noteshared/standardnoteactionmanager.cpp:108
+#: src/noteshared/standardnoteactionmanager.cpp:97
 #, fuzzy, kde-format
 #| msgid "New &Book..."
 msgid "New Note Book..."
 msgstr "&Китоби Нав..."
 
-#: src/noteshared/standardnoteactionmanager.cpp:113
+#: src/noteshared/standardnoteactionmanager.cpp:102
 #, kde-format
 msgid "Add a new note book to the currently selected bookshelf."
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:116
+#: src/noteshared/standardnoteactionmanager.cpp:105
 #, fuzzy, kde-format
 #| msgid "New Book"
 msgctxt "@title:window"
 msgid "New Note Book"
 msgstr "Китоби Нав"
 
-#: src/noteshared/standardnoteactionmanager.cpp:120
+#: src/noteshared/standardnoteactionmanager.cpp:109
 #, kde-format
 msgid "Could not create note book: %1"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:124
+#: src/noteshared/standardnoteactionmanager.cpp:113
 #, kde-format
 msgid "Note book creation failed"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:130
+#: src/noteshared/standardnoteactionmanager.cpp:119
 #, fuzzy, kde-format
 #| msgid "New Book"
 msgid "Copy Note Book"
@@ -483,12 +483,12 @@ msgid_plural "Copy %1 Note Books"
 msgstr[0] "Китоби Нав"
 msgstr[1] "Китоби Нав"
 
-#: src/noteshared/standardnoteactionmanager.cpp:133
+#: src/noteshared/standardnoteactionmanager.cpp:122
 #, kde-format
 msgid "Copy the selected note books to the clipboard."
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:137
+#: src/noteshared/standardnoteactionmanager.cpp:126
 #, fuzzy, kde-format
 #| msgid "Delete Boo&k"
 msgid "Delete Note Book"
@@ -496,12 +496,12 @@ msgid_plural "Delete %1 Note Books"
 msgstr[0] "Нобудсозии &Китоб"
 msgstr[1] "Нобудсозии &Китоб"
 
-#: src/noteshared/standardnoteactionmanager.cpp:140
+#: src/noteshared/standardnoteactionmanager.cpp:129
 #, kde-format
 msgid "Delete the selected note books from the bookshelf."
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:144
+#: src/noteshared/standardnoteactionmanager.cpp:133
 #, kde-format
 msgid "Do you really want to delete this note book and all its contents?"
 msgid_plural ""
@@ -509,7 +509,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:148
+#: src/noteshared/standardnoteactionmanager.cpp:137
 #, fuzzy, kde-format
 #| msgid "Delete Boo&k"
 msgctxt "@title:window"
@@ -518,17 +518,17 @@ msgid_plural "Delete note books?"
 msgstr[0] "Нобудсозии &Китоб"
 msgstr[1] "Нобудсозии &Китоб"
 
-#: src/noteshared/standardnoteactionmanager.cpp:152
+#: src/noteshared/standardnoteactionmanager.cpp:141
 #, kde-format
 msgid "Could not delete note book: %1"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:156
+#: src/noteshared/standardnoteactionmanager.cpp:145
 #, kde-format
 msgid "Note book deletion failed"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:160
+#: src/noteshared/standardnoteactionmanager.cpp:149
 #, fuzzy, kde-format
 #| msgid "Create New Book"
 msgid "Update Note Book"
@@ -536,12 +536,12 @@ msgid_plural "Update %1 Note Books"
 msgstr[0] "Офаридани Китоби Нав"
 msgstr[1] "Офаридани Китоби Нав"
 
-#: src/noteshared/standardnoteactionmanager.cpp:163
+#: src/noteshared/standardnoteactionmanager.cpp:152
 #, kde-format
 msgid "Update the content of the selected note books."
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:167
+#: src/noteshared/standardnoteactionmanager.cpp:156
 #, fuzzy, kde-format
 #| msgid "Create New Book"
 msgid "Cut Note Book"
@@ -549,52 +549,52 @@ msgid_plural "Cut %1 Note Books"
 msgstr[0] "Офаридани Китоби Нав"
 msgstr[1] "Офаридани Китоби Нав"
 
-#: src/noteshared/standardnoteactionmanager.cpp:170
+#: src/noteshared/standardnoteactionmanager.cpp:159
 #, kde-format
 msgid "Cut the selected note books from the bookshelf."
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:174
+#: src/noteshared/standardnoteactionmanager.cpp:163
 #, kde-format
 msgid "Note Book Properties..."
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:176
+#: src/noteshared/standardnoteactionmanager.cpp:165
 #, kde-format
 msgid "Open a dialog to edit the properties of the selected note book."
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:179
+#: src/noteshared/standardnoteactionmanager.cpp:168
 #, kde-format
 msgctxt "@title:window"
 msgid "Properties of Note Book %1"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:184
+#: src/noteshared/standardnoteactionmanager.cpp:173
 #, kde-format
 msgid "Copy Note"
 msgid_plural "Copy %1 Notes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:186
+#: src/noteshared/standardnoteactionmanager.cpp:175
 #, kde-format
 msgid "Copy the selected notes to the clipboard."
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:190
+#: src/noteshared/standardnoteactionmanager.cpp:179
 #, fuzzy, kde-format
 msgid "Delete Note"
 msgid_plural "Delete %1 Notes"
 msgstr[0] "Нобудсозии Китоб"
 msgstr[1] "Нобудсозии Китоб"
 
-#: src/noteshared/standardnoteactionmanager.cpp:192
+#: src/noteshared/standardnoteactionmanager.cpp:181
 #, kde-format
 msgid "Delete the selected notes from the note book."
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:195
+#: src/noteshared/standardnoteactionmanager.cpp:184
 #, fuzzy, kde-format
 msgid "Do you really want to delete the selected note?"
 msgid_plural "Do you really want to delete %1 notes?"
@@ -603,7 +603,7 @@ msgstr[0] ""
 msgstr[1] ""
 "<qt>Дар ҳақиқат мехоҳед, ки саҳифаи <strong>%1</strong>-ро нобуд созед?</qt>"
 
-#: src/noteshared/standardnoteactionmanager.cpp:200
+#: src/noteshared/standardnoteactionmanager.cpp:189
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Delete Note?"
@@ -611,58 +611,58 @@ msgid_plural "Delete Notes?"
 msgstr[0] "Нобудсозии Китоб"
 msgstr[1] "Нобудсозии Китоб"
 
-#: src/noteshared/standardnoteactionmanager.cpp:204
+#: src/noteshared/standardnoteactionmanager.cpp:193
 #, kde-format
 msgid "Could not delete note: %1"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:208
+#: src/noteshared/standardnoteactionmanager.cpp:197
 #, kde-format
 msgid "Note deletion failed"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:212
+#: src/noteshared/standardnoteactionmanager.cpp:201
 #, kde-format
 msgid "Cut Note"
 msgid_plural "Cut %1 Notes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:214
+#: src/noteshared/standardnoteactionmanager.cpp:203
 #, kde-format
 msgid "Cut the selected notes from the note book."
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:218
+#: src/noteshared/standardnoteactionmanager.cpp:207
 #, fuzzy, kde-format
 #| msgid "New &Book..."
 msgid "Add &Bookshelf..."
 msgstr "&Китоби Нав..."
 
-#: src/noteshared/standardnoteactionmanager.cpp:220
+#: src/noteshared/standardnoteactionmanager.cpp:209
 #, kde-format
 msgid ""
 "Add a new bookshelf<p>You will be presented with a dialog where you can "
 "select the type of the bookshelf that shall be added.</p>"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:225
+#: src/noteshared/standardnoteactionmanager.cpp:214
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Bookshelf"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:229
+#: src/noteshared/standardnoteactionmanager.cpp:218
 #, kde-format
 msgid "Could not create bookshelf: %1"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:233
+#: src/noteshared/standardnoteactionmanager.cpp:222
 #, kde-format
 msgid "Bookshelf creation failed"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:238
+#: src/noteshared/standardnoteactionmanager.cpp:227
 #, fuzzy, kde-format
 #| msgid "Delete Boo&k"
 msgid "&Delete Bookshelf"
@@ -670,14 +670,14 @@ msgid_plural "&Delete %1 Bookshelfs"
 msgstr[0] "Нобудсозии &Китоб"
 msgstr[1] "Нобудсозии &Китоб"
 
-#: src/noteshared/standardnoteactionmanager.cpp:241
+#: src/noteshared/standardnoteactionmanager.cpp:230
 #, kde-format
 msgid ""
 "Delete the selected bookshelfs<p>The currently selected bookshelfs will be "
 "deleted, along with all the notes they contain.</p>"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:246
+#: src/noteshared/standardnoteactionmanager.cpp:235
 #, fuzzy, kde-format
 msgid "Do you really want to delete this bookshelf?"
 msgid_plural "Do you really want to delete %1 bookshelfs?"
@@ -686,7 +686,7 @@ msgstr[0] ""
 msgstr[1] ""
 "<qt>Дар ҳақиқат мехоҳед, ки саҳифаи <strong>%1</strong>-ро нобуд созед?</qt>"
 
-#: src/noteshared/standardnoteactionmanager.cpp:251
+#: src/noteshared/standardnoteactionmanager.cpp:240
 #, fuzzy, kde-format
 #| msgid "Delete Boo&k"
 msgctxt "@title:window"
@@ -695,39 +695,39 @@ msgid_plural "Delete Bookshelfs?"
 msgstr[0] "Нобудсозии &Китоб"
 msgstr[1] "Нобудсозии &Китоб"
 
-#: src/noteshared/standardnoteactionmanager.cpp:257
+#: src/noteshared/standardnoteactionmanager.cpp:246
 #, kde-format
 msgid "Bookshelf Properties..."
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:259
+#: src/noteshared/standardnoteactionmanager.cpp:248
 #, kde-format
 msgid "Open a dialog to edit properties of the selected bookshelf."
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:263
+#: src/noteshared/standardnoteactionmanager.cpp:252
 #, kde-format
 msgid "Update Bookshelf"
 msgid_plural "Update %1 Bookshelfs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:267
+#: src/noteshared/standardnoteactionmanager.cpp:256
 #, kde-format
 msgid "Updates the content of all note books of the selected bookshelfs."
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:273
+#: src/noteshared/standardnoteactionmanager.cpp:262
 #, kde-format
 msgid "Could not paste note: %1"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:277
+#: src/noteshared/standardnoteactionmanager.cpp:266
 #, kde-format
 msgid "Paste failed"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:297
+#: src/noteshared/standardnoteactionmanager.cpp:286
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "Lock Note"
@@ -735,12 +735,12 @@ msgid_plural "Lock Notes"
 msgstr[0] "Нобудсозии Саҳифа"
 msgstr[1] "Нобудсозии Саҳифа"
 
-#: src/noteshared/standardnoteactionmanager.cpp:299
+#: src/noteshared/standardnoteactionmanager.cpp:288
 #, fuzzy, kde-format
 msgid "Lock selected notes"
 msgstr "Нобудсозии Саҳифа"
 
-#: src/noteshared/standardnoteactionmanager.cpp:302
+#: src/noteshared/standardnoteactionmanager.cpp:291
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "Unlock Note"
@@ -748,12 +748,12 @@ msgid_plural "Unlock Notes"
 msgstr[0] "Нобудсозии Саҳифа"
 msgstr[1] "Нобудсозии Саҳифа"
 
-#: src/noteshared/standardnoteactionmanager.cpp:304
+#: src/noteshared/standardnoteactionmanager.cpp:293
 #, fuzzy, kde-format
 msgid "Unlock selected notes"
 msgstr "Нобудсозии Саҳифа"
 
-#: src/noteshared/standardnoteactionmanager.cpp:317
+#: src/noteshared/standardnoteactionmanager.cpp:306
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "Pin Note"
@@ -761,12 +761,12 @@ msgid_plural "Pin Notes"
 msgstr[0] "Нобудсозии Саҳифа"
 msgstr[1] "Нобудсозии Саҳифа"
 
-#: src/noteshared/standardnoteactionmanager.cpp:319
+#: src/noteshared/standardnoteactionmanager.cpp:308
 #, fuzzy, kde-format
 msgid "Pin selected notes"
 msgstr "Нобудсозии Саҳифа"
 
-#: src/noteshared/standardnoteactionmanager.cpp:322
+#: src/noteshared/standardnoteactionmanager.cpp:311
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "Unpin Note"
@@ -774,12 +774,12 @@ msgid_plural "Unpin Notes"
 msgstr[0] "Нобудсозии Саҳифа"
 msgstr[1] "Нобудсозии Саҳифа"
 
-#: src/noteshared/standardnoteactionmanager.cpp:324
+#: src/noteshared/standardnoteactionmanager.cpp:313
 #, fuzzy, kde-format
 msgid "Unpin selected notes"
 msgstr "Нобудсозии Саҳифа"
 
-#: src/noteshared/standardnoteactionmanager.cpp:365
+#: src/noteshared/standardnoteactionmanager.cpp:354
 #, fuzzy, kde-format
 #| msgid "New Book"
 msgctxt "@action"
@@ -788,13 +788,13 @@ msgid_plural "Lock Note Books"
 msgstr[0] "Китоби Нав"
 msgstr[1] "Китоби Нав"
 
-#: src/noteshared/standardnoteactionmanager.cpp:367
+#: src/noteshared/standardnoteactionmanager.cpp:356
 #, fuzzy, kde-format
 #| msgid "Delete Boo&k"
 msgid "Lock selected note books"
 msgstr "Нобудсозии &Китоб"
 
-#: src/noteshared/standardnoteactionmanager.cpp:370
+#: src/noteshared/standardnoteactionmanager.cpp:359
 #, fuzzy, kde-format
 #| msgid "New Book"
 msgctxt "@action"
@@ -803,41 +803,41 @@ msgid_plural "Unlock Note Books"
 msgstr[0] "Китоби Нав"
 msgstr[1] "Китоби Нав"
 
-#: src/noteshared/standardnoteactionmanager.cpp:372
+#: src/noteshared/standardnoteactionmanager.cpp:361
 #, fuzzy, kde-format
 #| msgid "Delete Boo&k"
 msgid "Unlock selected note books"
 msgstr "Нобудсозии &Китоб"
 
-#: src/noteshared/standardnoteactionmanager.cpp:605
+#: src/noteshared/standardnoteactionmanager.cpp:594
 #, fuzzy, kde-format
 #| msgid "&New Page"
 msgid "&New Note"
 msgstr "Саҳифаи &Нав"
 
-#: src/noteshared/standardnoteactionmanager.cpp:606
+#: src/noteshared/standardnoteactionmanager.cpp:595
 #, kde-format
 msgid "Add a new note to a selected note book"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:635
+#: src/noteshared/standardnoteactionmanager.cpp:624
 #, fuzzy, kde-format
 #| msgid "New &Book..."
 msgid "Change Note Color..."
 msgstr "&Китоби Нав..."
 
-#: src/noteshared/standardnoteactionmanager.cpp:636
+#: src/noteshared/standardnoteactionmanager.cpp:625
 #, kde-format
 msgid "Changes the color of a selected notes"
 msgstr ""
 
-#: src/noteshared/standardnoteactionmanager.cpp:644
+#: src/noteshared/standardnoteactionmanager.cpp:633
 #, fuzzy, kde-format
 #| msgid "New &Book..."
 msgid "Change Note Book Color..."
 msgstr "&Китоби Нав..."
 
-#: src/noteshared/standardnoteactionmanager.cpp:645
+#: src/noteshared/standardnoteactionmanager.cpp:634
 #, kde-format
 msgid "Changes the color of a selected note books"
 msgstr ""
