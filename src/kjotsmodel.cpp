@@ -21,12 +21,11 @@
 #include <KMime/Message>
 #include <KPIMTextEdit/TextUtils>
 #include <KPIMTextEdit/RichTextComposerImages>
+#include <KPIMTextEdit/TextHTMLBuilder>
+#include <KPIMTextEdit/MarkupDirector>
+#include <KPIMTextEdit/PlainTextMarkupBuilder>
 #include <KLocalizedString>
 #include <KFormat>
-
-#include <grantlee/markupdirector.h>
-#include <grantlee/texthtmlbuilder.h>
-#include <grantlee/plaintextmarkupbuilder.h>
 
 #include "noteshared/notelockattribute.h"
 #include "noteshared/notepinattribute.h"
@@ -59,8 +58,8 @@ QString KJotsEntity::content() const
         return QString();
     }
 
-    Grantlee::TextHTMLBuilder builder;
-    Grantlee::MarkupDirector director(&builder);
+    KPIMTextEdit::TextHTMLBuilder builder;
+    KPIMTextEdit::MarkupDirector director(&builder);
 
     director.processDocument(document);
     QString result = builder.getResult();
@@ -75,8 +74,8 @@ QString KJotsEntity::plainContent() const
         return QString();
     }
 
-    Grantlee::PlainTextMarkupBuilder builder;
-    Grantlee::MarkupDirector director(&builder);
+    KPIMTextEdit::PlainTextMarkupBuilder builder;
+    KPIMTextEdit::MarkupDirector director(&builder);
 
     director.processDocument(document);
     QString result = builder.getResult();

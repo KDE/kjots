@@ -14,6 +14,7 @@
 #define KJOTSBOOKMARKS
 
 #include <KBookmarkManager>
+#include <KBookmarkOwner>
 
 class QItemSelectionModel;
 

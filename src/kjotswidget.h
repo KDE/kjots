@@ -21,7 +21,12 @@
 #include <akonadi_version.h>
 #include <Akonadi/Collection>
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <grantlee/templateloader.h>
+#else
+#include <KTextTemplate/TemplateLoader>
+#endif
+
 
 class QActionGroup;
 class QCheckBox;
@@ -49,7 +54,11 @@ class EntityTreeView;
 class StandardNoteActionManager;
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 namespace Grantlee
+#else
+namespace KTextTemplate
+#endif
 {
 class Engine;
 }
@@ -124,8 +133,13 @@ private Q_SLOTS:
     void print(QPrinter *printer);
 private:
     // Grantlee
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Grantlee::Engine *m_templateEngine = nullptr;
     QSharedPointer<Grantlee::FileSystemTemplateLoader> m_loader;
+#else
+    KTextTemplate::Engine *m_templateEngine = nullptr;
+    QSharedPointer<KTextTemplate::FileSystemTemplateLoader> m_loader;
+#endif
 
     // XMLGui && Actions
     KXMLGUIClient  *m_xmlGuiClient = nullptr;

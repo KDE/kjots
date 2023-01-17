@@ -32,6 +32,7 @@
 #include <QItemDelegate>
 #include <QHeaderView>
 #include <QDebug>
+#include <QActionGroup>
 
 // Akonadi
 #include <akonadi_version.h>
@@ -51,10 +52,16 @@
 #include <Akonadi/EntityTreeView>
 #include <Akonadi/ETMViewStateSaver>
 #include <Akonadi/ControlGui>
-// Grantlee
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <grantlee/template.h>
 #include <grantlee/engine.h>
 #include <grantlee/context.h>
+#else
+#include <KTextTemplate/Engine>
+#include <KTextTemplate/Template>
+#include <KTextTemplate/Context>
+#endif
 
 // KDE
 #include <KActionCollection>
