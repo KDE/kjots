@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 00:59+0000\n"
+"POT-Creation-Date: 2023-01-18 00:58+0000\n"
 "PO-Revision-Date: 2020-11-02 17:51+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -188,20 +188,20 @@ msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "Énoncer le texte"
 
-#: src/kjotsbrowser.cpp:177
+#: src/kjotsbrowser.cpp:181
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr "Cliquez pour suivre le lien : %1"
 
-#: src/kjotsbrowser.cpp:181
+#: src/kjotsbrowser.cpp:185
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr "Cliquez pour ouvrir une note : %1"
 
-#: src/kjotsbrowser.cpp:183
+#: src/kjotsbrowser.cpp:187
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
@@ -261,31 +261,31 @@ msgstr "Ctrl+Clic pour suivre le lien : %1"
 msgid "Enter link URL, or another note or note book..."
 msgstr "Saisissez un « URL » ou une autre note ou un autre carnet de notes..."
 
-#: src/kjotsmodel.cpp:296
+#: src/kjotsmodel.cpp:295
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nom"
 
-#: src/kjotsmodel.cpp:300
+#: src/kjotsmodel.cpp:299
 #, kde-format
 msgctxt "@title:column title of a note"
 msgid "Title"
 msgstr "Titre"
 
-#: src/kjotsmodel.cpp:302
+#: src/kjotsmodel.cpp:301
 #, kde-format
 msgctxt "@title:column creation date and time of a note"
 msgid "Created"
 msgstr "Créé"
 
-#: src/kjotsmodel.cpp:304
+#: src/kjotsmodel.cpp:303
 #, kde-format
 msgctxt "@title:column last modification date and time of a note"
 msgid "Modified"
 msgstr "Modifié"
 
-#: src/kjotsmodel.cpp:306
+#: src/kjotsmodel.cpp:305
 #, kde-format
 msgctxt "@title:column size of a note"
 msgid "Size"
@@ -344,72 +344,72 @@ msgstr "Barre de format"
 msgid "Tools Toolbar"
 msgstr "Barre d'outils"
 
-#: src/kjotswidget.cpp:411
+#: src/kjotswidget.cpp:421
 #, kde-format
 msgid "&Bookmarks"
 msgstr "&Signets"
 
-#: src/kjotswidget.cpp:429
+#: src/kjotswidget.cpp:439
 #, kde-format
 msgid "Export"
 msgstr "Exporter"
 
-#: src/kjotswidget.cpp:433
+#: src/kjotswidget.cpp:443
 #, kde-format
 msgid "To Text File..."
 msgstr "Dans un fichier texte..."
 
-#: src/kjotswidget.cpp:441
+#: src/kjotswidget.cpp:451
 #, kde-format
 msgid "To HTML File..."
 msgstr "Dans un fichier HTML..."
 
-#: src/kjotswidget.cpp:450
+#: src/kjotswidget.cpp:460
 #, kde-format
 msgid "Next Book"
 msgstr "Carnet suivant"
 
-#: src/kjotswidget.cpp:461
+#: src/kjotswidget.cpp:471
 #, kde-format
 msgid "Previous Book"
 msgstr "Carnet précédent"
 
-#: src/kjotswidget.cpp:474
+#: src/kjotswidget.cpp:484
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
 msgstr "Deux Colonnes"
 
-#: src/kjotswidget.cpp:479
+#: src/kjotswidget.cpp:489
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "Trois Colonnes"
 
-#: src/kjotswidget.cpp:541
+#: src/kjotswidget.cpp:551
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "Divers"
 
-#: src/kjotswidget.cpp:576
+#: src/kjotswidget.cpp:586
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Table des matières"
 
-#: src/kjotswidget.cpp:601
+#: src/kjotswidget.cpp:619
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>Impossible d'ouvrir « %1 » en écriture</qt>"
 
-#: src/kjotswidget.cpp:697
+#: src/kjotswidget.cpp:715
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "Sélections multiples"
 
-#: src/kjotswidget.cpp:715
+#: src/kjotswidget.cpp:733
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -423,12 +423,12 @@ msgstr ""
 "sinon, toutes vos modifications seront perdues !\n"
 "Voulez-vous vraiment quitter ?"
 
-#: src/kjotswidget.cpp:719
+#: src/kjotswidget.cpp:737
 #, kde-format
 msgid "Close Document"
 msgstr "Fermer un document"
 
-#: src/kjotswidget.cpp:724
+#: src/kjotswidget.cpp:742
 #, kde-format
 msgid ""
 "Error message:\n"

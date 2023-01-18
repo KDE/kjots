@@ -2,7 +2,7 @@
 # Translation of kjots.po to Slovenian
 # -*- mode:po; coding:iso-latin-2; -*- kjots Slovenian message catalogue.
 # Copyright (C) 2001,2003, 2004, 2005, 2006 Free Software Foundation, Inc.
-# $Id: kjots.po 1642531 2023-01-17 01:47:02Z scripty $
+# $Id: kjots.po 1642593 2023-01-18 01:43:44Z scripty $
 # $Source$
 #
 # Marko Samastur <markos@elite.org>, 2000.
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 00:59+0000\n"
+"POT-Creation-Date: 2023-01-18 00:58+0000\n"
 "PO-Revision-Date: 2020-06-08 18:23+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -181,20 +181,20 @@ msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "Govori besedilo:"
 
-#: src/kjotsbrowser.cpp:177
+#: src/kjotsbrowser.cpp:181
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr "Kliknite za sledenje hiperpovezavi: %1"
 
-#: src/kjotsbrowser.cpp:181
+#: src/kjotsbrowser.cpp:185
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr "Kliknite za odpiranje opombe: %1"
 
-#: src/kjotsbrowser.cpp:183
+#: src/kjotsbrowser.cpp:187
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
@@ -254,31 +254,31 @@ msgstr "Ctrl+klik, za sledenje povezavi: %1"
 msgid "Enter link URL, or another note or note book..."
 msgstr "Vnesite naslov povezave, drugo opombo ali zabeležko..."
 
-#: src/kjotsmodel.cpp:296
+#: src/kjotsmodel.cpp:295
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Ime"
 
-#: src/kjotsmodel.cpp:300
+#: src/kjotsmodel.cpp:299
 #, kde-format
 msgctxt "@title:column title of a note"
 msgid "Title"
 msgstr "Naslov"
 
-#: src/kjotsmodel.cpp:302
+#: src/kjotsmodel.cpp:301
 #, kde-format
 msgctxt "@title:column creation date and time of a note"
 msgid "Created"
 msgstr "Ustvarjeno"
 
-#: src/kjotsmodel.cpp:304
+#: src/kjotsmodel.cpp:303
 #, kde-format
 msgctxt "@title:column last modification date and time of a note"
 msgid "Modified"
 msgstr "Spremenjeno"
 
-#: src/kjotsmodel.cpp:306
+#: src/kjotsmodel.cpp:305
 #, kde-format
 msgctxt "@title:column size of a note"
 msgid "Size"
@@ -337,72 +337,72 @@ msgstr "Orodna vrstica oblikovanja"
 msgid "Tools Toolbar"
 msgstr "Orodna letvica"
 
-#: src/kjotswidget.cpp:411
+#: src/kjotswidget.cpp:421
 #, kde-format
 msgid "&Bookmarks"
 msgstr "Zaznamki"
 
-#: src/kjotswidget.cpp:429
+#: src/kjotswidget.cpp:439
 #, kde-format
 msgid "Export"
 msgstr "Izvozi"
 
-#: src/kjotswidget.cpp:433
+#: src/kjotswidget.cpp:443
 #, kde-format
 msgid "To Text File..."
 msgstr "V besedilno datoteko ..."
 
-#: src/kjotswidget.cpp:441
+#: src/kjotswidget.cpp:451
 #, kde-format
 msgid "To HTML File..."
 msgstr "V datoteko HTML ..."
 
-#: src/kjotswidget.cpp:450
+#: src/kjotswidget.cpp:460
 #, kde-format
 msgid "Next Book"
 msgstr "Naslednja beležnica"
 
-#: src/kjotswidget.cpp:461
+#: src/kjotswidget.cpp:471
 #, kde-format
 msgid "Previous Book"
 msgstr "Predhodna beležnica"
 
-#: src/kjotswidget.cpp:474
+#: src/kjotswidget.cpp:484
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
 msgstr "Dva stolpca"
 
-#: src/kjotswidget.cpp:479
+#: src/kjotswidget.cpp:489
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "Trije stolpci"
 
-#: src/kjotswidget.cpp:541
+#: src/kjotswidget.cpp:551
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "Razno"
 
-#: src/kjotswidget.cpp:576
+#: src/kjotswidget.cpp:586
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Kazalo vsebine"
 
-#: src/kjotswidget.cpp:601
+#: src/kjotswidget.cpp:619
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>Ni bilo mogoče odpreti \"%1\" za pisanje</qt>"
 
-#: src/kjotswidget.cpp:697
+#: src/kjotswidget.cpp:715
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "Večkratna izbira"
 
-#: src/kjotswidget.cpp:715
+#: src/kjotswidget.cpp:733
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -415,12 +415,12 @@ msgstr ""
 "v nasprotnem primeru boste izgubili spremembe!\n"
 "Ali vseeno želite zapreti?"
 
-#: src/kjotswidget.cpp:719
+#: src/kjotswidget.cpp:737
 #, kde-format
 msgid "Close Document"
 msgstr "Zapri dokument"
 
-#: src/kjotswidget.cpp:724
+#: src/kjotswidget.cpp:742
 #, kde-format
 msgid ""
 "Error message:\n"

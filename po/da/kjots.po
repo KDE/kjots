@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 00:59+0000\n"
+"POT-Creation-Date: 2023-01-18 00:58+0000\n"
 "PO-Revision-Date: 2020-07-22 14:02+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -170,20 +170,20 @@ msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "Oplæs tekst"
 
-#: src/kjotsbrowser.cpp:177
+#: src/kjotsbrowser.cpp:181
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr "Klik for at følge hyperlink: %1"
 
-#: src/kjotsbrowser.cpp:181
+#: src/kjotsbrowser.cpp:185
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr "Klik for at åbne note: %1"
 
-#: src/kjotsbrowser.cpp:183
+#: src/kjotsbrowser.cpp:187
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
@@ -243,31 +243,31 @@ msgstr "Ctrl+klik for at følge hyperlink: %1"
 msgid "Enter link URL, or another note or note book..."
 msgstr "Angiv link-URL, eller en anden note eller notesbog..."
 
-#: src/kjotsmodel.cpp:296
+#: src/kjotsmodel.cpp:295
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Navn"
 
-#: src/kjotsmodel.cpp:300
+#: src/kjotsmodel.cpp:299
 #, kde-format
 msgctxt "@title:column title of a note"
 msgid "Title"
 msgstr "Titel"
 
-#: src/kjotsmodel.cpp:302
+#: src/kjotsmodel.cpp:301
 #, kde-format
 msgctxt "@title:column creation date and time of a note"
 msgid "Created"
 msgstr "Oprettet"
 
-#: src/kjotsmodel.cpp:304
+#: src/kjotsmodel.cpp:303
 #, kde-format
 msgctxt "@title:column last modification date and time of a note"
 msgid "Modified"
 msgstr "Ændret"
 
-#: src/kjotsmodel.cpp:306
+#: src/kjotsmodel.cpp:305
 #, kde-format
 msgctxt "@title:column size of a note"
 msgid "Size"
@@ -326,72 +326,72 @@ msgstr "Formateringsværktøjslinje"
 msgid "Tools Toolbar"
 msgstr "Værktøjer-værktøjslinje"
 
-#: src/kjotswidget.cpp:411
+#: src/kjotswidget.cpp:421
 #, kde-format
 msgid "&Bookmarks"
 msgstr "&Bogmærker"
 
-#: src/kjotswidget.cpp:429
+#: src/kjotswidget.cpp:439
 #, kde-format
 msgid "Export"
 msgstr "Eksportér"
 
-#: src/kjotswidget.cpp:433
+#: src/kjotswidget.cpp:443
 #, kde-format
 msgid "To Text File..."
 msgstr "Til tekstfil..."
 
-#: src/kjotswidget.cpp:441
+#: src/kjotswidget.cpp:451
 #, kde-format
 msgid "To HTML File..."
 msgstr "Til HTML-fil..."
 
-#: src/kjotswidget.cpp:450
+#: src/kjotswidget.cpp:460
 #, kde-format
 msgid "Next Book"
 msgstr "Næste bog"
 
-#: src/kjotswidget.cpp:461
+#: src/kjotswidget.cpp:471
 #, kde-format
 msgid "Previous Book"
 msgstr "Forrige bog"
 
-#: src/kjotswidget.cpp:474
+#: src/kjotswidget.cpp:484
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
 msgstr "To kolonner"
 
-#: src/kjotswidget.cpp:479
+#: src/kjotswidget.cpp:489
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "Tre kolonner"
 
-#: src/kjotswidget.cpp:541
+#: src/kjotswidget.cpp:551
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "Diverse"
 
-#: src/kjotswidget.cpp:576
+#: src/kjotswidget.cpp:586
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Indholdsfortegnelse"
 
-#: src/kjotswidget.cpp:601
+#: src/kjotswidget.cpp:619
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>Kunne ikke åbne \"%1\" til skrivning</qt>"
 
-#: src/kjotswidget.cpp:697
+#: src/kjotswidget.cpp:715
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "Flere markeringer"
 
-#: src/kjotswidget.cpp:715
+#: src/kjotswidget.cpp:733
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -404,12 +404,12 @@ msgstr ""
 "ellers vil du miste dine ændringer!\n"
 "Vil du lukke alligevel?"
 
-#: src/kjotswidget.cpp:719
+#: src/kjotswidget.cpp:737
 #, kde-format
 msgid "Close Document"
 msgstr "Luk dokument"
 
-#: src/kjotswidget.cpp:724
+#: src/kjotswidget.cpp:742
 #, kde-format
 msgid ""
 "Error message:\n"
