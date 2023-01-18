@@ -1,10 +1,8 @@
+cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 project(kjots)
-
-cmake_minimum_required(VERSION 2.8.12)
 
 find_package(ECM 5.92.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
-set(CMAKE_CXX_STANDARD 14)
 
 include(ECMAddTests)
 include(CMakePackageConfigHelpers)
