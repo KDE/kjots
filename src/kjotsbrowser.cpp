@@ -14,8 +14,13 @@
 #include "kjotsbrowser.h"
 #include "kjotsmodel.h"
 
-#include <KPIMTextEdit/RichTextEditFindBar>
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#include <TextEditTextToSpeech/TextToSpeechWidget>
+#else
 #include <KPIMTextEditTextToSpeech/TextToSpeechWidget>
+#endif
+
+#include <KPIMTextEdit/RichTextEditFindBar>
 #include <KPIMTextEdit/SlideContainer>
 
 #include <QHelpEvent>
@@ -44,7 +49,11 @@ public:
     std::unique_ptr<KJotsBrowser> mBrowser;
     KPIMTextEdit::SlideContainer mSliderContainer;
     KPIMTextEdit::RichTextEditFindBar mFindBar;
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+    TextEditTextToSpeech::TextToSpeechWidget mTextToSpeechWidget;
+#else
     KPIMTextEditTextToSpeech::TextToSpeechWidget mTextToSpeechWidget;
+#endif
 };
 
 KJotsBrowserWidget::KJotsBrowserWidget(std::unique_ptr<KJotsBrowser> browser, QWidget *parent)
@@ -56,7 +65,11 @@ KJotsBrowserWidget::KJotsBrowserWidget(std::unique_ptr<KJotsBrowser> browser, QW
     d->mFindBar.setHideWhenClose(false);
 
     connect(&d->mFindBar, &KPIMTextEdit::RichTextEditFindBar::hideFindBar, this, &KJotsBrowserWidget::slotHideFindBar);
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+    connect(d->mBrowser.get(), &KJotsBrowser::say, &d->mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechWidget::say);
+#else
     connect(d->mBrowser.get(), &KJotsBrowser::say, &d->mTextToSpeechWidget, &KPIMTextEditTextToSpeech::TextToSpeechWidget::say);
+#endif
 
     QVBoxLayout *lay = new QVBoxLayout(this);
     lay->setContentsMargins(0, 0, 0, 0);
@@ -129,7 +142,11 @@ void KJotsBrowser::contextMenuEvent(QContextMenuEvent *event)
     popup->addSeparator();
     popup->addAction(m_actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))));
     popup->addSeparator();
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+    if (!document()->isEmpty() && TextEditTextToSpeech::TextToSpeech::self()->isReady()) {
+#else
     if (!document()->isEmpty() && KPIMTextEditTextToSpeech::TextToSpeech::self()->isReady()) {
+#endif
         QAction *speakAction = popup->addAction(i18nc("@info:action", "Speak Text"));
         speakAction->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")));
         connect(speakAction, &QAction::triggered, this, [this](){

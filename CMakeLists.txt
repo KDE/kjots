@@ -53,6 +53,16 @@ else()
     set(MAIN_LIB KF6::TextTemplate)
 endif()
 
+
+option(USE_KTEXTADDONS_LIB "Use ktextaddons lib (experimental)" OFF)
+set(KTEXTADDONS_MIN_VERSION "1.0.0")
+if (USE_KTEXTADDONS_LIB)
+    find_package(KF5TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
+    add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
+else()
+    find_package(KF5PimTextEditTextToSpeech ${KPIMTEXTEDIT_LIB_VERSION} CONFIG REQUIRED)
+endif()
+
 ##################### Definitions #####################
 add_definitions(-DQT_NO_KEYWORDS)
 add_definitions(-DQT_NO_CAST_FROM_ASCII)
