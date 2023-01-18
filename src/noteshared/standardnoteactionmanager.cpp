@@ -473,12 +473,12 @@ public:
             collection = collections.first();
         } else {
             const Item::List items = mParent->selectedItems();
-            if (items.count() == 0) {
+            if (items.isEmpty()) {
                 return;
             }
             collection = items.first().parentCollection();
         }
-        auto *creatorAndSelector = new NoteShared::NoteCreatorAndSelector(mCollectionSelectionModel, mItemSelectionModel, mParent);
+        auto creatorAndSelector = new NoteShared::NoteCreatorAndSelector(mCollectionSelectionModel, mItemSelectionModel, mParent);
         creatorAndSelector->createNote(collection);
     }
 

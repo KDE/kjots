@@ -35,7 +35,7 @@ KJotsLinkDialog::KJotsLinkDialog(QAbstractItemModel *kjotsModel, QWidget *parent
     ui->hrefCombo->setInsertPolicy(QComboBox::NoInsert);
     ui->hrefCombo->setCurrentIndex(-1);
 
-    auto *completer = new QCompleter(m_descendantsProxyModel.get(), this);
+    auto completer = new QCompleter(m_descendantsProxyModel.get(), this);
     completer->setCaseSensitivity(Qt::CaseInsensitive);
     ui->hrefCombo->setCompleter(completer);
 

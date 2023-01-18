@@ -132,7 +132,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
     scope.fetchAttribute<NoteShared::NoteLockAttribute>();
     scope.fetchAttribute<NoteShared::NotePinAttribute>();
 
-    auto *monitor = new ChangeRecorder(this);
+    auto monitor = new ChangeRecorder(this);
     monitor->fetchCollection(true);
     monitor->setItemFetchScope(scope);
     monitor->setCollectionMonitored(Collection::root());
@@ -213,7 +213,7 @@ KJotsWidget::~KJotsWidget()
 void KJotsWidget::setupGui()
 {
     // Main horizontal layout
-    auto *layout = new QHBoxLayout(this);
+    auto layout = new QHBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
 
     // Splitter between (collection view) and (item view + editor)
@@ -268,13 +268,13 @@ void KJotsWidget::setupGui()
 void KJotsWidget::restoreState()
 {
     {
-        auto *saver = new ETMViewStateSaver;
+        auto saver = new ETMViewStateSaver;
         saver->setView(m_collectionView);
         KConfigGroup cfg(KSharedConfig::openConfig(), "CollectionViewState");
         saver->restoreState(cfg);
     }
     {
-        auto *saver = new ETMViewStateSaver;
+        auto saver = new ETMViewStateSaver;
         saver->setView(m_itemView);
         KConfigGroup cfg(KSharedConfig::openConfig(), "ItemViewState");
         saver->restoreState(cfg);
@@ -419,9 +419,9 @@ void KJotsWidget::setupActions()
     // Bookmarks actions
     auto *bookmarkMenu = actionCollection->add<KActionMenu>(QStringLiteral("bookmarks"));
     bookmarkMenu->setText(i18n("&Bookmarks"));
-    auto *bookmarks = new KJotsBookmarks(m_collectionView->selectionModel(), this);
+    auto bookmarks = new KJotsBookmarks(m_collectionView->selectionModel(), this);
     connect(bookmarks, &KJotsBookmarks::openLink, this, &KJotsWidget::openLink);
-    auto *bmm = new KBookmarkMenu(
+    auto bmm = new KBookmarkMenu(
         KBookmarkManager::managerForFile(
             QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/kjots/bookmarks.xml"),
             QStringLiteral("kjots")),
@@ -777,7 +777,7 @@ void KJotsWidget::openLink(const QUrl &url)
             m_itemView->selectionModel()->select(idx, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
         }
     } else {
-        auto *job = new KIO::OpenUrlJob(url, this);
+        auto job = new KIO::OpenUrlJob(url, this);
         job->start();
     }
 }

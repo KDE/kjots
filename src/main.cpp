@@ -38,7 +38,7 @@ int main(int argc, char **argv)
         exit(0);
     }
 
-    auto *jots = new KJotsMain;
+    auto jots = new KJotsMain;
     if (app.isSessionRestored()) {
         if (KJotsMain::canBeRestored(1)) {
             jots->restore(1);

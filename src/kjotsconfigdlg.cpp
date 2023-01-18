@@ -15,7 +15,7 @@ KJotsConfigMisc::KJotsConfigMisc(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)
     , ui(new Ui::confPageMisc)
 {
-    auto *lay = new QHBoxLayout(this);
+    auto lay = new QHBoxLayout(this);
     auto miscPage = new QWidget(this);
     ui->setupUi(miscPage);
     lay->addWidget(miscPage);

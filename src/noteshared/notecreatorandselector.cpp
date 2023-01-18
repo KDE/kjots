@@ -82,7 +82,7 @@ void NoteCreatorAndSelector::doCreateNote()
     newItem.setPayload(note.message());
     newItem.attribute<Akonadi::EntityDisplayAttribute>(Akonadi::Item::AddIfMissing)->setIconName(QStringLiteral("text-plain"));
 
-    auto *job = new Akonadi::ItemCreateJob(newItem, Collection(m_containerCollectionId), this);
+    auto job = new Akonadi::ItemCreateJob(newItem, Collection(m_containerCollectionId), this);
     connect(job, &Akonadi::ItemCreateJob::result, this, &NoteCreatorAndSelector::noteCreationFinished);
 }
 
@@ -92,7 +92,7 @@ void NoteCreatorAndSelector::noteCreationFinished(KJob *job)
         qCWarning(NOTESHARED_LOG) << job->errorString();
         return;
     }
-    auto *createJob = qobject_cast<Akonadi::ItemCreateJob *>(job);
+    auto createJob = qobject_cast<Akonadi::ItemCreateJob *>(job);
     Q_ASSERT(createJob);
 
     Item newItem = createJob->item();
