@@ -16,7 +16,7 @@ configure_file(kjots-version.h.in
 # with -fPIC for the part and without -fPIC for the executable
 #########################################################################
 
-set(kjots_config_SRCS kjotsconfigdlg.cpp)
+set(kjots_config_SRCS kjotsconfigdlg.cpp kjotsconfigdlg.h)
 kconfig_add_kcfg_files(kjots_config_SRCS KJotsSettings.kcfgc )
 ki18n_wrap_ui(kjots_config_SRCS confpagemisc.ui)
 
@@ -104,6 +104,7 @@ install(FILES kjotsui.rc
 
 set(kjotspart_PART_SRCS
   kjotspart.cpp
+  kjotspart.h
 )
 
 add_library(kjotspart MODULE ${kjotspart_PART_SRCS})
