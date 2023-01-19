@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:58+0000\n"
+"POT-Creation-Date: 2023-01-19 00:58+0000\n"
 "PO-Revision-Date: 2017-07-30 21:29+0800\n"
 "Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -158,27 +158,27 @@ msgstr "書本是否要自動儲存。"
 msgid "The interval in minutes at which books should be saved automatically."
 msgstr "書本自動儲存的間隔。"
 
-#: src/kjotsbrowser.cpp:133
+#: src/kjotsbrowser.cpp:150
 #, fuzzy, kde-format
 #| msgid "Link Text:"
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "連結文字："
 
-#: src/kjotsbrowser.cpp:181
+#: src/kjotsbrowser.cpp:198
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr ""
 
-#: src/kjotsbrowser.cpp:185
+#: src/kjotsbrowser.cpp:202
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr ""
 
-#: src/kjotsbrowser.cpp:187
+#: src/kjotsbrowser.cpp:204
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"

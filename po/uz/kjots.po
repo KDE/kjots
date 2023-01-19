@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:58+0000\n"
+"POT-Creation-Date: 2023-01-19 00:58+0000\n"
 "PO-Revision-Date: 2006-12-17 13:37+0000\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -162,26 +162,26 @@ msgstr "Kitoblarni avtomatik ravishda saqlash."
 msgid "The interval in minutes at which books should be saved automatically."
 msgstr "Kitoblarni avtomatik saqlash orasidagi vaqt (daqiqalarda)."
 
-#: src/kjotsbrowser.cpp:133
+#: src/kjotsbrowser.cpp:150
 #, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr ""
 
-#: src/kjotsbrowser.cpp:181
+#: src/kjotsbrowser.cpp:198
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr ""
 
-#: src/kjotsbrowser.cpp:185
+#: src/kjotsbrowser.cpp:202
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr ""
 
-#: src/kjotsbrowser.cpp:187
+#: src/kjotsbrowser.cpp:204
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:58+0000\n"
+"POT-Creation-Date: 2023-01-19 00:58+0000\n"
 "PO-Revision-Date: 2020-11-02 17:51+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -182,26 +182,26 @@ msgstr ""
 "L'intervalle, en minutes, entre lequel les carnets seront automatiquement "
 "enregistrés."
 
-#: src/kjotsbrowser.cpp:133
+#: src/kjotsbrowser.cpp:150
 #, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "Énoncer le texte"
 
-#: src/kjotsbrowser.cpp:181
+#: src/kjotsbrowser.cpp:198
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr "Cliquez pour suivre le lien : %1"
 
-#: src/kjotsbrowser.cpp:185
+#: src/kjotsbrowser.cpp:202
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr "Cliquez pour ouvrir une note : %1"
 
-#: src/kjotsbrowser.cpp:187
+#: src/kjotsbrowser.cpp:204
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
