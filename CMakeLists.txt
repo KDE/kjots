@@ -13,6 +13,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMInstallIcons)
 include(ECMQtDeclareLoggingCategory)
 include(ECMAddAppIcon)
+include(ECMDeprecationSettings)
 
 set(KJOTS_VERSION "5.1.0")
 
@@ -51,6 +52,7 @@ else()
     set(MAIN_LIB KF6::TextTemplate)
 endif()
 
+ecm_set_disabled_deprecation_versions(QT 5.15.2  KF 5.102.0)
 
 option(USE_KTEXTADDONS_LIB "Use ktextaddons lib (experimental)" OFF)
 set(KTEXTADDONS_MIN_VERSION "1.0.0")
