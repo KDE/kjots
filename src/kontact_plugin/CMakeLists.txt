@@ -7,6 +7,7 @@ list(APPEND CMAKE_AUTOMOC_MACRO_NAMES "EXPORT_KONTACT_PLUGIN_WITH_JSON")
 
 set(kontact_kjots_PART_SRCS
     kjots_plugin.cpp
+    kjots_plugin.h
 )
 
 add_library(kontact_kjotsplugin MODULE ${kontact_kjots_PART_SRCS})

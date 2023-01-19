@@ -30,6 +30,15 @@ set(kjots_common_SRCS
   kjotslinkdialog.cpp
   notesortproxymodel.cpp
   uistatesaver.cpp
+  aboutdata.h
+  kjotsedit.h
+  kjotsbookmarks.h
+  kjotsmodel.h
+  kjotswidget.h
+  kjotsbrowser.h
+  kjotslinkdialog.h
+  notesortproxymodel.h
+  uistatesaver.h
   ${kjots_config_SRCS}
 )
 ki18n_wrap_ui(kjots_common_SRCS linkdialog.ui)
@@ -69,6 +78,7 @@ qt_add_dbus_interfaces(kjots_common_SRCS
 set(kjots_SRCS
    main.cpp
    KJotsMain.cpp
+   KJotsMain.h
 )
 
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/icons/*-apps-kjots.png")
