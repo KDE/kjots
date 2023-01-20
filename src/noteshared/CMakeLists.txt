@@ -1,8 +1,8 @@
 set(noteshared_SRCS
-    notecreatorandselector.cpp
-    notelockattribute.cpp
-    notepinattribute.cpp
-    standardnoteactionmanager.cpp
+    notecreatorandselector.cpp notecreatorandselector.h
+    notelockattribute.cpp notelockattribute.h
+    notepinattribute.cpp notepinattribute.h
+    standardnoteactionmanager.cpp standardnoteactionmanager.h
 )
 
 ecm_qt_declare_logging_category(noteshared_SRCS
