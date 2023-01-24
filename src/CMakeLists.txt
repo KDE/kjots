@@ -49,16 +49,16 @@ target_link_libraries(kjots_common
   noteshared
   Qt::DBus
   Qt::PrintSupport
-  KF5::KCMUtils
-  KF5::Bookmarks
-  KF5::ConfigWidgets
-  KF5::TextWidgets
+  KF${KF_MAJOR_VERSION}::KCMUtils
+  KF${KF_MAJOR_VERSION}::Bookmarks
+  KF${KF_MAJOR_VERSION}::ConfigWidgets
+  KF${KF_MAJOR_VERSION}::TextWidgets
   KF5::Mime
   KF5::AkonadiCore
   KF5::AkonadiWidgets
   KF5::PimTextEdit
-  KF5::XmlGui
-  KF5::KIOWidgets
+  KF${KF_MAJOR_VERSION}::XmlGui
+  KF${KF_MAJOR_VERSION}::KIOWidgets
   ${MAIN_LIB}
 )
 
@@ -111,7 +111,7 @@ add_library(kjotspart MODULE ${kjotspart_PART_SRCS})
 
 target_link_libraries(kjotspart
   kjots_common
-  KF5::Parts
+  KF${KF_MAJOR_VERSION}::Parts
 )
 
 install(FILES ${CMAKE_SOURCE_DIR}/data/kjotspart.desktop
@@ -131,8 +131,8 @@ set(kcm_kjots_PART_SRCS
 add_library(kcm_kjots MODULE ${kcm_kjots_PART_SRCS})
 
 target_link_libraries(kcm_kjots
-    KF5::KCMUtils
-    KF5::I18n
+    KF${KF_MAJOR_VERSION}::KCMUtils
+    KF${KF_MAJOR_VERSION}::I18n
 )
 
 install(TARGETS kcm_kjots
