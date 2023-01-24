@@ -595,7 +595,7 @@ QAction *StandardNoteActionManager::createAction(Type type)
         action->setWhatsThis(i18n("Add a new note to a selected note book"));
         d->mActions.insert(CreateNote, action);
         d->mActionCollection->addAction(QStringLiteral("akonadi_note_create"), action);
-        d->mActionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL + Qt::Key_N));
+        d->mActionCollection->setDefaultShortcut(action, QKeySequence(Qt::CTRL | Qt::Key_N));
         connect(action, &QAction::triggered, this, [this](){
            d->slotCreateNote();
         });
