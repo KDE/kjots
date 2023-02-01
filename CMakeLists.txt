@@ -30,9 +30,11 @@ if (QT_MAJOR_VERSION STREQUAL "6")
     set(QT_REQUIRED_VERSION "6.4.0")
     set(KF_MIN_VERSION "5.240.0")
     set(KF_MAJOR_VERSION "6")
+    set(KTEXTADDONS_MIN_VERSION "1.1.0")
 else()
     set(KF_MIN_VERSION "5.100.0")
     set(KF_MAJOR_VERSION "5")
+    set(KTEXTADDONS_MIN_VERSION "1.0.2")
 endif()
 find_package(Qt${QT_MAJOR_VERSION} ${QT_REQUIRED_VERSION} CONFIG REQUIRED DBus PrintSupport)
 
@@ -62,14 +64,7 @@ endif()
 
 ecm_set_disabled_deprecation_versions(QT 6.4  KF 5.102.0)
 
-option(USE_KTEXTADDONS_LIB "Use ktextaddons lib (experimental)" OFF)
-set(KTEXTADDONS_MIN_VERSION "1.0.0")
-if (USE_KTEXTADDONS_LIB)
-    find_package(KF5TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
-    add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
-else()
-    find_package(KF5PimTextEditTextToSpeech ${KPIMTEXTEDIT_LIB_VERSION} CONFIG REQUIRED)
-endif()
+find_package(KF5TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
 
 ##################### Definitions #####################
 add_definitions(-DQT_NO_KEYWORDS)
