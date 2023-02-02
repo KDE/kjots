@@ -2,7 +2,7 @@
 # Translation of kjots.po to Slovenian
 # -*- mode:po; coding:iso-latin-2; -*- kjots Slovenian message catalogue.
 # Copyright (C) 2001,2003, 2004, 2005, 2006 Free Software Foundation, Inc.
-# $Id: kjots.po 1642668 2023-01-19 01:46:11Z scripty $
+# $Id: kjots.po 1643708 2023-02-02 01:49:24Z scripty $
 # $Source$
 #
 # Marko Samastur <markos@elite.org>, 2000.
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-19 00:58+0000\n"
+"POT-Creation-Date: 2023-02-02 00:59+0000\n"
 "PO-Revision-Date: 2020-06-08 18:23+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -175,26 +175,26 @@ msgstr "Ali naj se beležnice shranijo samodejno."
 msgid "The interval in minutes at which books should be saved automatically."
 msgstr "Interval v minutah, po katerem naj se beležnice samodejno shranijo."
 
-#: src/kjotsbrowser.cpp:150
+#: src/kjotsbrowser.cpp:134
 #, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "Govori besedilo:"
 
-#: src/kjotsbrowser.cpp:198
+#: src/kjotsbrowser.cpp:182
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr "Kliknite za sledenje hiperpovezavi: %1"
 
-#: src/kjotsbrowser.cpp:202
+#: src/kjotsbrowser.cpp:186
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr "Kliknite za odpiranje opombe: %1"
 
-#: src/kjotsbrowser.cpp:204
+#: src/kjotsbrowser.cpp:188
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"

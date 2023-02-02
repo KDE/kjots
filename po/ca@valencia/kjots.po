@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-19 00:58+0000\n"
+"POT-Creation-Date: 2023-02-02 00:59+0000\n"
 "PO-Revision-Date: 2022-06-14 19:07+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -166,26 +166,26 @@ msgid "The interval in minutes at which books should be saved automatically."
 msgstr ""
 "L'interval en minuts en què els llibres s'han de guardar automàticament."
 
-#: src/kjotsbrowser.cpp:150
+#: src/kjotsbrowser.cpp:134
 #, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "Llig el text"
 
-#: src/kjotsbrowser.cpp:198
+#: src/kjotsbrowser.cpp:182
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr "Feu clic per a seguir l'enllaç: %1"
 
-#: src/kjotsbrowser.cpp:202
+#: src/kjotsbrowser.cpp:186
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr "Feu clic per a obrir una nota: %1"
 
-#: src/kjotsbrowser.cpp:204
+#: src/kjotsbrowser.cpp:188
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
