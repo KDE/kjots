@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-02 00:59+0000\n"
-"PO-Revision-Date: 2022-10-10 07:22+0200\n"
+"PO-Revision-Date: 2023-02-02 08:49+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -62,7 +62,7 @@ msgstr "Daniel Vrátil"
 #: src/aboutdata.cpp:23
 #, kde-format
 msgid "Port to KDE Frameworks 5"
-msgstr ""
+msgstr "KDE Frameworks 5-ზე გადატანა"
 
 #: src/aboutdata.cpp:24
 #, kde-format
@@ -72,7 +72,7 @@ msgstr "Stephen Kelly"
 #: src/aboutdata.cpp:25
 #, kde-format
 msgid "Pradeepto K. Bhattacharya"
-msgstr ""
+msgstr "Pradeepto K. Bhattacharya"
 
 #: src/aboutdata.cpp:26
 #, kde-format
@@ -143,7 +143,7 @@ msgstr ""
 #: src/confpagemisc.ui:57
 #, kde-format
 msgid "&Save changes periodically"
-msgstr ""
+msgstr "&ცვლილებების პერიოდული შენახვა"
 
 #. i18n: ectx: label, entry (AutoSave), group (kjots)
 #: src/kjots.kcfg:9
@@ -186,7 +186,7 @@ msgstr "დააწკაპუნეთ წიგნის გასახს�
 #, kde-format
 msgctxt "@action"
 msgid "Copy &Into Page Title"
-msgstr ""
+msgstr "გვერდის სათაურში &კოპირება"
 
 #: src/kjotsedit.cpp:105
 #, kde-format
@@ -382,7 +382,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
-msgstr ""
+msgstr "მრავალი არჩევანი"
 
 #: src/kjotswidget.cpp:733
 #, kde-format
@@ -404,6 +404,8 @@ msgid ""
 "Error message:\n"
 "%1"
 msgstr ""
+"შეცდომის შეტყობინება:\n"
+"%1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, LinkDialog)
 #: src/linkdialog.ui:14
@@ -415,7 +417,7 @@ msgstr "ბმულის მართვა"
 #: src/linkdialog.ui:29
 #, kde-format
 msgid "Link &Text:"
-msgstr ""
+msgstr "ბმულის &ტექსტი:"
 
 #. i18n: ectx: property (text), widget (QLabel, linkUrlLabel)
 #: src/linkdialog.ui:46
@@ -549,8 +551,8 @@ msgstr ""
 #, kde-format
 msgid "Copy Note"
 msgid_plural "Copy %1 Notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "შენიშვნის კოპირება"
+msgstr[1] "%1 შენიშვნის კოპირება"
 
 #: src/noteshared/standardnoteactionmanager.cpp:175
 #, kde-format
@@ -598,8 +600,8 @@ msgstr ""
 #, kde-format
 msgid "Cut Note"
 msgid_plural "Cut %1 Notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "შენიშვნის ამოჭრა"
+msgstr[1] "%1 შენიშვნის ამოჭრა"
 
 #: src/noteshared/standardnoteactionmanager.cpp:203
 #, kde-format
@@ -700,8 +702,8 @@ msgstr "ჩასმის შეცდომა"
 msgctxt "@action"
 msgid "Lock Note"
 msgid_plural "Lock Notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "შენიშვნის დაბლოკვა"
+msgstr[1] "შენიშვნების დაბლოკვა"
 
 #: src/noteshared/standardnoteactionmanager.cpp:288
 #, kde-format
@@ -713,8 +715,8 @@ msgstr ""
 msgctxt "@action"
 msgid "Unlock Note"
 msgid_plural "Unlock Notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "შენიშვნის განბლოკვა"
+msgstr[1] "შენიშვნების განბლოკვა"
 
 #: src/noteshared/standardnoteactionmanager.cpp:293
 #, kde-format
@@ -726,21 +728,21 @@ msgstr ""
 msgctxt "@action"
 msgid "Pin Note"
 msgid_plural "Pin Notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "შენიშვნის მიმაგრება"
+msgstr[1] "შენიშვნების მიმაგრება"
 
 #: src/noteshared/standardnoteactionmanager.cpp:308
 #, kde-format
 msgid "Pin selected notes"
-msgstr ""
+msgstr "მონიშნული შენიშვნების მიმაგრება"
 
 #: src/noteshared/standardnoteactionmanager.cpp:311
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Note"
 msgid_plural "Unpin Notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "შენიშვნის ჩამოხსნა"
+msgstr[1] "შენიშვნის ჩამოხსნა"
 
 #: src/noteshared/standardnoteactionmanager.cpp:313
 #, kde-format
@@ -776,7 +778,7 @@ msgstr ""
 #: src/noteshared/standardnoteactionmanager.cpp:594
 #, kde-format
 msgid "&New Note"
-msgstr ""
+msgstr "&ახალი შენიშვნა"
 
 #: src/noteshared/standardnoteactionmanager.cpp:595
 #, kde-format
@@ -786,7 +788,7 @@ msgstr ""
 #: src/noteshared/standardnoteactionmanager.cpp:624
 #, kde-format
 msgid "Change Note Color..."
-msgstr ""
+msgstr "შენიშვნის ფერის შეცვლა..."
 
 #: src/noteshared/standardnoteactionmanager.cpp:625
 #, kde-format
