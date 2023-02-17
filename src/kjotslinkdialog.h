@@ -54,9 +54,8 @@ public:
      * @return The link url
      */
     QString linkUrl() const;
-private Q_SLOTS:
-    void slotTextChanged();
 private:
+    void slotTextChanged();
     std::unique_ptr<Ui::LinkDialog> ui;
     std::unique_ptr<KDescendantsProxyModel> m_descendantsProxyModel;
 };

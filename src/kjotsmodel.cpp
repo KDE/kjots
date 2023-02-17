@@ -78,7 +78,7 @@ QString KJotsEntity::plainContent() const
     KPIMTextEdit::MarkupDirector director(&builder);
 
     director.processDocument(document);
-    QString result = builder.getResult();
+    const QString result = builder.getResult();
 
     return result;
 }
@@ -226,7 +226,7 @@ QVariant KJotsModel::data(const QModelIndex &index, int role) const
         const QVector<NoteUtils::Attachment> attachments = note.attachments();
         for (const auto &attachment : attachments) {
             if (attachment.mimetype() == QStringLiteral("image/png") && !attachment.contentID().isEmpty()) {
-                QImage img = QImage::fromData(attachment.data(), "PNG");
+                const QImage img = QImage::fromData(attachment.data(), "PNG");
                 document->addResource(QTextDocument::ImageResource,
                                       QUrl(QStringLiteral("cid:")+attachment.contentID()), img);
             }
