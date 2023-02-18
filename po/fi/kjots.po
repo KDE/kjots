@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:59+0000\n"
+"POT-Creation-Date: 2023-02-18 01:00+0000\n"
 "PO-Revision-Date: 2020-06-29 15:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -49,8 +49,9 @@ msgid "KDE note taking utility"
 msgstr "KDE muistiinpano-ohjelma"
 
 #: src/aboutdata.cpp:20
-#, kde-format
-msgid "Copyright © 1997–2020 KJots authors"
+#, fuzzy, kde-format
+#| msgid "Copyright © 1997–2020 KJots authors"
+msgid "Copyright © 1997–2023 KJots authors"
 msgstr "Tekijänoikeudet © 1997–2020 KJotsin tekijät"
 
 #: src/aboutdata.cpp:22

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:59+0000\n"
+"POT-Creation-Date: 2023-02-18 01:00+0000\n"
 "PO-Revision-Date: 2009-02-27 18:19+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -42,7 +42,7 @@ msgstr "केडीई टीप लेने के यूटिलिटी"
 
 #: src/aboutdata.cpp:20
 #, kde-format
-msgid "Copyright © 1997–2020 KJots authors"
+msgid "Copyright © 1997–2023 KJots authors"
 msgstr ""
 
 #: src/aboutdata.cpp:22

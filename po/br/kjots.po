@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots-1.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:59+0000\n"
+"POT-Creation-Date: 2023-02-18 01:00+0000\n"
 "PO-Revision-Date: 1999-03-05 11:06+0100\n"
 "Last-Translator: Jañ-Mai Drapier <jdrapier@club-internet.fr>\n"
 "Language-Team: Brezhoneg <Suav.Icb@wanadoo.fr>\n"
@@ -40,7 +40,7 @@ msgstr ""
 
 #: src/aboutdata.cpp:20
 #, kde-format
-msgid "Copyright © 1997–2020 KJots authors"
+msgid "Copyright © 1997–2023 KJots authors"
 msgstr ""
 
 #: src/aboutdata.cpp:22

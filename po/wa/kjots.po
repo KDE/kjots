@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:59+0000\n"
+"POT-Creation-Date: 2023-02-18 01:00+0000\n"
 "PO-Revision-Date: 2011-07-17 17:41+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux@walon.org>\n"
@@ -48,7 +48,7 @@ msgstr "Usteye KDE po prinde des notes"
 
 #: src/aboutdata.cpp:20
 #, kde-format
-msgid "Copyright © 1997–2020 KJots authors"
+msgid "Copyright © 1997–2023 KJots authors"
 msgstr ""
 
 #: src/aboutdata.cpp:22

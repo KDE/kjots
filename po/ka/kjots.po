@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:59+0000\n"
+"POT-Creation-Date: 2023-02-18 01:00+0000\n"
 "PO-Revision-Date: 2023-02-02 08:49+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -40,8 +40,9 @@ msgid "KDE note taking utility"
 msgstr "KDE -ის შენიშვნების ჩასაწერი პროგრამა"
 
 #: src/aboutdata.cpp:20
-#, kde-format
-msgid "Copyright © 1997–2020 KJots authors"
+#, fuzzy, kde-format
+#| msgid "Copyright © 1997–2020 KJots authors"
+msgid "Copyright © 1997–2023 KJots authors"
 msgstr "Copyright © 1997–2020 KJots authors"
 
 #: src/aboutdata.cpp:22

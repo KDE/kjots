@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:59+0000\n"
+"POT-Creation-Date: 2023-02-18 01:00+0000\n"
 "PO-Revision-Date: 2020-05-13 12:56+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -45,7 +45,7 @@ msgstr "KDE tööriist märkmete ülestähendamiseks"
 #: src/aboutdata.cpp:20
 #, fuzzy, kde-format
 #| msgid "Copyright © 1997–2015 KJots authors"
-msgid "Copyright © 1997–2020 KJots authors"
+msgid "Copyright © 1997–2023 KJots authors"
 msgstr "Autoriõigus © 1997–2015: KJotsi autorid"
 
 #: src/aboutdata.cpp:22

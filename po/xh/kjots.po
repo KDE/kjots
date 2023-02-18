@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:59+0000\n"
+"POT-Creation-Date: 2023-02-18 01:00+0000\n"
 "PO-Revision-Date: 2002-10-14 14:28SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -51,7 +51,7 @@ msgstr "Usebenziso Lokubhala okufutshane kwencadi kwe KDE"
 
 #: src/aboutdata.cpp:20
 #, kde-format
-msgid "Copyright © 1997–2020 KJots authors"
+msgid "Copyright © 1997–2023 KJots authors"
 msgstr ""
 
 #: src/aboutdata.cpp:22

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:59+0000\n"
+"POT-Creation-Date: 2023-02-18 01:00+0000\n"
 "PO-Revision-Date: 2016-08-31 23:09+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -42,7 +42,7 @@ msgstr "KDE poznámkový nástroj"
 #: src/aboutdata.cpp:20
 #, fuzzy, kde-format
 #| msgid "Copyright © 1997–2015 KJots authors"
-msgid "Copyright © 1997–2020 KJots authors"
+msgid "Copyright © 1997–2023 KJots authors"
 msgstr "Copyright © 1997–2015 Autori KJots"
 
 #: src/aboutdata.cpp:22
