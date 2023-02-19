@@ -11,13 +11,13 @@
 # obsoleteman <tulliana@gmail.com>, 2008-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdepim-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-18 01:00+0000\n"
-"PO-Revision-Date: 2022-11-22 16:47+0300\n"
+"PO-Revision-Date: 2023-02-18 11:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.2\n"
 "(http: //www.transifex.com/projects/p/kdepim-k-tr/language/tr/)\n"
 
 #, kde-format
@@ -52,10 +52,9 @@ msgid "KDE note taking utility"
 msgstr "KDE not alma uygulaması"
 
 #: src/aboutdata.cpp:20
-#, fuzzy, kde-format
-#| msgid "Copyright © 1997–2020 KJots authors"
+#, kde-format
 msgid "Copyright © 1997–2023 KJots authors"
-msgstr "Telif Hakkı © 1997–2020 KJots yazarları"
+msgstr "Telif Hakkı © 1997–2023 KJots yazarları"
 
 #: src/aboutdata.cpp:22
 #, kde-format
@@ -110,7 +109,7 @@ msgstr "Christoph Neerfeld"
 #: src/aboutdata.cpp:29
 #, kde-format
 msgid "Original author"
-msgstr "Asıl yazar"
+msgstr "Özgün yazar"
 
 #: src/aboutdata.cpp:30
 #, kde-format

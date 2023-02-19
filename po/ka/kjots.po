@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-18 01:00+0000\n"
-"PO-Revision-Date: 2023-02-02 08:49+0100\n"
+"PO-Revision-Date: 2023-02-18 07:17+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -40,10 +40,9 @@ msgid "KDE note taking utility"
 msgstr "KDE -ის შენიშვნების ჩასაწერი პროგრამა"
 
 #: src/aboutdata.cpp:20
-#, fuzzy, kde-format
-#| msgid "Copyright © 1997–2020 KJots authors"
+#, kde-format
 msgid "Copyright © 1997–2023 KJots authors"
-msgstr "Copyright © 1997–2020 KJots authors"
+msgstr "Copyright © 1997–2023 KJots authors"
 
 #: src/aboutdata.cpp:22
 #, kde-format
@@ -584,18 +583,18 @@ msgstr[1] ""
 msgctxt "@title:window"
 msgid "Delete Note?"
 msgid_plural "Delete Notes?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "წავშალო შენიშვნა?"
+msgstr[1] "წავშალო შენიშვნები?"
 
 #: src/noteshared/standardnoteactionmanager.cpp:193
 #, kde-format
 msgid "Could not delete note: %1"
-msgstr ""
+msgstr "შენიშვნის წაშლის შეცდომა: %1"
 
 #: src/noteshared/standardnoteactionmanager.cpp:197
 #, kde-format
 msgid "Note deletion failed"
-msgstr ""
+msgstr "შენიშვნის წაშლის შეცდომა"
 
 #: src/noteshared/standardnoteactionmanager.cpp:201
 #, kde-format
