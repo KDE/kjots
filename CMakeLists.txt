@@ -64,7 +64,7 @@ endif()
 
 ecm_set_disabled_deprecation_versions(QT 6.4  KF 5.103.0)
 
-find_package(KF5TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
 
 ##################### Definitions #####################
 add_definitions(-DQT_NO_KEYWORDS)
