@@ -1,11 +1,23 @@
 {
     "KPlugin": {
         "Description": "KJots Plugin",
+        "Description[ca@valencia]": "Connector de KJots",
+        "Description[ca]": "Connector del KJots",
+        "Description[nl]": "KJots-plug-in",
+        "Description[tr]": "KJots Eklentisi",
+        "Description[uk]": "Додаток до KJots",
+        "Description[x-test]": "xxKJots Pluginxx",
         "EnabledByDefault": true,
         "Icon": "kjots",
         "Id": "kontact_kjotsplugin",
         "License": "GPL",
         "Name": "Notes",
+        "Name[ca@valencia]": "Notes",
+        "Name[ca]": "Notes",
+        "Name[nl]": "Notities",
+        "Name[tr]": "Notlar",
+        "Name[uk]": "Нотатки",
+        "Name[x-test]": "xxNotesxx",
         "ServiceTypes": [
             "Kontact/Plugin",
             "KPluginInfo"
