@@ -53,7 +53,7 @@ target_link_libraries(kjots_common
   KF${KF_MAJOR_VERSION}::Bookmarks
   KF${KF_MAJOR_VERSION}::ConfigWidgets
   KF${KF_MAJOR_VERSION}::TextWidgets
-  KF5::Mime
+  KPim${KF_MAJOR_VERSION}::Mime
   KF5::AkonadiCore
   KF5::AkonadiWidgets
   KF5::PimTextEdit
@@ -88,7 +88,7 @@ add_executable(kjots ${kjots_SRCS})
 
 target_link_libraries(kjots
   kjots_common
-  KF5::KontactInterface
+  KPim${KF_MAJOR_VERSION}::KontactInterface
 )
 
 install(TARGETS kjots ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
