@@ -19,7 +19,7 @@ target_link_libraries(noteshared
     KF${KF_MAJOR_VERSION}::I18n
     KF5::AkonadiWidgets
     KF5::AkonadiCore
-    KF5::AkonadiNotes
+    KPim${KF_MAJOR_VERSION}::AkonadiNotes
     KF${KF_MAJOR_VERSION}::XmlGui
 )
 
