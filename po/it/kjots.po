@@ -4,13 +4,13 @@
 # Nicola Ruggero <nicola@nxnt.org>, 2006, 2008, 2009, 2010, 2011, 2012.
 # Leonardo Finetti <finex@finex.org>, 2008.
 # Luciano Montanaro <mikelima@cirulla.net>, 2008.
-# Vincenzo Reale <smart2128vr@gmail.com>, 2020.
+# Vincenzo Reale <smart2128vr@gmail.com>, 2020, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-18 01:00+0000\n"
-"PO-Revision-Date: 2020-06-07 14:02+0200\n"
+"PO-Revision-Date: 2023-02-24 19:12+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.04.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -42,10 +42,9 @@ msgid "KDE note taking utility"
 msgstr "Programma KDE per prendere appunti"
 
 #: src/aboutdata.cpp:20
-#, fuzzy, kde-format
-#| msgid "Copyright © 1997–2020 KJots authors"
+#, kde-format
 msgid "Copyright © 1997–2023 KJots authors"
-msgstr "Copyright © 1997–2020 Gli autori di KJots"
+msgstr "Copyright © 1997–2023 Gli autori di KJots"
 
 #: src/aboutdata.cpp:22
 #, kde-format
