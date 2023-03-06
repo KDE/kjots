@@ -17,8 +17,8 @@ target_link_libraries(noteshared
     Qt::Core
     Qt::Widgets
     KF${KF_MAJOR_VERSION}::I18n
-    KF5::AkonadiWidgets
-    KF5::AkonadiCore
+    KPim${KF_MAJOR_VERSION}::AkonadiWidgets
+    KPim${KF_MAJOR_VERSION}::AkonadiCore
     KPim${KF_MAJOR_VERSION}::AkonadiNotes
     KF${KF_MAJOR_VERSION}::XmlGui
 )

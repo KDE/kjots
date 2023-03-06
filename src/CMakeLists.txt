@@ -54,8 +54,8 @@ target_link_libraries(kjots_common
   KF${KF_MAJOR_VERSION}::ConfigWidgets
   KF${KF_MAJOR_VERSION}::TextWidgets
   KPim${KF_MAJOR_VERSION}::Mime
-  KF5::AkonadiCore
-  KF5::AkonadiWidgets
+  KPim${KF_MAJOR_VERSION}::AkonadiCore
+  KPim${KF_MAJOR_VERSION}::AkonadiWidgets
   KPim${KF_MAJOR_VERSION}::PimTextEdit
   KF${KF_MAJOR_VERSION}::XmlGui
   KF${KF_MAJOR_VERSION}::KIOWidgets
