@@ -83,7 +83,6 @@ ki18n_install(po)
 
 install(DIRECTORY themes
         DESTINATION ${KDE_INSTALL_DATADIR}/kjots
-        PATTERN *.svn EXCLUDE
 )
 
 install(FILES data/org.kde.kjots.appdata.xml
