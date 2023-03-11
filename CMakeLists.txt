@@ -64,8 +64,14 @@ endif()
 
 ecm_set_disabled_deprecation_versions(QT 6.4  KF 5.104.0)
 
-find_package(KF${KF_MAJOR_VERSION}TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
-
+find_package(KF${KF_MAJOR_VERSION}TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF${KF_MAJOR_VERSION}TextEditTextToSpeech PROPERTIES DESCRIPTION
+    "Add support for text to speech"
+    TYPE OPTIONAL
+)
+if (TARGET KF${KF_MAJOR_VERSION}::TextEditTextToSpeech)
+    add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
+endif()
 ##################### Definitions #####################
 add_definitions(-DQT_NO_KEYWORDS)
 add_definitions(-DQT_NO_CAST_FROM_ASCII)

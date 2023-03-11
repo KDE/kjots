@@ -61,7 +61,9 @@ target_link_libraries(kjots_common
   KF${KF_MAJOR_VERSION}::KIOWidgets
   ${MAIN_LIB}
 )
-
+if (TARGET KF${KF_MAJOR_VERSION}::TextEditTextToSpeech)
+    target_link_libraries(kjots_common KF${KF_MAJOR_VERSION}::TextEditTextToSpeech)
+endif()
 #########################################################################
 # D-Bus interface
 #########################################################################
