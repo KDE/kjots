@@ -97,3 +97,4 @@ install(FILES data/org.kde.kjots.appdata.xml
 install(FILES data/org.kde.kjots.desktop
         DESTINATION ${KDE_INSTALL_APPDIR}
 )
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
