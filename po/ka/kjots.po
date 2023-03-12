@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 01:00+0000\n"
+"POT-Creation-Date: 2023-03-12 00:47+0000\n"
 "PO-Revision-Date: 2023-02-18 07:17+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -157,26 +157,26 @@ msgstr ""
 msgid "The interval in minutes at which books should be saved automatically."
 msgstr ""
 
-#: src/kjotsbrowser.cpp:134
+#: src/kjotsbrowser.cpp:143
 #, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "ტექსტის წაკითხვა"
 
-#: src/kjotsbrowser.cpp:182
+#: src/kjotsbrowser.cpp:192
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr "დააწკაპუნეთ ბმულზე მისაწყოლად: %1"
 
-#: src/kjotsbrowser.cpp:186
+#: src/kjotsbrowser.cpp:196
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr "დააწკაპუნეთ ჩანაწერის გასახსნელად: %1"
 
-#: src/kjotsbrowser.cpp:188
+#: src/kjotsbrowser.cpp:198
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"

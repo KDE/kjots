@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils/kjots.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 01:00+0000\n"
+"POT-Creation-Date: 2023-03-12 00:47+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -158,27 +158,27 @@ msgstr "Cé acu a shábhálfar leabhair go huathoibríoch nó nach sábhálfar."
 msgid "The interval in minutes at which books should be saved automatically."
 msgstr "Cé acu a shábhálfar leabhair go huathoibríoch nó nach sábhálfar."
 
-#: src/kjotsbrowser.cpp:134
+#: src/kjotsbrowser.cpp:143
 #, fuzzy, kde-format
 #| msgid "Link Text:"
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "Téacs an Naisc:"
 
-#: src/kjotsbrowser.cpp:182
+#: src/kjotsbrowser.cpp:192
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr ""
 
-#: src/kjotsbrowser.cpp:186
+#: src/kjotsbrowser.cpp:196
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr ""
 
-#: src/kjotsbrowser.cpp:188
+#: src/kjotsbrowser.cpp:198
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"

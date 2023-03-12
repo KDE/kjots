@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 01:00+0000\n"
+"POT-Creation-Date: 2023-03-12 00:47+0000\n"
 "PO-Revision-Date: 2023-02-23 15:40+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -163,26 +163,26 @@ msgstr ""
 "Le intervallo in minutas al qual quadernos deberea esser salveguardate "
 "automaticamente."
 
-#: src/kjotsbrowser.cpp:134
+#: src/kjotsbrowser.cpp:143
 #, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "Pronuncia texto"
 
-#: src/kjotsbrowser.cpp:182
+#: src/kjotsbrowser.cpp:192
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr "Pulsar pro sequer le Hyper-ligamine: %1"
 
-#: src/kjotsbrowser.cpp:186
+#: src/kjotsbrowser.cpp:196
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr "Pulsar pro aperir nota %1"
 
-#: src/kjotsbrowser.cpp:188
+#: src/kjotsbrowser.cpp:198
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
