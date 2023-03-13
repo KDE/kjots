@@ -537,7 +537,7 @@ void KJotsWidget::updateMenu()
             ->setEnabled((itemsSelected == 1) || (m_collectionView->hasFocus() && collectionsSelected == 1));
 
     // Actions available when at least something is shown
-    for (QAction *action : qAsConst(anySelectionActions)) {
+    for (QAction *action : std::as_const(anySelectionActions)) {
         action->setEnabled(selectionSize >= 1);
     }
 }

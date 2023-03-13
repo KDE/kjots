@@ -161,7 +161,7 @@ void KJotsEdit::setEnableActions(bool enable)
     // FIXME: RichTextComposer::setEnableActions(enable) messes with indent actions
     // due to bug in KPIMTextEdit (should be fixed in 20.08?)
     composerActions()->setActionsEnabled(enable);
-    for (QAction *action : qAsConst(d->editorActionList)) {
+    for (QAction *action : std::as_const(d->editorActionList)) {
         action->setEnabled(enable);
     }
 }
