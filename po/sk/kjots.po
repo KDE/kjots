@@ -2,20 +2,20 @@
 # Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>, 2002.
 # Stanislav Visnovsky <visnovsky@kde.org>, 2004.
 # Richard Fric <Richard.Fric@kdemail.net>, 2006, 2009.
-# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013, 2015, 2016.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013, 2015, 2016, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-12 00:47+0000\n"
-"PO-Revision-Date: 2016-08-31 23:09+0100\n"
+"PO-Revision-Date: 2023-03-12 10:17+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -40,15 +40,14 @@ msgid "KDE note taking utility"
 msgstr "KDE poznámkový nástroj"
 
 #: src/aboutdata.cpp:20
-#, fuzzy, kde-format
-#| msgid "Copyright © 1997–2015 KJots authors"
+#, kde-format
 msgid "Copyright © 1997–2023 KJots authors"
-msgstr "Copyright © 1997–2015 Autori KJots"
+msgstr "Copyright © 1997–2023 Autori KJots"
 
 #: src/aboutdata.cpp:22
 #, kde-format
 msgid "Igor Poboiko"
-msgstr ""
+msgstr "Igor Poboiko"
 
 #: src/aboutdata.cpp:22
 #, kde-format
@@ -63,7 +62,7 @@ msgstr "Daniel Vrátil"
 #: src/aboutdata.cpp:23
 #, kde-format
 msgid "Port to KDE Frameworks 5"
-msgstr ""
+msgstr "Port do KDE Frameworks 5"
 
 #: src/aboutdata.cpp:24
 #, kde-format
@@ -162,11 +161,10 @@ msgid "The interval in minutes at which books should be saved automatically."
 msgstr "Interval v minútach, v ktorom sa knihy ukladajú automaticky."
 
 #: src/kjotsbrowser.cpp:143
-#, fuzzy, kde-format
-#| msgid "Link Text:"
+#, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
-msgstr "Text odkazu:"
+msgstr "Povedať text"
 
 #: src/kjotsbrowser.cpp:192
 #, kde-format
@@ -195,8 +193,7 @@ msgid "Copy &Into Page Title"
 msgstr "Kopírovať &do titulku stránky"
 
 #: src/kjotsedit.cpp:105
-#, fuzzy, kde-format
-#| msgid "Link"
+#, kde-format
 msgctxt "@action creates and manages hyperlinks"
 msgid "Link"
 msgstr "Odkaz"
@@ -216,8 +213,7 @@ msgid "Auto Decimal List"
 msgstr "Automatické decimálny zoznam"
 
 #: src/kjotsedit.cpp:131
-#, fuzzy, kde-format
-#| msgid "Insert Date"
+#, kde-format
 msgctxt "@action"
 msgid "Insert Date"
 msgstr "Vložiť dátum"
@@ -250,31 +246,31 @@ msgstr ""
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
-msgstr ""
+msgstr "Názov"
 
 #: src/kjotsmodel.cpp:299
 #, kde-format
 msgctxt "@title:column title of a note"
 msgid "Title"
-msgstr ""
+msgstr "Názov"
 
 #: src/kjotsmodel.cpp:301
 #, kde-format
 msgctxt "@title:column creation date and time of a note"
 msgid "Created"
-msgstr ""
+msgstr "Vytvorené"
 
 #: src/kjotsmodel.cpp:303
 #, kde-format
 msgctxt "@title:column last modification date and time of a note"
 msgid "Modified"
-msgstr ""
+msgstr "Zmenené"
 
 #: src/kjotsmodel.cpp:305
 #, kde-format
 msgctxt "@title:column size of a note"
 msgid "Size"
-msgstr ""
+msgstr "Veľkosť"
 
 #: src/kjotspart.cpp:47
 #, kde-format
@@ -291,7 +287,7 @@ msgstr "F&ormát"
 #: src/kjotsui.rc:45
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "&Zobraziť"
 
 #. i18n: ectx: Menu (go)
 #: src/kjotsui.rc:51
@@ -325,10 +321,9 @@ msgstr "Panel formátovacích nástrojov"
 
 #. i18n: ectx: ToolBar (toolsToolBar)
 #: src/kjotsui.rc:156
-#, fuzzy, kde-format
-#| msgid "Text Toolbar"
+#, kde-format
 msgid "Tools Toolbar"
-msgstr "Panel nástrojov pre text"
+msgstr "Panel nástrojov"
 
 #: src/kjotswidget.cpp:421
 #, kde-format
@@ -364,19 +359,19 @@ msgstr "Predchádzajúca kniha"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
-msgstr ""
+msgstr "Dva stĺpce"
 
 #: src/kjotswidget.cpp:489
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
-msgstr ""
+msgstr "Tri stĺpce"
 
 #: src/kjotswidget.cpp:551
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
-msgstr ""
+msgstr "Rôzne"
 
 #: src/kjotswidget.cpp:586
 #, kde-format
@@ -385,9 +380,9 @@ msgid "Table of contents"
 msgstr "Obsah"
 
 #: src/kjotswidget.cpp:619
-#, kde-format
+#, fuzzy, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
-msgstr ""
+msgstr "Nepodarilo sa otvoriť %1 na zápis"
 
 #: src/kjotswidget.cpp:715
 #, fuzzy, kde-format
@@ -408,7 +403,7 @@ msgstr ""
 #: src/kjotswidget.cpp:737
 #, kde-format
 msgid "Close Document"
-msgstr ""
+msgstr "Zatvoriť dokument"
 
 #: src/kjotswidget.cpp:742
 #, kde-format
@@ -425,8 +420,7 @@ msgstr "Spravovať odkaz"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel)
 #: src/linkdialog.ui:29
-#, fuzzy, kde-format
-#| msgid "Link Text:"
+#, kde-format
 msgid "Link &Text:"
 msgstr "Text odkazu:"
 
@@ -592,13 +586,12 @@ msgid "Copy the selected notes to the clipboard."
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:179
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgid "Delete Note"
 msgid_plural "Delete %1 Notes"
-msgstr[0] "Odstrániť"
-msgstr[1] "Odstrániť"
-msgstr[2] "Odstrániť"
+msgstr[0] "Odstrániť poznámku"
+msgstr[1] "Odstrániť %1 poznámky"
+msgstr[2] "Odstrániť %1 poznámok"
 
 #: src/noteshared/standardnoteactionmanager.cpp:181
 #, kde-format
@@ -615,12 +608,11 @@ msgstr[1] "Naozaj chcete vymazať vybrané knihy a strany?"
 msgstr[2] "Naozaj chcete vymazať vybrané knihy a strany?"
 
 #: src/noteshared/standardnoteactionmanager.cpp:189
-#, fuzzy, kde-format
-#| msgid "Delete?"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Note?"
 msgid_plural "Delete Notes?"
-msgstr[0] "Vymazať?"
+msgstr[0] "Odstrániť poznámku?"
 msgstr[1] "Vymazať?"
 msgstr[2] "Vymazať?"
 
@@ -741,12 +733,9 @@ msgid "Could not paste note: %1"
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:266
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action Paste the text in the clipboard without rich text formatting."
-#| msgid "Paste Plain Text"
+#, kde-format
 msgid "Paste failed"
-msgstr "Vložiť čistý text"
+msgstr "Vloženie sa nepodarilo"
 
 #: src/noteshared/standardnoteactionmanager.cpp:286
 #, fuzzy, kde-format
@@ -851,7 +840,7 @@ msgstr "O&dstrániť knihu"
 #, fuzzy, kde-format
 #| msgid "&New Page"
 msgid "&New Note"
-msgstr "&Nová strana"
+msgstr "Nová poznámka"
 
 #: src/noteshared/standardnoteactionmanager.cpp:595
 #, kde-format
