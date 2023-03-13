@@ -18,10 +18,6 @@
 
 #include <QApplication>
 
-#include "KJotsSettings.h"
-#include "kjotsbookmarks.h"
-#include "kjotsbrowser.h"
-#include "kjotsedit.h"
 #include "kjotswidget.h"
 
 
