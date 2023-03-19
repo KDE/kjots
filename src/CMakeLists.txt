@@ -51,7 +51,6 @@ target_link_libraries(kjots_common
   Qt::PrintSupport
   KF${KF_MAJOR_VERSION}::KCMUtils
   KF${KF_MAJOR_VERSION}::Bookmarks
-  KF${KF_MAJOR_VERSION}::ConfigWidgets
   KF${KF_MAJOR_VERSION}::TextWidgets
   KPim${KF_MAJOR_VERSION}::Mime
   KPim${KF_MAJOR_VERSION}::AkonadiCore
