@@ -46,10 +46,11 @@ ki18n_wrap_ui(kjots_common_SRCS linkdialog.ui)
 add_library(kjots_common STATIC ${kjots_common_SRCS})
 set_property(TARGET kjots_common PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(kjots_common
+    KF${KF_MAJOR_VERSION}::KCMUtils
+
   noteshared
   Qt::DBus
   Qt::PrintSupport
-  KF${KF_MAJOR_VERSION}::KCMUtils
   KF${KF_MAJOR_VERSION}::Bookmarks
   KF${KF_MAJOR_VERSION}::TextWidgets
   KPim${KF_MAJOR_VERSION}::Mime

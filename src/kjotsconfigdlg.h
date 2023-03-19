@@ -9,17 +9,22 @@
 
 #ifndef KJOTSCONFIGDLG_H
 #define KJOTSCONFIGDLG_H
-
+#include "kcmutils_version.h"
+#include "ui_confpagemisc.h"
 #include <KCModule>
 #include <KCMultiDialog>
-#include "ui_confpagemisc.h"
 
 class KJotsConfigMisc : public KCModule
 {
     Q_OBJECT
 
 public:
-    explicit KJotsConfigMisc(QWidget *parent, const QVariantList &args = QVariantList());
+#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
+  explicit KJotsConfigMisc(QWidget *parent, const QVariantList &args = {});
+#else
+  explicit KJotsConfigMisc(QObject *parent, const KPluginMetaData &data = {},
+                           const QVariantList &args = {});
+#endif
 private:
     std::unique_ptr<Ui::confPageMisc> ui;
 };

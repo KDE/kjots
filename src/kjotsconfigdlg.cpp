@@ -11,16 +11,27 @@
 #include "KJotsSettings.h"
 #include <QPushButton>
 
+#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
 KJotsConfigMisc::KJotsConfigMisc(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)
-    , ui(new Ui::confPageMisc)
-{
-    auto lay = new QHBoxLayout(this);
-    auto miscPage = new QWidget(this);
-    ui->setupUi(miscPage);
-    lay->addWidget(miscPage);
-    addConfig(KJotsSettings::self(), miscPage);
-    load();
+#else
+KJotsConfigMisc::KJotsConfigMisc(QObject *parent, const KPluginMetaData &data,
+                                 const QVariantList &args)
+    : KCModule(parent, data, args)
+#endif
+      ,
+      ui(new Ui::confPageMisc) {
+#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
+  auto lay = new QHBoxLayout(this);
+  auto miscPage = new QWidget(this);
+#else
+  auto lay = new QHBoxLayout(widget());
+  auto miscPage = new QWidget(widget());
+#endif
+  ui->setupUi(miscPage);
+  lay->addWidget(miscPage);
+  addConfig(KJotsSettings::self(), miscPage);
+  load();
 }
 
 #include "moc_kjotsconfigdlg.cpp"

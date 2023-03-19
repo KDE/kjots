@@ -548,7 +548,12 @@ void KJotsWidget::configure()
         return;
     }
     auto* dialog = new KConfigDialog(this, QStringLiteral("kjotssettings"), KJotsSettings::self());
-    dialog->addPage(new KJotsConfigMisc(dialog), i18nc("@title:window config dialog page", "Misc"), QStringLiteral("preferences-other"));
+    auto configMisc = new KJotsConfigMisc(dialog);
+#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
+    dialog->addPage(configMisc, i18nc("@title:window config dialog page", "Misc"), QStringLiteral("preferences-other"));
+#else
+    dialog->addPage(configMisc->widget(), i18nc("@title:window config dialog page", "Misc"), QStringLiteral("preferences-other"));
+#endif
     connect(dialog, &KConfigDialog::settingsChanged, this, &KJotsWidget::updateConfiguration);
     dialog->show();
 }
