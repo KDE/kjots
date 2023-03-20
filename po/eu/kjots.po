@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-12 00:47+0000\n"
+"POT-Creation-Date: 2023-03-20 00:50+0000\n"
 "PO-Revision-Date: 2020-12-05 17:03+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque\n"
@@ -370,30 +370,30 @@ msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "Hiru zutabe"
 
-#: src/kjotswidget.cpp:551
+#: src/kjotswidget.cpp:553 src/kjotswidget.cpp:555
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "Hainbat"
 
-#: src/kjotswidget.cpp:586
+#: src/kjotswidget.cpp:591
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Edukien taula"
 
-#: src/kjotswidget.cpp:619
+#: src/kjotswidget.cpp:624
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>Ezin izan da «%1» idazteko ireki</qt>"
 
-#: src/kjotswidget.cpp:715
+#: src/kjotswidget.cpp:720
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "Hautapen anizkoitza"
 
-#: src/kjotswidget.cpp:733
+#: src/kjotswidget.cpp:738
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -406,12 +406,12 @@ msgstr ""
 "menua erabiliz, bestela zure aldaketak galduko dituzu!\n"
 "Hala ere itxi egin nahi duzu?"
 
-#: src/kjotswidget.cpp:737
+#: src/kjotswidget.cpp:742
 #, kde-format
 msgid "Close Document"
 msgstr "Itxi dokumentua"
 
-#: src/kjotswidget.cpp:742
+#: src/kjotswidget.cpp:747
 #, kde-format
 msgid ""
 "Error message:\n"

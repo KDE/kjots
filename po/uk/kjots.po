@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-12 00:47+0000\n"
+"POT-Creation-Date: 2023-03-20 00:50+0000\n"
 "PO-Revision-Date: 2023-02-18 09:01+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -369,30 +369,30 @@ msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "У три стовпчики"
 
-#: src/kjotswidget.cpp:551
+#: src/kjotswidget.cpp:553 src/kjotswidget.cpp:555
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "Інше"
 
-#: src/kjotswidget.cpp:586
+#: src/kjotswidget.cpp:591
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Зміст"
 
-#: src/kjotswidget.cpp:619
+#: src/kjotswidget.cpp:624
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>Не вдалося відкрити «%1» для записування</qt>"
 
-#: src/kjotswidget.cpp:715
+#: src/kjotswidget.cpp:720
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "Позначено декілька записів"
 
-#: src/kjotswidget.cpp:733
+#: src/kjotswidget.cpp:738
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -406,12 +406,12 @@ msgstr ""
 "Якщо ви цього не зробите, зміни буде втрачено!\n"
 "Хочете закрити вікно попри це?"
 
-#: src/kjotswidget.cpp:737
+#: src/kjotswidget.cpp:742
 #, kde-format
 msgid "Close Document"
 msgstr "Закрити документ"
 
-#: src/kjotswidget.cpp:742
+#: src/kjotswidget.cpp:747
 #, kde-format
 msgid ""
 "Error message:\n"

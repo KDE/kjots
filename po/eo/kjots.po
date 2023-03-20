@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-12 00:47+0000\n"
+"POT-Creation-Date: 2023-03-20 00:50+0000\n"
 "PO-Revision-Date: 2002-09-16 22:09GMT\n"
 "Last-Translator: Steffen Pietsch <Steffen.Pietsch@BerlinOnline.de>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
@@ -366,30 +366,30 @@ msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr ""
 
-#: src/kjotswidget.cpp:551
+#: src/kjotswidget.cpp:553 src/kjotswidget.cpp:555
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr ""
 
-#: src/kjotswidget.cpp:586
+#: src/kjotswidget.cpp:591
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr ""
 
-#: src/kjotswidget.cpp:619
+#: src/kjotswidget.cpp:624
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr ""
 
-#: src/kjotswidget.cpp:715
+#: src/kjotswidget.cpp:720
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr ""
 
-#: src/kjotswidget.cpp:733
+#: src/kjotswidget.cpp:738
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -398,12 +398,12 @@ msgid ""
 "Do you want to close anyways?"
 msgstr ""
 
-#: src/kjotswidget.cpp:737
+#: src/kjotswidget.cpp:742
 #, kde-format
 msgid "Close Document"
 msgstr ""
 
-#: src/kjotswidget.cpp:742
+#: src/kjotswidget.cpp:747
 #, kde-format
 msgid ""
 "Error message:\n"
