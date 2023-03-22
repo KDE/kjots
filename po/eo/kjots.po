@@ -1,14 +1,15 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# translation of kjots.pot to esperanto
+# Copyright (C) 2002 Free Software Foundation, Inc.
+# Wolfram Diestel <wolfram@steloj.de>, 2002.
+# Steffen Pietsch <Steffen.Pietsch@BerlinOnline.de>, 2002.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-20 00:50+0000\n"
-"PO-Revision-Date: 2002-09-16 22:09GMT\n"
-"Last-Translator: Steffen Pietsch <Steffen.Pietsch@BerlinOnline.de>\n"
+"PO-Revision-Date: 2023-03-20 22:43+01\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -34,9 +35,9 @@ msgid "KJots"
 msgstr "Notlibro"
 
 #: src/aboutdata.cpp:18
-#, fuzzy, kde-format
+#, kde-format
 msgid "KDE note taking utility"
-msgstr "KDE-Noto-utilaĵo"
+msgstr ""
 
 #: src/aboutdata.cpp:20
 #, kde-format
@@ -49,10 +50,9 @@ msgid "Igor Poboiko"
 msgstr ""
 
 #: src/aboutdata.cpp:22
-#, fuzzy, kde-format
-#| msgid "Current maintainer"
+#, kde-format
 msgid "Maintainer"
-msgstr "Nuna zorganto"
+msgstr ""
 
 #: src/aboutdata.cpp:23
 #, kde-format
@@ -121,10 +121,9 @@ msgstr ""
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_AutoSaveInterval)
 #: src/confpagemisc.ui:38
-#, fuzzy, kde-format
-#| msgid " minutes"
+#, kde-format
 msgid "1 minute"
-msgstr "minutoj"
+msgstr ""
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_AutoSaveInterval)
 #: src/confpagemisc.ui:41
@@ -159,11 +158,10 @@ msgid "The interval in minutes at which books should be saved automatically."
 msgstr ""
 
 #: src/kjotsbrowser.cpp:143
-#, fuzzy, kde-format
-#| msgid "Find Text"
+#, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
-msgstr "Trovi tekston"
+msgstr ""
 
 #: src/kjotsbrowser.cpp:192
 #, kde-format
@@ -185,15 +183,13 @@ msgid "Click to open book: %1"
 msgstr ""
 
 #: src/kjotsedit.cpp:95
-#, fuzzy, kde-format
-#| msgid "Copy &into Page Title"
+#, kde-format
 msgctxt "@action"
 msgid "Copy &Into Page Title"
-msgstr "&Kopiu en la paĝo-titolon"
+msgstr ""
 
 #: src/kjotsedit.cpp:105
-#, fuzzy, kde-format
-#| msgid "Link"
+#, kde-format
 msgctxt "@action creates and manages hyperlinks"
 msgid "Link"
 msgstr "Ligo"
@@ -211,8 +207,7 @@ msgid "Auto Decimal List"
 msgstr ""
 
 #: src/kjotsedit.cpp:131
-#, fuzzy, kde-format
-#| msgid "Insert Date"
+#, kde-format
 msgctxt "@action"
 msgid "Insert Date"
 msgstr "Enmetu Daton"
@@ -302,27 +297,27 @@ msgstr "&Iloj"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/kjotsui.rc:110
-#, fuzzy, kde-format
+#, kde-format
 msgid "Main Toolbar"
-msgstr "Nova libro"
+msgstr ""
 
 #. i18n: ectx: ToolBar (textToolBar)
 #: src/kjotsui.rc:126
-#, fuzzy, kde-format
+#, kde-format
 msgid "Text Toolbar"
-msgstr "Nova libro"
+msgstr ""
 
 #. i18n: ectx: ToolBar (formatToolBar)
 #: src/kjotsui.rc:141
-#, fuzzy, kde-format
+#, kde-format
 msgid "Format Toolbar"
-msgstr "Nova libro"
+msgstr ""
 
 #. i18n: ectx: ToolBar (toolsToolBar)
 #: src/kjotsui.rc:156
-#, fuzzy, kde-format
+#, kde-format
 msgid "Tools Toolbar"
-msgstr "Nova libro"
+msgstr ""
 
 #: src/kjotswidget.cpp:421
 #, kde-format
@@ -330,9 +325,9 @@ msgid "&Bookmarks"
 msgstr "&Legosignoj"
 
 #: src/kjotswidget.cpp:439
-#, fuzzy, kde-format
+#, kde-format
 msgid "Export"
-msgstr "Sekva paĝo"
+msgstr ""
 
 #: src/kjotswidget.cpp:443
 #, kde-format
@@ -345,14 +340,14 @@ msgid "To HTML File..."
 msgstr ""
 
 #: src/kjotswidget.cpp:460
-#, fuzzy, kde-format
+#, kde-format
 msgid "Next Book"
-msgstr "Nova libro"
+msgstr ""
 
 #: src/kjotswidget.cpp:471
-#, fuzzy, kde-format
+#, kde-format
 msgid "Previous Book"
-msgstr "Antaŭa paĝo"
+msgstr ""
 
 #: src/kjotswidget.cpp:484
 #, kde-format
@@ -418,10 +413,9 @@ msgstr "Mastrumi ligilon"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel)
 #: src/linkdialog.ui:29
-#, fuzzy, kde-format
-#| msgid "Find Text"
+#, kde-format
 msgid "Link &Text:"
-msgstr "Trovi tekston"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, linkUrlLabel)
 #: src/linkdialog.ui:46
@@ -430,15 +424,15 @@ msgid "Link URL:"
 msgstr "URL Ligo:"
 
 #: src/noteshared/notecreatorandselector.cpp:76
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "The default name for new pages."
 msgid "New Page"
-msgstr "No&va paĝo"
+msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:97
-#, fuzzy, kde-format
+#, kde-format
 msgid "New Note Book..."
-msgstr "&Nova libro..."
+msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:102
 #, kde-format
@@ -446,11 +440,10 @@ msgid "Add a new note book to the currently selected bookshelf."
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:105
-#, fuzzy, kde-format
-#| msgid "New Book"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Note Book"
-msgstr "Nova libro"
+msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:109
 #, kde-format
@@ -463,12 +456,11 @@ msgid "Note book creation failed"
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:119
-#, fuzzy, kde-format
-#| msgid "New Book"
+#, kde-format
 msgid "Copy Note Book"
 msgid_plural "Copy %1 Note Books"
-msgstr[0] "Nova libro"
-msgstr[1] "Nova libro"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:122
 #, kde-format
@@ -476,11 +468,11 @@ msgid "Copy the selected note books to the clipboard."
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:126
-#, fuzzy, kde-format
+#, kde-format
 msgid "Delete Note Book"
 msgid_plural "Delete %1 Note Books"
-msgstr[0] "Forigu libron"
-msgstr[1] "Forigu libron"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:129
 #, kde-format
@@ -496,12 +488,12 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:137
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete note book?"
 msgid_plural "Delete note books?"
-msgstr[0] "Forigu libron"
-msgstr[1] "Forigu libron"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:141
 #, kde-format
@@ -514,11 +506,11 @@ msgid "Note book deletion failed"
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:149
-#, fuzzy, kde-format
+#, kde-format
 msgid "Update Note Book"
 msgid_plural "Update %1 Note Books"
-msgstr[0] "Nova libro"
-msgstr[1] "Nova libro"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:152
 #, kde-format
@@ -526,11 +518,11 @@ msgid "Update the content of the selected note books."
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:156
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cut Note Book"
 msgid_plural "Cut %1 Note Books"
-msgstr[0] "Nova libro"
-msgstr[1] "Nova libro"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:159
 #, kde-format
@@ -566,11 +558,11 @@ msgid "Copy the selected notes to the clipboard."
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:179
-#, fuzzy, kde-format
+#, kde-format
 msgid "Delete Note"
 msgid_plural "Delete %1 Notes"
-msgstr[0] "Forigu libron"
-msgstr[1] "Forigu libron"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:181
 #, kde-format
@@ -578,19 +570,19 @@ msgid "Delete the selected notes from the note book."
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:184
-#, fuzzy, kde-format
+#, kde-format
 msgid "Do you really want to delete the selected note?"
 msgid_plural "Do you really want to delete %1 notes?"
-msgstr[0] "Ĉu vi estas certa, ke vi volas forigi la nunan paĝon?"
-msgstr[1] "Ĉu vi estas certa, ke vi volas forigi la nunan paĝon?"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:189
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Note?"
 msgid_plural "Delete Notes?"
-msgstr[0] "Forigu libron"
-msgstr[1] "Forigu libron"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:193
 #, kde-format
@@ -615,9 +607,9 @@ msgid "Cut the selected notes from the note book."
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:207
-#, fuzzy, kde-format
+#, kde-format
 msgid "Add &Bookshelf..."
-msgstr "&Nova libro..."
+msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:209
 #, kde-format
@@ -643,11 +635,11 @@ msgid "Bookshelf creation failed"
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:227
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Delete Bookshelf"
 msgid_plural "&Delete %1 Bookshelfs"
-msgstr[0] "Forigu libron"
-msgstr[1] "Forigu libron"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:230
 #, kde-format
@@ -657,19 +649,19 @@ msgid ""
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:235
-#, fuzzy, kde-format
+#, kde-format
 msgid "Do you really want to delete this bookshelf?"
 msgid_plural "Do you really want to delete %1 bookshelfs?"
-msgstr[0] "Ĉu vi estas certa, ke vi volas forigi la nunan paĝon?"
-msgstr[1] "Ĉu vi estas certa, ke vi volas forigi la nunan paĝon?"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:240
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete Bookshelf?"
 msgid_plural "Delete Bookshelfs?"
-msgstr[0] "Forigu libron"
-msgstr[1] "Forigu libron"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:246
 #, kde-format
@@ -704,89 +696,87 @@ msgid "Paste failed"
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:286
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Lock Note"
 msgid_plural "Lock Notes"
-msgstr[0] "Forigu paĝon"
-msgstr[1] "Forigu paĝon"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:288
-#, fuzzy, kde-format
+#, kde-format
 msgid "Lock selected notes"
-msgstr "Forigu paĝon"
+msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:291
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Unlock Note"
 msgid_plural "Unlock Notes"
-msgstr[0] "Forigu paĝon"
-msgstr[1] "Forigu paĝon"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:293
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unlock selected notes"
-msgstr "Forigu paĝon"
+msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:306
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Pin Note"
 msgid_plural "Pin Notes"
-msgstr[0] "Forigu paĝon"
-msgstr[1] "Forigu paĝon"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:308
-#, fuzzy, kde-format
+#, kde-format
 msgid "Pin selected notes"
-msgstr "Forigu paĝon"
+msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:311
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Unpin Note"
 msgid_plural "Unpin Notes"
-msgstr[0] "Forigu paĝon"
-msgstr[1] "Forigu paĝon"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:313
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unpin selected notes"
-msgstr "Forigu paĝon"
+msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:354
-#, fuzzy, kde-format
-#| msgid "New Book"
+#, kde-format
 msgctxt "@action"
 msgid "Lock Note Book"
 msgid_plural "Lock Note Books"
-msgstr[0] "Nova libro"
-msgstr[1] "Nova libro"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:356
-#, fuzzy, kde-format
+#, kde-format
 msgid "Lock selected note books"
-msgstr "Forigu libron"
+msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:359
-#, fuzzy, kde-format
-#| msgid "New Book"
+#, kde-format
 msgctxt "@action"
 msgid "Unlock Note Book"
 msgid_plural "Unlock Note Books"
-msgstr[0] "Nova libro"
-msgstr[1] "Nova libro"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:361
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unlock selected note books"
-msgstr "Forigu libron"
+msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:594
-#, fuzzy, kde-format
+#, kde-format
 msgid "&New Note"
-msgstr "No&va paĝo"
+msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:595
 #, kde-format
@@ -794,9 +784,9 @@ msgid "Add a new note to a selected note book"
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:624
-#, fuzzy, kde-format
+#, kde-format
 msgid "Change Note Color..."
-msgstr "&Nova libro..."
+msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:625
 #, kde-format
@@ -804,137 +794,11 @@ msgid "Changes the color of a selected notes"
 msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:633
-#, fuzzy, kde-format
+#, kde-format
 msgid "Change Note Book Color..."
-msgstr "&Nova libro..."
+msgstr ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:634
 #, kde-format
 msgid "Changes the color of a selected note books"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Settings"
-#~ msgid "&Settings"
-#~ msgstr "Agordo"
-
-#~ msgid "Replace"
-#~ msgstr "Anstataŭigi"
-
-#~ msgid "&All"
-#~ msgstr "Ĉ&io"
-
-#~ msgid "&Skip"
-#~ msgstr "La&si"
-
-#~ msgid "Replace '%1' with '%2'?"
-#~ msgstr "Ĉu anstataŭigi '%1' per '%2'?"
-
-#, fuzzy
-#~| msgid "Insert Date"
-#~ msgid "Insert Image"
-#~ msgstr "Enmetu Daton"
-
-#, fuzzy
-#~| msgid "New Book"
-#~ msgctxt "The default name for new books."
-#~ msgid "New Book"
-#~ msgstr "Nova libro"
-
-#~ msgid "Settings"
-#~ msgstr "Agordo"
-
-#, fuzzy
-#~ msgid "&Delete Page"
-#~ msgstr "Forigu paĝon"
-
-#, fuzzy
-#~ msgid "Delete Selected"
-#~ msgstr "Forigu paĝon"
-
-#~ msgid "Copy Link Address"
-#~ msgstr "Kopii ligilan adreson"
-
-#, fuzzy
-#~ msgctxt "remove the page, by title"
-#~ msgid ""
-#~ "<qt>Are you sure you want to delete the page <strong>%1</strong>?</qt>"
-#~ msgstr "Ĉu vi estas certa, ke vi volas forigi la nunan paĝon?"
-
-#, fuzzy
-#~ msgctxt "remove the book, by title"
-#~ msgid ""
-#~ "<qt>Are you sure you want to delete the book <strong>%1</strong>?</qt>"
-#~ msgstr "Ĉu vi estas certa, ke vi volas forigi la nunan paĝon?"
-
-#, fuzzy
-#~ msgid "Rename..."
-#~ msgstr "Alinomu libron..."
-
-#, fuzzy
-#~ msgid "Rename Page"
-#~ msgstr "Temoj"
-
-#, fuzzy
-#~ msgid "Page title:"
-#~ msgstr "Paĝotitolo:"
-
-#~ msgid "Rename Book"
-#~ msgstr "Alinomu libron"
-
-#~ msgid "Book name:"
-#~ msgstr "Libronomo:"
-
-#, fuzzy
-#~ msgid "Next Page"
-#~ msgstr "No&va paĝo"
-
-#~ msgid "Previous Page"
-#~ msgstr "Antaŭa paĝo"
-
-#~ msgid "Miscellaneous"
-#~ msgstr "Diversaj"
-
-#~ msgid "Import..."
-#~ msgstr "Importi..."
-
-#, fuzzy
-#~| msgid "KJots"
-#~ msgid "KJots Books"
-#~ msgstr "Notlibro"
-
-#~ msgid "Page %1"
-#~ msgstr "Paĝo %1"
-
-#, fuzzy
-#~ msgid "New Page"
-#~ msgstr "No&va paĝo"
-
-#, fuzzy
-#~ msgid "Page name:"
-#~ msgstr "Paĝotitolo:"
-
-#, fuzzy
-#~ msgid ""
-#~ "<qt>Are you sure you want to delete the <strong>%1</strong> page?</qt>"
-#~ msgstr "Ĉu vi estas certa, ke vi volas forigi la nunan paĝon?"
-
-#, fuzzy
-#~| msgid "KJots"
-#~ msgid "KJotsPart"
-#~ msgstr "Notlibro"
-
-#, fuzzy
-#~ msgid "Text Toobar"
-#~ msgstr "Nova libro"
-
-#, fuzzy
-#~ msgid ""
-#~ "<qt>The file <strong>%1</strong> already exists. Do you wish to overwrite "
-#~ "it?</qt>"
-#~ msgstr ""
-#~ "La dosiero jam ekzistas.\n"
-#~ "Ĉu vi volas anstataŭigi ĝin?"
-
-#~ msgid "Open URL"
-#~ msgstr "Malfermu URLon"
