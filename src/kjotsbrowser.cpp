@@ -40,7 +40,9 @@ public:
         : mBrowser(std::move(browser))
         , mSliderContainer(widget)
         , mFindBar(mBrowser.get(), &mSliderContainer)
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
         , mTextToSpeechWidget(widget)
+#endif
     {
     }
 
