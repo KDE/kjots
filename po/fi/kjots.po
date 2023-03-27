@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-20 00:50+0000\n"
+"POT-Creation-Date: 2023-03-27 00:50+0000\n"
 "PO-Revision-Date: 2020-06-29 15:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -172,26 +172,26 @@ msgstr "Tallennetaanko kirjat automaattisesti vai ei."
 msgid "The interval in minutes at which books should be saved automatically."
 msgstr "Kirjojen automaattisen tallennuksen aikaväli minuutteina."
 
-#: src/kjotsbrowser.cpp:143
+#: src/kjotsbrowser.cpp:145
 #, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "Puhu teksti"
 
-#: src/kjotsbrowser.cpp:192
+#: src/kjotsbrowser.cpp:194
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr "Seuraa hyperlinkkiä napsauttamalla: %1"
 
-#: src/kjotsbrowser.cpp:196
+#: src/kjotsbrowser.cpp:198
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr "Avaa muistiinpano napsauttamalla: %1"
 
-#: src/kjotsbrowser.cpp:198
+#: src/kjotsbrowser.cpp:200
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
