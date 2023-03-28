@@ -20,7 +20,7 @@
 #include <Akonadi/ItemModifyJob>
 #include <Akonadi/NoteUtils>
 
-#include <KXmlGui/KActionCollection>
+#include <KActionCollection>
 #include <KLocalizedString>
 
 #include "notecreatorandselector.h"
