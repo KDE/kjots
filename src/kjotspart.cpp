@@ -20,8 +20,13 @@
 
 K_PLUGIN_FACTORY(KJotsPartFactory, registerPlugin<KJotsPart>();)
 
-KJotsPart::KJotsPart(QWidget *parentWidget, QObject *parent, const QVariantList & /*args*/)
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+KJotsPart::KJotsPart(QWidget *parentWidget, QObject *parent, const QVariantList &)
     : KParts::ReadOnlyPart(parent)
+#else
+KJotsPart::KJotsPart(QWidget *parentWidget, QObject *parent, const KPluginMetaData &data, const QVariantList &)
+    : KParts::ReadOnlyPart(parent, data)
+#endif
 {
     // this should be your custom internal widget
     mComponent = new KJotsWidget(parentWidget, this);
