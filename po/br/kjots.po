@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots-1.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-27 00:50+0000\n"
+"POT-Creation-Date: 2023-04-01 00:52+0000\n"
 "PO-Revision-Date: 1999-03-05 11:06+0100\n"
 "Last-Translator: Jañ-Mai Drapier <jdrapier@club-internet.fr>\n"
 "Language-Team: Brezhoneg <Suav.Icb@wanadoo.fr>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "tvignaud@mandriva.com, jdrapier@club-internet.fr"
 
-#: src/aboutdata.cpp:16 src/kjotspart.cpp:34
+#: src/aboutdata.cpp:16 src/kjotspart.cpp:39
 #: src/kontact_plugin/kjots_plugin.cpp:29
 #, kde-format
 msgid "KJots"
@@ -267,7 +267,7 @@ msgctxt "@title:column size of a note"
 msgid "Size"
 msgstr ""
 
-#: src/kjotspart.cpp:47
+#: src/kjotspart.cpp:52
 #, kde-format
 msgid "&Configure KJots..."
 msgstr ""

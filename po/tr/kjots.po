@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdepim-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-27 00:50+0000\n"
+"POT-Creation-Date: 2023-04-01 00:52+0000\n"
 "PO-Revision-Date: 2023-03-07 20:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -40,7 +40,7 @@ msgstr ""
 "tulliana@gmail.com, ibrahim@pardus.org.tr, volkangezer@gmail.com, "
 "emir_sari@icloud.com"
 
-#: src/aboutdata.cpp:16 src/kjotspart.cpp:34
+#: src/aboutdata.cpp:16 src/kjotspart.cpp:39
 #: src/kontact_plugin/kjots_plugin.cpp:29
 #, kde-format
 msgid "KJots"
@@ -282,7 +282,7 @@ msgctxt "@title:column size of a note"
 msgid "Size"
 msgstr "Boyut"
 
-#: src/kjotspart.cpp:47
+#: src/kjotspart.cpp:52
 #, kde-format
 msgid "&Configure KJots..."
 msgstr "&KJots'u Yapılandır..."

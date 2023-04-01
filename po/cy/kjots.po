@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ../cy/messages//kdeutils/kjots.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-27 00:50+0000\n"
+"POT-Creation-Date: 2023-04-01 00:52+0000\n"
 "PO-Revision-Date: 2004-09-20 15:44+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud@mandrakesoft.com>\n"
 "Language-Team: cy <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kyfieithu@dotmon.com"
 
-#: src/aboutdata.cpp:16 src/kjotspart.cpp:34
+#: src/aboutdata.cpp:16 src/kjotspart.cpp:39
 #: src/kontact_plugin/kjots_plugin.cpp:29
 #, kde-format
 msgid "KJots"
@@ -262,7 +262,7 @@ msgctxt "@title:column size of a note"
 msgid "Size"
 msgstr ""
 
-#: src/kjotspart.cpp:47
+#: src/kjotspart.cpp:52
 #, kde-format
 msgid "&Configure KJots..."
 msgstr ""
