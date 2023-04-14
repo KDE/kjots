@@ -1,26 +1,25 @@
 # Translation for kjots.po to Euskara/Basque (eu)
-# Copyright (C) 2003, 2004, 2005, 2009 Free Software Foundation, Inc.
-# Copyright (C) 2010-2020, This file is copyright:
+# Copyright (C) 2003-2023 This file is copyright:
 # This file is distributed under the same license as the kjots package.
 # KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
 # Translators:
 # Marcos  <marcos@euskalgnu.org>, 2003.
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2004, 2005, 2009, 2020.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2004, 2005, 2009, 2020, 2023.
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-01 00:52+0000\n"
-"PO-Revision-Date: 2020-12-05 17:03+0100\n"
+"PO-Revision-Date: 2023-04-13 23:14+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
-"Language-Team: Basque\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.08.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -45,10 +44,9 @@ msgid "KDE note taking utility"
 msgstr "Oharrak hartzeko KDEren erabilgarritasuna"
 
 #: src/aboutdata.cpp:20
-#, fuzzy, kde-format
-#| msgid "Copyright © 1997–2020 KJots authors"
+#, kde-format
 msgid "Copyright © 1997–2023 KJots authors"
-msgstr "Copyright © 1997–2020 KJots egileak"
+msgstr "Copyright © 1997–2023 «KJots»en egileak"
 
 #: src/aboutdata.cpp:22
 #, kde-format
