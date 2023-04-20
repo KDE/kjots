@@ -16,7 +16,7 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMAddAppIcon)
 include(ECMDeprecationSettings)
 
-set(KJOTS_VERSION "5.1.1")
+set(KJOTS_VERSION "5.1.2")
 
 set(AKONADINOTES_LIB_VERSION "5.22.80")
 set(KDEPIMLIBS_LIB_VERSION "5.22.80")
