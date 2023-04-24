@@ -16,11 +16,11 @@ Dependencies:
     # most PIM projects use @same to get other PIM deps,
     # but here we use @latest because kjots doesn't have a stable branch
     # or follow the release schedule of other PIM projects
-    'pim/akonadi': '@latest'
-    'pim/kmime': '@latest'
-    'pim/akonadi-notes': '@latest'
-    'pim/kpimtextedit': '@latest'
-    'pim/kontactinterface': '@latest'
+    'pim/akonadi': '@latest-kf6'
+    'pim/kmime': '@latest-kf6'
+    'pim/akonadi-notes': '@latest-kf6'
+    'pim/kpimtextedit': '@latest-kf6'
+    'pim/kontactinterface': '@latest-kf6'
     'libraries/ktextaddons': '@latest-kf6'
     'libraries/ktexttemplate': '@stable'
 
