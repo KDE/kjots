@@ -22,7 +22,7 @@ Dependencies:
     'pim/kpimtextedit': '@latest-kf6'
     'pim/kontactinterface': '@latest-kf6'
     'libraries/ktextaddons': '@latest-kf6'
-    'libraries/ktexttemplate': '@stable'
+    'frameworks/ktexttemplate': '@stable'
 
 - 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
   'require':
