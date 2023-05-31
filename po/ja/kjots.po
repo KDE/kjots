@@ -17,7 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
@@ -491,7 +491,6 @@ msgstr ""
 msgid "Copy Note Book"
 msgid_plural "Copy %1 Note Books"
 msgstr[0] "新しいブック"
-msgstr[1] "新しいブック"
 
 #: src/noteshared/standardnoteactionmanager.cpp:122
 #, kde-format
@@ -504,7 +503,6 @@ msgstr ""
 msgid "Delete Note Book"
 msgid_plural "Delete %1 Note Books"
 msgstr[0] "ブックを削除(&K)"
-msgstr[1] "ブックを削除(&K)"
 
 #: src/noteshared/standardnoteactionmanager.cpp:129
 #, fuzzy, kde-format
@@ -519,7 +517,6 @@ msgid "Do you really want to delete this note book and all its contents?"
 msgid_plural ""
 "Do you really want to delete %1 note books and all their contents?"
 msgstr[0] "本当に選択したすべてのブックとページを削除しますか？"
-msgstr[1] "本当に選択したすべてのブックとページを削除しますか？"
 
 #: src/noteshared/standardnoteactionmanager.cpp:137
 #, fuzzy, kde-format
@@ -528,7 +525,6 @@ msgctxt "@title:window"
 msgid "Delete note book?"
 msgid_plural "Delete note books?"
 msgstr[0] "ブックを削除(&K)"
-msgstr[1] "ブックを削除(&K)"
 
 #: src/noteshared/standardnoteactionmanager.cpp:141
 #, kde-format
@@ -545,7 +541,6 @@ msgstr ""
 msgid "Update Note Book"
 msgid_plural "Update %1 Note Books"
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:152
 #, kde-format
@@ -559,7 +554,6 @@ msgstr ""
 msgid "Cut Note Book"
 msgid_plural "Cut %1 Note Books"
 msgstr[0] "新しいブック"
-msgstr[1] "新しいブック"
 
 #: src/noteshared/standardnoteactionmanager.cpp:159
 #, fuzzy, kde-format
@@ -590,7 +584,6 @@ msgstr ""
 msgid "Copy Note"
 msgid_plural "Copy %1 Notes"
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:175
 #, kde-format
@@ -603,7 +596,6 @@ msgstr ""
 msgid "Delete Note"
 msgid_plural "Delete %1 Notes"
 msgstr[0] "削除"
-msgstr[1] "削除"
 
 #: src/noteshared/standardnoteactionmanager.cpp:181
 #, kde-format
@@ -616,7 +608,6 @@ msgstr ""
 msgid "Do you really want to delete the selected note?"
 msgid_plural "Do you really want to delete %1 notes?"
 msgstr[0] "本当に選択したすべてのブックとページを削除しますか？"
-msgstr[1] "本当に選択したすべてのブックとページを削除しますか？"
 
 #: src/noteshared/standardnoteactionmanager.cpp:189
 #, fuzzy, kde-format
@@ -625,7 +616,6 @@ msgctxt "@title:window"
 msgid "Delete Note?"
 msgid_plural "Delete Notes?"
 msgstr[0] "削除しますか？"
-msgstr[1] "削除しますか？"
 
 #: src/noteshared/standardnoteactionmanager.cpp:193
 #, kde-format
@@ -642,7 +632,6 @@ msgstr ""
 msgid "Cut Note"
 msgid_plural "Cut %1 Notes"
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:203
 #, kde-format
@@ -684,7 +673,6 @@ msgstr ""
 msgid "&Delete Bookshelf"
 msgid_plural "&Delete %1 Bookshelfs"
 msgstr[0] "ブックを削除(&K)"
-msgstr[1] "ブックを削除(&K)"
 
 #: src/noteshared/standardnoteactionmanager.cpp:230
 #, kde-format
@@ -699,7 +687,6 @@ msgstr ""
 msgid "Do you really want to delete this bookshelf?"
 msgid_plural "Do you really want to delete %1 bookshelfs?"
 msgstr[0] "本当に選択したすべてのブックとページを削除しますか？"
-msgstr[1] "本当に選択したすべてのブックとページを削除しますか？"
 
 #: src/noteshared/standardnoteactionmanager.cpp:240
 #, fuzzy, kde-format
@@ -708,7 +695,6 @@ msgctxt "@title:window"
 msgid "Delete Bookshelf?"
 msgid_plural "Delete Bookshelfs?"
 msgstr[0] "ブックを削除(&K)"
-msgstr[1] "ブックを削除(&K)"
 
 #: src/noteshared/standardnoteactionmanager.cpp:246
 #, kde-format
@@ -725,7 +711,6 @@ msgstr ""
 msgid "Update Bookshelf"
 msgid_plural "Update %1 Bookshelfs"
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:256
 #, fuzzy, kde-format
@@ -753,7 +738,6 @@ msgctxt "@action"
 msgid "Lock Note"
 msgid_plural "Lock Notes"
 msgstr[0] "選択したものをロック"
-msgstr[1] "選択したものをロック"
 
 #: src/noteshared/standardnoteactionmanager.cpp:288
 #, fuzzy, kde-format
@@ -768,7 +752,6 @@ msgctxt "@action"
 msgid "Unlock Note"
 msgid_plural "Unlock Notes"
 msgstr[0] "選択したものをロック解除"
-msgstr[1] "選択したものをロック解除"
 
 #: src/noteshared/standardnoteactionmanager.cpp:293
 #, fuzzy, kde-format
@@ -783,7 +766,6 @@ msgctxt "@action"
 msgid "Pin Note"
 msgid_plural "Pin Notes"
 msgstr[0] "選択したものをロック解除"
-msgstr[1] "選択したものをロック解除"
 
 #: src/noteshared/standardnoteactionmanager.cpp:308
 #, fuzzy, kde-format
@@ -798,7 +780,6 @@ msgctxt "@action"
 msgid "Unpin Note"
 msgid_plural "Unpin Notes"
 msgstr[0] "選択したものをロック解除"
-msgstr[1] "選択したものをロック解除"
 
 #: src/noteshared/standardnoteactionmanager.cpp:313
 #, fuzzy, kde-format
@@ -814,7 +795,6 @@ msgctxt "@action"
 msgid "Lock Note Book"
 msgid_plural "Lock Note Books"
 msgstr[0] "新しいブック"
-msgstr[1] "新しいブック"
 
 #: src/noteshared/standardnoteactionmanager.cpp:356
 #, fuzzy, kde-format
@@ -830,7 +810,6 @@ msgctxt "@action"
 msgid "Unlock Note Book"
 msgid_plural "Unlock Note Books"
 msgstr[0] "新しいブック"
-msgstr[1] "新しいブック"
 
 #: src/noteshared/standardnoteactionmanager.cpp:361
 #, fuzzy, kde-format
