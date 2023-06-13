@@ -15,9 +15,8 @@
 KJotsConfigMisc::KJotsConfigMisc(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)
 #else
-KJotsConfigMisc::KJotsConfigMisc(QObject *parent, const KPluginMetaData &data,
-                                 const QVariantList &args)
-    : KCModule(parent, data, args)
+KJotsConfigMisc::KJotsConfigMisc(QObject *parent, const KPluginMetaData &data)
+    : KCModule(parent, data)
 #endif
       ,
       ui(new Ui::confPageMisc) {
