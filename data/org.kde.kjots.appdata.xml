@@ -10,6 +10,7 @@
   <name xml:lang="de">KJots</name>
   <name xml:lang="el">KJots</name>
   <name xml:lang="en-GB">KJots</name>
+  <name xml:lang="eo">KJots</name>
   <name xml:lang="es">KJots</name>
   <name xml:lang="et">KJots</name>
   <name xml:lang="eu">KJots</name>
@@ -42,6 +43,7 @@
   <summary xml:lang="de">Dienstprogramm zum Erstellen von Notizen</summary>
   <summary xml:lang="el">Εργαλείο τήρησης σημειωμάτων</summary>
   <summary xml:lang="en-GB">Note-taking utility</summary>
+  <summary xml:lang="eo">Notprena utilaĵo</summary>
   <summary xml:lang="es">Utilidad para tomar notas</summary>
   <summary xml:lang="et">Märkmete tegemise rakendus</summary>
   <summary xml:lang="eu">Oharrak hartzeko erabilgarritasuna</summary>
@@ -74,6 +76,7 @@
     <p xml:lang="de">KJots sortiert alle Ihre Notizen in getrennte Bücher.</p>
     <p xml:lang="el">Το KJots οργανώνει όλες τις σημειώσεις σας σε ξεχωριστά βιβλία.</p>
     <p xml:lang="en-GB">KJots organises all of your notes into separate books.</p>
+    <p xml:lang="eo">KJots organizas ĉiujn viajn notojn en apartajn librojn.</p>
     <p xml:lang="es">KJots organiza todas sus notas en libros separados.</p>
     <p xml:lang="et">KJots paigutab kõik sinu märkmed eraldi raamatutesse.</p>
     <p xml:lang="eu">Kjots-ek zure ohar guztiak liburu bereizietan antolatzen ditu.</p>
@@ -103,6 +106,7 @@
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="el">Χαρακτηριστικά:</p>
     <p xml:lang="en-GB">Features:</p>
+    <p xml:lang="eo">Trajtoj:</p>
     <p xml:lang="es">Funciones:</p>
     <p xml:lang="et">Omadused:</p>
     <p xml:lang="eu">Ezaugarria:</p>
@@ -135,6 +139,7 @@
       <li xml:lang="de">Handhabung mehrerer Bücher</li>
       <li xml:lang="el">Χειρισμός πολλών βιβλίων</li>
       <li xml:lang="en-GB">Multiple books handled</li>
+      <li xml:lang="eo">Trakteblas pluraj libroj</li>
       <li xml:lang="es">Manejo de múltiples libros</li>
       <li xml:lang="et">Mitme raamatu kasutamise võimalus</li>
       <li xml:lang="eu">Liburu anizkoitzak kudeatzen ditu</li>
@@ -163,6 +168,7 @@
       <li xml:lang="de">Jedes Buch hat viele benannte Seiten</li>
       <li xml:lang="el">Κάθε βιβλίο έχει πολλές τιτλοφορημένες σελίδες</li>
       <li xml:lang="en-GB">Each book has many named pages</li>
+      <li xml:lang="eo">Ĉiu libro havas multajn nomitajn paĝojn</li>
       <li xml:lang="es">Cada libro puede contener numerosas páginas con nombre</li>
       <li xml:lang="et">Igal raamatul palju nimega lehekülgi</li>
       <li xml:lang="eu">Liburu bakoitzak izendatutako orri ugari ditu</li>
@@ -191,6 +197,7 @@
       <li xml:lang="de">Bücher und Seiten können per Ziehen und Ablegen sortiert werden</li>
       <li xml:lang="el">Βιβλία και σελίδες μπορούν να αναδιαταχθούν με έλξη και εναπόθεση</li>
       <li xml:lang="en-GB">Books and pages can be rearranged by drag-and-drop</li>
+      <li xml:lang="eo">Libroj kaj paĝoj povas esti rearanĝitaj per tren-kaj-falo</li>
       <li xml:lang="es">Los libros y las páginas se pueden organizar y arrastrar</li>
       <li xml:lang="et">Raamatuid ja lehekülgi võib lohistades ümber korraldada</li>
       <li xml:lang="eu">Liburuak eta orriak arrastatu eta jareginda berrantolatu daitezke</li>
@@ -219,6 +226,7 @@
       <li xml:lang="de">Für viele Funktionen stehen Kurzbefehle zur Verfügung</li>
       <li xml:lang="el">Συντομεύσεις πληκτρολογίου είναι διαθέσιμες για πολλές λειτουργίες</li>
       <li xml:lang="en-GB">Keyboard shortcuts are available for many functions</li>
+      <li xml:lang="eo">Klavaraj ŝparvojoj estas havebla por multaj funkcioj</li>
       <li xml:lang="es">Dispone de accesos rápidos de teclado para muchas funciones</li>
       <li xml:lang="et">Paljusid toiminguid saab sooritada kiirklahvidega</li>
       <li xml:lang="eu">Funtzio askoren teklatuko lasterbideak erabilgarri daude</li>
@@ -247,6 +255,7 @@
       <li xml:lang="de">Automatisches Speichern verhindert den Verlust von Notizen</li>
       <li xml:lang="el">Αυτόματη αποθήκευση σημαίνει ότι οι σημειώσεις σας δεν διατρέχουν κίνδυνο απώλειας</li>
       <li xml:lang="en-GB">Automatic saving means your notes are safe from loss</li>
+      <li xml:lang="eo">Aŭtomata konservado signifas ke viaj notoj sekuriĝas kontraŭ perdo</li>
       <li xml:lang="es">Las notas se guardan automáticamente para evitar que se pierdan</li>
       <li xml:lang="et">Automaatne salvestamine tähendab andmekao võimaluse puudumist</li>
       <li xml:lang="eu">Gordetze automatikoari esker zure oharrak galtzetik salbu daude</li>
