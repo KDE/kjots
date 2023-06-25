@@ -140,7 +140,3 @@ target_link_libraries(kcm_kjots
 install(TARGETS kcm_kjots
         DESTINATION ${KDE_INSTALL_PLUGINDIR}
 )
-install(FILES ${CMAKE_SOURCE_DIR}/data/kjots_config_misc.desktop
-        DESTINATION ${KDE_INSTALL_KSERVICESDIR}
-)
-
