@@ -18,7 +18,7 @@
 #include <KLocalizedString>
 
 
-K_PLUGIN_FACTORY(KJotsPartFactory, registerPlugin<KJotsPart>();)
+K_PLUGIN_CLASS_WITH_JSON(KJotsPart, "kjotspart.json")
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 KJotsPart::KJotsPart(QWidget *parentWidget, QObject *parent, const QVariantList &)

@@ -116,9 +116,6 @@ target_link_libraries(kjotspart
   KF${KF_MAJOR_VERSION}::Parts
 )
 
-install(FILES ${CMAKE_SOURCE_DIR}/data/kjotspart.desktop
-        DESTINATION ${KDE_INSTALL_KSERVICESDIR}
-)
 install(TARGETS kjotspart
         DESTINATION ${KDE_INSTALL_PLUGINDIR}
 )
