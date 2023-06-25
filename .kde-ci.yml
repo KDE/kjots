@@ -44,5 +44,5 @@ Dependencies:
     'pim/akonadi-notes': '@latest'
     'pim/kpimtextedit': '@latest'
     'pim/kontactinterface': '@latest'
-    'libraries/ktextaddons': '@stable'
+    'libraries/ktextaddons': '@latest'
 
