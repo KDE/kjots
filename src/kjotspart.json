@@ -2,6 +2,14 @@
     "KPlugin": {
         "Icon": "kjots",
         "Name": "KJotsPart",
+        "Name[ca]": "KJotsPart",
+        "Name[eo]": "KJotsPart",
+        "Name[es]": "KJotsPart",
+        "Name[nl]": "KJotsPart",
+        "Name[sl]": "KJotsPart",
+        "Name[tr]": "KJots Kısmı",
+        "Name[uk]": "KJotsPart",
+        "Name[x-test]": "xxKJotsPartxx",
         "ServiceTypes": [
             "KParts/ReadOnlyPart"
         ]
