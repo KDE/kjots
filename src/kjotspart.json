@@ -2,9 +2,11 @@
     "KPlugin": {
         "Icon": "kjots",
         "Name": "KJotsPart",
+        "Name[ca@valencia]": "KJotsPart",
         "Name[ca]": "KJotsPart",
         "Name[eo]": "KJotsPart",
         "Name[es]": "KJotsPart",
+        "Name[gl]": "KJotsPart",
         "Name[nl]": "KJotsPart",
         "Name[sl]": "KJotsPart",
         "Name[tr]": "KJots Kısmı",
