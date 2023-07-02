@@ -38,3 +38,5 @@ bool NoteSortProxyModel::lessThan(const QModelIndex &left, const QModelIndex &ri
 
     return QSortFilterProxyModel::lessThan(left, right);
 }
+
+#include "moc_notesortproxymodel.cpp"

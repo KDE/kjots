@@ -114,3 +114,5 @@ void NoteCreatorAndSelector::trySelectNote()
     m_secondarySelectionModel->select(idx, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
 }
 
+
+#include "moc_notecreatorandselector.cpp"

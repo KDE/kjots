@@ -210,3 +210,5 @@ void KJotsBrowser::tooltipEvent(QHelpEvent *event)
 }
 
 /* ex: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab: */
+
+#include "moc_kjotsbrowser.cpp"

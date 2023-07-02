@@ -69,3 +69,5 @@ QString KJotsBookmarks::currentTitle() const
     }
 }
 
+
+#include "moc_kjotsbookmarks.cpp"

@@ -786,3 +786,5 @@ void KJotsWidget::openLink(const QUrl &url)
         job->start();
     }
 }
+
+#include "moc_kjotswidget.cpp"

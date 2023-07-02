@@ -391,3 +391,5 @@ QModelIndex KJotsModel::etmIndex(const QModelIndex &index)
     }
     return result;
 }
+
+#include "moc_kjotsmodel.cpp"

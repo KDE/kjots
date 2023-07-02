@@ -86,3 +86,5 @@ QString KJotsLinkDialog::linkUrl() const
     }
 }
 
+
+#include "moc_kjotslinkdialog.cpp"

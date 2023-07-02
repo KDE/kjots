@@ -62,3 +62,5 @@ int KJotsUniqueAppHandler::activate(const QStringList &args, const QString &work
 }
 #include "kjots_plugin.moc"
 
+
+#include "moc_kjots_plugin.cpp"

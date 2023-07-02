@@ -715,3 +715,5 @@ void StandardNoteActionManager::setCollectionPropertiesPageNames(const QStringLi
 {
     d->mGenericManager->setCollectionPropertiesPageNames(names);
 }
+
+#include "moc_standardnoteactionmanager.cpp"

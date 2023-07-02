@@ -40,3 +40,5 @@ bool KJotsMain::queryClose()
 {
     return component->queryClose();
 }
+
+#include "moc_KJotsMain.cpp"

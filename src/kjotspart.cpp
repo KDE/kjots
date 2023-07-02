@@ -60,3 +60,5 @@ bool KJotsPart::openFile()
 }
 
 #include "kjotspart.moc"
+
+#include "moc_kjotspart.cpp"
