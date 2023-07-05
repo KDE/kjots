@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -473,6 +473,7 @@ msgstr ""
 msgid "Copy Note Book"
 msgid_plural "Copy %1 Note Books"
 msgstr[0] "کتاب جدید"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:122
 #, kde-format
@@ -485,6 +486,7 @@ msgstr ""
 msgid "Delete Note Book"
 msgid_plural "Delete %1 Note Books"
 msgstr[0] "حذف &کتاب‌"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:129
 #, kde-format
@@ -497,6 +499,7 @@ msgid "Do you really want to delete this note book and all its contents?"
 msgid_plural ""
 "Do you really want to delete %1 note books and all their contents?"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:137
 #, fuzzy, kde-format
@@ -505,6 +508,7 @@ msgctxt "@title:window"
 msgid "Delete note book?"
 msgid_plural "Delete note books?"
 msgstr[0] "حذف &کتاب‌"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:141
 #, kde-format
@@ -522,6 +526,7 @@ msgstr ""
 msgid "Update Note Book"
 msgid_plural "Update %1 Note Books"
 msgstr[0] "ایجاد کتاب جدید"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:152
 #, kde-format
@@ -534,6 +539,7 @@ msgstr ""
 msgid "Cut Note Book"
 msgid_plural "Cut %1 Note Books"
 msgstr[0] "ایجاد کتاب جدید"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:159
 #, kde-format
@@ -562,6 +568,7 @@ msgstr ""
 msgid "Copy Note"
 msgid_plural "Copy %1 Notes"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:175
 #, kde-format
@@ -574,6 +581,7 @@ msgstr ""
 msgid "Delete Note"
 msgid_plural "Delete %1 Notes"
 msgstr[0] "حذف"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:181
 #, kde-format
@@ -586,6 +594,7 @@ msgstr ""
 msgid "Do you really want to delete the selected note?"
 msgid_plural "Do you really want to delete %1 notes?"
 msgstr[0] "<qt>مطمئن هستید که می‌خواهید این مدخلها را حذف کنید؟</qt>"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:189
 #, fuzzy, kde-format
@@ -594,6 +603,7 @@ msgctxt "@title:window"
 msgid "Delete Note?"
 msgid_plural "Delete Notes?"
 msgstr[0] "حذف"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:193
 #, kde-format
@@ -610,6 +620,7 @@ msgstr ""
 msgid "Cut Note"
 msgid_plural "Cut %1 Notes"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:203
 #, kde-format
@@ -651,6 +662,7 @@ msgstr ""
 msgid "&Delete Bookshelf"
 msgid_plural "&Delete %1 Bookshelfs"
 msgstr[0] "حذف &کتاب‌"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:230
 #, kde-format
@@ -665,6 +677,7 @@ msgstr ""
 msgid "Do you really want to delete this bookshelf?"
 msgid_plural "Do you really want to delete %1 bookshelfs?"
 msgstr[0] "<qt>مطمئن هستید که می‌خواهید این مدخلها را حذف کنید؟</qt>"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:240
 #, fuzzy, kde-format
@@ -673,6 +686,7 @@ msgctxt "@title:window"
 msgid "Delete Bookshelf?"
 msgid_plural "Delete Bookshelfs?"
 msgstr[0] "حذف &کتاب‌"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:246
 #, kde-format
@@ -689,6 +703,7 @@ msgstr ""
 msgid "Update Bookshelf"
 msgid_plural "Update %1 Bookshelfs"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:256
 #, kde-format
@@ -712,6 +727,7 @@ msgctxt "@action"
 msgid "Lock Note"
 msgid_plural "Lock Notes"
 msgstr[0] "حذف برگزیده"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:288
 #, fuzzy, kde-format
@@ -726,6 +742,7 @@ msgctxt "@action"
 msgid "Unlock Note"
 msgid_plural "Unlock Notes"
 msgstr[0] "حذف برگزیده"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:293
 #, fuzzy, kde-format
@@ -740,6 +757,7 @@ msgctxt "@action"
 msgid "Pin Note"
 msgid_plural "Pin Notes"
 msgstr[0] "حذف برگزیده"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:308
 #, fuzzy, kde-format
@@ -754,6 +772,7 @@ msgctxt "@action"
 msgid "Unpin Note"
 msgid_plural "Unpin Notes"
 msgstr[0] "حذف برگزیده"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:313
 #, fuzzy, kde-format
@@ -768,6 +787,7 @@ msgctxt "@action"
 msgid "Lock Note Book"
 msgid_plural "Lock Note Books"
 msgstr[0] "کتاب جدید"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:356
 #, fuzzy, kde-format
@@ -782,6 +802,7 @@ msgctxt "@action"
 msgid "Unlock Note Book"
 msgid_plural "Unlock Note Books"
 msgstr[0] "کتاب جدید"
+msgstr[1] ""
 
 #: src/noteshared/standardnoteactionmanager.cpp:361
 #, fuzzy, kde-format
