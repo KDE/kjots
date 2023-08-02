@@ -81,6 +81,7 @@ set(kjots_SRCS
    main.cpp
    KJotsMain.cpp
    KJotsMain.h
+   kjots.qrc
 )
 
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/icons/*-apps-kjots.png")
@@ -97,9 +98,6 @@ install(TARGETS kjots ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES kjots.kcfg
         DESTINATION ${KDE_INSTALL_KCFGDIR}
-)
-install(FILES kjotsui.rc
-        DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/kjots
 )
 
 ############## next target ##############
