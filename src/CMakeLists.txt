@@ -70,6 +70,10 @@ endif()
 if (TARGET KF${KF_MAJOR_VERSION}::TextCustomEditor)
     target_link_libraries(kjots_common KF${KF_MAJOR_VERSION}::TextCustomEditor)
 endif()
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_link_libraries(kjots_common KF6::BookmarksWidgets)
+endif()
+
 #########################################################################
 # D-Bus interface
 #########################################################################
