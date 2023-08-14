@@ -422,9 +422,17 @@ void KJotsWidget::setupActions()
     auto bookmarks = new KJotsBookmarks(m_collectionView->selectionModel(), this);
     connect(bookmarks, &KJotsBookmarks::openLink, this, &KJotsWidget::openLink);
     auto bmm = new KBookmarkMenu(
+#if QT_VERSION_MAJOR < 6
         KBookmarkManager::managerForFile(
-            QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/kjots/bookmarks.xml"),
-            QStringLiteral("kjots")),
+            QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) +
+                QStringLiteral("/kjots/bookmarks.xml"),
+            QStringLiteral("kjots")
+#else
+        KBookmarkManager::managerForFile(
+            QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) +
+            QStringLiteral("/kjots/bookmarks.xml")
+#endif
+                ),
         bookmarks, bookmarkMenu->menu());
     // "Add bookmark" and "make text bold" actions have conflicting shortcuts (ctrl + b)
     // Make add_bookmark use ctrl+shift+b to resolve that.
