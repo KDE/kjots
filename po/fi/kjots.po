@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-01 00:52+0000\n"
+"POT-Creation-Date: 2023-08-16 00:47+0000\n"
 "PO-Revision-Date: 2023-03-14 21:58+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -338,67 +338,67 @@ msgstr "Työkalujen työkalurivi"
 msgid "&Bookmarks"
 msgstr "&Kirjanmerkit"
 
-#: src/kjotswidget.cpp:439
+#: src/kjotswidget.cpp:447
 #, kde-format
 msgid "Export"
 msgstr "Vie"
 
-#: src/kjotswidget.cpp:443
+#: src/kjotswidget.cpp:451
 #, kde-format
 msgid "To Text File..."
 msgstr "Tekstitiedostoksi…"
 
-#: src/kjotswidget.cpp:451
+#: src/kjotswidget.cpp:459
 #, kde-format
 msgid "To HTML File..."
 msgstr "HTML-tiedostoksi…"
 
-#: src/kjotswidget.cpp:460
+#: src/kjotswidget.cpp:468
 #, kde-format
 msgid "Next Book"
 msgstr "Seuraava kirja"
 
-#: src/kjotswidget.cpp:471
+#: src/kjotswidget.cpp:479
 #, kde-format
 msgid "Previous Book"
 msgstr "Edellinen kirja"
 
-#: src/kjotswidget.cpp:484
+#: src/kjotswidget.cpp:492
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
 msgstr "Kaksi saraketta"
 
-#: src/kjotswidget.cpp:489
+#: src/kjotswidget.cpp:497
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "Kolme saraketta"
 
-#: src/kjotswidget.cpp:553 src/kjotswidget.cpp:555
+#: src/kjotswidget.cpp:561 src/kjotswidget.cpp:563
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "Sekalaiset"
 
-#: src/kjotswidget.cpp:591
+#: src/kjotswidget.cpp:599
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Sisällysluettelo"
 
-#: src/kjotswidget.cpp:624
+#: src/kjotswidget.cpp:632
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>Tiedostoa ”%1” ei voitu avata kirjoitettavaksi</qt>"
 
-#: src/kjotswidget.cpp:720
+#: src/kjotswidget.cpp:728
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "Monivalinta"
 
-#: src/kjotswidget.cpp:738
+#: src/kjotswidget.cpp:746
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -411,12 +411,12 @@ msgstr ""
 "valikosta Tiedosto → Vie. Muutoin muutokset menetetään.\n"
 "Haluatko silti sulkea?"
 
-#: src/kjotswidget.cpp:742
+#: src/kjotswidget.cpp:750
 #, kde-format
 msgid "Close Document"
 msgstr "Sulje tiedosto"
 
-#: src/kjotswidget.cpp:747
+#: src/kjotswidget.cpp:755
 #, kde-format
 msgid ""
 "Error message:\n"

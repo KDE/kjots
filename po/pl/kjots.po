@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-01 00:52+0000\n"
+"POT-Creation-Date: 2023-08-16 00:47+0000\n"
 "PO-Revision-Date: 2023-04-15 11:30+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -326,67 +326,67 @@ msgstr "Pasek narzędzi"
 msgid "&Bookmarks"
 msgstr "&Zakładki"
 
-#: src/kjotswidget.cpp:439
+#: src/kjotswidget.cpp:447
 #, kde-format
 msgid "Export"
 msgstr "Wyeksportuj"
 
-#: src/kjotswidget.cpp:443
+#: src/kjotswidget.cpp:451
 #, kde-format
 msgid "To Text File..."
 msgstr "Do pliku tekstowego..."
 
-#: src/kjotswidget.cpp:451
+#: src/kjotswidget.cpp:459
 #, kde-format
 msgid "To HTML File..."
 msgstr "Do pliku HTML..."
 
-#: src/kjotswidget.cpp:460
+#: src/kjotswidget.cpp:468
 #, kde-format
 msgid "Next Book"
 msgstr "Następny zeszyt"
 
-#: src/kjotswidget.cpp:471
+#: src/kjotswidget.cpp:479
 #, kde-format
 msgid "Previous Book"
 msgstr "Poprzedni zeszyt"
 
-#: src/kjotswidget.cpp:484
+#: src/kjotswidget.cpp:492
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
 msgstr "Dwie kolumny"
 
-#: src/kjotswidget.cpp:489
+#: src/kjotswidget.cpp:497
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "Trzy kolumny"
 
-#: src/kjotswidget.cpp:553 src/kjotswidget.cpp:555
+#: src/kjotswidget.cpp:561 src/kjotswidget.cpp:563
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "Różne"
 
-#: src/kjotswidget.cpp:591
+#: src/kjotswidget.cpp:599
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Spis treści"
 
-#: src/kjotswidget.cpp:624
+#: src/kjotswidget.cpp:632
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>Nie można otworzyć \"%1\" do zapisu</qt>"
 
-#: src/kjotswidget.cpp:720
+#: src/kjotswidget.cpp:728
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "Wielokrotne zaznaczanie"
 
-#: src/kjotswidget.cpp:738
+#: src/kjotswidget.cpp:746
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -400,12 +400,12 @@ msgstr ""
 "w przeciwnym przypadku utracisz swoje zmiany!\n"
 "Czy chcesz zamknąć mimo to?"
 
-#: src/kjotswidget.cpp:742
+#: src/kjotswidget.cpp:750
 #, kde-format
 msgid "Close Document"
 msgstr "Zamknij dokument"
 
-#: src/kjotswidget.cpp:747
+#: src/kjotswidget.cpp:755
 #, kde-format
 msgid ""
 "Error message:\n"

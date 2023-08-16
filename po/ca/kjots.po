@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-01 00:52+0000\n"
+"POT-Creation-Date: 2023-08-16 00:47+0000\n"
 "PO-Revision-Date: 2023-02-18 11:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -332,67 +332,67 @@ msgstr "Barra d'eines"
 msgid "&Bookmarks"
 msgstr "&Adreces d'interès"
 
-#: src/kjotswidget.cpp:439
+#: src/kjotswidget.cpp:447
 #, kde-format
 msgid "Export"
 msgstr "Exporta"
 
-#: src/kjotswidget.cpp:443
+#: src/kjotswidget.cpp:451
 #, kde-format
 msgid "To Text File..."
 msgstr "A un fitxer de text..."
 
-#: src/kjotswidget.cpp:451
+#: src/kjotswidget.cpp:459
 #, kde-format
 msgid "To HTML File..."
 msgstr "A un fitxer HTML..."
 
-#: src/kjotswidget.cpp:460
+#: src/kjotswidget.cpp:468
 #, kde-format
 msgid "Next Book"
 msgstr "Llibre següent"
 
-#: src/kjotswidget.cpp:471
+#: src/kjotswidget.cpp:479
 #, kde-format
 msgid "Previous Book"
 msgstr "Llibre anterior"
 
-#: src/kjotswidget.cpp:484
+#: src/kjotswidget.cpp:492
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
 msgstr "Dues columnes"
 
-#: src/kjotswidget.cpp:489
+#: src/kjotswidget.cpp:497
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "Tres columnes"
 
-#: src/kjotswidget.cpp:553 src/kjotswidget.cpp:555
+#: src/kjotswidget.cpp:561 src/kjotswidget.cpp:563
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "Miscel·lània"
 
-#: src/kjotswidget.cpp:591
+#: src/kjotswidget.cpp:599
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Taula de continguts"
 
-#: src/kjotswidget.cpp:624
+#: src/kjotswidget.cpp:632
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>No s'ha pogut obrir «%1» per a escriptura</qt>"
 
-#: src/kjotswidget.cpp:720
+#: src/kjotswidget.cpp:728
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "Selecció múltiple"
 
-#: src/kjotswidget.cpp:738
+#: src/kjotswidget.cpp:746
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -405,12 +405,12 @@ msgstr ""
 "en cas contrari perdreu els canvis!\n"
 "Voleu tancar de totes maneres?"
 
-#: src/kjotswidget.cpp:742
+#: src/kjotswidget.cpp:750
 #, kde-format
 msgid "Close Document"
 msgstr "Tanca el document"
 
-#: src/kjotswidget.cpp:747
+#: src/kjotswidget.cpp:755
 #, kde-format
 msgid ""
 "Error message:\n"
