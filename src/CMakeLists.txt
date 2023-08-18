@@ -64,6 +64,12 @@ target_link_libraries(kjots_common
 if (TARGET KF${KF_MAJOR_VERSION}::TextEditTextToSpeech)
     target_link_libraries(kjots_common KF${KF_MAJOR_VERSION}::TextEditTextToSpeech)
 endif()
+if (TARGET KF${KF_MAJOR_VERSION}::TextAddonsWidgets)
+    target_link_libraries(kjots_common KF${KF_MAJOR_VERSION}::TextAddonsWidgets)
+endif()
+if (TARGET KF${KF_MAJOR_VERSION}::TextCustomEditor)
+    target_link_libraries(kjots_common KF${KF_MAJOR_VERSION}::TextCustomEditor)
+endif()
 #########################################################################
 # D-Bus interface
 #########################################################################

@@ -63,7 +63,11 @@ namespace KTextTemplate
 class Engine;
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 namespace KPIMTextEdit
+#else
+namespace TextCustomEditor
+#endif
 {
 class RichTextEditorWidget;
 }
@@ -154,7 +158,11 @@ private:
     Akonadi::EntityTreeView *m_collectionView = nullptr;
     Akonadi::EntityTreeView *m_itemView = nullptr;
     KJotsEdit      *m_editor = nullptr;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     KPIMTextEdit::RichTextEditorWidget *m_editorWidget = nullptr;
+#else
+    TextCustomEditor::RichTextEditorWidget *m_editorWidget = nullptr;
+#endif
     KJotsBrowserWidget *m_browserWidget = nullptr;
 
     // Models

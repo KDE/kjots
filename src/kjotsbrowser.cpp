@@ -18,8 +18,13 @@
 #include <TextEditTextToSpeech/TextToSpeechWidget>
 #endif
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <KPIMTextEdit/RichTextEditFindBar>
 #include <KPIMTextEdit/SlideContainer>
+#else
+#include <TextCustomEditor/RichTextEditFindBar>
+#include <TextAddonsWidgets/SlideContainer>
+#endif
 
 #include <QHelpEvent>
 #include <QToolTip>
@@ -47,8 +52,13 @@ public:
     }
 
     std::unique_ptr<KJotsBrowser> mBrowser;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     KPIMTextEdit::SlideContainer mSliderContainer;
     KPIMTextEdit::RichTextEditFindBar mFindBar;
+#else
+    TextAddonsWidgets::SlideContainer mSliderContainer;
+    TextCustomEditor::RichTextEditFindBar mFindBar;
+#endif
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     TextEditTextToSpeech::TextToSpeechWidget mTextToSpeechWidget;
 #endif
@@ -61,8 +71,11 @@ KJotsBrowserWidget::KJotsBrowserWidget(std::unique_ptr<KJotsBrowser> browser, QW
     d->mBrowser->setParent(this);
     d->mSliderContainer.setContent(&d->mFindBar);
     d->mFindBar.setHideWhenClose(false);
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(&d->mFindBar, &KPIMTextEdit::RichTextEditFindBar::hideFindBar, this, &KJotsBrowserWidget::slotHideFindBar);
+#else
+    connect(&d->mFindBar, &TextCustomEditor::RichTextEditFindBar::hideFindBar, this, &KJotsBrowserWidget::slotHideFindBar);
+#endif
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     connect(d->mBrowser.get(), &KJotsBrowser::say, &d->mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechWidget::say);
 #endif

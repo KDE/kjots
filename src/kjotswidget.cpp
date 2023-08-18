@@ -77,7 +77,11 @@
 #include <KIO/OpenUrlJob>
 
 #include <KPIMTextEdit/RichTextComposerActions>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <KPIMTextEdit/RichTextEditorWidget>
+#else
+#include <TextCustomEditor/RichTextEditorWidget>
+#endif
 
 
 // KMime
@@ -248,7 +252,11 @@ void KJotsWidget::setupGui()
 
     // Editor
     m_editor = new KJotsEdit(m_stackedWidget, m_xmlGuiClient->actionCollection());
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     m_editorWidget = new KPIMTextEdit::RichTextEditorWidget(m_editor, m_stackedWidget);
+#else
+    m_editorWidget = new TextCustomEditor::RichTextEditorWidget(m_editor, m_stackedWidget);
+#endif
     m_editor->setParent(m_editorWidget);
     m_stackedWidget->addWidget(m_editorWidget);
     connect(m_editor, &KJotsEdit::linkClicked, this, &KJotsWidget::openLink);
@@ -408,7 +416,11 @@ void KJotsWidget::setupActions()
                 m_browserWidget->slotFindNext();
             }
         }, actionCollection);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     action = KStandardAction::replace(m_editorWidget, &KPIMTextEdit::RichTextEditorWidget::slotReplace, actionCollection);
+#else
+    action = KStandardAction::replace(m_editorWidget, &TextCustomEditor::RichTextEditorWidget::slotReplace, actionCollection);
+#endif
     connect(m_stackedWidget, &QStackedWidget::currentChanged, this, [this, action](int index){
             action->setEnabled(m_stackedWidget->widget(index) == m_editorWidget);
         });
