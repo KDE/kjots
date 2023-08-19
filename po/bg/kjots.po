@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-16 00:47+0000\n"
+"POT-Creation-Date: 2023-08-19 00:46+0000\n"
 "PO-Revision-Date: 2013-08-05 19:50+0300\n"
 "Last-Translator: Yasen Pramatarov <yasen@lindeas.com>\n"
 "Language-Team: Bulgarian <dict@ludost.net>\n"
@@ -160,26 +160,26 @@ msgstr "Автоматичен запис на книгите."
 msgid "The interval in minutes at which books should be saved automatically."
 msgstr "Интервал, след който ще се извършва автоматичен запис."
 
-#: src/kjotsbrowser.cpp:145
+#: src/kjotsbrowser.cpp:158
 #, fuzzy, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "Текст на препратката:"
 
-#: src/kjotsbrowser.cpp:194
+#: src/kjotsbrowser.cpp:207
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr ""
 
-#: src/kjotsbrowser.cpp:198
+#: src/kjotsbrowser.cpp:211
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr ""
 
-#: src/kjotsbrowser.cpp:200
+#: src/kjotsbrowser.cpp:213
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
@@ -322,72 +322,72 @@ msgstr "Лента за форматиране"
 msgid "Tools Toolbar"
 msgstr "Лента с инструменти за текст"
 
-#: src/kjotswidget.cpp:421
+#: src/kjotswidget.cpp:433
 #, kde-format
 msgid "&Bookmarks"
 msgstr "&Отметки"
 
-#: src/kjotswidget.cpp:447
+#: src/kjotswidget.cpp:459
 #, kde-format
 msgid "Export"
 msgstr "Изнасяне"
 
-#: src/kjotswidget.cpp:451
+#: src/kjotswidget.cpp:463
 #, kde-format
 msgid "To Text File..."
 msgstr "В текстов файл..."
 
-#: src/kjotswidget.cpp:459
+#: src/kjotswidget.cpp:471
 #, kde-format
 msgid "To HTML File..."
 msgstr "В HTML файл..."
 
-#: src/kjotswidget.cpp:468
+#: src/kjotswidget.cpp:480
 #, kde-format
 msgid "Next Book"
 msgstr "Следваща книга"
 
-#: src/kjotswidget.cpp:479
+#: src/kjotswidget.cpp:491
 #, kde-format
 msgid "Previous Book"
 msgstr "Предишна книга"
 
-#: src/kjotswidget.cpp:492
+#: src/kjotswidget.cpp:504
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
 msgstr ""
 
-#: src/kjotswidget.cpp:497
+#: src/kjotswidget.cpp:509
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr ""
 
-#: src/kjotswidget.cpp:561 src/kjotswidget.cpp:563
+#: src/kjotswidget.cpp:573 src/kjotswidget.cpp:575
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr ""
 
-#: src/kjotswidget.cpp:599
+#: src/kjotswidget.cpp:611
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Съдържание"
 
-#: src/kjotswidget.cpp:632
+#: src/kjotswidget.cpp:644
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr ""
 
-#: src/kjotswidget.cpp:728
+#: src/kjotswidget.cpp:740
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr ""
 
-#: src/kjotswidget.cpp:746
+#: src/kjotswidget.cpp:758
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -396,12 +396,12 @@ msgid ""
 "Do you want to close anyways?"
 msgstr ""
 
-#: src/kjotswidget.cpp:750
+#: src/kjotswidget.cpp:762
 #, kde-format
 msgid "Close Document"
 msgstr ""
 
-#: src/kjotswidget.cpp:755
+#: src/kjotswidget.cpp:767
 #, kde-format
 msgid ""
 "Error message:\n"

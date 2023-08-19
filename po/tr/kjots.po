@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdepim-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-16 00:47+0000\n"
+"POT-Creation-Date: 2023-08-19 00:46+0000\n"
 "PO-Revision-Date: 2023-06-04 01:21+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -173,26 +173,26 @@ msgid "The interval in minutes at which books should be saved automatically."
 msgstr ""
 "Defterlerin otomatik olarak kaydedileceği dakika cinsinden zaman aralığı."
 
-#: src/kjotsbrowser.cpp:145
+#: src/kjotsbrowser.cpp:158
 #, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "Metni Seslendir"
 
-#: src/kjotsbrowser.cpp:194
+#: src/kjotsbrowser.cpp:207
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr "Köprüyü izlemek için tıklayın: %1"
 
-#: src/kjotsbrowser.cpp:198
+#: src/kjotsbrowser.cpp:211
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr "Notu açmak için tıklayın: %1"
 
-#: src/kjotsbrowser.cpp:200
+#: src/kjotsbrowser.cpp:213
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
@@ -335,72 +335,72 @@ msgstr "Biçimlendirme Araç Çubuğu"
 msgid "Tools Toolbar"
 msgstr "Araçlar Araç Çubuğu"
 
-#: src/kjotswidget.cpp:421
+#: src/kjotswidget.cpp:433
 #, kde-format
 msgid "&Bookmarks"
 msgstr "Y&er İmleri"
 
-#: src/kjotswidget.cpp:447
+#: src/kjotswidget.cpp:459
 #, kde-format
 msgid "Export"
 msgstr "Dışa Aktar"
 
-#: src/kjotswidget.cpp:451
+#: src/kjotswidget.cpp:463
 #, kde-format
 msgid "To Text File..."
 msgstr "Metin Dosyasına..."
 
-#: src/kjotswidget.cpp:459
+#: src/kjotswidget.cpp:471
 #, kde-format
 msgid "To HTML File..."
 msgstr "HTML Dosyasına..."
 
-#: src/kjotswidget.cpp:468
+#: src/kjotswidget.cpp:480
 #, kde-format
 msgid "Next Book"
 msgstr "Sonraki Defter"
 
-#: src/kjotswidget.cpp:479
+#: src/kjotswidget.cpp:491
 #, kde-format
 msgid "Previous Book"
 msgstr "Önceki Defter"
 
-#: src/kjotswidget.cpp:492
+#: src/kjotswidget.cpp:504
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
 msgstr "İki Sütun"
 
-#: src/kjotswidget.cpp:497
+#: src/kjotswidget.cpp:509
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "Üç Sütun"
 
-#: src/kjotswidget.cpp:561 src/kjotswidget.cpp:563
+#: src/kjotswidget.cpp:573 src/kjotswidget.cpp:575
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "Diğer"
 
-#: src/kjotswidget.cpp:599
+#: src/kjotswidget.cpp:611
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "İçindekiler Tablosu"
 
-#: src/kjotswidget.cpp:632
+#: src/kjotswidget.cpp:644
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>\"%1\", yazma için açılamadı</qt>"
 
-#: src/kjotswidget.cpp:728
+#: src/kjotswidget.cpp:740
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "Çoklu seçim"
 
-#: src/kjotswidget.cpp:746
+#: src/kjotswidget.cpp:758
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -414,12 +414,12 @@ msgstr ""
 "aksi takdirde değişiklikleriniz kaybedeceksiniz!\n"
 "Yine de kapatmak istiyor musunuz?"
 
-#: src/kjotswidget.cpp:750
+#: src/kjotswidget.cpp:762
 #, kde-format
 msgid "Close Document"
 msgstr "Belgeyi Kapat"
 
-#: src/kjotswidget.cpp:755
+#: src/kjotswidget.cpp:767
 #, kde-format
 msgid ""
 "Error message:\n"

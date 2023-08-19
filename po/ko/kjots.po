@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-16 00:47+0000\n"
+"POT-Creation-Date: 2023-08-19 00:46+0000\n"
 "PO-Revision-Date: 2023-03-01 02:01+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -160,26 +160,26 @@ msgstr "공책을 자동으로 저장할지 여부입니다."
 msgid "The interval in minutes at which books should be saved automatically."
 msgstr "공책을 자동으로 저장할 분 단위의 시간 간격입니다."
 
-#: src/kjotsbrowser.cpp:145
+#: src/kjotsbrowser.cpp:158
 #, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "텍스트 말하기"
 
-#: src/kjotsbrowser.cpp:194
+#: src/kjotsbrowser.cpp:207
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr "하이퍼링크를 열려면 클릭: %1"
 
-#: src/kjotsbrowser.cpp:198
+#: src/kjotsbrowser.cpp:211
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr "메모를 열려면 클릭: %1"
 
-#: src/kjotsbrowser.cpp:200
+#: src/kjotsbrowser.cpp:213
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
@@ -322,72 +322,72 @@ msgstr "형식 도구 모음"
 msgid "Tools Toolbar"
 msgstr "도구 도구 모음"
 
-#: src/kjotswidget.cpp:421
+#: src/kjotswidget.cpp:433
 #, kde-format
 msgid "&Bookmarks"
 msgstr "책갈피(&B)"
 
-#: src/kjotswidget.cpp:447
+#: src/kjotswidget.cpp:459
 #, kde-format
 msgid "Export"
 msgstr "내보내기"
 
-#: src/kjotswidget.cpp:451
+#: src/kjotswidget.cpp:463
 #, kde-format
 msgid "To Text File..."
 msgstr "텍스트 파일로..."
 
-#: src/kjotswidget.cpp:459
+#: src/kjotswidget.cpp:471
 #, kde-format
 msgid "To HTML File..."
 msgstr "HTML 파일로..."
 
-#: src/kjotswidget.cpp:468
+#: src/kjotswidget.cpp:480
 #, kde-format
 msgid "Next Book"
 msgstr "다음 공책"
 
-#: src/kjotswidget.cpp:479
+#: src/kjotswidget.cpp:491
 #, kde-format
 msgid "Previous Book"
 msgstr "이전 공책"
 
-#: src/kjotswidget.cpp:492
+#: src/kjotswidget.cpp:504
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
 msgstr "2열"
 
-#: src/kjotswidget.cpp:497
+#: src/kjotswidget.cpp:509
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "3열"
 
-#: src/kjotswidget.cpp:561 src/kjotswidget.cpp:563
+#: src/kjotswidget.cpp:573 src/kjotswidget.cpp:575
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "기타"
 
-#: src/kjotswidget.cpp:599
+#: src/kjotswidget.cpp:611
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "목차"
 
-#: src/kjotswidget.cpp:632
+#: src/kjotswidget.cpp:644
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>파일 <b>%1</b>에 쓰려고 열 수 없음</qt>"
 
-#: src/kjotswidget.cpp:728
+#: src/kjotswidget.cpp:740
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "다중 선택"
 
-#: src/kjotswidget.cpp:746
+#: src/kjotswidget.cpp:758
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -400,12 +400,12 @@ msgstr ""
 "내보내지 않으면 변경 사항이 손실됩니다!\n"
 "그래도 닫으시겠습니까?"
 
-#: src/kjotswidget.cpp:750
+#: src/kjotswidget.cpp:762
 #, kde-format
 msgid "Close Document"
 msgstr "문서 닫기"
 
-#: src/kjotswidget.cpp:755
+#: src/kjotswidget.cpp:767
 #, kde-format
 msgid ""
 "Error message:\n"
