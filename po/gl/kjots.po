@@ -407,7 +407,7 @@ msgid ""
 "otherwise you will lose your changes!\n"
 "Do you want to close anyways?"
 msgstr ""
-"Non se pode gardar a nota.\n"
+"Non é posíbel gardar a nota.\n"
 "Pode gardar a nota nun ficheiro local usando o menú «Ficheiro → Exportar»,\n"
 "senón perderá os cambios!\n"
 "Quere pechar aínda así?"
@@ -469,7 +469,7 @@ msgstr "Novo libro de notas"
 #: src/noteshared/standardnoteactionmanager.cpp:109
 #, kde-format
 msgid "Could not create note book: %1"
-msgstr "Non se puido crear o libro de notas: %1"
+msgstr "Non foi posíbel crear o libro de notas: %1"
 
 #: src/noteshared/standardnoteactionmanager.cpp:113
 #, kde-format
@@ -519,7 +519,7 @@ msgstr[1] "Eliminar os libros de notas?"
 #: src/noteshared/standardnoteactionmanager.cpp:141
 #, kde-format
 msgid "Could not delete note book: %1"
-msgstr "Non se puido eliminar o libro de notas: %1"
+msgstr "Non foi posíbel eliminar o libro de notas: %1"
 
 #: src/noteshared/standardnoteactionmanager.cpp:145
 #, kde-format
@@ -609,7 +609,7 @@ msgstr[1] "Eliminar?"
 #: src/noteshared/standardnoteactionmanager.cpp:193
 #, kde-format
 msgid "Could not delete note: %1"
-msgstr "Non se puido eliminar a nota: %1"
+msgstr "Non foi posíbel eliminar a nota: %1"
 
 #: src/noteshared/standardnoteactionmanager.cpp:197
 #, kde-format
@@ -651,7 +651,7 @@ msgstr "Engadir un estante"
 #: src/noteshared/standardnoteactionmanager.cpp:218
 #, kde-format
 msgid "Could not create bookshelf: %1"
-msgstr "Non se puido crear o estante: %1"
+msgstr "Non foi posíbel crear o estante: %1"
 
 #: src/noteshared/standardnoteactionmanager.cpp:222
 #, kde-format
@@ -715,7 +715,7 @@ msgstr ""
 #: src/noteshared/standardnoteactionmanager.cpp:262
 #, kde-format
 msgid "Could not paste note: %1"
-msgstr "Non se puido pegar a nota: %1"
+msgstr "Non foi posíbel pegar a nota: %1"
 
 #: src/noteshared/standardnoteactionmanager.cpp:266
 #, kde-format
