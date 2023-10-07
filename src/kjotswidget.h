@@ -18,6 +18,8 @@
 #include <QAbstractItemDelegate>
 #include <QPrinter>
 
+#include <KBookmarkManager>
+
 #include <akonadi_version.h>
 #include <Akonadi/Collection>
 
@@ -174,6 +176,7 @@ private:
     Akonadi::EntityOrderProxyModel *m_orderProxy = nullptr;
 
     QTimer *m_autosaveTimer = nullptr;
+    KBookmarkManager *m_bookmarkManager;
 };
 
 #endif
