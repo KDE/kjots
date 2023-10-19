@@ -62,7 +62,8 @@ else()
     set(MAIN_LIB KF6::TextTemplate)
 endif()
 
-ecm_set_disabled_deprecation_versions(QT 6.5  KF 5.240.0)
+add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
+ecm_set_disabled_deprecation_versions(QT 6.6  KF 5.240.0)
 
 find_package(KF${KF_MAJOR_VERSION}TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(KF${KF_MAJOR_VERSION}TextEditTextToSpeech PROPERTIES DESCRIPTION
