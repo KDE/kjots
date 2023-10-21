@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-19 00:46+0000\n"
+"POT-Creation-Date: 2023-10-21 00:43+0000\n"
 "PO-Revision-Date: 2007-10-28 14:03+0200\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -331,67 +331,67 @@ msgstr "Наступная кніга"
 msgid "&Bookmarks"
 msgstr "&Закладкі"
 
-#: src/kjotswidget.cpp:459
+#: src/kjotswidget.cpp:460
 #, kde-format
 msgid "Export"
 msgstr "Экспарт"
 
-#: src/kjotswidget.cpp:463
+#: src/kjotswidget.cpp:464
 #, fuzzy, kde-format
 msgid "To Text File..."
 msgstr "Захаваць у тэкставым файле..."
 
-#: src/kjotswidget.cpp:471
+#: src/kjotswidget.cpp:472
 #, fuzzy, kde-format
 msgid "To HTML File..."
 msgstr "Захаваць у HTML..."
 
-#: src/kjotswidget.cpp:480
+#: src/kjotswidget.cpp:481
 #, kde-format
 msgid "Next Book"
 msgstr "Наступная кніга"
 
-#: src/kjotswidget.cpp:491
+#: src/kjotswidget.cpp:492
 #, kde-format
 msgid "Previous Book"
 msgstr "Папярэдняя кніга"
 
-#: src/kjotswidget.cpp:504
+#: src/kjotswidget.cpp:505
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
 msgstr ""
 
-#: src/kjotswidget.cpp:509
+#: src/kjotswidget.cpp:510
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr ""
 
-#: src/kjotswidget.cpp:573 src/kjotswidget.cpp:575
+#: src/kjotswidget.cpp:574 src/kjotswidget.cpp:576
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr ""
 
-#: src/kjotswidget.cpp:611
+#: src/kjotswidget.cpp:612
 #, fuzzy, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Змест"
 
-#: src/kjotswidget.cpp:644
+#: src/kjotswidget.cpp:645
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr ""
 
-#: src/kjotswidget.cpp:740
+#: src/kjotswidget.cpp:741
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr ""
 
-#: src/kjotswidget.cpp:758
+#: src/kjotswidget.cpp:759
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -400,12 +400,12 @@ msgid ""
 "Do you want to close anyways?"
 msgstr ""
 
-#: src/kjotswidget.cpp:762
+#: src/kjotswidget.cpp:763
 #, kde-format
 msgid "Close Document"
 msgstr ""
 
-#: src/kjotswidget.cpp:767
+#: src/kjotswidget.cpp:768
 #, kde-format
 msgid ""
 "Error message:\n"

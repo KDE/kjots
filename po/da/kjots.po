@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-19 00:46+0000\n"
+"POT-Creation-Date: 2023-10-21 00:43+0000\n"
 "PO-Revision-Date: 2020-07-22 14:02+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -332,67 +332,67 @@ msgstr "Værktøjer-værktøjslinje"
 msgid "&Bookmarks"
 msgstr "&Bogmærker"
 
-#: src/kjotswidget.cpp:459
+#: src/kjotswidget.cpp:460
 #, kde-format
 msgid "Export"
 msgstr "Eksportér"
 
-#: src/kjotswidget.cpp:463
+#: src/kjotswidget.cpp:464
 #, kde-format
 msgid "To Text File..."
 msgstr "Til tekstfil..."
 
-#: src/kjotswidget.cpp:471
+#: src/kjotswidget.cpp:472
 #, kde-format
 msgid "To HTML File..."
 msgstr "Til HTML-fil..."
 
-#: src/kjotswidget.cpp:480
+#: src/kjotswidget.cpp:481
 #, kde-format
 msgid "Next Book"
 msgstr "Næste bog"
 
-#: src/kjotswidget.cpp:491
+#: src/kjotswidget.cpp:492
 #, kde-format
 msgid "Previous Book"
 msgstr "Forrige bog"
 
-#: src/kjotswidget.cpp:504
+#: src/kjotswidget.cpp:505
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
 msgstr "To kolonner"
 
-#: src/kjotswidget.cpp:509
+#: src/kjotswidget.cpp:510
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "Tre kolonner"
 
-#: src/kjotswidget.cpp:573 src/kjotswidget.cpp:575
+#: src/kjotswidget.cpp:574 src/kjotswidget.cpp:576
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "Diverse"
 
-#: src/kjotswidget.cpp:611
+#: src/kjotswidget.cpp:612
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Indholdsfortegnelse"
 
-#: src/kjotswidget.cpp:644
+#: src/kjotswidget.cpp:645
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>Kunne ikke åbne \"%1\" til skrivning</qt>"
 
-#: src/kjotswidget.cpp:740
+#: src/kjotswidget.cpp:741
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "Flere markeringer"
 
-#: src/kjotswidget.cpp:758
+#: src/kjotswidget.cpp:759
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -405,12 +405,12 @@ msgstr ""
 "ellers vil du miste dine ændringer!\n"
 "Vil du lukke alligevel?"
 
-#: src/kjotswidget.cpp:762
+#: src/kjotswidget.cpp:763
 #, kde-format
 msgid "Close Document"
 msgstr "Luk dokument"
 
-#: src/kjotswidget.cpp:767
+#: src/kjotswidget.cpp:768
 #, kde-format
 msgid ""
 "Error message:\n"
