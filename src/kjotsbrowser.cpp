@@ -151,7 +151,11 @@ void KJotsBrowser::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
     popup->addSeparator();
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     popup->addAction(m_actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))));
+#else
+    popup->addAction(m_actionCollection->action(KStandardAction::name(KStandardAction::Find)));
+#endif
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     popup->addSeparator();
     if (!document()->isEmpty() && TextEditTextToSpeech::TextToSpeech::self()->isReady()) {

@@ -524,8 +524,13 @@ void KJotsWidget::delayedInitialization()
     KActionCollection *actionCollection = m_xmlGuiClient->actionCollection();
 
     // Actions for a single item selection.
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     anySelectionActions = { actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))),
                             actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Print))),
+#else
+    anySelectionActions = { actionCollection->action(KStandardAction::name(KStandardAction::Find)),
+                            actionCollection->action(KStandardAction::name(KStandardAction::Print)),
+#endif
                             actionCollection->action(QStringLiteral("save_to")) };
 
     updateMenu();
@@ -554,7 +559,11 @@ void KJotsWidget::updateMenu()
 
     // Rename is available only when single something is selected
     m_xmlGuiClient->actionCollection()
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             ->action(QString::fromLatin1(KStandardAction::name(KStandardAction::RenameFile)))
+#else
+            ->action(KStandardAction::name(KStandardAction::RenameFile))
+#endif
             ->setEnabled((itemsSelected == 1) || (m_collectionView->hasFocus() && collectionsSelected == 1));
 
     // Actions available when at least something is shown
