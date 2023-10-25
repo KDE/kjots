@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-21 00:43+0000\n"
+"POT-Creation-Date: 2023-10-25 00:44+0000\n"
 "PO-Revision-Date: 2021-06-29 09:36+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -172,26 +172,26 @@ msgstr ""
 "Το μεσοδιάστημα σε λεπτά κατά το οποίο τα σημειωματάρια θα πρέπει να "
 "αποθηκεύονται αυτόματα."
 
-#: src/kjotsbrowser.cpp:158
+#: src/kjotsbrowser.cpp:162
 #, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "Ομιλών κείμενο"
 
-#: src/kjotsbrowser.cpp:207
+#: src/kjotsbrowser.cpp:211
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr "Με κλικ ακολουθείτε τον σύνδεσμο: %1"
 
-#: src/kjotsbrowser.cpp:211
+#: src/kjotsbrowser.cpp:215
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr "Με κλικ ανοίγετε σημείωμα: %1"
 
-#: src/kjotsbrowser.cpp:213
+#: src/kjotsbrowser.cpp:217
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
@@ -376,30 +376,30 @@ msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "Τρεις στήλες"
 
-#: src/kjotswidget.cpp:574 src/kjotswidget.cpp:576
+#: src/kjotswidget.cpp:583 src/kjotswidget.cpp:585
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "Διάφορα"
 
-#: src/kjotswidget.cpp:612
+#: src/kjotswidget.cpp:621
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Πίνακας περιεχομένων"
 
-#: src/kjotswidget.cpp:645
+#: src/kjotswidget.cpp:654
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>Αδυναμία ανοίγματος του «%1» για εγγραφή</qt>"
 
-#: src/kjotswidget.cpp:741
+#: src/kjotswidget.cpp:750
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "Πολλαπλές επιλογές"
 
-#: src/kjotswidget.cpp:759
+#: src/kjotswidget.cpp:768
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -413,12 +413,12 @@ msgstr ""
 "διαφορετικά θα χάσετε τις αλλαγές!\n"
 "Θέλετε οπωσδήποτε να το κλείσετε;"
 
-#: src/kjotswidget.cpp:763
+#: src/kjotswidget.cpp:772
 #, kde-format
 msgid "Close Document"
 msgstr "Κλείσιμο εγγράφου"
 
-#: src/kjotswidget.cpp:768
+#: src/kjotswidget.cpp:777
 #, kde-format
 msgid ""
 "Error message:\n"

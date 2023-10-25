@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-21 00:43+0000\n"
+"POT-Creation-Date: 2023-10-25 00:44+0000\n"
 "PO-Revision-Date: 2023-04-13 23:14+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -164,26 +164,26 @@ msgstr "Liburuak automatikoki gorde beharko liratekeen edo ez."
 msgid "The interval in minutes at which books should be saved automatically."
 msgstr "Liburuak automatikoki gorde beharko liratekeen tartea minututan."
 
-#: src/kjotsbrowser.cpp:158
+#: src/kjotsbrowser.cpp:162
 #, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "Esan testua"
 
-#: src/kjotsbrowser.cpp:207
+#: src/kjotsbrowser.cpp:211
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr "Egin klik hiperestekari jarraitzeko: %1"
 
-#: src/kjotsbrowser.cpp:211
+#: src/kjotsbrowser.cpp:215
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr "Egin klik oharra irekitzeko: %1"
 
-#: src/kjotsbrowser.cpp:213
+#: src/kjotsbrowser.cpp:217
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
@@ -368,30 +368,30 @@ msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "Hiru zutabe"
 
-#: src/kjotswidget.cpp:574 src/kjotswidget.cpp:576
+#: src/kjotswidget.cpp:583 src/kjotswidget.cpp:585
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "Hainbat"
 
-#: src/kjotswidget.cpp:612
+#: src/kjotswidget.cpp:621
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Edukien taula"
 
-#: src/kjotswidget.cpp:645
+#: src/kjotswidget.cpp:654
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>Ezin izan da «%1» idazteko ireki</qt>"
 
-#: src/kjotswidget.cpp:741
+#: src/kjotswidget.cpp:750
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "Hautapen anizkoitza"
 
-#: src/kjotswidget.cpp:759
+#: src/kjotswidget.cpp:768
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -404,12 +404,12 @@ msgstr ""
 "menua erabiliz, bestela zure aldaketak galduko dituzu!\n"
 "Hala ere itxi egin nahi duzu?"
 
-#: src/kjotswidget.cpp:763
+#: src/kjotswidget.cpp:772
 #, kde-format
 msgid "Close Document"
 msgstr "Itxi dokumentua"
 
-#: src/kjotswidget.cpp:768
+#: src/kjotswidget.cpp:777
 #, kde-format
 msgid ""
 "Error message:\n"
