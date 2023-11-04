@@ -24,7 +24,6 @@
         "Description[sv]": "Kjots-insticksprogram",
         "Description[tr]": "KJots Eklentisi",
         "Description[uk]": "Додаток до KJots",
-        "Description[x-test]": "xxKJots Pluginxx",
         "EnabledByDefault": true,
         "Icon": "kjots",
         "Id": "kontact_kjotsplugin",
@@ -53,7 +52,6 @@
         "Name[sv]": "Anteckningar",
         "Name[tr]": "Notlar",
         "Name[uk]": "Нотатки",
-        "Name[x-test]": "xxNotesxx",
         "ServiceTypes": [
             "Kontact/Plugin",
             "KPluginInfo"
