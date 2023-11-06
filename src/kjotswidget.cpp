@@ -155,7 +155,7 @@ KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::Windo
 
     m_orderProxy = new EntityOrderProxyModel(this);
     m_orderProxy->setSourceModel(m_collectionModel);
-    KConfigGroup cfg(KSharedConfig::openConfig(), "KJotsEntityOrder");
+    KConfigGroup cfg(KSharedConfig::openConfig(), QStringLiteral("KJotsEntityOrder"));
     m_orderProxy->setOrderConfig(cfg);
 
     m_collectionView->setModel(m_orderProxy);
@@ -278,13 +278,13 @@ void KJotsWidget::restoreState()
     {
         auto saver = new ETMViewStateSaver;
         saver->setView(m_collectionView);
-        KConfigGroup cfg(KSharedConfig::openConfig(), "CollectionViewState");
+        KConfigGroup cfg(KSharedConfig::openConfig(), QStringLiteral("CollectionViewState"));
         saver->restoreState(cfg);
     }
     {
         auto saver = new ETMViewStateSaver;
         saver->setView(m_itemView);
-        KConfigGroup cfg(KSharedConfig::openConfig(), "ItemViewState");
+        KConfigGroup cfg(KSharedConfig::openConfig(), QStringLiteral("ItemViewState"));
         saver->restoreState(cfg);
     }
 }
@@ -294,14 +294,14 @@ void KJotsWidget::saveState()
     {
         ETMViewStateSaver saver;
         saver.setView(m_collectionView);
-        KConfigGroup cfg(KSharedConfig::openConfig(), "CollectionViewState");
+        KConfigGroup cfg(KSharedConfig::openConfig(), QStringLiteral("CollectionViewState"));
         saver.saveState(cfg);
         cfg.sync();
     }
     {
         ETMViewStateSaver saver;
         saver.setView(m_itemView);
-        KConfigGroup cfg(KSharedConfig::openConfig(), "ItemViewState");
+        KConfigGroup cfg(KSharedConfig::openConfig(), QStringLiteral("ItemViewState"));
         saver.saveState(cfg);
         cfg.sync();
     }
