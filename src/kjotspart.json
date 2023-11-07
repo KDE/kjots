@@ -23,6 +23,7 @@
         "Name[sv]": "Kjots-delprogram",
         "Name[tr]": "KJots Kısmı",
         "Name[uk]": "KJotsPart",
+        "Name[x-test]": "xxKJotsPartxx",
         "ServiceTypes": [
             "KParts/ReadOnlyPart"
         ]
