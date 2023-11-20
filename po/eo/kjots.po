@@ -2,31 +2,32 @@
 # Copyright (C) 2002 Free Software Foundation, Inc.
 # Wolfram Diestel <wolfram@steloj.de>, 2002.
 # Steffen Pietsch <Steffen.Pietsch@BerlinOnline.de>, 2002.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:35+0000\n"
-"PO-Revision-Date: 2023-03-21 22:43+01\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2023-11-19 16:53+0100Last-Translator: Oliver Kellogg "
+"<okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 0.9.6\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Wolfram Diestel"
+msgstr "Wolfram Diestel,Oliver Kellogg"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "wolfram@steloj.de"
+msgstr "wolfram@steloj.de,okellogg@users.sourceforge.net"
 
 #: src/aboutdata.cpp:16 src/kjotspart.cpp:39
 #: src/kontact_plugin/kjots_plugin.cpp:29
@@ -37,32 +38,32 @@ msgstr "Notlibro"
 #: src/aboutdata.cpp:18
 #, kde-format
 msgid "KDE note taking utility"
-msgstr ""
+msgstr "KDE notprena utilaĵo"
 
 #: src/aboutdata.cpp:20
 #, kde-format
 msgid "Copyright © 1997–2023 KJots authors"
-msgstr ""
+msgstr "Kopirajto © 1997–2023 KJots-aŭtoroj"
 
 #: src/aboutdata.cpp:22
 #, kde-format
 msgid "Igor Poboiko"
-msgstr ""
+msgstr "Igor Poboiko"
 
 #: src/aboutdata.cpp:22
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "Prizorganto"
 
 #: src/aboutdata.cpp:23
 #, kde-format
 msgid "Daniel Vrátil"
-msgstr ""
+msgstr "Daniel Vrátil"
 
 #: src/aboutdata.cpp:23
 #, kde-format
 msgid "Port to KDE Frameworks 5"
-msgstr ""
+msgstr "Portado al KDE Frameworks 5"
 
 #: src/aboutdata.cpp:24
 #, kde-format
@@ -102,7 +103,7 @@ msgstr "Origina aŭtoro"
 #: src/aboutdata.cpp:30
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_AutoSaveInterval)
@@ -112,18 +113,20 @@ msgid ""
 "This is the number of minutes KJots will wait before automatically saving "
 "changes."
 msgstr ""
+"Jen la nombro da minutoj, kiujn KJots atendos antaŭ aŭtomate konservi "
+"ŝanĝojn."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: src/confpagemisc.ui:22
 #, kde-format
 msgid "S&ave every:"
-msgstr ""
+msgstr "Konservi ĉiun:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_AutoSaveInterval)
 #: src/confpagemisc.ui:38
 #, kde-format
 msgid "1 minute"
-msgstr ""
+msgstr "1 minuton"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_AutoSaveInterval)
 #: src/confpagemisc.ui:41
@@ -138,55 +141,57 @@ msgid ""
 "When \"Save changes periodically\" is checked, KJots will automatically save "
 "changes made to books at the interval defined below."
 msgstr ""
+"Kiam \"Konservi ŝanĝojn periode\" estas markita, KJots aŭtomate konservos "
+"ŝanĝojn faritajn al libroj je la intervalo difinita sube."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoSave)
 #: src/confpagemisc.ui:57
 #, kde-format
 msgid "&Save changes periodically"
-msgstr ""
+msgstr "&Konservi ŝanĝojn periode"
 
 #. i18n: ectx: label, entry (AutoSave), group (kjots)
 #: src/kjots.kcfg:9
 #, kde-format
 msgid "Whether books should be saved automatically."
-msgstr ""
+msgstr "Ĉu libroj estu konservitaj aŭtomate."
 
 #. i18n: ectx: label, entry (AutoSaveInterval), group (kjots)
 #: src/kjots.kcfg:13
 #, kde-format
 msgid "The interval in minutes at which books should be saved automatically."
-msgstr ""
+msgstr "La intervalo en minutoj je kiu libroj devas esti konservitaj aŭtomate."
 
 #: src/kjotsbrowser.cpp:162
 #, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
-msgstr ""
+msgstr "Paroli Tekston"
 
 #: src/kjotsbrowser.cpp:211
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
-msgstr ""
+msgstr "Klaku por sekvi la hiperligilon: %1"
 
 #: src/kjotsbrowser.cpp:215
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
-msgstr ""
+msgstr "Klaku por malfermi noton: %1"
 
 #: src/kjotsbrowser.cpp:217
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
-msgstr ""
+msgstr "Klaku por malfermi libron: %1"
 
 #: src/kjotsedit.cpp:95
 #, kde-format
 msgctxt "@action"
 msgid "Copy &Into Page Title"
-msgstr ""
+msgstr "Kopi&i En Paĝan Titolon"
 
 #: src/kjotsedit.cpp:105
 #, kde-format
@@ -198,13 +203,13 @@ msgstr "Ligo"
 #, kde-format
 msgctxt "@action"
 msgid "Auto Bullet List"
-msgstr ""
+msgstr "Aŭtomata Kuglo-Listo"
 
 #: src/kjotsedit.cpp:122
 #, kde-format
 msgctxt "@action"
 msgid "Auto Decimal List"
-msgstr ""
+msgstr "Aŭtomata Decimala Listo"
 
 #: src/kjotsedit.cpp:131
 #, kde-format
@@ -217,59 +222,59 @@ msgstr "Enmetu Daton"
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Ctrl+click to open note: %1"
-msgstr ""
+msgstr "Ctrl+klako por malfermi noton: %1"
 
 #: src/kjotsedit.cpp:466
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Ctrl+click to open book: %1"
-msgstr ""
+msgstr "Ctrl+klako por malfermi libron: %1"
 
 #: src/kjotsedit.cpp:469
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Ctrl+click to follow the hyperlink: %1"
-msgstr ""
+msgstr "Ctrl+klako por sekvi la hiperligilon: %1"
 
 #: src/kjotslinkdialog.cpp:32
 #, kde-format
 msgid "Enter link URL, or another note or note book..."
-msgstr ""
+msgstr "Enigu ligilon URL, aŭ alian noton aŭ notlibron..."
 
 #: src/kjotsmodel.cpp:295
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
-msgstr ""
+msgstr "Nomo"
 
 #: src/kjotsmodel.cpp:299
 #, kde-format
 msgctxt "@title:column title of a note"
 msgid "Title"
-msgstr ""
+msgstr "Titolo"
 
 #: src/kjotsmodel.cpp:301
 #, kde-format
 msgctxt "@title:column creation date and time of a note"
 msgid "Created"
-msgstr ""
+msgstr "Kreita"
 
 #: src/kjotsmodel.cpp:303
 #, kde-format
 msgctxt "@title:column last modification date and time of a note"
 msgid "Modified"
-msgstr ""
+msgstr "Modifita"
 
 #: src/kjotsmodel.cpp:305
 #, kde-format
 msgctxt "@title:column size of a note"
 msgid "Size"
-msgstr ""
+msgstr "Grandeco"
 
 #: src/kjotspart.cpp:52
 #, kde-format
 msgid "&Configure KJots..."
-msgstr ""
+msgstr "&Agordi KJots..."
 
 #. i18n: ectx: Menu (format)
 #: src/kjotsui.rc:21
@@ -281,7 +286,7 @@ msgstr "F&ormato"
 #: src/kjotsui.rc:45
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "&Vidi"
 
 #. i18n: ectx: Menu (go)
 #: src/kjotsui.rc:51
@@ -299,25 +304,25 @@ msgstr "&Iloj"
 #: src/kjotsui.rc:110
 #, kde-format
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Ĉefa Ilobreto"
 
 #. i18n: ectx: ToolBar (textToolBar)
 #: src/kjotsui.rc:126
 #, kde-format
 msgid "Text Toolbar"
-msgstr ""
+msgstr "Teksta Ilobreto"
 
 #. i18n: ectx: ToolBar (formatToolBar)
 #: src/kjotsui.rc:141
 #, kde-format
 msgid "Format Toolbar"
-msgstr ""
+msgstr "Formata Ilobreto"
 
 #. i18n: ectx: ToolBar (toolsToolBar)
 #: src/kjotsui.rc:156
 #, kde-format
 msgid "Tools Toolbar"
-msgstr ""
+msgstr "Iloj Ilobreto"
 
 #: src/kjotswidget.cpp:433
 #, kde-format
@@ -327,62 +332,62 @@ msgstr "&Legosignoj"
 #: src/kjotswidget.cpp:460
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "Eksporto"
 
 #: src/kjotswidget.cpp:464
 #, kde-format
 msgid "To Text File..."
-msgstr ""
+msgstr "Al Teksta Dosiero..."
 
 #: src/kjotswidget.cpp:472
 #, kde-format
 msgid "To HTML File..."
-msgstr ""
+msgstr "Al HTML-Dosiero..."
 
 #: src/kjotswidget.cpp:481
 #, kde-format
 msgid "Next Book"
-msgstr ""
+msgstr "Sekva Libro"
 
 #: src/kjotswidget.cpp:492
 #, kde-format
 msgid "Previous Book"
-msgstr ""
+msgstr "Antaŭa Libro"
 
 #: src/kjotswidget.cpp:505
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
-msgstr ""
+msgstr "Du Kolumnoj"
 
 #: src/kjotswidget.cpp:510
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
-msgstr ""
+msgstr "Tri Kolumnoj"
 
 #: src/kjotswidget.cpp:583 src/kjotswidget.cpp:585
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
-msgstr ""
+msgstr "Misc"
 
 #: src/kjotswidget.cpp:621
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
-msgstr ""
+msgstr "Enhavtabelo"
 
 #: src/kjotswidget.cpp:654
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
-msgstr ""
+msgstr "<qt>Ne eblis malfermi \"%1\" por skribado</qt>"
 
 #: src/kjotswidget.cpp:750
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
-msgstr ""
+msgstr "Multobla elekto"
 
 #: src/kjotswidget.cpp:768
 #, kde-format
@@ -392,11 +397,16 @@ msgid ""
 "otherwise you will lose your changes!\n"
 "Do you want to close anyways?"
 msgstr ""
+"Ne eblas konservi la noton.\n"
+"Vi povas konservi vian noton al loka dosiero uzante la menuon \"Dosiero - "
+"Eksporti\",\n"
+"alie vi perdos viajn ŝanĝojn!\n"
+"Ĉu vi volas fermi ĉiukaze?"
 
 #: src/kjotswidget.cpp:772
 #, kde-format
 msgid "Close Document"
-msgstr ""
+msgstr "Fermi Dokumenton"
 
 #: src/kjotswidget.cpp:777
 #, kde-format
@@ -404,6 +414,8 @@ msgid ""
 "Error message:\n"
 "%1"
 msgstr ""
+"Erarmesaĝo:\n"
+"%1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, LinkDialog)
 #: src/linkdialog.ui:14
@@ -415,7 +427,7 @@ msgstr "Mastrumi ligilon"
 #: src/linkdialog.ui:29
 #, kde-format
 msgid "Link &Text:"
-msgstr ""
+msgstr "Ligi &Tekston:"
 
 #. i18n: ectx: property (text), widget (QLabel, linkUrlLabel)
 #: src/linkdialog.ui:46
@@ -427,189 +439,189 @@ msgstr "URL Ligo:"
 #, kde-format
 msgctxt "The default name for new pages."
 msgid "New Page"
-msgstr ""
+msgstr "Nova Paĝo"
 
 #: src/noteshared/standardnoteactionmanager.cpp:97
 #, kde-format
 msgid "New Note Book..."
-msgstr ""
+msgstr "Nova Notlibro..."
 
 #: src/noteshared/standardnoteactionmanager.cpp:102
 #, kde-format
 msgid "Add a new note book to the currently selected bookshelf."
-msgstr ""
+msgstr "Aldonu novan notlibron al la aktuale elektita librobreto."
 
 #: src/noteshared/standardnoteactionmanager.cpp:105
 #, kde-format
 msgctxt "@title:window"
 msgid "New Note Book"
-msgstr ""
+msgstr "Nova Notlibro"
 
 #: src/noteshared/standardnoteactionmanager.cpp:109
 #, kde-format
 msgid "Could not create note book: %1"
-msgstr ""
+msgstr "Ne eblis krei notlibron: %1"
 
 #: src/noteshared/standardnoteactionmanager.cpp:113
 #, kde-format
 msgid "Note book creation failed"
-msgstr ""
+msgstr "Kreado de notlibro malsukcesis"
 
 #: src/noteshared/standardnoteactionmanager.cpp:119
 #, kde-format
 msgid "Copy Note Book"
 msgid_plural "Copy %1 Note Books"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kopii Notlibron"
+msgstr[1] "Kopii %1 Notlibrojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:122
 #, kde-format
 msgid "Copy the selected note books to the clipboard."
-msgstr ""
+msgstr "Kopiu la elektitajn notlibrojn al la tondujo."
 
 #: src/noteshared/standardnoteactionmanager.cpp:126
 #, kde-format
 msgid "Delete Note Book"
 msgid_plural "Delete %1 Note Books"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Forigi Notlibron"
+msgstr[1] "Forigi %1 Notlibrojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:129
 #, kde-format
 msgid "Delete the selected note books from the bookshelf."
-msgstr ""
+msgstr "Forigu la elektitajn notlibrojn el la librobreto."
 
 #: src/noteshared/standardnoteactionmanager.cpp:133
 #, kde-format
 msgid "Do you really want to delete this note book and all its contents?"
 msgid_plural ""
 "Do you really want to delete %1 note books and all their contents?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉu vi vere volas forigi ĉi notlibron kaj ĝian tutan enhavon?"
+msgstr[1] "Ĉu vi vere volas forigi %1 notlibrojn kaj ilian tutan enhavon?"
 
 #: src/noteshared/standardnoteactionmanager.cpp:137
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete note book?"
 msgid_plural "Delete note books?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉu forigi notlibron?"
+msgstr[1] "Ĉu forigi notlibrojn?"
 
 #: src/noteshared/standardnoteactionmanager.cpp:141
 #, kde-format
 msgid "Could not delete note book: %1"
-msgstr ""
+msgstr "Ne eblis forigi notlibron: %1"
 
 #: src/noteshared/standardnoteactionmanager.cpp:145
 #, kde-format
 msgid "Note book deletion failed"
-msgstr ""
+msgstr "Forigo de notlibro malsukcesis"
 
 #: src/noteshared/standardnoteactionmanager.cpp:149
 #, kde-format
 msgid "Update Note Book"
 msgid_plural "Update %1 Note Books"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĝisdatigi Notlibron"
+msgstr[1] "Ĝisdatigi %1 Notlibrojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:152
 #, kde-format
 msgid "Update the content of the selected note books."
-msgstr ""
+msgstr "Ĝisdatigu la enhavon de la elektitaj notlibroj."
 
 #: src/noteshared/standardnoteactionmanager.cpp:156
 #, kde-format
 msgid "Cut Note Book"
 msgid_plural "Cut %1 Note Books"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tondi Notlibron"
+msgstr[1] "Tondi %1 Notlibrojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:159
 #, kde-format
 msgid "Cut the selected note books from the bookshelf."
-msgstr ""
+msgstr "Tranĉu la elektitajn notlibrojn el la librobreto."
 
 #: src/noteshared/standardnoteactionmanager.cpp:163
 #, kde-format
 msgid "Note Book Properties..."
-msgstr ""
+msgstr "Propraĵoj de notlibro..."
 
 #: src/noteshared/standardnoteactionmanager.cpp:165
 #, kde-format
 msgid "Open a dialog to edit the properties of the selected note book."
-msgstr ""
+msgstr "Malfermu dialogon por redakti la ecojn de la elektita notlibro."
 
 #: src/noteshared/standardnoteactionmanager.cpp:168
 #, kde-format
 msgctxt "@title:window"
 msgid "Properties of Note Book %1"
-msgstr ""
+msgstr "Propraĵoj de Notlibro %1"
 
 #: src/noteshared/standardnoteactionmanager.cpp:173
 #, kde-format
 msgid "Copy Note"
 msgid_plural "Copy %1 Notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kopii Noton"
+msgstr[1] "Kopii %1 Notojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:175
 #, kde-format
 msgid "Copy the selected notes to the clipboard."
-msgstr ""
+msgstr "Kopiu la elektitajn notojn al la tondujo."
 
 #: src/noteshared/standardnoteactionmanager.cpp:179
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete %1 Notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Forigi Noton"
+msgstr[1] "Forigi %1 Notojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:181
 #, kde-format
 msgid "Delete the selected notes from the note book."
-msgstr ""
+msgstr "Forigu la elektitajn notojn el la notlibro."
 
 #: src/noteshared/standardnoteactionmanager.cpp:184
 #, kde-format
 msgid "Do you really want to delete the selected note?"
 msgid_plural "Do you really want to delete %1 notes?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉu vi vere volas forigi la elektitan noton?"
+msgstr[1] "Ĉu vi vere volas forigi %1 notojn?"
 
 #: src/noteshared/standardnoteactionmanager.cpp:189
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Note?"
 msgid_plural "Delete Notes?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉu Forigi Noton?"
+msgstr[1] "Ĉu Forigi Notojn?"
 
 #: src/noteshared/standardnoteactionmanager.cpp:193
 #, kde-format
 msgid "Could not delete note: %1"
-msgstr ""
+msgstr "Ne eblis forigi noton: %1"
 
 #: src/noteshared/standardnoteactionmanager.cpp:197
 #, kde-format
 msgid "Note deletion failed"
-msgstr ""
+msgstr "Forigo de notoj malsukcesis"
 
 #: src/noteshared/standardnoteactionmanager.cpp:201
 #, kde-format
 msgid "Cut Note"
 msgid_plural "Cut %1 Notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tondi Noton"
+msgstr[1] "Tondi %1 Notojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:203
 #, kde-format
 msgid "Cut the selected notes from the note book."
-msgstr ""
+msgstr "Tranĉu la elektitajn notojn el la notlibro."
 
 #: src/noteshared/standardnoteactionmanager.cpp:207
 #, kde-format
 msgid "Add &Bookshelf..."
-msgstr ""
+msgstr "Aldoni Li&brobreton..."
 
 #: src/noteshared/standardnoteactionmanager.cpp:209
 #, kde-format
@@ -617,29 +629,31 @@ msgid ""
 "Add a new bookshelf<p>You will be presented with a dialog where you can "
 "select the type of the bookshelf that shall be added.</p>"
 msgstr ""
+"Aldonu novan librobreton<p>Vi estos prezentita dialogo kie vi povas elekti "
+"la tipon de la librobreto kiu estos aldonita.</p>"
 
 #: src/noteshared/standardnoteactionmanager.cpp:214
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Bookshelf"
-msgstr ""
+msgstr "Aldoni Librobreton"
 
 #: src/noteshared/standardnoteactionmanager.cpp:218
 #, kde-format
 msgid "Could not create bookshelf: %1"
-msgstr ""
+msgstr "Ne eblis krei librobreton: %1"
 
 #: src/noteshared/standardnoteactionmanager.cpp:222
 #, kde-format
 msgid "Bookshelf creation failed"
-msgstr ""
+msgstr "Kreado de librobreto malsukcesis"
 
 #: src/noteshared/standardnoteactionmanager.cpp:227
 #, kde-format
 msgid "&Delete Bookshelf"
 msgid_plural "&Delete %1 Bookshelfs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "&Forigi Librobreton"
+msgstr[1] "&Forigi %1 Librobretojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:230
 #, kde-format
@@ -647,158 +661,160 @@ msgid ""
 "Delete the selected bookshelfs<p>The currently selected bookshelfs will be "
 "deleted, along with all the notes they contain.</p>"
 msgstr ""
+"Forigu la elektitajn librobretojn<p>La nuntempe elektitaj librobretoj estos "
+"forigitaj, kune kun ĉiuj notoj kiujn ili enhavas.</p>"
 
 #: src/noteshared/standardnoteactionmanager.cpp:235
 #, kde-format
 msgid "Do you really want to delete this bookshelf?"
 msgid_plural "Do you really want to delete %1 bookshelfs?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉu vi vere volas forigi ĉi tiun librobreton?"
+msgstr[1] "Ĉu vi vere volas forigi %1 librobretojn?"
 
 #: src/noteshared/standardnoteactionmanager.cpp:240
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Bookshelf?"
 msgid_plural "Delete Bookshelfs?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉu Forigi Librobreton?"
+msgstr[1] "Ĉu Forigi Librobretojn?"
 
 #: src/noteshared/standardnoteactionmanager.cpp:246
 #, kde-format
 msgid "Bookshelf Properties..."
-msgstr ""
+msgstr "Propraĵoj de librobretaro..."
 
 #: src/noteshared/standardnoteactionmanager.cpp:248
 #, kde-format
 msgid "Open a dialog to edit properties of the selected bookshelf."
-msgstr ""
+msgstr "Malfermu dialogon por redakti ecojn de la elektita librobreto."
 
 #: src/noteshared/standardnoteactionmanager.cpp:252
 #, kde-format
 msgid "Update Bookshelf"
 msgid_plural "Update %1 Bookshelfs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĝisdatigi Librobreton"
+msgstr[1] "Ĝisdatigi %1 Librobretojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:256
 #, kde-format
 msgid "Updates the content of all note books of the selected bookshelfs."
-msgstr ""
+msgstr "Ĝisdatigas la enhavon de ĉiuj kajeroj de la elektitaj librobretoj."
 
 #: src/noteshared/standardnoteactionmanager.cpp:262
 #, kde-format
 msgid "Could not paste note: %1"
-msgstr ""
+msgstr "Ne eblis alglui noton: %1"
 
 #: src/noteshared/standardnoteactionmanager.cpp:266
 #, kde-format
 msgid "Paste failed"
-msgstr ""
+msgstr "Alglui malsukcesis"
 
 #: src/noteshared/standardnoteactionmanager.cpp:286
 #, kde-format
 msgctxt "@action"
 msgid "Lock Note"
 msgid_plural "Lock Notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ŝlosi Noton"
+msgstr[1] "Ŝlosi Notojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:288
 #, kde-format
 msgid "Lock selected notes"
-msgstr ""
+msgstr "Ŝlosu elektitajn notojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:291
 #, kde-format
 msgctxt "@action"
 msgid "Unlock Note"
 msgid_plural "Unlock Notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Malŝlosi Noton"
+msgstr[1] "Malŝlosi Notojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:293
 #, kde-format
 msgid "Unlock selected notes"
-msgstr ""
+msgstr "Malŝlosu elektitajn notojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:306
 #, kde-format
 msgctxt "@action"
 msgid "Pin Note"
 msgid_plural "Pin Notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pingli Noton"
+msgstr[1] "Pingli Notojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:308
 #, kde-format
 msgid "Pin selected notes"
-msgstr ""
+msgstr "Alpinglu elektitajn notojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:311
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Note"
 msgid_plural "Unpin Notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Malpingli Noton"
+msgstr[1] "Malpingli Notojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:313
 #, kde-format
 msgid "Unpin selected notes"
-msgstr ""
+msgstr "Malfiksi elektitajn notojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:354
 #, kde-format
 msgctxt "@action"
 msgid "Lock Note Book"
 msgid_plural "Lock Note Books"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ŝlosi Notlibron"
+msgstr[1] "Ŝlosi Notlibrojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:356
 #, kde-format
 msgid "Lock selected note books"
-msgstr ""
+msgstr "Ŝlosu elektitajn notlibrojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:359
 #, kde-format
 msgctxt "@action"
 msgid "Unlock Note Book"
 msgid_plural "Unlock Note Books"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Malŝlosi Notlibron"
+msgstr[1] "Malŝlosi Notlibrojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:361
 #, kde-format
 msgid "Unlock selected note books"
-msgstr ""
+msgstr "Malŝlosi elektitajn notlibrojn"
 
 #: src/noteshared/standardnoteactionmanager.cpp:594
 #, kde-format
 msgid "&New Note"
-msgstr ""
+msgstr "Nova Noto"
 
 #: src/noteshared/standardnoteactionmanager.cpp:595
 #, kde-format
 msgid "Add a new note to a selected note book"
-msgstr ""
+msgstr "Aldoni novan noton al elektita notlibro"
 
 #: src/noteshared/standardnoteactionmanager.cpp:624
 #, kde-format
 msgid "Change Note Color..."
-msgstr ""
+msgstr "Ŝanĝi Noton Koloron..."
 
 #: src/noteshared/standardnoteactionmanager.cpp:625
 #, kde-format
 msgid "Changes the color of a selected notes"
-msgstr ""
+msgstr "Ŝanĝas la koloron de elektitaj notoj"
 
 #: src/noteshared/standardnoteactionmanager.cpp:633
 #, kde-format
 msgid "Change Note Book Color..."
-msgstr ""
+msgstr "Ŝanĝi Koloron de Notero..."
 
 #: src/noteshared/standardnoteactionmanager.cpp:634
 #, kde-format
 msgid "Changes the color of a selected note books"
-msgstr ""
+msgstr "Ŝanĝas la koloron de elektitaj notlibroj"
