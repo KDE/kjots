@@ -11,10 +11,10 @@
 # Anne-Marie Mahfouf <annma@kde.org>, 2008.
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2008.
 # Nicolas Ternisien <nicolas.ternisien@gmail.com>, 2008, 2010, 2012.
-# xavier <xavier.besnard@neuf.fr>, 2013, 2020.
+# Xavier Besnard <xavier.besnard@kde.org>, 2013, 2020.
 # Sebastien Renard <renard@kde.org>, 2013.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2020.
-# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
+# Xavier Besnard <xavier.besnard@kde.org>, 2023.
 #
 msgid ""
 msgstr ""
@@ -22,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:35+0000\n"
 "PO-Revision-Date: 2023-02-19 09:12+0100\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -43,8 +43,8 @@ msgstr "Thibaut Cousin, Robert Jacolin, Simon Depiets, Xavier Besnard"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-"cousin@kde.org, rjacolin@ifrance.com, sdepiets@gmail.com, xavier."
-"besnard@neuf.fr"
+"cousin@kde.org, rjacolin@ifrance.com, sdepiets@gmail.com, xavier.besnard@kde."
+"org"
 
 #: src/aboutdata.cpp:16 src/kjotspart.cpp:39
 #: src/kontact_plugin/kjots_plugin.cpp:29
