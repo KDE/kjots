@@ -481,7 +481,7 @@ msgstr[1] "Copia %1 llibretes"
 #: src/noteshared/standardnoteactionmanager.cpp:122
 #, kde-format
 msgid "Copy the selected note books to the clipboard."
-msgstr "Còpia les llibretes seleccionades al porta-retalls."
+msgstr "Copia les llibretes seleccionades a dins del porta-retalls."
 
 #: src/noteshared/standardnoteactionmanager.cpp:126
 #, kde-format
@@ -572,7 +572,7 @@ msgstr[1] "Copia %1 notes"
 #: src/noteshared/standardnoteactionmanager.cpp:175
 #, kde-format
 msgid "Copy the selected notes to the clipboard."
-msgstr "Copia les notes seleccionades al porta-retalls."
+msgstr "Copia les notes seleccionades a dins del porta-retalls."
 
 #: src/noteshared/standardnoteactionmanager.cpp:179
 #, kde-format
