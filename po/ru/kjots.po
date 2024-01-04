@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:35+0000\n"
+"POT-Creation-Date: 2024-01-04 00:41+0000\n"
 "PO-Revision-Date: 2016-02-22 01:55+0300\n"
 "Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -52,7 +52,7 @@ msgstr "Записная книжка KDE"
 #: src/aboutdata.cpp:20
 #, fuzzy, kde-format
 #| msgid "Copyright © 1997–2015 KJots authors"
-msgid "Copyright © 1997–2023 KJots authors"
+msgid "Copyright © 1997–2024 KJots authors"
 msgstr "© Разработчики KJots, 1997–2015"
 
 #: src/aboutdata.cpp:22

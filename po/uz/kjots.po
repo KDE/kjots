@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:35+0000\n"
+"POT-Creation-Date: 2024-01-04 00:41+0000\n"
 "PO-Revision-Date: 2006-12-17 13:37+0000\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -40,7 +40,7 @@ msgstr "KDE uchun yozma xotira uchun vosita"
 
 #: src/aboutdata.cpp:20
 #, kde-format
-msgid "Copyright © 1997–2023 KJots authors"
+msgid "Copyright © 1997–2024 KJots authors"
 msgstr ""
 
 #: src/aboutdata.cpp:22

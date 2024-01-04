@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:35+0000\n"
+"POT-Creation-Date: 2024-01-04 00:41+0000\n"
 "PO-Revision-Date: 2023-02-18 10:52+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -39,8 +39,9 @@ msgid "KDE note taking utility"
 msgstr "KDE-hulpprogramma voor het maken van notities"
 
 #: src/aboutdata.cpp:20
-#, kde-format
-msgid "Copyright © 1997–2023 KJots authors"
+#, fuzzy, kde-format
+#| msgid "Copyright © 1997–2023 KJots authors"
+msgid "Copyright © 1997–2024 KJots authors"
 msgstr "Copyright © 1997–2023 De auteurs van KJots"
 
 #: src/aboutdata.cpp:22

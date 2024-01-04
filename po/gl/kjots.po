@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:35+0000\n"
+"POT-Creation-Date: 2024-01-04 00:41+0000\n"
 "PO-Revision-Date: 2023-06-11 19:01+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -49,8 +49,9 @@ msgid "KDE note taking utility"
 msgstr "Utilidade de KDE para tomar notas"
 
 #: src/aboutdata.cpp:20
-#, kde-format
-msgid "Copyright © 1997–2023 KJots authors"
+#, fuzzy, kde-format
+#| msgid "Copyright © 1997–2023 KJots authors"
+msgid "Copyright © 1997–2024 KJots authors"
 msgstr "© 1997-2023 Autoras de KJots"
 
 #: src/aboutdata.cpp:22

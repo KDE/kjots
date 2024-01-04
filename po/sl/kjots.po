@@ -2,7 +2,7 @@
 # Translation of kjots.po to Slovenian
 # -*- mode:po; coding:iso-latin-2; -*- kjots Slovenian message catalogue.
 # Copyright (C) 2001,2003, 2004, 2005, 2006 Free Software Foundation, Inc.
-# $Id: kjots.po 1664120 2023-11-05 13:15:21Z scripty $
+# $Id: kjots.po 1668914 2024-01-04 01:08:55Z scripty $
 # $Source$
 #
 # Marko Samastur <markos@elite.org>, 2000.
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:35+0000\n"
+"POT-Creation-Date: 2024-01-04 00:41+0000\n"
 "PO-Revision-Date: 2023-03-29 08:16+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -54,8 +54,9 @@ msgid "KDE note taking utility"
 msgstr "KDE-jevo orodje za pisanje beležk"
 
 #: src/aboutdata.cpp:20
-#, kde-format
-msgid "Copyright © 1997–2023 KJots authors"
+#, fuzzy, kde-format
+#| msgid "Copyright © 1997–2023 KJots authors"
+msgid "Copyright © 1997–2024 KJots authors"
 msgstr "Copyright © 1997—2023 avtorji KJots"
 
 #: src/aboutdata.cpp:22
