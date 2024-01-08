@@ -281,6 +281,7 @@
   </description>
   <url type="homepage">https://userbase.kde.org/KJots</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kjots</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=kjots&amp;source=appdata</url>
   <screenshots>
     <screenshot type="default">
       <image>http://kde.org/images/screenshots/kjots.png</image>
