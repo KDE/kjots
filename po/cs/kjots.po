@@ -40,10 +40,9 @@ msgid "KDE note taking utility"
 msgstr "Poznámkový blok pro KDE"
 
 #: src/aboutdata.cpp:20
-#, fuzzy, kde-format
-#| msgid "Copyright © 1997–2023 KJots authors"
+#, kde-format
 msgid "Copyright © 1997–2024 KJots authors"
-msgstr "Autorská práva © 1997–2023 autoři KJots"
+msgstr ""
 
 #: src/aboutdata.cpp:22
 #, kde-format
