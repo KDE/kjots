@@ -24,6 +24,7 @@
         "Name[tr]": "KJots Kısmı",
         "Name[uk]": "KJotsPart",
         "Name[x-test]": "xxKJotsPartxx",
+        "Name[zh_TW]": "KJotsPart",
         "ServiceTypes": [
             "KParts/ReadOnlyPart"
         ]

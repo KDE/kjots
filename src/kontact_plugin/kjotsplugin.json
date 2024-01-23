@@ -25,6 +25,7 @@
         "Description[tr]": "KJots Eklentisi",
         "Description[uk]": "Додаток до KJots",
         "Description[x-test]": "xxKJots Pluginxx",
+        "Description[zh_TW]": "KJots 外掛程式",
         "EnabledByDefault": true,
         "Icon": "kjots",
         "Id": "kontact_kjotsplugin",
@@ -54,6 +55,7 @@
         "Name[tr]": "Notlar",
         "Name[uk]": "Нотатки",
         "Name[x-test]": "xxNotesxx",
+        "Name[zh_TW]": "記事",
         "ServiceTypes": [
             "Kontact/Plugin",
             "KPluginInfo"
