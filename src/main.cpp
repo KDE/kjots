@@ -38,6 +38,8 @@ int main(int argc, char **argv)
         exit(0);
     }
 
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kjots")));
+
     auto jots = new KJotsMain;
     if (app.isSessionRestored()) {
         if (KJotsMain::canBeRestored(1)) {
