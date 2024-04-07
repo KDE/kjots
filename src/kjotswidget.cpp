@@ -809,6 +809,7 @@ void KJotsWidget::openLink(const QUrl &url)
             // Mapping idx to item view model
             idx = m_collectionSelectionProxyModel->mapFromSource(idx);
             idx = m_itemModel->mapFromSource(idx);
+            idx = m_itemSortModel->mapFromSource(idx);
             m_itemView->selectionModel()->select(idx, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
         }
     } else {
