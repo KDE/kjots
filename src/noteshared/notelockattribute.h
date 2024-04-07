@@ -12,12 +12,7 @@
 #define KJOTS_LOCK_ATTRIBUTE_H
 
 #include <akonadi_version.h>
-#include <QtGlobal> // for QT_VERSION_CHECK
-#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 18, 41)
 #include <Akonadi/Attribute>
-#else
-#include <AkonadiCore/Attribute>
-#endif
 
 namespace NoteShared
 {

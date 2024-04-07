@@ -31,11 +31,7 @@ public:
     /**
      * Default constructor
      */
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    explicit KJotsPart(QWidget *parentWidget, QObject *parent, const QVariantList &);
-#else
     explicit KJotsPart(QWidget *parentWidget, QObject *parent, const KPluginMetaData &data, const QVariantList &);
-#endif
 
     /**
      * Destructor

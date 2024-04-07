@@ -12,12 +12,7 @@
 
 #include <QObject>
 
-#include <akonadi_version.h>
-#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 18, 41)
 #include <Akonadi/StandardActionManager>
-#else
-#include <AkonadiWidgets/StandardActionManager>
-#endif
 
 class QAction;
 class KActionCollection;

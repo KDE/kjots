@@ -72,7 +72,7 @@ void NoteCreatorAndSelector::doCreateNote()
     newItem.setMimeType(Akonadi::NoteUtils::noteMimeType());
 
     Akonadi::NoteUtils::NoteMessageWrapper note(KMime::Message::Ptr(new KMime::Message));
-    note.setFrom(QStringLiteral("KJots@KDE5"));
+    note.setFrom(QStringLiteral("KJots@KDE6"));
     note.setTitle(i18nc("The default name for new pages.", "New Page"));
     note.setCreationDate(QDateTime::currentDateTime());
     note.setLastModifiedDate(QDateTime::currentDateTime());

@@ -11,12 +11,7 @@
 #define KJOTSMODEL_H
 
 #include <akonadi_version.h>
-#include <QtGlobal> // for QT_VERSION_CHECK
-#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 18, 41)
 #include <Akonadi/EntityTreeModel>
-#else
-#include <AkonadiCore/EntityTreeModel>
-#endif
 
 class QTextDocument;
 

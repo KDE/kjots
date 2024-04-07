@@ -1,10 +1,19 @@
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
-project(kjots)
 
-set(KF_VERSION "5.103.0")
-find_package(ECM ${KF_VERSION} REQUIRED NO_MODULE)
-set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
+set(KJOTS_VERSION "6.0.0")
+
+project(kjots VERSION ${KJOTS_VERSION})
+
+set(QT_REQUIRED_VERSION "6.6.0")
+set(KF_MIN_VERSION "6.0.0")
+set(PIM_VERSION "6.0.0")
+set(KTEXTADDONS_MIN_VERSION "1.5.0")
+
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+
 set(CMAKE_CXX_STANDARD 17)
+
 include(ECMAddTests)
 include(CMakePackageConfigHelpers)
 include(FeatureSummary)
@@ -16,65 +25,45 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMAddAppIcon)
 include(ECMDeprecationSettings)
 
-set(KJOTS_VERSION "5.1.2")
+set(AKONADINOTES_LIB_VERSION ${PIM_VERSION})
+set(KDEPIMLIBS_LIB_VERSION ${PIM_VERSION})
+set(KMIME_LIB_VERSION ${PIM_VERSION})
+set(KPIMTEXTEDIT_LIB_VERSION ${PIM_VERSION})
+set(KONTACTINTERFACE_LIB_VERSION ${PIM_VERSION})
 
-set(AKONADINOTES_LIB_VERSION "5.22.80")
-set(KDEPIMLIBS_LIB_VERSION "5.22.80")
-set(KMIME_LIB_VERSION "5.22.80")
-set(KPIMTEXTEDIT_LIB_VERSION "5.22.80")
-set(KONTACTINTERFACE_LIB_VERSION "5.22.80")
+# Qt Packages
+find_package(Qt6 ${QT_REQUIRED_VERSION} CONFIG REQUIRED DBus PrintSupport)
 
-#Qt Packages
-set(QT_REQUIRED_VERSION "5.15.2")
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_REQUIRED_VERSION "6.6.0")
-    set(KF_MIN_VERSION "5.240.0")
-    set(KF_MAJOR_VERSION "6")
-    set(KTEXTADDONS_MIN_VERSION "1.5.0")
-else()
-    set(KF_MAJOR_VERSION "5")
-    set(KTEXTADDONS_MIN_VERSION "1.5.0")
-endif()
-find_package(Qt${QT_MAJOR_VERSION} ${QT_REQUIRED_VERSION} CONFIG REQUIRED DBus PrintSupport)
-
-# KF5 Packages
-find_package(KF${KF_MAJOR_VERSION}KCMUtils ${KF_VERSION} CONFIG REQUIRED)
-find_package(KF${KF_MAJOR_VERSION}KIO ${KF_VERSION} CONFIG REQUIRED)
-find_package(KF${KF_MAJOR_VERSION}Config ${KF_VERSION} CONFIG REQUIRED)
-find_package(KF${KF_MAJOR_VERSION}I18n ${KF_VERSION} CONFIG REQUIRED)
-find_package(KF${KF_MAJOR_VERSION}Parts ${KF_VERSION} CONFIG REQUIRED)
-find_package(KF${KF_MAJOR_VERSION}Bookmarks ${KF_VERSION} CONFIG REQUIRED)
-find_package(KF${KF_MAJOR_VERSION}XmlGui ${KF_VERSION} CONFIG REQUIRED)
-if (QT_MAJOR_VERSION STREQUAL "6")
-find_package(KF${KF_MAJOR_VERSION}TextWidgets ${KF_VERSION} CONFIG REQUIRED)
-endif()
+# KF6 Packages
+find_package(KF6KCMUtils ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6KIO ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6Config ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6I18n ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6Parts ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6Bookmarks ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6XmlGui ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6TextWidgets ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6TextTemplate ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6TextCustomEditor ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6TextAddonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
 
 # PIM packages
-find_package(KPim${KF_MAJOR_VERSION}Akonadi ${KDEPIMLIBS_LIB_VERSION} CONFIG REQUIRED)
-find_package(KPim${KF_MAJOR_VERSION}Mime ${KMIME_LIB_VERSION} CONFIG REQUIRED)
-find_package(KPim${KF_MAJOR_VERSION}AkonadiNotes ${AKONADINOTES_LIB_VERSION} CONFIG REQUIRED)
-find_package(KPim${KF_MAJOR_VERSION}TextEdit ${KPIMTEXTEDIT_LIB_VERSION} CONFIG REQUIRED)
-find_package(KPim${KF_MAJOR_VERSION}KontactInterface ${KONTACTINTERFACE_LIB_VERSION} CONFIG REQUIRED)
-set(GRANTLEE_VERSION "5.3")
-if (QT_MAJOR_VERSION STREQUAL "5")
-    find_package(Grantlee5 ${GRANTLEE_VERSION} CONFIG REQUIRED)
-    set(MAIN_LIB Grantlee5::Templates Grantlee5::TextDocument)
-else()
-    find_package(KF6TextCustomEditor ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
-    find_package(KF6TextAddonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
-    find_package(KF6TextTemplate CONFIG REQUIRED)
-    set(MAIN_LIB KF6::TextTemplate)
-endif()
+find_package(KPim6Akonadi ${KDEPIMLIBS_LIB_VERSION} CONFIG REQUIRED)
+find_package(KPim6Mime ${KMIME_LIB_VERSION} CONFIG REQUIRED)
+find_package(KPim6AkonadiNotes ${AKONADINOTES_LIB_VERSION} CONFIG REQUIRED)
+find_package(KPim6TextEdit ${KPIMTEXTEDIT_LIB_VERSION} CONFIG REQUIRED)
+find_package(KPim6KontactInterface ${KONTACTINTERFACE_LIB_VERSION} CONFIG REQUIRED)
+
 
 add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
 ecm_set_disabled_deprecation_versions(QT 6.6.0 KF 5.248.0)
 
-find_package(KF${KF_MAJOR_VERSION}TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF${KF_MAJOR_VERSION}TextEditTextToSpeech PROPERTIES DESCRIPTION
+find_package(KF6TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF6TextEditTextToSpeech PROPERTIES DESCRIPTION
     "Add support for text to speech"
     TYPE OPTIONAL
 )
-if (TARGET KF${KF_MAJOR_VERSION}::TextEditTextToSpeech)
+if (TARGET KF6::TextEditTextToSpeech)
     add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
 endif()
 ##################### Definitions #####################

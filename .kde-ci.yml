@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: CC0-1.0
 
 Dependencies:
-- 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
+- 'on': ['Linux', 'FreeBSD', 'Windows']
   'require':
     'frameworks/extra-cmake-modules': '@latest-kf6'
     'frameworks/kcmutils': '@latest-kf6'
@@ -23,26 +23,3 @@ Dependencies:
     'pim/kontactinterface': '@latest-kf6'
     'libraries/ktextaddons': '@latest-kf6'
     'frameworks/ktexttemplate': '@stable'
-
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
-  'require':
-    'third-party/grantlee' : '@stable'
-    'frameworks/extra-cmake-modules': '@latest'
-    'frameworks/kcmutils': '@latest'
-    'frameworks/kio': '@latest'
-    'frameworks/kconfig': '@latest'
-    'frameworks/kconfigwidgets': '@latest'
-    'frameworks/kparts': '@latest'
-    'frameworks/kbookmarks': '@latest'
-    'frameworks/kxmlgui': '@latest'
-
-    # most PIM projects use @same to get other PIM deps,
-    # but here we use @latest because kjots doesn't have a stable branch
-    # or follow the release schedule of other PIM projects
-    'pim/akonadi': '@stable'
-    'pim/kmime': '@stable'
-    'pim/akonadi-notes': '@stable'
-    'pim/kpimtextedit': '@stable'
-    'pim/kontactinterface': '@stable'
-    'libraries/ktextaddons': '@latest'
-

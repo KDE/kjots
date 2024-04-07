@@ -46,29 +46,29 @@ ki18n_wrap_ui(kjots_common_SRCS linkdialog.ui)
 add_library(kjots_common STATIC ${kjots_common_SRCS})
 set_property(TARGET kjots_common PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(kjots_common
-    KF${KF_MAJOR_VERSION}::KCMUtils
+    KF6::KCMUtils
 
   noteshared
   Qt::DBus
   Qt::PrintSupport
-  KF${KF_MAJOR_VERSION}::Bookmarks
-  KF${KF_MAJOR_VERSION}::TextWidgets
-  KPim${KF_MAJOR_VERSION}::Mime
-  KPim${KF_MAJOR_VERSION}::AkonadiCore
-  KPim${KF_MAJOR_VERSION}::AkonadiWidgets
-  KPim${KF_MAJOR_VERSION}::PimTextEdit
-  KF${KF_MAJOR_VERSION}::XmlGui
-  KF${KF_MAJOR_VERSION}::KIOWidgets
-  ${MAIN_LIB}
+  KF6::Bookmarks
+  KF6::TextWidgets
+  KPim6::Mime
+  KPim6::AkonadiCore
+  KPim6::AkonadiWidgets
+  KPim6::PimTextEdit
+  KF6::XmlGui
+  KF6::KIOWidgets
+  KF6::TextTemplate
 )
-if (TARGET KF${KF_MAJOR_VERSION}::TextEditTextToSpeech)
-    target_link_libraries(kjots_common KF${KF_MAJOR_VERSION}::TextEditTextToSpeech)
+if (TARGET KF6::TextEditTextToSpeech)
+    target_link_libraries(kjots_common KF6::TextEditTextToSpeech)
 endif()
-if (TARGET KF${KF_MAJOR_VERSION}::TextAddonsWidgets)
-    target_link_libraries(kjots_common KF${KF_MAJOR_VERSION}::TextAddonsWidgets)
+if (TARGET KF6::TextAddonsWidgets)
+    target_link_libraries(kjots_common KF6::TextAddonsWidgets)
 endif()
-if (TARGET KF${KF_MAJOR_VERSION}::TextCustomEditor)
-    target_link_libraries(kjots_common KF${KF_MAJOR_VERSION}::TextCustomEditor)
+if (TARGET KF6::TextCustomEditor)
+    target_link_libraries(kjots_common KF6::TextCustomEditor)
 endif()
 if (QT_MAJOR_VERSION STREQUAL "6")
     target_link_libraries(kjots_common KF6::BookmarksWidgets)
@@ -101,7 +101,7 @@ add_executable(kjots ${kjots_SRCS})
 
 target_link_libraries(kjots
   kjots_common
-  KPim${KF_MAJOR_VERSION}::KontactInterface
+  KPim6::KontactInterface
 )
 
 install(TARGETS kjots ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
@@ -121,7 +121,7 @@ add_library(kjotspart MODULE ${kjotspart_PART_SRCS})
 
 target_link_libraries(kjotspart
   kjots_common
-  KF${KF_MAJOR_VERSION}::Parts
+  KF6::Parts
 )
 
 install(TARGETS kjotspart
@@ -138,8 +138,8 @@ set(kcm_kjots_PART_SRCS
 add_library(kcm_kjots MODULE ${kcm_kjots_PART_SRCS})
 
 target_link_libraries(kcm_kjots
-    KF${KF_MAJOR_VERSION}::KCMUtils
-    KF${KF_MAJOR_VERSION}::I18n
+    KF6::KCMUtils
+    KF6::I18n
 )
 
 install(TARGETS kcm_kjots

@@ -18,13 +18,8 @@
 #include <TextEditTextToSpeech/TextToSpeechWidget>
 #endif
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <KPIMTextEdit/RichTextEditFindBar>
-#include <KPIMTextEdit/SlideContainer>
-#else
 #include <TextCustomEditor/RichTextEditFindBar>
 #include <TextAddonsWidgets/SlideContainer>
-#endif
 
 #include <QHelpEvent>
 #include <QToolTip>
@@ -52,13 +47,8 @@ public:
     }
 
     std::unique_ptr<KJotsBrowser> mBrowser;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    KPIMTextEdit::SlideContainer mSliderContainer;
-    KPIMTextEdit::RichTextEditFindBar mFindBar;
-#else
     TextAddonsWidgets::SlideContainer mSliderContainer;
     TextCustomEditor::RichTextEditFindBar mFindBar;
-#endif
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     TextEditTextToSpeech::TextToSpeechWidget mTextToSpeechWidget;
 #endif
@@ -71,11 +61,7 @@ KJotsBrowserWidget::KJotsBrowserWidget(std::unique_ptr<KJotsBrowser> browser, QW
     d->mBrowser->setParent(this);
     d->mSliderContainer.setContent(&d->mFindBar);
     d->mFindBar.setHideWhenClose(false);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(&d->mFindBar, &KPIMTextEdit::RichTextEditFindBar::hideFindBar, this, &KJotsBrowserWidget::slotHideFindBar);
-#else
     connect(&d->mFindBar, &TextCustomEditor::RichTextEditFindBar::hideFindBar, this, &KJotsBrowserWidget::slotHideFindBar);
-#endif
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     connect(d->mBrowser.get(), &KJotsBrowser::say, &d->mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechWidget::say);
 #endif
@@ -151,11 +137,7 @@ void KJotsBrowser::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
     popup->addSeparator();
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    popup->addAction(m_actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))));
-#else
     popup->addAction(m_actionCollection->action(KStandardAction::name(KStandardAction::Find)));
-#endif
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     popup->addSeparator();
     if (!document()->isEmpty() && TextEditTextToSpeech::TextToSpeech::self()->isReady()) {
@@ -198,11 +180,7 @@ void KJotsBrowser::tooltipEvent(QHelpEvent *event)
                    && url.fragment().startsWith(QLatin1String("page_")))
         {
             bool ok;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            Item::Id id = url.fragment().midRef(5).toInt(&ok);
-#else
             Item::Id id = QStringView(url.fragment()).mid(5).toInt(&ok);
-#endif
             const QModelIndexList idxs = EntityTreeModel::modelIndexesForItem(m_model, Item(id));
             if (ok && !idxs.isEmpty()) {
                 idx = idxs.first();

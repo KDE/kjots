@@ -53,15 +53,9 @@
 #include <Akonadi/ETMViewStateSaver>
 #include <Akonadi/ControlGui>
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <grantlee/template.h>
-#include <grantlee/engine.h>
-#include <grantlee/context.h>
-#else
 #include <KTextTemplate/Engine>
 #include <KTextTemplate/Template>
 #include <KTextTemplate/Context>
-#endif
 
 // KDE
 #include <KActionCollection>
@@ -77,11 +71,7 @@
 #include <KIO/OpenUrlJob>
 
 #include <KPIMTextEdit/RichTextComposerActions>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <KPIMTextEdit/RichTextEditorWidget>
-#else
 #include <TextCustomEditor/RichTextEditorWidget>
-#endif
 
 
 // KMime
@@ -103,11 +93,7 @@
 #include <memory>
 
 using namespace Akonadi;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-using namespace Grantlee;
-#else
 using namespace KTextTemplate;
-#endif
 KJotsWidget::KJotsWidget(QWidget *parent, KXMLGUIClient *xmlGuiClient, Qt::WindowFlags f)
     : QWidget(parent, f)
     , m_xmlGuiClient(xmlGuiClient)
@@ -252,11 +238,7 @@ void KJotsWidget::setupGui()
 
     // Editor
     m_editor = new KJotsEdit(m_stackedWidget, m_xmlGuiClient->actionCollection());
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    m_editorWidget = new KPIMTextEdit::RichTextEditorWidget(m_editor, m_stackedWidget);
-#else
     m_editorWidget = new TextCustomEditor::RichTextEditorWidget(m_editor, m_stackedWidget);
-#endif
     m_editor->setParent(m_editorWidget);
     m_stackedWidget->addWidget(m_editorWidget);
     connect(m_editor, &KJotsEdit::linkClicked, this, &KJotsWidget::openLink);
@@ -416,11 +398,7 @@ void KJotsWidget::setupActions()
                 m_browserWidget->slotFindNext();
             }
         }, actionCollection);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    action = KStandardAction::replace(m_editorWidget, &KPIMTextEdit::RichTextEditorWidget::slotReplace, actionCollection);
-#else
     action = KStandardAction::replace(m_editorWidget, &TextCustomEditor::RichTextEditorWidget::slotReplace, actionCollection);
-#endif
     connect(m_stackedWidget, &QStackedWidget::currentChanged, this, [this, action](int index){
             action->setEnabled(m_stackedWidget->widget(index) == m_editorWidget);
         });
@@ -433,19 +411,11 @@ void KJotsWidget::setupActions()
     bookmarkMenu->setText(i18n("&Bookmarks"));
     auto bookmarks = new KJotsBookmarks(m_collectionView->selectionModel(), this);
     connect(bookmarks, &KJotsBookmarks::openLink, this, &KJotsWidget::openLink);
-#if QT_VERSION_MAJOR < 6
-    m_bookmarkManager = KBookmarkManager::managerForFile(
-        QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) +
-            QStringLiteral("/kjots/bookmarks.xml"), QStringLiteral("kjots"));
-        auto bmm = new KBookmarkMenu(m_bookmarkManager,
-                                     bookmarks, bookmarkMenu->menu());
-#else
     m_bookmarkManager = new KBookmarkManager(
         QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) +
         QStringLiteral("/kjots/bookmarks.xml"), this);
     auto bmm = new KBookmarkMenu(m_bookmarkManager, bookmarks,
                                  bookmarkMenu->menu());
-#endif
 
     // "Add bookmark" and "make text bold" actions have conflicting shortcuts
     // (ctrl + b) Make add_bookmark use ctrl+shift+b to resolve that.
@@ -524,13 +494,8 @@ void KJotsWidget::delayedInitialization()
     KActionCollection *actionCollection = m_xmlGuiClient->actionCollection();
 
     // Actions for a single item selection.
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    anySelectionActions = { actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Find))),
-                            actionCollection->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Print))),
-#else
     anySelectionActions = { actionCollection->action(KStandardAction::name(KStandardAction::Find)),
                             actionCollection->action(KStandardAction::name(KStandardAction::Print)),
-#endif
                             actionCollection->action(QStringLiteral("save_to")) };
 
     updateMenu();
@@ -559,11 +524,7 @@ void KJotsWidget::updateMenu()
 
     // Rename is available only when single something is selected
     m_xmlGuiClient->actionCollection()
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            ->action(QString::fromLatin1(KStandardAction::name(KStandardAction::RenameFile)))
-#else
             ->action(KStandardAction::name(KStandardAction::RenameFile))
-#endif
             ->setEnabled((itemsSelected == 1) || (m_collectionView->hasFocus() && collectionsSelected == 1));
 
     // Actions available when at least something is shown
@@ -579,11 +540,7 @@ void KJotsWidget::configure()
     }
     auto* dialog = new KConfigDialog(this, QStringLiteral("kjotssettings"), KJotsSettings::self());
     auto configMisc = new KJotsConfigMisc(dialog);
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-    dialog->addPage(configMisc, i18nc("@title:window config dialog page", "Misc"), QStringLiteral("preferences-other"));
-#else
     dialog->addPage(configMisc->widget(), i18nc("@title:window config dialog page", "Misc"), QStringLiteral("preferences-other"));
-#endif
     connect(dialog, &KConfigDialog::settingsChanged, this, &KJotsWidget::updateConfiguration);
     dialog->show();
 }
@@ -619,19 +576,11 @@ QString KJotsWidget::renderSelectionTo(const QString &theme, const QString &temp
     }
     QHash<QString, QVariant> hash = {{QStringLiteral("entities"), objectList},
                                      {QStringLiteral("i18n_TABLE_OF_CONTENTS"), i18nc("Header for 'Table of contents' section of rendered output", "Table of contents")}};
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    Context c(hash);
-#else
     KTextTemplate::Context c(hash);
-#endif
 
     const QString currentTheme = m_loader->themeName();
     m_loader->setTheme(theme);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    Template t = m_templateEngine->loadByName(templ);
-#else
     KTextTemplate::Template t = m_templateEngine->loadByName(templ);
-#endif
     const QString result = t->render(&c);
     m_loader->setTheme(currentTheme);
     return result;

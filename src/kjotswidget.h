@@ -23,11 +23,7 @@
 #include <akonadi_version.h>
 #include <Akonadi/Collection>
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <grantlee/templateloader.h>
-#else
 #include <KTextTemplate/TemplateLoader>
-#endif
 
 
 class QActionGroup;
@@ -56,20 +52,12 @@ class EntityTreeView;
 class StandardNoteActionManager;
 }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-namespace Grantlee
-#else
 namespace KTextTemplate
-#endif
 {
 class Engine;
 }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-namespace KPIMTextEdit
-#else
 namespace TextCustomEditor
-#endif
 {
 class RichTextEditorWidget;
 }
@@ -139,13 +127,8 @@ private Q_SLOTS:
     void print(QPrinter *printer);
 private:
     // Grantlee
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    Grantlee::Engine *m_templateEngine = nullptr;
-    QSharedPointer<Grantlee::FileSystemTemplateLoader> m_loader;
-#else
     KTextTemplate::Engine *m_templateEngine = nullptr;
     QSharedPointer<KTextTemplate::FileSystemTemplateLoader> m_loader;
-#endif
 
     // XMLGui && Actions
     KXMLGUIClient  *m_xmlGuiClient = nullptr;
@@ -160,11 +143,7 @@ private:
     Akonadi::EntityTreeView *m_collectionView = nullptr;
     Akonadi::EntityTreeView *m_itemView = nullptr;
     KJotsEdit      *m_editor = nullptr;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    KPIMTextEdit::RichTextEditorWidget *m_editorWidget = nullptr;
-#else
     TextCustomEditor::RichTextEditorWidget *m_editorWidget = nullptr;
-#endif
     KJotsBrowserWidget *m_browserWidget = nullptr;
 
     // Models

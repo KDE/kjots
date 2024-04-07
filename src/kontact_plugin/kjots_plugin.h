@@ -34,11 +34,7 @@ class KJotsPlugin : public KontactInterface::Plugin
     Q_OBJECT
 
 public:
-#if KONTACTINTERFACE_VERSION >= QT_VERSION_CHECK(5, 20, 41)
     KJotsPlugin(KontactInterface::Core *core, const KPluginMetaData &md, const QVariantList &);
-#else
-    KJotsPlugin(KontactInterface::Core *core, const QVariantList &);
-#endif
 
     int weight() const override
     {
@@ -50,11 +46,7 @@ public:
     QStringList invisibleToolbarActions() const override;
 
 protected:
-#if KONTACTINTERFACE_VERSION >= QT_VERSION_CHECK(5, 14, 42)
     KParts::Part *createPart() override;
-#else
-    KParts::ReadOnlyPart *createPart() override;
-#endif
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 };
 

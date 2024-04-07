@@ -19,11 +19,7 @@ class KJotsConfigMisc : public KCModule
     Q_OBJECT
 
 public:
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-  explicit KJotsConfigMisc(QWidget *parent, const QVariantList &args = {});
-#else
   explicit KJotsConfigMisc(QObject *parent, const KPluginMetaData &data = {});
-#endif
 private:
     std::unique_ptr<Ui::confPageMisc> ui;
 };

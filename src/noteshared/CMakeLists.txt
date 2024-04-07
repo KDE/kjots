@@ -16,11 +16,11 @@ set_property(TARGET noteshared PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(noteshared
     Qt::Core
     Qt::Widgets
-    KF${KF_MAJOR_VERSION}::I18n
-    KPim${KF_MAJOR_VERSION}::AkonadiWidgets
-    KPim${KF_MAJOR_VERSION}::AkonadiCore
-    KPim${KF_MAJOR_VERSION}::AkonadiNotes
-    KF${KF_MAJOR_VERSION}::XmlGui
+    KF6::I18n
+    KPim6::AkonadiWidgets
+    KPim6::AkonadiCore
+    KPim6::AkonadiNotes
+    KF6::XmlGui
 )
 
 target_include_directories(noteshared PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
