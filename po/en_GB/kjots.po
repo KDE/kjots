@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-04 00:41+0000\n"
+"POT-Creation-Date: 2024-04-08 01:44+0000\n"
 "PO-Revision-Date: 2023-02-26 23:12+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -30,7 +30,7 @@ msgid "Your emails"
 msgstr ""
 "anarchist_tomato@herzeleid.net,steveire@gmail.com, steve.allewell@gmail.com"
 
-#: src/aboutdata.cpp:16 src/kjotspart.cpp:39
+#: src/aboutdata.cpp:16 src/kjotspart.cpp:34
 #: src/kontact_plugin/kjots_plugin.cpp:29
 #, kde-format
 msgid "KJots"
@@ -164,26 +164,26 @@ msgstr "Whether books should be saved automatically."
 msgid "The interval in minutes at which books should be saved automatically."
 msgstr "The interval in minutes at which books should be saved automatically."
 
-#: src/kjotsbrowser.cpp:162
+#: src/kjotsbrowser.cpp:144
 #, kde-format
 msgctxt "@info:action"
 msgid "Speak Text"
 msgstr "Speak Text"
 
-#: src/kjotsbrowser.cpp:211
+#: src/kjotsbrowser.cpp:189
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
 msgstr "Click to follow the hyperlink: %1"
 
-#: src/kjotsbrowser.cpp:215
+#: src/kjotsbrowser.cpp:193
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
 msgstr "Click to open note: %1"
 
-#: src/kjotsbrowser.cpp:217
+#: src/kjotsbrowser.cpp:195
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
@@ -273,7 +273,7 @@ msgctxt "@title:column size of a note"
 msgid "Size"
 msgstr "Size"
 
-#: src/kjotspart.cpp:52
+#: src/kjotspart.cpp:47
 #, kde-format
 msgid "&Configure KJots..."
 msgstr "&Configure KJots..."
@@ -326,72 +326,72 @@ msgstr "Format Toolbar"
 msgid "Tools Toolbar"
 msgstr "Tools Toolbar"
 
-#: src/kjotswidget.cpp:433
+#: src/kjotswidget.cpp:411
 #, kde-format
 msgid "&Bookmarks"
 msgstr "&Bookmarks"
 
-#: src/kjotswidget.cpp:460
+#: src/kjotswidget.cpp:430
 #, kde-format
 msgid "Export"
 msgstr "Export"
 
-#: src/kjotswidget.cpp:464
+#: src/kjotswidget.cpp:434
 #, kde-format
 msgid "To Text File..."
 msgstr "To Text File..."
 
-#: src/kjotswidget.cpp:472
+#: src/kjotswidget.cpp:442
 #, kde-format
 msgid "To HTML File..."
 msgstr "To HTML File..."
 
-#: src/kjotswidget.cpp:481
+#: src/kjotswidget.cpp:451
 #, kde-format
 msgid "Next Book"
 msgstr "Next Book"
 
-#: src/kjotswidget.cpp:492
+#: src/kjotswidget.cpp:462
 #, kde-format
 msgid "Previous Book"
 msgstr "Previous Book"
 
-#: src/kjotswidget.cpp:505
+#: src/kjotswidget.cpp:475
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Two Columns"
 msgstr "Two Columns"
 
-#: src/kjotswidget.cpp:510
+#: src/kjotswidget.cpp:480
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Three Columns"
 msgstr "Three Columns"
 
-#: src/kjotswidget.cpp:583 src/kjotswidget.cpp:585
+#: src/kjotswidget.cpp:543
 #, kde-format
 msgctxt "@title:window config dialog page"
 msgid "Misc"
 msgstr "Misc"
 
-#: src/kjotswidget.cpp:621
+#: src/kjotswidget.cpp:578
 #, kde-format
 msgctxt "Header for 'Table of contents' section of rendered output"
 msgid "Table of contents"
 msgstr "Table of contents"
 
-#: src/kjotswidget.cpp:654
+#: src/kjotswidget.cpp:603
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
 msgstr "<qt>Could not open \"%1\" for writing</qt>"
 
-#: src/kjotswidget.cpp:750
+#: src/kjotswidget.cpp:699
 #, kde-format
 msgctxt "@title:window"
 msgid "Multiple selection"
 msgstr "Multiple selection"
 
-#: src/kjotswidget.cpp:768
+#: src/kjotswidget.cpp:717
 #, kde-format
 msgid ""
 "Unable to save the note.\n"
@@ -404,12 +404,12 @@ msgstr ""
 "otherwise you will lose your changes!\n"
 "Do you want to close anyways?"
 
-#: src/kjotswidget.cpp:772
+#: src/kjotswidget.cpp:721
 #, kde-format
 msgid "Close Document"
 msgstr "Close Document"
 
-#: src/kjotswidget.cpp:777
+#: src/kjotswidget.cpp:726
 #, kde-format
 msgid ""
 "Error message:\n"
