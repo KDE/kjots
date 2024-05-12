@@ -143,7 +143,7 @@ msgid ""
 "When \"Save changes periodically\" is checked, KJots will automatically save "
 "changes made to books at the interval defined below."
 msgstr ""
-"Quan «Guarda els canvis periòdicament» està seleccionada, KJots guardarà "
+"Quan «Guarda els canvis periòdicament» està marcada, KJots guardarà "
 "automàticament els canvis fets als llibres en l'interval definit a "
 "continuació."
 
@@ -243,7 +243,7 @@ msgstr "«Ctrl+fer clic» per a seguir l'enllaç: %1"
 #: src/kjotslinkdialog.cpp:32
 #, kde-format
 msgid "Enter link URL, or another note or note book..."
-msgstr "Introduïu l'URL de l'enllaç, o una altra nota o llibreta..."
+msgstr "Introduïu l'URL de l'enllaç, o una altra nota o llibreta…"
 
 #: src/kjotsmodel.cpp:295
 #, kde-format
@@ -278,7 +278,7 @@ msgstr "Mida"
 #: src/kjotspart.cpp:47
 #, kde-format
 msgid "&Configure KJots..."
-msgstr "&Configura KJots..."
+msgstr "&Configura KJots…"
 
 #. i18n: ectx: Menu (format)
 #: src/kjotsui.rc:21
@@ -341,12 +341,12 @@ msgstr "Exporta"
 #: src/kjotswidget.cpp:434
 #, kde-format
 msgid "To Text File..."
-msgstr "A un fitxer de text..."
+msgstr "A un fitxer de text…"
 
 #: src/kjotswidget.cpp:442
 #, kde-format
 msgid "To HTML File..."
-msgstr "A un fitxer HTML..."
+msgstr "A un fitxer HTML…"
 
 #: src/kjotswidget.cpp:451
 #, kde-format
@@ -448,7 +448,7 @@ msgstr "Pàgina nova"
 #: src/noteshared/standardnoteactionmanager.cpp:97
 #, kde-format
 msgid "New Note Book..."
-msgstr "Llibreta nova..."
+msgstr "Llibreta nova…"
 
 #: src/noteshared/standardnoteactionmanager.cpp:102
 #, kde-format
@@ -548,7 +548,7 @@ msgstr "Retalla les llibretes seleccionades de la prestatgeria."
 #: src/noteshared/standardnoteactionmanager.cpp:163
 #, kde-format
 msgid "Note Book Properties..."
-msgstr "Propietats de la llibreta..."
+msgstr "Propietats de la llibreta…"
 
 #: src/noteshared/standardnoteactionmanager.cpp:165
 #, kde-format
@@ -626,7 +626,7 @@ msgstr "Retalla les notes seleccionades de la llibreta."
 #: src/noteshared/standardnoteactionmanager.cpp:207
 #, kde-format
 msgid "Add &Bookshelf..."
-msgstr "Afig una &prestatgeria..."
+msgstr "Afig una &prestatgeria…"
 
 #: src/noteshared/standardnoteactionmanager.cpp:209
 #, kde-format
@@ -687,7 +687,7 @@ msgstr[1] "Voleu suprimir les prestatgeries?"
 #: src/noteshared/standardnoteactionmanager.cpp:246
 #, kde-format
 msgid "Bookshelf Properties..."
-msgstr "Propietats de la prestatgeria..."
+msgstr "Propietats de la prestatgeria…"
 
 #: src/noteshared/standardnoteactionmanager.cpp:248
 #, kde-format
@@ -810,7 +810,7 @@ msgstr "Afig una nota nova a la llibreta seleccionada"
 #: src/noteshared/standardnoteactionmanager.cpp:624
 #, kde-format
 msgid "Change Note Color..."
-msgstr "Canvia el color de la nota..."
+msgstr "Canvia el color de la nota…"
 
 #: src/noteshared/standardnoteactionmanager.cpp:625
 #, kde-format
@@ -820,7 +820,7 @@ msgstr "Canvia el color d'una nota seleccionada"
 #: src/noteshared/standardnoteactionmanager.cpp:633
 #, kde-format
 msgid "Change Note Book Color..."
-msgstr "Canvia el color de la llibreta..."
+msgstr "Canvia el color de la llibreta…"
 
 #: src/noteshared/standardnoteactionmanager.cpp:634
 #, kde-format
