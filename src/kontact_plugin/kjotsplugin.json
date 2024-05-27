@@ -28,7 +28,6 @@
         "Description[zh_TW]": "KJots 外掛程式",
         "EnabledByDefault": true,
         "Icon": "kjots",
-        "Id": "kontact_kjotsplugin",
         "License": "GPL",
         "Name": "Notes",
         "Name[ca@valencia]": "Notes",
