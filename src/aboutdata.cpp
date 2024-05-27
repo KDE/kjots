@@ -19,13 +19,13 @@ AboutData::AboutData()
                  KAboutLicense::GPL,
                  i18n("Copyright © 1997–2024 KJots authors"))
 {
-    addAuthor(i18n("Igor Poboiko"), i18n("Maintainer"), QStringLiteral("igor.poboiko@gmail.com"));
-    addAuthor(i18n("Daniel Vrátil"), i18n("Port to KDE Frameworks 5"), QStringLiteral("dvraitl@kde.org"));
-    addAuthor(i18n("Stephen Kelly"), QString(), QStringLiteral("steveire@gmail.com"));
-    addAuthor(i18n("Pradeepto K. Bhattacharya"), QString(), QStringLiteral("pradeepto@kde.org"));
-    addAuthor(i18n("Jaison Lee"), QString(), QStringLiteral("lee.jaison@gmail.com"));
-    addAuthor(i18n("Aaron J. Seigo"), QString(), QStringLiteral("aseigo@kde.org"));
-    addAuthor(i18n("Stanislav Kljuhhin"), QString(), QStringLiteral("crz@starman.ee"));
-    addAuthor(i18n("Christoph Neerfeld"), i18n("Original author"), QStringLiteral("chris@kde.org"));
-    addAuthor(i18n("Laurent Montel"), QString(), QStringLiteral("montel@kde.org"));
+    addAuthor(i18nc("@info:credit", "Igor Poboiko"), i18n("Maintainer"), QStringLiteral("igor.poboiko@gmail.com"));
+    addAuthor(i18nc("@info:credit", "Daniel Vrátil"), i18n("Port to KDE Frameworks 5"), QStringLiteral("dvraitl@kde.org"));
+    addAuthor(i18nc("@info:credit", "Stephen Kelly"), QString(), QStringLiteral("steveire@gmail.com"));
+    addAuthor(i18nc("@info:credit", "Pradeepto K. Bhattacharya"), QString(), QStringLiteral("pradeepto@kde.org"));
+    addAuthor(i18nc("@info:credit", "Jaison Lee"), QString(), QStringLiteral("lee.jaison@gmail.com"));
+    addAuthor(i18nc("@info:credit", "Aaron J. Seigo"), QString(), QStringLiteral("aseigo@kde.org"));
+    addAuthor(i18nc("@info:credit", "Stanislav Kljuhhin"), QString(), QStringLiteral("crz@starman.ee"));
+    addAuthor(i18nc("@info:credit", "Christoph Neerfeld"), i18n("Original author"), QStringLiteral("chris@kde.org"));
+    addAuthor(i18nc("@info:credit", "Laurent Montel"), QString(), QStringLiteral("montel@kde.org"));
 }
