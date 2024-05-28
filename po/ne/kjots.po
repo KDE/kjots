@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-08 01:44+0000\n"
+"POT-Creation-Date: 2024-05-28 01:44+0000\n"
 "PO-Revision-Date: 2007-08-29 12:41+0545\n"
 "Last-Translator: Narayan Kumar Magar <narayan@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -47,6 +47,7 @@ msgstr ""
 
 #: src/aboutdata.cpp:22
 #, kde-format
+msgctxt "@info:credit"
 msgid "Igor Poboiko"
 msgstr ""
 
@@ -58,6 +59,7 @@ msgstr "हालको सम्भारकर्ता"
 
 #: src/aboutdata.cpp:23
 #, kde-format
+msgctxt "@info:credit"
 msgid "Daniel Vrátil"
 msgstr ""
 
@@ -68,31 +70,42 @@ msgstr ""
 
 #: src/aboutdata.cpp:24
 #, kde-format
+msgctxt "@info:credit"
 msgid "Stephen Kelly"
 msgstr ""
 
 #: src/aboutdata.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pradeepto K. Bhattacharya"
+msgctxt "@info:credit"
 msgid "Pradeepto K. Bhattacharya"
 msgstr "प्रदिप देखि के. भट्टचार्य सम्म"
 
 #: src/aboutdata.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Jaison Lee"
+msgctxt "@info:credit"
 msgid "Jaison Lee"
 msgstr "जइसन ली"
 
 #: src/aboutdata.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Aaron J. Seigo"
+msgctxt "@info:credit"
 msgid "Aaron J. Seigo"
 msgstr "आरोन जे. सेइगो"
 
 #: src/aboutdata.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Stanislav Kljuhhin"
+msgctxt "@info:credit"
 msgid "Stanislav Kljuhhin"
 msgstr "स्तानिस्लाभ कल्जुहिन"
 
 #: src/aboutdata.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Christoph Neerfeld"
+msgctxt "@info:credit"
 msgid "Christoph Neerfeld"
 msgstr "क्रिस्टोफ नैर्फेल्ड"
 
@@ -103,6 +116,7 @@ msgstr "मौलिक लेखक"
 
 #: src/aboutdata.cpp:30
 #, kde-format
+msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr ""
 

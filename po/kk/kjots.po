@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-08 01:44+0000\n"
+"POT-Creation-Date: 2024-05-28 01:44+0000\n"
 "PO-Revision-Date: 2012-07-31 11:57+0600\n"
 "Last-Translator: Sairan Kikkarin\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -46,6 +46,7 @@ msgstr "Copyright © 1997–2010 KJots авторлары"
 
 #: src/aboutdata.cpp:22
 #, kde-format
+msgctxt "@info:credit"
 msgid "Igor Poboiko"
 msgstr ""
 
@@ -57,6 +58,7 @@ msgstr "Қазіргі жетілдірушісі"
 
 #: src/aboutdata.cpp:23
 #, kde-format
+msgctxt "@info:credit"
 msgid "Daniel Vrátil"
 msgstr ""
 
@@ -66,32 +68,44 @@ msgid "Port to KDE Frameworks 5"
 msgstr ""
 
 #: src/aboutdata.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Stephen Kelly"
+msgctxt "@info:credit"
 msgid "Stephen Kelly"
 msgstr " "
 
 #: src/aboutdata.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pradeepto K. Bhattacharya"
+msgctxt "@info:credit"
 msgid "Pradeepto K. Bhattacharya"
 msgstr "Pradeepto K. Bhattacharya"
 
 #: src/aboutdata.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Jaison Lee"
+msgctxt "@info:credit"
 msgid "Jaison Lee"
 msgstr "Jaison Lee"
 
 #: src/aboutdata.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Aaron J. Seigo"
+msgctxt "@info:credit"
 msgid "Aaron J. Seigo"
 msgstr "Aaron J. Seigo"
 
 #: src/aboutdata.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Stanislav Kljuhhin"
+msgctxt "@info:credit"
 msgid "Stanislav Kljuhhin"
 msgstr "Stanislav Kljuhhin"
 
 #: src/aboutdata.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Christoph Neerfeld"
+msgctxt "@info:credit"
 msgid "Christoph Neerfeld"
 msgstr "Christoph Neerfeld"
 
@@ -101,7 +115,9 @@ msgid "Original author"
 msgstr "Бастапқы авторы"
 
 #: src/aboutdata.cpp:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Laurent Montel"
+msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
