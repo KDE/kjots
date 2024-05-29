@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kdepim-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-28 01:44+0000\n"
-"PO-Revision-Date: 2024-01-04 16:17+0300\n"
+"PO-Revision-Date: 2024-05-28 16:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.85\n"
+"X-Generator: Lokalize 24.07.70\n"
 "(http: //www.transifex.com/projects/p/kdepim-k-tr/language/tr/)\n"
 
 #, kde-format
@@ -57,8 +57,7 @@ msgid "Copyright © 1997–2024 KJots authors"
 msgstr "Telif Hakkı © 1997–2024 KJots yazarları"
 
 #: src/aboutdata.cpp:22
-#, fuzzy, kde-format
-#| msgid "Igor Poboiko"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Igor Poboiko"
 msgstr "Igor Poboiko"
@@ -69,8 +68,7 @@ msgid "Maintainer"
 msgstr "Projeyi Yürüten"
 
 #: src/aboutdata.cpp:23
-#, fuzzy, kde-format
-#| msgid "Daniel Vrátil"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Vrátil"
 msgstr "Daniel Vrátil"
@@ -81,43 +79,37 @@ msgid "Port to KDE Frameworks 5"
 msgstr "KDE Frameworks 5 aktarımı"
 
 #: src/aboutdata.cpp:24
-#, fuzzy, kde-format
-#| msgid "Stephen Kelly"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stephen Kelly"
 msgstr "Stephen Kelly"
 
 #: src/aboutdata.cpp:25
-#, fuzzy, kde-format
-#| msgid "Pradeepto K. Bhattacharya"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Pradeepto K. Bhattacharya"
-msgstr "Pradeepto K. Bhattacharya"
+msgstr "Pradipto K. Bhattaçarya"
 
 #: src/aboutdata.cpp:26
-#, fuzzy, kde-format
-#| msgid "Jaison Lee"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jaison Lee"
 msgstr "Jaison Lee"
 
 #: src/aboutdata.cpp:27
-#, fuzzy, kde-format
-#| msgid "Aaron J. Seigo"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Aaron J. Seigo"
 msgstr "Aaron J. Seigo"
 
 #: src/aboutdata.cpp:28
-#, fuzzy, kde-format
-#| msgid "Stanislav Kljuhhin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Kljuhhin"
 msgstr "Stanislav Kljuhhin"
 
 #: src/aboutdata.cpp:29
-#, fuzzy, kde-format
-#| msgid "Christoph Neerfeld"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Christoph Neerfeld"
 msgstr "Christoph Neerfeld"
@@ -128,8 +120,7 @@ msgid "Original author"
 msgstr "Özgün yazar"
 
 #: src/aboutdata.cpp:30
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
@@ -141,7 +132,7 @@ msgstr "Laurent Montel"
 msgid ""
 "This is the number of minutes KJots will wait before automatically saving "
 "changes."
-msgstr "Bu KJots'un otomatik olarak kaydetmeden önce bekleyeceği süredir."
+msgstr "Bu KJots’un kendiliğinden kaydetmeden önce bekleyeceği süredir."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: src/confpagemisc.ui:22
@@ -168,8 +159,8 @@ msgid ""
 "When \"Save changes periodically\" is checked, KJots will automatically save "
 "changes made to books at the interval defined below."
 msgstr ""
-"\"Değişiklikleri periyodik olarak kaydet\" seçili olduğunda, KJots aşağıda "
-"belirtilen süre aralıklarında kitaba yapılan değişiklikleri otomatik olarak "
+"“Değişiklikleri periyodik olarak kaydet” seçili olduğunda, KJots aşağıda "
+"belirtilen süre aralıklarında kitaba yapılan değişiklikleri kendiliğinden "
 "kaydeder."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoSave)
@@ -201,20 +192,20 @@ msgstr "Metni Seslendir"
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Click to follow the hyperlink: %1"
-msgstr "Köprüyü izlemek için tıklayın: %1"
+msgstr "Köprüyü izlemek için tıkla: %1"
 
 #: src/kjotsbrowser.cpp:193
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Click to open note: %1"
-msgstr "Notu açmak için tıklayın: %1"
+msgstr "Notu açmak için tıkla: %1"
 
 #: src/kjotsbrowser.cpp:195
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
-msgstr "Kitabı açmak için tıklayın: %1"
+msgstr "Kitabı açmak için tıkla: %1"
 
 #: src/kjotsedit.cpp:95
 #, kde-format
@@ -251,24 +242,24 @@ msgstr "Tarih Ekle"
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Ctrl+click to open note: %1"
-msgstr "Notu açmak için Kontrol+tık yapın: %1"
+msgstr "Notu açmak için Kontrol+tık yap: %1"
 
 #: src/kjotsedit.cpp:466
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Ctrl+click to open book: %1"
-msgstr "Kitabı açmak için Kontrol+tık yapın: %1"
+msgstr "Kitabı açmak için Kontrol+tık yap: %1"
 
 #: src/kjotsedit.cpp:469
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Ctrl+click to follow the hyperlink: %1"
-msgstr "Köprüyü izlemek için Kontrol+tık yapın: %1"
+msgstr "Köprüyü izlemek için Kontrol+tık yap: %1"
 
 #: src/kjotslinkdialog.cpp:32
 #, kde-format
 msgid "Enter link URL, or another note or note book..."
-msgstr "Köprü URL'si, başka bir not veya not defteri girin..."
+msgstr "Bağlantı URL’si, başka bir not veya not defteri gir…"
 
 #: src/kjotsmodel.cpp:295
 #, kde-format
@@ -303,7 +294,7 @@ msgstr "Boyut"
 #: src/kjotspart.cpp:47
 #, kde-format
 msgid "&Configure KJots..."
-msgstr "&KJots'u Yapılandır..."
+msgstr "&KJots’u Yapılandır…"
 
 #. i18n: ectx: Menu (format)
 #: src/kjotsui.rc:21
@@ -410,7 +401,7 @@ msgstr "İçindekiler Tablosu"
 #: src/kjotswidget.cpp:603
 #, kde-format
 msgid "<qt>Could not open \"%1\" for writing</qt>"
-msgstr "<qt>\"%1\", yazma için açılamadı</qt>"
+msgstr "<qt>“%1”, yazmak için açılamadı</qt>"
 
 #: src/kjotswidget.cpp:699
 #, kde-format
@@ -427,7 +418,7 @@ msgid ""
 "Do you want to close anyways?"
 msgstr ""
 "Not kaydedilemedi.\n"
-"\"Dosya - Dışa Aktar\" menüsünü kullanarak notu yerel bir dosyaya "
+"“Dosya → Dışa Aktar” menüsünü kullanarak notu yerel bir dosyaya "
 "kaydedebilirsiniz,\n"
 "aksi takdirde değişiklikleriniz kaybedeceksiniz!\n"
 "Yine de kapatmak istiyor musunuz?"
@@ -456,13 +447,13 @@ msgstr "Bağlantıyı Yönet"
 #: src/linkdialog.ui:29
 #, kde-format
 msgid "Link &Text:"
-msgstr "Bağlantı &Metni:"
+msgstr "Bağlantı &metni:"
 
 #. i18n: ectx: property (text), widget (QLabel, linkUrlLabel)
 #: src/linkdialog.ui:46
 #, kde-format
 msgid "Link URL:"
-msgstr "Bağlantı URL'si:"
+msgstr "Bağlantı URL’si:"
 
 #: src/noteshared/notecreatorandselector.cpp:76
 #, kde-format

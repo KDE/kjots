@@ -55,11 +55,10 @@ msgid "Maintainer"
 msgstr "Maintainer"
 
 #: src/aboutdata.cpp:23
-#, fuzzy, kde-format
-#| msgid "Daniel Vrátil"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Vrátil"
-msgstr "Daniel Vrátil"
+msgstr ""
 
 #: src/aboutdata.cpp:23
 #, kde-format
@@ -67,46 +66,40 @@ msgid "Port to KDE Frameworks 5"
 msgstr ""
 
 #: src/aboutdata.cpp:24
-#, fuzzy, kde-format
-#| msgid "Stephen Kelly"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stephen Kelly"
-msgstr "Stephen Kelly"
+msgstr ""
 
 #: src/aboutdata.cpp:25
-#, fuzzy, kde-format
-#| msgid "Pradeepto K. Bhattacharya"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Pradeepto K. Bhattacharya"
-msgstr "Pradeepto K. Bhattacharya"
+msgstr ""
 
 #: src/aboutdata.cpp:26
-#, fuzzy, kde-format
-#| msgid "Jaison Lee"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jaison Lee"
-msgstr "Jaison Lee"
+msgstr ""
 
 #: src/aboutdata.cpp:27
-#, fuzzy, kde-format
-#| msgid "Aaron J. Seigo"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Aaron J. Seigo"
-msgstr "Aaron J. Seigo"
+msgstr ""
 
 #: src/aboutdata.cpp:28
-#, fuzzy, kde-format
-#| msgid "Stanislav Kljuhhin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Kljuhhin"
-msgstr "Stanislav Kljuhhin"
+msgstr ""
 
 #: src/aboutdata.cpp:29
-#, fuzzy, kde-format
-#| msgid "Christoph Neerfeld"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Christoph Neerfeld"
-msgstr "Christoph Neerfeld"
+msgstr ""
 
 #: src/aboutdata.cpp:29
 #, kde-format
@@ -114,11 +107,10 @@ msgid "Original author"
 msgstr "原作者"
 
 #: src/aboutdata.cpp:30
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
-msgstr "Laurent Montel"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_AutoSaveInterval)
