@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-08 01:44+0000\n"
+"POT-Creation-Date: 2024-05-28 01:44+0000\n"
 "PO-Revision-Date: 2007-09-11 22:44+0200\n"
 "Last-Translator: Northern Sami translation team <i18n-sme@lister.ping.uio."
 "no>\n"
@@ -47,6 +47,7 @@ msgstr ""
 
 #: src/aboutdata.cpp:22
 #, kde-format
+msgctxt "@info:credit"
 msgid "Igor Poboiko"
 msgstr ""
 
@@ -57,6 +58,7 @@ msgstr ""
 
 #: src/aboutdata.cpp:23
 #, kde-format
+msgctxt "@info:credit"
 msgid "Daniel Vrátil"
 msgstr ""
 
@@ -67,31 +69,37 @@ msgstr ""
 
 #: src/aboutdata.cpp:24
 #, kde-format
+msgctxt "@info:credit"
 msgid "Stephen Kelly"
 msgstr ""
 
 #: src/aboutdata.cpp:25
 #, kde-format
+msgctxt "@info:credit"
 msgid "Pradeepto K. Bhattacharya"
 msgstr ""
 
 #: src/aboutdata.cpp:26
 #, kde-format
+msgctxt "@info:credit"
 msgid "Jaison Lee"
 msgstr ""
 
 #: src/aboutdata.cpp:27
 #, kde-format
+msgctxt "@info:credit"
 msgid "Aaron J. Seigo"
 msgstr ""
 
 #: src/aboutdata.cpp:28
 #, kde-format
+msgctxt "@info:credit"
 msgid "Stanislav Kljuhhin"
 msgstr ""
 
 #: src/aboutdata.cpp:29
 #, kde-format
+msgctxt "@info:credit"
 msgid "Christoph Neerfeld"
 msgstr ""
 
@@ -102,6 +110,7 @@ msgstr ""
 
 #: src/aboutdata.cpp:30
 #, kde-format
+msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr ""
 
