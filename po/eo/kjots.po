@@ -2,15 +2,15 @@
 # Copyright (C) 2002 Free Software Foundation, Inc.
 # Wolfram Diestel <wolfram@steloj.de>, 2002.
 # Steffen Pietsch <Steffen.Pietsch@BerlinOnline.de>, 2002.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-28 01:44+0000\n"
-"PO-Revision-Date: 2024-05-29 23:46+0200\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2024-05-30 22:41+0200\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Wolfram Diestel,Oliver Kellogg"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "wolfram@steloj.de,okellogg@users.sourceforge.net"
+msgstr "wolfram@steloj.de,olivermkellogg@gmail.com"
 
 #: src/aboutdata.cpp:16 src/kjotspart.cpp:34
 #: src/kontact_plugin/kjots_plugin.cpp:29
@@ -129,7 +129,7 @@ msgstr ""
 #: src/confpagemisc.ui:22
 #, kde-format
 msgid "S&ave every:"
-msgstr "Konservi ĉiun:"
+msgstr "Konserv&ado ĉiun:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_AutoSaveInterval)
 #: src/confpagemisc.ui:38
@@ -801,7 +801,7 @@ msgstr "Malŝlosi elektitajn notlibrojn"
 #: src/noteshared/standardnoteactionmanager.cpp:594
 #, kde-format
 msgid "&New Note"
-msgstr "Nova Noto"
+msgstr "&Nova Noto"
 
 #: src/noteshared/standardnoteactionmanager.cpp:595
 #, kde-format
