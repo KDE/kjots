@@ -14,7 +14,7 @@
 #ifndef KJOTSEDIT_H
 #define KJOTSEDIT_H
 
-#include <KRichTextWidget>
+#include <QHelpEvent>
 #include <KPIMTextEdit/RichTextComposer>
 
 class QItemSelection;

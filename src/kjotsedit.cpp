@@ -19,6 +19,7 @@
 #include <QClipboard>
 #include <QMenu>
 #include <QMimeData>
+#include <QTextBlock>
 #include <QTextCursor>
 #include <QTextDocumentFragment>
 #include <QToolTip>
@@ -264,15 +265,15 @@ bool KJotsEdit::setModelIndex(const QModelIndex &index)
 
 void KJotsEdit::onAutoBullet()
 {
-    KTextEdit::AutoFormatting currentFormatting = autoFormatting();
+    QTextEdit::AutoFormatting currentFormatting = autoFormatting();
 
     //TODO: set line spacing properly.
 
-    if (currentFormatting == KTextEdit::AutoBulletList) {
-        setAutoFormatting(KTextEdit::AutoNone);
+    if (currentFormatting == QTextEdit::AutoBulletList) {
+        setAutoFormatting(QTextEdit::AutoNone);
         d->action_auto_bullet->setChecked(false);
     } else {
-        setAutoFormatting(KTextEdit::AutoBulletList);
+        setAutoFormatting(QTextEdit::AutoBulletList);
         d->action_auto_bullet->setChecked(true);
     }
 }

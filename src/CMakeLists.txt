@@ -52,7 +52,6 @@ target_link_libraries(kjots_common
   Qt::DBus
   Qt::PrintSupport
   KF6::Bookmarks
-  KF6::TextWidgets
   KPim6::Mime
   KPim6::AkonadiCore
   KPim6::AkonadiWidgets
