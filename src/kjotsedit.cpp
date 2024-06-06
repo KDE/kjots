@@ -82,6 +82,9 @@ KJotsEdit::KJotsEdit(QWidget *parent, KActionCollection *actionCollection)
     setCheckSpellingEnabled(true);
     setFocusPolicy(Qt::StrongFocus);
 
+    const qreal padding = fontMetrics().height();
+    setStyleSheet(QStringLiteral("QTextEdit { padding: %1px; }").arg(padding));
+
     createActions(m_actionCollection);
     activateRichText();
 }
