@@ -2,7 +2,7 @@
 # Translation of kjots.po to Slovenian
 # -*- mode:po; coding:iso-latin-2; -*- kjots Slovenian message catalogue.
 # Copyright (C) 2001,2003, 2004, 2005, 2006 Free Software Foundation, Inc.
-# $Id: kjots.po 1681087 2024-05-29 02:31:06Z scripty $
+# $Id: kjots.po 1681669 2024-06-06 02:11:39Z scripty $
 # $Source$
 #
 # Marko Samastur <markos@elite.org>, 2000.
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-28 01:44+0000\n"
+"POT-Creation-Date: 2024-06-06 01:48+0000\n"
 "PO-Revision-Date: 2024-05-28 06:39+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -209,50 +209,50 @@ msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
 msgstr "Kliknite za odpiranje knjige: %1"
 
-#: src/kjotsedit.cpp:95
+#: src/kjotsedit.cpp:96
 #, kde-format
 msgctxt "@action"
 msgid "Copy &Into Page Title"
 msgstr "Kopiraj v naslov strani"
 
-#: src/kjotsedit.cpp:105
+#: src/kjotsedit.cpp:106
 #, kde-format
 msgctxt "@action creates and manages hyperlinks"
 msgid "Link"
 msgstr "Povezava"
 
-#: src/kjotsedit.cpp:113
+#: src/kjotsedit.cpp:114
 #, kde-format
 msgctxt "@action"
 msgid "Auto Bullet List"
 msgstr "Samodejni seznam točk"
 
-#: src/kjotsedit.cpp:122
+#: src/kjotsedit.cpp:123
 #, kde-format
 msgctxt "@action"
 msgid "Auto Decimal List"
 msgstr "Samodejni decimalno oštevilčen seznam"
 
-#: src/kjotsedit.cpp:131
+#: src/kjotsedit.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Insert Date"
 msgstr "Vstavi datum"
 
-#: src/kjotsedit.cpp:464
+#: src/kjotsedit.cpp:465
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Ctrl+click to open note: %1"
 msgstr "Ctrl+klik, za odpiranje zapiskov: %1"
 
-#: src/kjotsedit.cpp:466
+#: src/kjotsedit.cpp:467
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Ctrl+click to open book: %1"
 msgstr "Ctrl+klik, za odpiranje knjige: %1"
 
-#: src/kjotsedit.cpp:469
+#: src/kjotsedit.cpp:470
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Ctrl+click to follow the hyperlink: %1"

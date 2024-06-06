@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-28 01:44+0000\n"
+"POT-Creation-Date: 2024-06-06 01:48+0000\n"
 "PO-Revision-Date: 2023-03-06 16:08+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -204,50 +204,50 @@ msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
 msgstr "Carregue para abrir o livro: %1"
 
-#: src/kjotsedit.cpp:95
+#: src/kjotsedit.cpp:96
 #, kde-format
 msgctxt "@action"
 msgid "Copy &Into Page Title"
 msgstr "Cop&iar para o Título da Página"
 
-#: src/kjotsedit.cpp:105
+#: src/kjotsedit.cpp:106
 #, kde-format
 msgctxt "@action creates and manages hyperlinks"
 msgid "Link"
 msgstr "Ligação"
 
-#: src/kjotsedit.cpp:113
+#: src/kjotsedit.cpp:114
 #, kde-format
 msgctxt "@action"
 msgid "Auto Bullet List"
 msgstr "Lista de Pontos Automáticos"
 
-#: src/kjotsedit.cpp:122
+#: src/kjotsedit.cpp:123
 #, kde-format
 msgctxt "@action"
 msgid "Auto Decimal List"
 msgstr "Lista Numérica Automática"
 
-#: src/kjotsedit.cpp:131
+#: src/kjotsedit.cpp:132
 #, kde-format
 msgctxt "@action"
 msgid "Insert Date"
 msgstr "Inserir a Data"
 
-#: src/kjotsedit.cpp:464
+#: src/kjotsedit.cpp:465
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Ctrl+click to open note: %1"
 msgstr "Ctrl+click para abrir a nota: %1"
 
-#: src/kjotsedit.cpp:466
+#: src/kjotsedit.cpp:467
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Ctrl+click to open book: %1"
 msgstr "Ctrl+click para abrir o livro: %1"
 
-#: src/kjotsedit.cpp:469
+#: src/kjotsedit.cpp:470
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Ctrl+click to follow the hyperlink: %1"
