@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-06 01:48+0000\n"
+"POT-Creation-Date: 2024-06-07 01:42+0000\n"
 "PO-Revision-Date: 2012-06-12 11:29+0700\n"
 "Last-Translator: Sophea <sophea@khmeros.info>\n"
 "Language-Team: Khmer <>\n"
@@ -207,55 +207,55 @@ msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Click to open book: %1"
 msgstr ""
 
-#: src/kjotsedit.cpp:96
+#: src/kjotsedit.cpp:99
 #, fuzzy, kde-format
 #| msgid "Copy &into Page Title"
 msgctxt "@action"
 msgid "Copy &Into Page Title"
 msgstr "ចម្លង​ទៅ​ក្នុង​ចំណងជើង​ទំព័រ"
 
-#: src/kjotsedit.cpp:106
+#: src/kjotsedit.cpp:109
 #, fuzzy, kde-format
 #| msgid "Link"
 msgctxt "@action creates and manages hyperlinks"
 msgid "Link"
 msgstr "ភ្ជាប់​"
 
-#: src/kjotsedit.cpp:114
+#: src/kjotsedit.cpp:117
 #, fuzzy, kde-format
 #| msgid "Auto Bullets"
 msgctxt "@action"
 msgid "Auto Bullet List"
 msgstr "ចំណុច​ស្វ័យប្រវត្តិ"
 
-#: src/kjotsedit.cpp:123
+#: src/kjotsedit.cpp:126
 #, fuzzy, kde-format
 #| msgid "Auto Decimal List"
 msgctxt "@action"
 msgid "Auto Decimal List"
 msgstr "បញ្ជី​ទសភាគ​ស្វ័យប្រវត្តិ"
 
-#: src/kjotsedit.cpp:132
+#: src/kjotsedit.cpp:135
 #, fuzzy, kde-format
 #| msgid "Insert Date"
 msgctxt "@action"
 msgid "Insert Date"
 msgstr "បញ្ចូល​កាលបរិច្ឆេទ​"
 
-#: src/kjotsedit.cpp:465
+#: src/kjotsedit.cpp:468
 #, kde-format
 msgctxt ""
 "@info:tooltip %1 is a full path to note (i.e. Notes / Notebook / Note)"
 msgid "Ctrl+click to open note: %1"
 msgstr ""
 
-#: src/kjotsedit.cpp:467
+#: src/kjotsedit.cpp:470
 #, kde-format
 msgctxt "@info:tooltip %1 is a full path to book (i.e. Notes / Notebook)"
 msgid "Ctrl+click to open book: %1"
 msgstr ""
 
-#: src/kjotsedit.cpp:470
+#: src/kjotsedit.cpp:473
 #, kde-format
 msgctxt "@info:tooltip %1 is hyperlink address"
 msgid "Ctrl+click to follow the hyperlink: %1"
