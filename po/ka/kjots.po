@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-07 01:42+0000\n"
-"PO-Revision-Date: 2024-01-05 05:03+0100\n"
+"PO-Revision-Date: 2024-07-07 07:09+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -45,8 +45,7 @@ msgid "Copyright © 1997–2024 KJots authors"
 msgstr "Copyright © 1997–2024 KJots authors"
 
 #: src/aboutdata.cpp:22
-#, fuzzy, kde-format
-#| msgid "Igor Poboiko"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Igor Poboiko"
 msgstr "Igor Poboiko"
@@ -57,8 +56,7 @@ msgid "Maintainer"
 msgstr "წამყვანი პროგრამისტი"
 
 #: src/aboutdata.cpp:23
-#, fuzzy, kde-format
-#| msgid "Daniel Vrátil"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Vrátil"
 msgstr "Daniel Vrátil"
@@ -69,43 +67,37 @@ msgid "Port to KDE Frameworks 5"
 msgstr "KDE Frameworks 5-ზე გადატანა"
 
 #: src/aboutdata.cpp:24
-#, fuzzy, kde-format
-#| msgid "Stephen Kelly"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stephen Kelly"
 msgstr "Stephen Kelly"
 
 #: src/aboutdata.cpp:25
-#, fuzzy, kde-format
-#| msgid "Pradeepto K. Bhattacharya"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Pradeepto K. Bhattacharya"
 msgstr "Pradeepto K. Bhattacharya"
 
 #: src/aboutdata.cpp:26
-#, fuzzy, kde-format
-#| msgid "Jaison Lee"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jaison Lee"
 msgstr "Jaison Lee"
 
 #: src/aboutdata.cpp:27
-#, fuzzy, kde-format
-#| msgid "Aaron J. Seigo"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Aaron J. Seigo"
 msgstr "აარონ ჯ. სეიგო"
 
 #: src/aboutdata.cpp:28
-#, fuzzy, kde-format
-#| msgid "Stanislav Kljuhhin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Kljuhhin"
 msgstr "Stanislav Kljuhhin"
 
 #: src/aboutdata.cpp:29
-#, fuzzy, kde-format
-#| msgid "Christoph Neerfeld"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Christoph Neerfeld"
 msgstr "Christoph Neerfeld"
@@ -116,8 +108,7 @@ msgid "Original author"
 msgstr "საწყისი ავტორი"
 
 #: src/aboutdata.cpp:30
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
