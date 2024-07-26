@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# g.sora <g.sora@tiscali.it>, 2011, 2012, 2013, 2018, 2020, 2021, 2023, 2024.
+# SPDX-FileCopyrightText: 2011, 2012, 2013, 2018, 2020, 2021, 2023, 2024 g.sora <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-07 01:42+0000\n"
-"PO-Revision-Date: 2024-01-08 12:34+0100\n"
+"PO-Revision-Date: 2024-07-25 15:44+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -44,8 +44,7 @@ msgid "Copyright © 1997–2024 KJots authors"
 msgstr "Copyright © 1997–2024, le autores de KJots"
 
 #: src/aboutdata.cpp:22
-#, fuzzy, kde-format
-#| msgid "Igor Poboiko"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Igor Poboiko"
 msgstr "Igor Poboiko"
@@ -56,8 +55,7 @@ msgid "Maintainer"
 msgstr "Mantenitor"
 
 #: src/aboutdata.cpp:23
-#, fuzzy, kde-format
-#| msgid "Daniel Vrátil"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Vrátil"
 msgstr "Daniel Vrátil"
@@ -68,43 +66,37 @@ msgid "Port to KDE Frameworks 5"
 msgstr "Porto a KDE Frameworks 5"
 
 #: src/aboutdata.cpp:24
-#, fuzzy, kde-format
-#| msgid "Stephen Kelly"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stephen Kelly"
 msgstr "Stephen Kelly"
 
 #: src/aboutdata.cpp:25
-#, fuzzy, kde-format
-#| msgid "Pradeepto K. Bhattacharya"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Pradeepto K. Bhattacharya"
 msgstr "Pradeepto K. Bhattacharya"
 
 #: src/aboutdata.cpp:26
-#, fuzzy, kde-format
-#| msgid "Jaison Lee"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jaison Lee"
 msgstr "Jaison Lee"
 
 #: src/aboutdata.cpp:27
-#, fuzzy, kde-format
-#| msgid "Aaron J. Seigo"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Aaron J. Seigo"
 msgstr "Aaron J. Siego"
 
 #: src/aboutdata.cpp:28
-#, fuzzy, kde-format
-#| msgid "Stanislav Kljuhhin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Kljuhhin"
 msgstr "Stanislav Kljuhhin"
 
 #: src/aboutdata.cpp:29
-#, fuzzy, kde-format
-#| msgid "Christoph Neerfeld"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Christoph Neerfeld"
 msgstr "Christoph Neerfeld"
@@ -115,8 +107,7 @@ msgid "Original author"
 msgstr "Autor original"
 
 #: src/aboutdata.cpp:30
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
