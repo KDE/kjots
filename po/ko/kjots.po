@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kjots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-07 01:42+0000\n"
-"PO-Revision-Date: 2024-02-09 23:45+0100\n"
+"PO-Revision-Date: 2024-08-19 23:21+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -46,8 +46,7 @@ msgid "Copyright © 1997–2024 KJots authors"
 msgstr "Copyright © 1997–2024 KJots authors"
 
 #: src/aboutdata.cpp:22
-#, fuzzy, kde-format
-#| msgid "Igor Poboiko"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Igor Poboiko"
 msgstr "Igor Poboiko"
@@ -58,8 +57,7 @@ msgid "Maintainer"
 msgstr "관리자"
 
 #: src/aboutdata.cpp:23
-#, fuzzy, kde-format
-#| msgid "Daniel Vrátil"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Vrátil"
 msgstr "Daniel Vrátil"
@@ -70,43 +68,37 @@ msgid "Port to KDE Frameworks 5"
 msgstr "KDE 프레임워크 5로 이식"
 
 #: src/aboutdata.cpp:24
-#, fuzzy, kde-format
-#| msgid "Stephen Kelly"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stephen Kelly"
 msgstr "Stephen Kelly"
 
 #: src/aboutdata.cpp:25
-#, fuzzy, kde-format
-#| msgid "Pradeepto K. Bhattacharya"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Pradeepto K. Bhattacharya"
 msgstr "Pradeepto K. Bhattacharya"
 
 #: src/aboutdata.cpp:26
-#, fuzzy, kde-format
-#| msgid "Jaison Lee"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jaison Lee"
 msgstr "Jaison Lee"
 
 #: src/aboutdata.cpp:27
-#, fuzzy, kde-format
-#| msgid "Aaron J. Seigo"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Aaron J. Seigo"
 msgstr "Aaron J. Seigo"
 
 #: src/aboutdata.cpp:28
-#, fuzzy, kde-format
-#| msgid "Stanislav Kljuhhin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Kljuhhin"
 msgstr "Stanislav Kljuhhin"
 
 #: src/aboutdata.cpp:29
-#, fuzzy, kde-format
-#| msgid "Christoph Neerfeld"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Christoph Neerfeld"
 msgstr "Christoph Neerfeld"
@@ -117,8 +109,7 @@ msgid "Original author"
 msgstr "최초 작성자"
 
 #: src/aboutdata.cpp:30
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
